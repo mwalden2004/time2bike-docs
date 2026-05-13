@@ -1,0 +1,56 @@
+---
+title: "Discount codes"
+description: "Create codes riders enter at checkout."
+---
+
+Discount codes are managed at the **organization** level and can be scoped to series, events, races, or applied across the org. Manage them at **Pricing → Discounts**.
+
+[IMAGE: /organizations/[id]/pricing/discounts → discount code list with usage counts]
+
+## Create a code
+
+1. Click **New code**.
+2. Set:
+   - **Code** — what riders type (case-insensitive).
+   - **Kind**:
+     - **Percent** off — stored as basis points (e.g. `1000` = 10%, `2500` = 25%).
+     - **Amount** off — a flat dollar amount.
+   - **Applies to** — `any`, `series`, `event`, or `race`. Picking a non-`any` value reveals a selector for the specific series/event/race.
+   - **Eligibility** — **where the code can be redeemed**:
+     - **Registration** (default) — race entry fees only.
+     - **Merch** — storefront merch and registration add-ons only.
+     - **Both** — either / combined.
+   - **Max uses** — total redemptions allowed across all riders. Blank = unlimited.
+   - **Per-user limit** — how many times a single rider can use it.
+   - **Valid from / to** — optional date window.
+3. **Save**.
+
+Codes created before the eligibility flag existed default to **Registration** so old codes keep working.
+
+## How it's applied
+
+At checkout the rider enters the code on the **Review** step (or in the cart for merch). Time2Bike validates server-side: code exists, eligibility matches the cart type, scope matches the cart, within date window, max uses not exhausted, per-user limit not exhausted.
+
+- **Percent codes** apply to the subtotal of eligible lines.
+- **Amount codes** apply once, capped at the subtotal so they never go negative.
+
+The **service fee is computed on the net subtotal after the discount**, so reducing the subtotal also reduces the fee.
+
+## Merch storefront vs registration add-ons
+
+- A code with eligibility **Merch** or **Both** works on the public store (`time2.bike/[orgSlug]/store`) only if `Applies to = any` — series/event/race scopes don't apply to a generic store order.
+- When merch is purchased as an **add-on inside a registration**, event-scoped codes can apply as long as the registration is for that event.
+- The store cart calls a `validate-discount` endpoint as the rider types, so they get an immediate "applied" or "invalid" reaction — and re-validates when the cart changes so amount-off codes can't drift.
+- A code that brings the total to exactly **$0.00** sends the order straight through without Stripe, but still records a redemption row.
+
+## Redemptions
+
+Every successful application writes a **redemption** row tied to the registration or merch order, so you can audit who used what and when. See [Redemptions](/organizers/pricing/redemptions).
+
+## Lifecycle
+
+- **Edit** — change kind/amount/scope/eligibility/limits.
+- **Copy code** — copies to clipboard for sharing.
+- **Delete** — disables the code for future use. Past redemptions stay on the registrations and orders they applied to.
+
+See [Coupons & pricing](/riders/registering/coupons-and-pricing) for the rider's view.

@@ -1,0 +1,32 @@
+---
+title: "Transponder mapping"
+description: "Connect RFID chip IDs to registered riders."
+---
+
+Before any RFID ingestion is useful, each transponder ID has to be mapped to a participant. This happens at **Event → Transponders** (see [the organizer page](/organizers/events/transponders)).
+
+[IMAGE: /organizations/[id]/events/[eventId]/transponders → transponder assignment list]
+
+## Add one
+
+Enter the **transponder ID** (whatever your reader reports — typically a hex code) and pick the **participant** from the dropdown. Click **Add**.
+
+## Bulk pickup workflow
+
+At chip pickup the morning of the race:
+
+1. Open the transponders page on a tablet.
+2. For each rider arriving:
+   - Scan a chip into the **transponder ID** field.
+   - Pick the rider from the dropdown (filtered by start list).
+   - Click **Add**.
+
+The page auto-loads the start list from the active timing session, so dropdowns show name + plate even before bibs are physically attached.
+
+## After the race
+
+If you discover a transponder was unmapped at race time, add the mapping now and re-trigger projection — past `external_rfid` events for that chip are re-resolved to the participant.
+
+## CSV import
+
+Coming soon. For now, use the per-row form.

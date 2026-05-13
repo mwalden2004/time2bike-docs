@@ -1,0 +1,44 @@
+---
+title: "SEO & sitemaps"
+description: "How Time2Bike pages appear to search engines."
+---
+
+Time2Bike auto-generates SEO metadata for every public page and exposes a sitemap.
+
+## Page metadata
+
+Each public page sets:
+
+- **Title** — `<Event name> · <Org name> | Time2Bike`.
+- **Description** — short summary from your event description / org blurb.
+- **Open Graph** — `og:title`, `og:description`, `og:image` (banner or logo).
+- **Twitter card** — `summary_large_image` with the banner.
+- **Canonical URL** — points back to the time2.bike page.
+
+You don't have to author these by hand — they come from the fields you fill in on your dashboards.
+
+## Sitemap
+
+`time2.bike/sitemap.xml` lists:
+
+- Every published org public page.
+- Every published event landing page and its sub-pages (register, results, live).
+- Every published series page.
+- Every public rider profile (privacy-permitting).
+
+Google, Bing, and DuckDuckGo crawl it automatically.
+
+## Robots
+
+`time2.bike/robots.txt` allows all crawlers and points at the sitemap. Draft and hidden content (private dashboards, draft events) is gated behind authentication and never indexed.
+
+## Attribution parameters
+
+Time2Bike preserves `utm_source`, `utm_medium`, `utm_campaign`, and `referrer` on the rider's registration. These show up in your [event analytics](/organizers/events/event-analytics) under **Attribution** so you can see which channel produced which signups.
+
+## Tips for ranking
+
+- Put your event name, discipline, city, and state in the description.
+- Upload a good banner image — it's the OG image.
+- Encourage social shares early; backlinks help.
+- Use your org's custom slug consistently across your own marketing.

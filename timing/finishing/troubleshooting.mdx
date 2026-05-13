@@ -1,0 +1,52 @@
+---
+title: "Troubleshooting"
+description: "Common race-day timing problems and fixes."
+---
+
+## "Session not found" on a volunteer's phone
+
+Their token was revoked or expired. Issue a new one from **Tokens** and have them rescan.
+
+## Clock indicator shows ±500 ms or more
+
+Bad network conditions. The rolling median will tighten as more samples come in. If it stays bad:
+
+- Move the device to a stronger Wi-Fi spot.
+- Make sure your device clock isn't dramatically wrong (occasional issue on phones with disabled auto-time).
+- Pull-to-refresh the page to re-init the worker.
+
+## Two devices recorded the same rider
+
+The result row shows a **flagged: duplicate_finish** badge. Open the row context menu → **Resolve** and pick the canonical event. The other becomes a soft-deleted entry.
+
+## Finish arrived before start
+
+The row shows **awaiting start**. Hit **Race start** for that race — elapsed times back-fill automatically.
+
+## Finishes aren't draining (queued count stuck)
+
+- Check the sync indicator. If it's red, you have no network.
+- If it's yellow but not decrementing, hit pull-to-refresh.
+- Worst case, click **Export log (JSON)** in the footer and send the file to the race director. The bridge POST endpoint can ingest it.
+
+## RFID watcher stopped reading the file
+
+- The browser tab was put in the background; some OSes pause file watchers.
+- Re-pick the file from the RFID panel to resume.
+- If you swapped USB drives, the browser lost the file handle — re-pick.
+
+## Volunteer's screen went to sleep
+
+Some phones lock IndexedDB when the screen sleeps, slowing sync. Set the device to "never sleep" while plugged in. The operator screen issues a `wake lock` request, but OS settings can override it.
+
+## I finalized too early
+
+Manager-only **Unfinalize** in the session menu re-opens the session. Make corrections, finalize again, publish (or republish).
+
+## A finish is on the wrong race
+
+Long-press → **Delete**, switch race tabs, re-record. The original delete + re-record is preserved in the event log.
+
+## Where's the audit log?
+
+Every action — including who issued which token and when — is on the server's event log. Contact support if you need a redacted export.

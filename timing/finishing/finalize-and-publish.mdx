@@ -1,0 +1,52 @@
+---
+title: "Finalize & publish"
+description: "Lock the session and surface results publicly."
+---
+
+When the race is over, two actions take you from "running" to "official":
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → bottom of session with finalize and publish buttons]
+
+## Stop each race
+
+Press **Race stop** on every race in the session. This is a `race_stop` event; you can still edit finishes after stopping.
+
+## Review
+
+Scan the recent-finishes list for:
+
+- **Flagged** rows (`duplicate_finish`, `orphan_finish`).
+- **Awaiting start** rows (no `race_start` reached them).
+- Anyone you expected to finish but didn't (mark DNF/DNS).
+
+Make corrections via the row context menu (see [Edits & corrections](/timing/operating/edits-and-corrections)).
+
+## Finalize
+
+Click **Finalize**.
+
+- Requires `admin` role (or org membership).
+- Refuses if any events are still **queued** locally — drain first.
+- Writes a `finalize` event into the log.
+- The session status flips to `finalized`. No more timing events accepted.
+
+You can un-finalize from the session menu (manager-only) if you discover a problem after locking.
+
+## Publish
+
+Click **Publish**.
+
+- Writes a `publish` event.
+- Surfaces results at `time2.bike/events/[slug]/results` and on each rider's profile.
+- Triggers a "results published" email to every finisher (unless you've turned this off for the org).
+
+Publishing is reversible — clicking **Unpublish** hides the results page again.
+
+[IMAGE: time2.bike/events/[slug]/results → published results table]
+
+## What the public sees
+
+- Per-race table: place, plate, name, category, time, status.
+- For brackets: bracket diagram + per-match times.
+- Sortable by category.
+- Each rider's name links to their public profile (if their privacy allows it).

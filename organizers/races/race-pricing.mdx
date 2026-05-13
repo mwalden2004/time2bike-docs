@@ -1,0 +1,32 @@
+---
+title: "Race pricing"
+description: "Apply a pricing template to a race."
+---
+
+Each race has its own price schedule. Pick from your org's templates (see [Price schedules](/organizers/pricing/price-schedules)) under **Race → Pricing**.
+
+[IMAGE: /organizations/[id]/events/[eventId]/races/[raceId]/pricing → template selector and tier preview]
+
+## Apply a template
+
+1. Open **Pricing** under the race.
+2. Pick a template from the dropdown.
+3. Click **Apply template**.
+
+The template's tiers, currency, and policies are copied onto the race. Editing the template later does **not** auto-update applied races — you must re-apply.
+
+## Tier model
+
+A price schedule is one or more **tiers** ordered by `validFrom`:
+
+| Tier | Price | Valid from | Capacity |
+|---|---|---|---|
+| Early bird | $50 | now | 100 |
+| Regular | $75 | 2025-09-01 | unlimited |
+| Late | $90 | 2025-09-20 | unlimited |
+
+At any given time the active tier is the latest one whose `validFrom` has passed and which still has capacity. Capacity is shared with the race's overall capacity.
+
+## Free races
+
+To make a race free, apply a template with a single $0 tier, or set the price to 0 on the schedule. Free races still go through the cart and confirmation flow; Stripe isn't charged.

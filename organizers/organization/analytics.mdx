@@ -1,0 +1,39 @@
+---
+title: "Organization analytics"
+description: "Cross-event revenue, registrations, and attribution."
+---
+
+`/organizations/[id]/analytics` rolls every event into a single dashboard. Use it to compare seasons, understand demographics, and see which marketing channels are working.
+
+[IMAGE: /organizations/[id]/analytics → top of analytics page with KPIs and time series]
+
+## Window selector
+
+Pick **7d**, **30d**, **90d**, **YTD**, or **All time** from the header. Every number below the picker updates.
+
+## Headline stats
+
+- **Total revenue** (gross), **net revenue** (after refunds), **refunded amount**.
+- **Total / paid / cancelled registrations**.
+- **New** vs **returning** registrants.
+- **Average registration value**.
+- **Today** and **last-7-days** registration counts.
+- **Discount usage** — codes created, redemptions, total discounted.
+
+Each shows a delta vs the previous matching window (e.g. last 30d vs the 30d before that).
+
+## Time series
+
+A dual area chart of **registrations** and **revenue** by day across the window, plus an **activity heatmap** of weekday × hour.
+
+## Breakdowns
+
+- **By event** — registrations, revenue, and capacity fill per event in the window.
+- **By discipline**, **gender**, **age bucket**, **state**.
+- **By status** and **by source** (web, manual, API).
+- **Attribution** — channel, campaign, referrer, top landing pages (see [SEO & sitemaps](/platform/seo-and-sitemaps)).
+- **Top discounts** — most-redeemed codes and total dollars discounted.
+
+[IMAGE: /organizations/[id]/analytics → breakdowns section showing donuts and bar rows]
+
+Each breakdown has a small **Download** button for CSV export.

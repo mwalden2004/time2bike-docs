@@ -1,0 +1,51 @@
+---
+title: "Time model"
+description: "Why we store absolute timestamps and clock offsets."
+---
+
+The single most important decision in Time2Bike Live Timing is:
+
+> **Save absolute wall-clock timestamps, never "elapsed since start."**
+
+## Why
+
+- If a `race_start` event arrives 800 ms late over the network, "elapsed" is wrong; "absolute" is still right.
+- Multiple phones may record events while disconnected. Reconciling by absolute time merges them deterministically.
+- Dual slalom requires millisecond accuracy across devices.
+
+## Per-event fields
+
+Each timing event in the local log (and on the server) carries:
+
+| Field | Source | Purpose |
+|---|---|---|
+| `clientEventId` | `crypto.randomUUID()` | Idempotency key — server upserts on this. |
+| `localTimestamp` | `Date.now()` | Raw wall clock at button press. |
+| `clockOffsetAtRecord` | NTP-lite worker | Best estimate of device-vs-server skew. |
+| `monotonicTimestamp` | `performance.now()` | Drift-immune; used for live UI. |
+| `deviceId` | persisted UUID | Disambiguate parallel devices. |
+| `userId` / `roleAtRecord` | auth context | Audit + permission checks. |
+| `seq` | server-assigned | Monotonic per-session cursor for resume sync. |
+
+The server's "truth" timestamp is `localTimestamp − clockOffsetAtRecord`.
+
+## Clock sync (NTP-lite)
+
+A Web Worker pings `/timing/clock` every ~30s with a 4-timestamp exchange `(t0, t1, t2, t3)` and computes:
+
+```
+offset = ((t1 - t0) + (t2 - t3)) / 2
+rtt    =  (t3 - t0) - (t2 - t1)
+```
+
+- Samples with high RTT are discarded.
+- The rolling **median** offset across the last 7 samples is used.
+- The current uncertainty is surfaced as `±N ms` in the operator UI.
+
+This is good for reliable millisecond accuracy on a typical race-day Wi-Fi or LTE network — exactly what dual slalom needs.
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → clock indicator chip showing "±12 ms"]
+
+## Display precision
+
+Each session has a `displayPrecisionMs` (1, 10, 100, or 1000). Storage is always ms; display rounds to your chosen precision. Slalom usually picks 10 ms (hundredths); endurance picks 1000 ms (whole seconds).

@@ -1,0 +1,51 @@
+---
+title: "Offline & sync"
+description: "How the operator screen survives flaky LTE."
+---
+
+Live Timing is **offline-first**. The UI reads from IndexedDB; the network is a sync target, not a dependency.
+
+## The five layers
+
+1. **UI** — reads only from IndexedDB.
+2. **Local event log** (IndexedDB, append-only) — `{ clientEventId, sessionId, kind, payload, localTimestamp, clockOffset, syncedAt? }`.
+3. **Materialized state** — per-participant timing record, rebuilt by replaying the log. Surviving a tab refresh "for free" falls out of this.
+4. **Sync worker** — drains unsynced rows, POSTs them, marks `syncedAt`. Idempotent via `clientEventId`. Background Sync on Chromium; in-page worker fallback elsewhere.
+5. **Live broadcast** — when online, the server fan-outs accepted events to other devices in the same session via SSE.
+
+## Sync indicator
+
+Top-right pill on the operator screen:
+
+- 🟢 **synced** — IndexedDB and server agree.
+- 🟡 **N queued** — N events in IndexedDB not yet uploaded.
+- 🔴 **OFFLINE — recording locally** — no network detected. Everything you record is safe; it'll drain when connectivity returns.
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → sync indicator showing "🟡 3 queued"]
+
+## What survives a disaster
+
+| Scenario | Outcome |
+|---|---|
+| Tab refresh | UI rebuilds instantly from IndexedDB. |
+| Wi-Fi drops mid-race | Recording continues; events queue locally. |
+| Phone dies, you swap in a new phone | New phone re-fetches the server state and resumes from `seq`. Anything on the dead phone that didn't upload is lost — see _Rescue export_ below. |
+| Browser evicts IndexedDB | Lost. Mitigate by hitting **Export log** periodically. |
+| Server restart | No data loss; events replay from MongoDB. |
+
+## Rescue export
+
+The footer of the operator screen has **Export log (CSV / JSON)** buttons. These dump your local IndexedDB log to a file you can hand to the race director if the device dies before draining. The director can replay it via the bridge POST endpoint.
+
+## When sync engine retries
+
+- On `online` event (network restored).
+- On `visibilitychange` (tab returning to foreground).
+- Every 5 seconds while running.
+- On the Service Worker's Background Sync push (Chromium).
+
+Retries are batched (up to 50 events per POST) and idempotent on `clientEventId`.
+
+## Resume after long offline
+
+When a device comes back online after a long offline period, the SSE stream reconnects, and a `GET /timing/:sessionId/events?since=N` request fetches anything the device missed. The reducer merges; the UI updates.

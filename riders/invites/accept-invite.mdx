@@ -1,0 +1,62 @@
+---
+title: "Accepting an invite"
+description: "Join an organization, team, or claim a participant invite."
+icon: "envelope-open"
+---
+
+Time2Bike uses invite links for three different things. The flow looks
+similar but the destination differs.
+
+## Organization invites
+
+When an org admin invites you to join their team, you get an email with
+a link like `time2.bike/accept-invite/[inviteId]`.
+
+<Steps>
+  <Step title="Click the link">
+    If you're **not signed in** yet, Time2Bike sends you to
+    [sign up](/riders/account/create-account) first (with the invite
+    preserved). After you confirm your email, click **Accept Invitation**
+    on the success page.
+  </Step>
+  <Step title="Confirm acceptance">
+    If you're already signed in, the page accepts the invite automatically
+    and drops you on your organizer
+    [dashboard](/organizers/organization/dashboard-tour).
+  </Step>
+</Steps>
+
+
+You now have whatever role the org admin assigned you — usually
+**editor** or **admin**. See
+[Team & roles](/organizers/organization/settings-team) for what each role
+can do.
+
+## Participant invites (event registration)
+
+If a friend or teammate registered you for a race, you'll get an
+"You've been registered" email pointing to
+`time2.bike/events/[slug]/complete-registration?registrationId=[id]`.
+
+This is **not** an account invite — it's a "finish your part of the
+registration" link. You'll:
+
+1. Sign in or create an account.
+2. Pick or create your participant profile.
+3. Sign waivers.
+4. Answer custom questions.
+5. Click **Confirm registration** (no payment — already paid for you).
+
+See the [registration flow](/riders/registering/registration-flow#invite)
+for details on the inviter's side.
+
+## Participant manager invites
+
+Someone can grant you access to their participant profile — for example,
+a parent giving their kid's profile to the other parent. Those invites
+come in via email and open
+`time2.bike/profiles/[participantId]/access?invite=[token]`.
+
+Accept the invite and the participant appears in your
+[participants list](/riders/race-day/rider-profile) with the role
+assigned (viewer / editor / manager).

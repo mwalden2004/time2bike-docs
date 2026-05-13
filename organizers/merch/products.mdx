@@ -1,0 +1,35 @@
+---
+title: "Products"
+description: "Your org's merch catalog."
+---
+
+**Merch → Products** lists every product in your store.
+
+[IMAGE: /organizations/[id]/merch → products table with status pills and price ranges]
+
+## Columns
+
+- **Product** — name and slug.
+- **Price** — either a single price or a `min–max` range when variants override the base price.
+- **Variants** — total variant count.
+- **In stock** — inventory available across all variants (`∞` = unlimited).
+- **Status** — `draft`, `active`, or `archived`. Only `active` products can be sold; `draft` is hidden everywhere; `archived` keeps history but stops new sales.
+
+## Sub-nav
+
+The **Products** and **Orders** tabs share a sub-nav; jump straight to **[Orders](/organizers/merch/orders)** to fulfill what's been paid for.
+
+## Create a product
+
+Click **New product** and supply a **name** and a **base price** (in dollars). New products are created as `draft` with `pickup` fulfillment so you can finish editing before they go live. The product opens in the editor immediately — see [Product editor](/organizers/merch/product-editor).
+
+## Where products show up
+
+A product can appear in two places, controlled per-product on the editor:
+
+- **Public storefront** at `time2.bike/[orgSlug]/store` — enabled by **Show in public storefront**.
+- **Registration add-ons** — enabled by **Offer as a registration add-on** plus picking the events.
+
+A product can be in either, both, or neither. Use "add-on only" (storefront off, add-on on, with one event picked) for race-shirt-style items you don't want sold standalone.
+
+See [Store browse](/riders/store/browse) for the rider's view.

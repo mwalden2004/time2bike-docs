@@ -1,0 +1,40 @@
+---
+title: "Standard mode"
+description: "Running a typical race from the operator screen."
+---
+
+Standard mode is the default operator surface. Use it for almost every race format.
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → standard operator screen with plate input, on-course list, recent finishes]
+
+## Layout
+
+- **Top bar** — race tabs, START / PAUSE / RESUME / STOP, sync indicator, clock indicator (`±N ms`).
+- **Plate input** — giant, sticky-focused number input. Press **Enter** to record a `finish` for that bib in the active race.
+- **On course** — riders who have started but not finished, sorted by elapsed time.
+- **Registered riders** — full roster for the active race; tap a name to finish at "now".
+- **Recent finishes** — the most recent recorded finishes with elapsed time and status pill.
+
+## Workflow
+
+1. Pick the right **race tab**. Plate input always records into the active race.
+2. Press **START** on the race when the gun goes off.
+3. Type a plate → **Enter**. Repeat as fast as you can.
+4. For unreadable bibs, tap the rider's name in **Registered riders**.
+5. Long-press / right-click a row to set manual time, DNF, DNS, DSQ, or delete.
+
+## Manual time
+
+If you missed a finish and want to enter the elapsed time after the fact:
+
+- Long-press the rider → **Set manual time**.
+- Enter `mm:ss.SSS`.
+- The reducer treats this as a `manual_time` event; `finishAt` is computed from `startAt + elapsedMs`.
+
+## Status changes
+
+DNF / DNS / DSQ are written as `status_change` events. They require the `marshal` role.
+
+## Editing or deleting a finish
+
+Long-press → **Edit** to change the finish time, or **Delete** to soft-delete. Deleted finishes are hidden from results but stay in the event log.

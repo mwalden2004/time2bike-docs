@@ -1,0 +1,26 @@
+---
+title: "Transponders"
+description: "Map RFID transponder IDs to participants."
+---
+
+If your race uses an RFID timing pad (e.g. an `rfidtimer` setup), you map each transponder ID to a participant from **Event → Transponders**.
+
+[IMAGE: /organizations/[id]/events/[eventId]/transponders → list of transponder → participant assignments]
+
+## Add an assignment
+
+1. Enter a **transponder ID** (whatever your reader reports — typically a hex or numeric chip code).
+2. Enter the **participant ID**, or pick from the start-list dropdown.
+3. Click **Add**.
+
+If you have an active timing session for the event, Time2Bike auto-loads the start list so you can resolve participants by name and plate instead of typing IDs.
+
+## What it enables
+
+Once mapped, the operator screen's **RFID CSV import** (and the bridge POST endpoint) automatically converts transponder lines into participant finishes. See [RFID](/timing/hardware/rfid).
+
+## Bulk workflow
+
+For large rosters, hand a chip-pickup volunteer the dropdown view and the chips, scan each chip into the **Transponder ID** field, and select the rider from the dropdown — one row per chip.
+
+Unmapped transponders still ingest into the timing log as raw events; you can map them after the race and re-project results.

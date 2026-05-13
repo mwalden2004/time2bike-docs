@@ -1,0 +1,40 @@
+---
+title: "Notifications"
+description: "Which emails Time2Bike sends, when."
+---
+
+Time2Bike sends a small, predictable set of transactional emails. There is no marketing email infrastructure — bring your own ESP for that.
+
+## To riders
+
+| When | Subject |
+|---|---|
+| Registration confirmed | "You're registered for [Event]" — receipt + race details. |
+| Registration updated | "Your [Event] registration was updated". |
+| Refund issued | "Refund processed for [Event]". |
+| Merch order confirmed | "Order #N — [Org]". |
+| Merch order fulfilled | "Your order is ready / shipped". |
+| Results published | "Your [Event] results are live". |
+| Rider invite | "Join Time2Bike to complete your registration" (when an organizer manually adds a rider). |
+| Sign-in code (MFA) | "Your Time2Bike sign-in code is [6-digit]". |
+| Account email change | Verification link to the new address. |
+
+## To organizers
+
+| When | Subject |
+|---|---|
+| Team invite | "You've been invited to [Org]". |
+| Stripe action required | "Update your payout details for [Org]" (mirrors Stripe's notice). |
+| Daily digest | Optional: registrations + revenue summary (opt-in per user). |
+
+## Sender
+
+All email is sent from `no-reply@time2.bike` (display name: `Time2Bike`). For rider-facing emails the footer includes your org name and a link to your public page.
+
+## Opting out
+
+Riders can disable all non-essential email under **Account → Privacy**. Receipts and confirmations are not opt-out-able — they're transactional and required.
+
+## Templates
+
+Email templates are currently fixed. Custom branding and per-org template editing is on the roadmap. Today, your org name, logo, and primary color are inserted automatically.

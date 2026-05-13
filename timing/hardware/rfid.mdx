@@ -1,0 +1,43 @@
+---
+title: "RFID"
+description: "Ingest finishes from an RFID timing pad."
+---
+
+Time2Bike supports two RFID ingestion paths. Both write into the same event log as `kind: external_rfid` and resolve transponders to participants via your [transponder map](/timing/hardware/transponder-mapping).
+
+## Option 1 — In-browser file watcher
+
+Best for an RFID pad whose software (e.g. `rfidtimer`) writes to a CSV file on the same machine.
+
+1. On the operator screen, open the **RFID CSV import** panel.
+2. Click **Pick CSV & watch**.
+3. Choose your pad's output file.
+4. Each new line appended to the file is read and emitted as a finish in the active race.
+
+Uses the File System Access API. Chromium-only (Chrome, Edge, Brave). Stays running as long as the operator screen is open.
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → RFID CSV import panel with watching state]
+
+## Option 2 — Bridge POST endpoint
+
+Best when the RFID pad is on a different machine or you want a small companion script.
+
+`POST /events/:eventId/timing/external` accepts newline-delimited records:
+
+```
+[transponderId],[isoTimestamp]
+1234ABCD,2025-09-21T14:23:01.456Z
+1234ABCE,2025-09-21T14:23:02.118Z
+```
+
+Each line becomes an `external_rfid` event. Ship a ~30-line Node or Python companion that tails the file and POSTs; runs on any OS, on any network reachable to the API.
+
+Auth: include a timing token in the `Authorization: Bearer tt_[hex]` header.
+
+## Mapping
+
+Both paths map `transponderId → participantId` through the [transponder assignment](/timing/hardware/transponder-mapping) you set up before the race. Unmapped IDs still land in the event log; you can map them after the fact and re-project.
+
+## Race tab and RFID
+
+`external_rfid` events take the **active race tab** at the time of ingestion as the race scope. Switch tabs before starting the watcher to scope correctly.

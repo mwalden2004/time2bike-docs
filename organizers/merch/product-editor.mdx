@@ -1,0 +1,58 @@
+---
+title: "Product editor"
+description: "Edit a single product, its variants, visibility, and fulfillment."
+---
+
+Click a product to open the editor.
+
+[IMAGE: /organizations/[id]/merch/[productId] → product editor with image uploader and variants table]
+
+## Top-level fields
+
+- **Name**, **slug**.
+- **Description** — markdown body shown on the product page.
+- **Images** — upload one or more; the first is the cover image. Click the trash icon on a thumbnail to remove it.
+- **Base price** (USD) — the default unit price; per-variant overrides take precedence.
+- **Status** — `Draft (hidden)` / `Active (visible in store)` / `Archived`.
+
+## Variant options
+
+Define the **option types** customers can pick from — e.g. `Size: S, M, L, XL` or `Color: Red, Blue`. Skip this section if your product has no variations.
+
+Each option has a **name** and a list of **values**. Add as many option types as you need.
+
+## Variants
+
+Under **Variants**, add one row per combination of option values you actually sell.
+
+| Field | Notes |
+|---|---|
+| **Option values** | E.g. `{ Size: M, Color: Red }`. Pre-filled from your option types. |
+| **SKU** | Optional internal identifier. |
+| **Price override** | Per-variant price in dollars; blank uses the product's base price. |
+| **Inventory** | Integer hard cap. `-1` means unlimited. The store shows available stock as `inventory − reserved`, where `reserved` counts in-progress carts. |
+| **Active** | Toggle off to hide a single variant without deleting it. |
+
+Riders see only **active** variants whose available stock (`inventory − reserved`) is greater than zero.
+
+## Where it sells
+
+Three independent toggles control where a product is offered:
+
+### Offer as a registration add-on
+
+When enabled, riders can add this product to their cart during signup for the **events** you pick below the toggle. Add-ons always use **pickup at the event** — you can't ship a registration add-on.
+
+### Show in public storefront
+
+When unchecked, the product is hidden from `time2.bike/[orgSlug]/store` and only sold as a registration add-on. Use this for event-exclusive items (a race shirt that ships with race entry, for example) you don't want random visitors buying.
+
+### Enable shipping for storefront orders
+
+When enabled, storefront buyers can pick **Ship** at checkout and enter a shipping address. When disabled, the product is **pickup-only at race day** and the buyer must collect it from a designated pickup event.
+
+A cart that contains any non-shippable item forces the entire order to pickup mode — mixing shippable and pickup-only items in the same cart will hide the Ship option.
+
+## Save & delete
+
+Click **Save product** to persist changes. **Delete** removes the product permanently — the API blocks deletes when active orders exist for the product.

@@ -1,0 +1,26 @@
+---
+title: "Live Timing overview"
+description: "Run race-day timing on a phone or laptop — even offline."
+---
+
+**Live Timing** is Time2Bike's race-day timing surface. It runs in any modern browser, records finishes locally first, and reconciles to the server when you're online. You can use it for everything from a small group ride to a dual-slalom bracket with four operators.
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing → sessions list with a "Create session" button]
+
+## Why it exists
+
+Race day phones are outdoors, in bright sun, on flaky LTE, and often handed to volunteers who aren't org admins. Live Timing is built around those constraints:
+
+- **Offline-first**. Finishes are written to IndexedDB before they ever hit the network. Network is a sync target, not a dependency.
+- **Idempotent**. Every event has a client-generated UUID; resending the same event is a no-op.
+- **Absolute timestamps**. We never store "seconds since start"; we store wall-clock + clock-offset and reduce later.
+- **Multi-device**. Four phones on the same session merge cleanly because the reducer is the same client-side and server-side.
+- **Audit-friendly**. The event log is append-only, including deletes.
+
+## How to navigate the docs
+
+- New volunteer? Start with [Operator quickstart](/timing/operator-quickstart).
+- Setting up your first session? Read [Concepts](/timing/concepts/sessions-and-races) first.
+- Running a bracket? See [Dual slalom](/timing/operating/dual-slalom) and [Brackets](/timing/operating/brackets).
+- Using an RFID pad? See [RFID](/timing/hardware/rfid) and [Transponder mapping](/timing/hardware/transponder-mapping).
+- Done racing? See [Finalize & publish](/timing/finishing/finalize-and-publish).

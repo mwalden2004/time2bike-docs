@@ -1,0 +1,43 @@
+---
+title: "Standard vs dual slalom modes"
+description: "Pick the right mode for your race format."
+---
+
+Two session modes:
+
+## Standard
+
+One screen, one operator. Endurance, criterium, gravel, XC, short track, time trial — anywhere riders cross the line one at a time and you record by bib.
+
+- Big **START / PAUSE / STOP** at the top.
+- Numeric plate input always focused; **Enter** records a `finish` for that participant at `Date.now()`.
+- **On course** list sorted by elapsed time, with a `✓ finished` pill once recorded.
+- **Registered riders** list — tap a name to record a finish at "now" (for unreadable bibs).
+- Long-press / right-click any row → manual time, DNF, DNS, DSQ, delete.
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → standard operator screen]
+
+## Dual slalom
+
+Per-device **role**, picked when joining the session. Built for two-lane head-to-head racing where one device sits at the top of the course and one (or two) at the bottom.
+
+- **Starter** — top of course. "On deck" panel: type both plates → press **START**. Emits `lane_start` with red + blue lane assignments and a start timestamp.
+- **Finisher** — bottom of one lane. The whole screen is a single FINISH button labeled with lane color and live elapsed time. Press = `lane_finish` for that lane.
+- **Self-correct** — finisher can press **CLEAR** to undo the last recorded time if they pressed too early.
+
+Up to 4 simultaneous devices is "just more subscribers" — the architecture doesn't change.
+
+All times stored to 3 decimal places (ms). Display rounds to the session's precision (often 10 ms for slalom).
+
+[IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → dual slalom lane screens side by side]
+
+## Choosing
+
+| If your race is… | Use |
+|---|---|
+| Mass-start with one finish line | **standard** |
+| Time trial / individual start | **standard** |
+| Downhill (one rider on course at a time) | **standard** |
+| Enduro (timed stages) | **standard**, one session per stage |
+| Dual slalom or 4X | **dualSlalom** |
+| RFID with auto-finish detection | **standard** + RFID watcher |

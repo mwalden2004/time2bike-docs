@@ -1,0 +1,88 @@
+---
+title: "The event page"
+description: "What you'll see on a Time2Bike event page, and how to pick a race."
+icon: "calendar"
+---
+
+Every event on Time2Bike has a public landing page at
+`time2.bike/events/[slug]`. It's the one URL organizers share when they
+want you to sign up.
+
+![Event Page](/images/riders/test-race.png)
+
+## What's on the page
+
+<AccordionGroup>
+  <Accordion title="Banner & hero" icon="image">
+    A large banner image, the event name, and the event date. If the event
+    is already over, you'll see a red **This event has ended** banner with
+    a link to results.
+  </Accordion>
+  <Accordion title="Location & schedule" icon="location-dot">
+    Venue name, city/state, and the start and end times. Times are shown
+    in the event's local time zone.
+  </Accordion>
+  <Accordion title="About / description" icon="align-left">
+    The organizer's writeup of the event. Supports markdown, so you'll
+    often see headings, lists, and links.
+  </Accordion>
+  <Accordion title="Races" icon="flag">
+    The list of races you can register for. Each race shows:
+
+    - **Name** and category (e.g. Cat 1/2/3, Sport, Beginner)
+    - **Start time**
+    - **Capacity** (`12 / 100 registered`)
+    - **Price** at the current price tier
+    - **Gender restriction**, if any
+    - **Team size**, for team races
+    - A **Register** checkbox / button — disabled with a reason if you
+      can't sign up (sold out, registration closed, race already started,
+      gender restriction, cutoff days reached, event ended)
+  </Accordion>
+  <Accordion title="Sponsors" icon="handshake">
+    Logos of sponsors that support the event, linked to their sites.
+  </Accordion>
+  <Accordion title="Photos" icon="images">
+    Gallery added by the organizer. Click a photo to open it full-size.
+  </Accordion>
+</AccordionGroup>
+
+## Pick races and register
+
+<Steps>
+  <Step title="Tick the races you want">
+    You can register for multiple races in one checkout. The running total
+    updates as you add and remove them.
+
+  ![Continue](/images/riders/register-continue.png)
+  </Step>
+  <Step title="Click Register">
+    If you're not signed in yet, you'll be sent to
+    [sign in](/riders/account/sign-in) first, then dropped back here.
+  </Step>
+  <Step title="Continue the flow">
+    The button takes you to `/events/[slug]/register?races=…` — that's the
+    [registration flow](/riders/registering/registration-flow).
+  </Step>
+</Steps>
+
+## Other links from the event page
+
+- **Who's registered** — `time2.bike/events/[slug]/registrations`. See the
+  current start list grouped by race.
+- **Live results** — `…/live`. Live timing during the event.
+- **Results** — `…/results`. Official results after the event.
+
+## Why a race might be disabled
+
+Time2Bike disables the **Register** button with a reason when:
+
+| Reason | What it means |
+| --- | --- |
+| **Sold out** | The race hit its capacity. |
+| **Registration disabled** | The organizer turned off registration manually. |
+| **Registration closed** | The deadline passed. |
+| **Race has ended** | The start time is in the past. |
+| **Event has ended** | The event's end time is in the past. |
+
+If you think a race shouldn't be closed, contact the organizer.

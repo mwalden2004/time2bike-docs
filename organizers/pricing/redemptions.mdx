@@ -1,0 +1,29 @@
+---
+title: "Redemptions"
+description: "When and where your discount codes were used."
+---
+
+**Pricing → Redemptions** is an append-only audit log of every discount code that was applied.
+
+[IMAGE: /organizations/[id]/pricing/redemptions → redemptions table]
+
+Each row shows:
+
+- **Code** — what was redeemed.
+- **Target** — `registration` (a race entry) or `merch` (a store order or add-on).
+- **User** — the rider's email (or `Guest` for not-yet-registered checkouts).
+- **Discount** — dollars off.
+- **Event** — which event the cart targeted (blank for generic store orders).
+- **Redeemed at** — timestamp.
+
+## Why it's separate from the codes list
+
+- One code can have many redemptions; this is the firehose.
+- If a registration is later cancelled or refunded, the redemption row stays — your audit trail is preserved.
+- Use the search to investigate "who used `STAFF2025` and when".
+
+## Export
+
+**Download CSV** exports the visible rows.
+
+Top-of-page tallies show **total dollars discounted** and **unique codes used** in the current view.

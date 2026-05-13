@@ -1,0 +1,27 @@
+---
+title: "Create a series"
+description: "Group events into a championship."
+---
+
+A **series** is a multi-event championship. Series can share plates, run a combined standings page, and let you sell a series-wide discount code.
+
+Create one at `/organizations/[id]/series/create`.
+
+[IMAGE: /organizations/[id]/series/create → create-series form with event multiselect]
+
+## Fields
+
+- **Name** — display name.
+- **Slug** — public URL slug.
+- **Description** — short blurb for the public series page.
+- **Starts at / ends at** — series window.
+- **Events** — check the boxes for every event that belongs in the series.
+
+## After create
+
+You land on the series **overview** at `/organizations/[id]/series/[seriesId]`. From there you can:
+
+- Add or remove events.
+- Open the **Edit** page to change name/slug/dates.
+- Open **Plates** to assign series-scoped plate numbers.
+- Click **View public page** to see the rider-facing series page at `time2.bike/series/[slug]`.

@@ -1,0 +1,37 @@
+---
+title: "Bibs"
+description: "Assign plate numbers to registrants."
+---
+
+**Event → Bibs** is the bib (plate) manager. Each row is a registration; the **Bib number** column is the plate assigned to that rider for that race.
+
+[IMAGE: /organizations/[id]/events/[eventId]/bibs → bibs table with auto-assign button]
+
+## Bib source per race
+
+Each race has a **bib source** that controls where the rider's plate comes from on race day:
+
+- **Manual only** — use the plate assigned in this event (race or event scope).
+- **Series only** — use the plate from the series the race belongs to (see [Series plates](/organizers/series/series-plates)).
+- **Manual, fall back to series** — prefer the race/event plate; if none, use the series plate.
+
+Change the source from the **Race source** dropdown above each race's rows.
+
+## Auto-assign
+
+Click **Auto-assign**. You choose:
+
+- **Start number** — first plate to hand out (default `1`).
+- **Race scope** — apply to a specific race, or to all races in the event.
+- **Assignment scope** — `event` (one plate per rider across all their races) or `race` (separate plate per race entry).
+- **Method** — `sequential` or `random`.
+
+The action only fills empty slots; existing assignments are preserved. Run it again after late registrations to top up.
+
+## Manual assign
+
+Click a row's plate cell to enter or edit a number by hand. You'll also pick the scope (`event` or `race`).
+
+## Export
+
+**Download CSV** exports the current bib list with participant name, race, category, and plate.

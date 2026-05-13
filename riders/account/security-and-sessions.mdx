@@ -1,0 +1,82 @@
+---
+title: "Security & sessions"
+description: "Change your password, manage MFA, and sign out active devices."
+icon: "lock"
+---
+
+## Change your password
+
+At `time2.bike/account/settings/security`:
+
+<Steps>
+  <Step title="Enter your current password">
+    Required to confirm it's you.
+  </Step>
+  <Step title="Enter a new password">
+    Minimum 8 characters. Time2Bike doesn't enforce specific complexity
+    rules — pick something long and unique.
+  </Step>
+  <Step title="Confirm the new password">
+    Type it again to avoid typos.
+  </Step>
+  <Step title="Click Change password">
+    On success, **every other session** on your account is signed out and
+    your current session keeps a fresh token. Other devices need to sign
+    in again.
+  </Step>
+</Steps>
+
+![Security page](/images/riders/security.png)
+
+## Multi-factor authentication (MFA)
+
+Time2Bike supports two MFA methods:
+
+- **Text message (SMS)** — code sent to a verified phone number
+- **Email** — code sent to your account email
+
+### Turning on SMS MFA
+
+<Steps>
+  <Step title="Verify a phone first">
+    Add and verify a phone in [Profile](/riders/account/profile).
+  </Step>
+  <Step title="Pick the phone">
+    On the Security page, select the phone from the dropdown.
+  </Step>
+  <Step title="Click Enable SMS">
+    Time2Bike sends a test code. Enter it to confirm.
+  </Step>
+</Steps>
+
+### Turning on email MFA
+
+Toggle **Email MFA** on. No verification needed — your account email is
+already verified.
+
+You can have both methods on at once; sign-in will let you pick.
+
+### Turning MFA off
+
+Toggle a method off and confirm with your password. If you turn off the
+**only** active method, MFA is fully disabled and sign-in becomes a
+single-step password again.
+
+## Active sessions
+
+`time2.bike/account/settings/sessions` lists every browser and device
+signed in to your account.
+
+Each session shows:
+
+- The **device** (browser + OS, parsed from user agent)
+- The **IP** location
+- The **last active** timestamp
+
+![Sessions](/images/riders/sessions.png)
+
+Click **Sign out** on any session to revoke it. The token is invalidated
+server-side immediately. Your current session is marked **(this device)**
+so you don't accidentally lock yourself out.
+
+Use this if you signed in on a shared computer or lost a device.

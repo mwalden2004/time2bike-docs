@@ -1,91 +1,237 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Time2Bike",
+  "description": "The race-day platform for bike racing.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#2563EB",
+    "light": "#3B82F6",
+    "dark": "#1D4ED8"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Riders",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "riders/account/create-account",
+              "riders/account/sign-in"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Finding events",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "riders/finding-events/event-page",
+              "riders/finding-events/org-and-series-pages"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Registering",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
+              "riders/registering/registration-flow",
+              "riders/registering/waivers",
+              "riders/registering/custom-questions",
+              "riders/registering/coupons-and-pricing",
+              "riders/registering/checkout-and-confirmation",
+              "riders/registering/start-list"
             ]
           },
           {
-            "group": "Agent ready",
+            "group": "Race day",
             "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "riders/race-day/live-results",
+              "riders/race-day/final-results",
+              "riders/race-day/rider-profile"
+            ]
+          },
+          {
+            "group": "Merch store",
+            "pages": [
+              "riders/store/browse",
+              "riders/store/checkout"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "riders/account/profile",
+              "riders/account/privacy",
+              "riders/account/security-and-sessions",
+              "riders/account/billing-history"
+            ]
+          },
+          {
+            "group": "Invites & transfers",
+            "pages": [
+              "riders/invites/accept-invite"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Organizers",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Get set up",
             "pages": [
-              "api-reference/introduction"
+              "organizers/overview",
+              "organizers/organization/create-organization",
+              "organizers/organization/dashboard-tour"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Organization settings",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "organizers/organization/settings-details",
+              "organizers/organization/settings-team",
+              "organizers/organization/settings-sponsors",
+              "organizers/organization/settings-waivers",
+              "organizers/organization/settings-billing"
+            ]
+          },
+          {
+            "group": "Contacts & analytics",
+            "pages": [
+              "organizers/organization/contacts",
+              "organizers/organization/analytics"
+            ]
+          },
+          {
+            "group": "Events",
+            "pages": [
+              "organizers/events/create-event",
+              "organizers/events/event-overview",
+              "organizers/events/landing-page-builder",
+              "organizers/events/event-settings",
+              "organizers/events/questions",
+              "organizers/events/waivers",
+              "organizers/events/bibs",
+              "organizers/events/transponders",
+              "organizers/events/event-analytics"
+            ]
+          },
+          {
+            "group": "Races",
+            "pages": [
+              "organizers/races/races-list",
+              "organizers/races/race-overview",
+              "organizers/races/race-registrations",
+              "organizers/races/race-pricing",
+              "organizers/races/race-waivers",
+              "organizers/races/race-results"
+            ]
+          },
+          {
+            "group": "Registrations",
+            "pages": [
+              "organizers/registrations/event-registrations",
+              "organizers/registrations/manual-entry",
+              "organizers/registrations/editing-and-refunds"
+            ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
+              "organizers/pricing/price-schedules",
+              "organizers/pricing/discounts",
+              "organizers/pricing/redemptions",
+              "organizers/pricing/refunds"
+            ]
+          },
+          {
+            "group": "Merch",
+            "pages": [
+              "organizers/merch/products",
+              "organizers/merch/product-editor",
+              "organizers/merch/orders"
+            ]
+          },
+          {
+            "group": "Series",
+            "pages": [
+              "organizers/series/create-series",
+              "organizers/series/series-overview",
+              "organizers/series/series-edit",
+              "organizers/series/series-plates"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Live Timing",
+        "groups": [
+          {
+            "group": "Start here",
+            "pages": [
+              "timing/overview",
+              "timing/operator-quickstart"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "timing/concepts/sessions-and-races",
+              "timing/concepts/time-model",
+              "timing/concepts/event-log",
+              "timing/concepts/roles"
+            ]
+          },
+          {
+            "group": "Setup",
+            "pages": [
+              "timing/setup/create-session",
+              "timing/setup/modes",
+              "timing/setup/tokens-and-qr"
+            ]
+          },
+          {
+            "group": "Operating",
+            "pages": [
+              "timing/operating/standard-mode",
+              "timing/operating/dual-slalom",
+              "timing/operating/brackets",
+              "timing/operating/edits-and-corrections"
+            ]
+          },
+          {
+            "group": "Hardware & sync",
+            "pages": [
+              "timing/hardware/rfid",
+              "timing/hardware/transponder-mapping",
+              "timing/hardware/offline-and-sync"
+            ]
+          },
+          {
+            "group": "Finishing up",
+            "pages": [
+              "timing/finishing/finalize-and-publish",
+              "timing/finishing/pdf-exports",
+              "timing/finishing/troubleshooting"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Platform",
+        "groups": [
+          {
+            "group": "Reference",
+            "pages": [
+              "platform/slugs",
+              "platform/stripe-connect",
+              "platform/uploads-and-cdn",
+              "platform/seo-and-sitemaps",
+              "platform/notifications",
+              "platform/roles-and-permissions"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -94,33 +240,22 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "time2.bike",
+        "href": "https://time2.bike"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open dashboard",
+      "href": "https://time2.bike/organizations"
     }
   },
   "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    "options": ["copy", "view", "chatgpt", "claude"]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/time2bike"
     }
   }
 }

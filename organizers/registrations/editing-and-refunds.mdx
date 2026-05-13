@@ -1,0 +1,40 @@
+---
+title: "Editing & refunds"
+description: "Change a registration after the fact or refund money."
+---
+
+Open any registration from **Event → Registrations** to edit or refund it.
+
+[IMAGE: /organizations/[id]/events/[eventId]/registrations → EditRegistrationModal open]
+
+## Edit a registration
+
+The **Edit** action lets you change:
+
+- **Race / category** — moves the rider; capacity in both source and target is updated.
+- **Bib** — manual override.
+- **Answers** to custom questions.
+- **Emergency contact** / **address**.
+- **Status** — manually flip to `cancelled` (does not issue a refund).
+
+Saving sends a "registration updated" email to the rider unless you uncheck **Notify rider**.
+
+## Refunds
+
+Open the **Refund** action.
+
+- **Full refund** — refunds the entire amount paid via Stripe to the rider's original payment method.
+- **Partial refund** — refund any amount up to what was originally charged.
+- **Reason** — internal note for your records.
+
+The platform service fee is **not** refunded on partial refunds; on full refunds the service fee is also returned.
+
+The registration status flips to `refunded` and Time2Bike emails the rider a refund confirmation. The Stripe refund typically settles in 5–10 business days.
+
+## Transfer
+
+The **Transfer** action moves the registration's race entry from one rider account to another. Payments stay with the original payer; only the racer identity changes. Useful for selling/giving away a bib.
+
+## Delete
+
+Manager-only. Removes the registration record. The Stripe charge is **not** automatically refunded — issue the refund first if needed.

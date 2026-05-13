@@ -1,0 +1,49 @@
+---
+title: "Orders"
+description: "Fulfill merch orders."
+---
+
+**Merch → Orders** lists every order placed in your store or as a registration add-on.
+
+[IMAGE: /organizations/[id]/merch/orders → orders table with status pills]
+
+## Columns
+
+- **Placed** — order date.
+- **Customer** — buyer's email.
+- **Items** — total item count across the order.
+- **Total** — amount charged (subtotal + service fee, post-discount).
+- **Status** — see below.
+
+## Order statuses
+
+| Status | Meaning |
+|---|---|
+| **pending** | Checkout started; payment not yet confirmed. Inventory is reserved. |
+| **paid** | Stripe charge succeeded (or order was 100% discounted and skipped Stripe). Ready to fulfill. |
+| **fulfilled** | You marked it picked up / shipped. |
+| **cancelled** | Voided before payment. |
+| **refunded** | Stripe refund completed. |
+
+## View an order
+
+Click **View** on any row to open the detail modal:
+
+- Customer email, order status, placed/paid timestamps.
+- Line items — product name, option values (e.g. `Size: M · Color: Red`), quantity, unit price, line total.
+- Pricing breakdown — subtotal, service fee, total.
+- **Linked registrations** when the order was placed as a registration add-on (the order shares its Stripe checkout with the registrations).
+- Shipping address when fulfillment is `ship`.
+
+## Actions
+
+- **Mark fulfilled** — flips status to `fulfilled` and sends the customer a "your order is ready / shipped" email.
+- **Refund** — issues a **full refund** through Stripe and returns the items to inventory. Mark the order as `refunded`. For partial refunds, use your Stripe dashboard directly.
+
+## Free orders (100% discount)
+
+If a discount code reduces the total to zero, the order **skips Stripe entirely**, is marked `paid` immediately, and the buyer is sent straight to the order confirmation page. Inventory is committed and a discount redemption is recorded just like a paid order.
+
+## Picking lists
+
+For pickup-fulfillment events, filter the table to `paid` and export to print a pickup sheet for the venue.

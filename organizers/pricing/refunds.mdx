@@ -1,0 +1,33 @@
+---
+title: "Refunds"
+description: "Process and audit registration refunds."
+---
+
+**Pricing → Refunds** lists every refund issued across all your events, with a running total at the top.
+
+[IMAGE: /organizations/[id]/pricing/refunds → refunds table and "issue refund" modal]
+
+## Issue a refund
+
+You can refund a specific registration from this page too:
+
+1. Click **Issue refund**.
+2. Enter the **registration ID** (or open a registration from the [Event registrations](/organizers/registrations/event-registrations) page and refund from there — easier).
+3. Enter the **amount** (USD) and optional **reason**.
+4. Submit.
+
+Time2Bike issues the refund through Stripe on the original payment method. The registration flips to `refunded`.
+
+## What's logged
+
+Each refund row stores:
+
+- Registration link, event, race.
+- **Amount** refunded (in dollars).
+- **Reason** (your note).
+- **Issued by** — the org member who initiated it.
+- **Stripe refund ID** for cross-referencing in your Stripe dashboard.
+
+## Bulk view
+
+Use this page to reconcile your monthly Stripe statement against Time2Bike-issued refunds — every refund here corresponds to a Stripe refund on your connected account.

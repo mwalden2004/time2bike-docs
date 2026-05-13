@@ -1,0 +1,46 @@
+---
+title: "Event registrations"
+description: "The master list of everyone signed up for an event."
+---
+
+`Event → Registrations` is the most-used organizer screen. It shows every registration across every race in one filterable table.
+
+[IMAGE: /organizations/[id]/events/[eventId]/registrations → full registrations table with filters and toolbar]
+
+## Columns
+
+- **Athlete** — name, gender, age bucket.
+- **Email**, **phone**.
+- **Race / category**.
+- **Bib**.
+- **Amount paid**.
+- **Status** — paid / pending / cancelled / refunded.
+- **Source** — `web` (self-serve), `manual`, `api`.
+- **Registered at**.
+
+Use the column header to sort. The search box filters by name, email, or bib.
+
+## Row actions
+
+Click a row to open the registration detail panel:
+
+- **Custom question answers** (see [Custom questions](/organizers/events/questions)).
+- **Waiver signatures** with version, initials, signed-at, IP, and content hash.
+- **Emergency contact** and **address** (if collected).
+- **Payment timeline** with discount codes applied.
+
+From the panel you can:
+
+- **Edit** — open the [EditRegistrationModal](/organizers/registrations/editing-and-refunds) to change race, category, answers.
+- **Transfer** — move the registration to a different rider's account.
+- **Refund** — see [Editing and refunds](/organizers/registrations/editing-and-refunds).
+- **Resend confirmation email**.
+- **Delete** — manager-only.
+
+## Export
+
+**Download CSV** exports the current filtered view with all columns plus question answers expanded into columns.
+
+## Bulk actions
+
+Select rows with the checkboxes for bulk **email**, **delete**, or **export selected**.

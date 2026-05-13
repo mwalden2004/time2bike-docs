@@ -1,0 +1,44 @@
+---
+title: "Stripe Connect"
+description: "Payments, payouts, and refunds via Stripe."
+---
+
+Time2Bike uses **Stripe Connect** with the **Express** account type. You own your Stripe account directly through a Stripe-hosted dashboard; Time2Bike is the platform that creates charges on your behalf.
+
+## Connecting
+
+Once per organization: **Settings → Billing → Connect Stripe** (see [Stripe payouts](/organizers/organization/settings-billing)).
+
+After connection, your org record stores `payout.accountId` — Stripe's `acct_...` identifier. Every paid registration is a charge created against this account.
+
+## Charges
+
+When a rider checks out:
+
+1. Time2Bike creates a Stripe **Checkout Session** scoped to your connected account.
+2. The rider pays Stripe directly.
+3. Webhooks confirm payment; the registration flips to `confirmed`.
+4. Funds settle on your Stripe payout schedule (typically daily).
+
+## Service fee
+
+Time2Bike adds a **3% platform service fee** (`SERVICE_FEE_BPS = 300`) on top of the rider's subtotal. The rider sees it as a separate line item; it goes to Time2Bike, not to you.
+
+You receive your subtotal in full (minus Stripe's own card processing fees, which Stripe deducts before payout).
+
+## Refunds
+
+When you issue a refund (see [Refunds](/organizers/pricing/refunds)):
+
+- Time2Bike calls Stripe to refund the original charge.
+- Funds return to the rider's original payment method.
+- Your Stripe balance decreases by the refunded amount.
+- Full refunds also return the service fee; partial refunds do not.
+
+## Payout dashboard
+
+**Settings → Billing → Open Stripe dashboard** launches your Stripe Express dashboard for payout history, statements, tax forms, and bank-account updates.
+
+## Disputes
+
+Cardholder disputes go through Stripe. Time2Bike forwards Stripe's dispute webhook into your inbox; respond inside your Stripe dashboard with whatever evidence you have (waiver signature, registration email, etc.).

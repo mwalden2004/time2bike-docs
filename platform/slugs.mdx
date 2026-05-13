@@ -1,0 +1,38 @@
+---
+title: "Slugs"
+description: "How Time2Bike resolves human-readable URLs."
+---
+
+Time2Bike uses **slugs** for human-readable URLs across organizations, events, and series.
+
+## Slug rules
+
+- Lowercase letters, numbers, and hyphens.
+- Must match `^[a-z0-9-]+$`.
+- Cannot start or end with a hyphen.
+- Globally unique across each type (one org slug per system; event slugs are unique per org).
+
+## URL shapes
+
+| URL | Resolves to |
+|---|---|
+| `time2.bike/[slug]` | Organization public page |
+| `time2.bike/[slug]/store` | Organization merch storefront |
+| `time2.bike/events/[event-slug]` | Event public page |
+| `time2.bike/events/[event-slug]/register` | Event registration flow |
+| `time2.bike/events/[event-slug]/results` | Event results |
+| `time2.bike/events/[event-slug]/live` | Event live results |
+| `time2.bike/series/[series-slug]` | Series public page |
+| `time2.bike/profiles/[participantId]` | Rider public profile (note: uses the participant ID, not a slug) |
+
+## Slug resolution
+
+The `/slug/[slug]` API returns `{ type, organization | event | series | user }` so the frontend can resolve ambiguous links generically.
+
+## Changing slugs
+
+You can change an org, event, or series slug from its settings page at any time. **Old slugs do not redirect** — links posted with the previous slug break. Coordinate slug changes carefully.
+
+## Reserved slugs
+
+Slugs that collide with top-level Time2Bike routes (such as `auth`, `dashboard`, `account`, `organizations`, `events`, `series`, `profiles`, `timing`, `legal`, and `api`) are rejected by the slug picker. If a slug isn't available, the picker tells you and suggests an alternative.

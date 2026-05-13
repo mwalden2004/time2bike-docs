@@ -1,0 +1,26 @@
+---
+title: "Waiver library"
+description: "Author the waivers your races require."
+---
+
+Waivers live at the **organization** level so you can author once and attach to any race in any event. **Settings → Waivers**.
+
+[IMAGE: /organizations/[id]/settings/waivers → waiver list with version chips]
+
+## Create a waiver
+
+1. Click **New waiver**.
+2. Set:
+   - **Title** — what riders see.
+   - **Version** — free-form string (e.g. `2025.1`). Each signed waiver records the exact version the rider agreed to.
+   - **Applies to** — `adult`, `minor`, or `all`. Minor waivers prompt the rider for a parent/guardian signature.
+   - **Content** — markdown body of the waiver.
+3. **Save**.
+
+Once attached to a race, riders sign during checkout (see [Waivers](/riders/registering/waivers)) and the signature, timestamp, IP, and content hash are stored.
+
+## Versioning
+
+Editing a waiver creates a new version. Existing signatures continue to point at the version that was active when they signed — your audit trail is preserved.
+
+Attach waivers to races from the race's **Waivers** tab (see [Race waivers](/organizers/races/race-waivers)).

@@ -1,0 +1,52 @@
+---
+title: "Roles & permissions"
+description: "Who can do what across Time2Bike."
+---
+
+Permissions are checked at three layers: account, organization, and timing session.
+
+## Account
+
+A signed-in user is just a rider by default — they can register, manage their own registrations, sign waivers, and edit their profile.
+
+## Organization roles
+
+Set on the **Settings → Team** page of each org. A user can be in many orgs, with a different role per org.
+
+| Role | What it's for |
+|---|---|
+| **Viewer** | Read-only access to org data. |
+| **Timer** | Manage bib assignments and race timing. |
+| **Finance** | Manage billing and payouts. |
+| **Manager** | Create and edit events, races, pricing, and merch. |
+| **Admin** | Full access including team management and destructive actions. |
+
+The user who creates an org becomes its first **Admin**. You can't remove the last admin — promote someone else first.
+
+## Timing session roles
+
+For race day, scoped tokens can grant a narrower set of permissions on a single session (see [Roles](/timing/concepts/roles)):
+
+| Role | Capabilities |
+|---|---|
+| **view** | Read-only operator screen. |
+| **timer** | Record finishes, plates, lane starts/finishes, self-clear. |
+| **marshal** | Above + manual times, status changes, notes, deletes. |
+| **admin** | Above + finalize, publish, issue new tokens. |
+| **refund** | Reserved. |
+
+Token roles do **not** stack with org roles. A volunteer with a `timer` token cannot edit registrations elsewhere in the org.
+
+## Participant access
+
+Riders can grant other people limited access to their registrations:
+
+- **viewer** — see registration details only.
+- **editor** — change race / category / answers.
+- **manager** — full control including transfers.
+
+Set this on a rider's account → **Participants** page or from a participant card in the registration flow.
+
+## Rider data access
+
+Riders control how their data is shared via **Account → Privacy** (data export and account deletion). Public pages — like results and start lists — show a rider's name as part of an event they registered for. See [Privacy](/riders/account/privacy).

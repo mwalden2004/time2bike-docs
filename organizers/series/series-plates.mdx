@@ -1,0 +1,31 @@
+---
+title: "Series plates"
+description: "Assign permanent plate numbers across every event in a series."
+---
+
+A series **plate** is a number assigned to a rider for the entire season. When a race's bib source is set to `series` or `series_then_manual`, the rider's series plate is used as their bib on race day. See [Bibs](/organizers/events/bibs) for the source modes.
+
+Manage plates at `/organizations/[id]/series/[seriesId]/plates`.
+
+[IMAGE: /organizations/[id]/series/[seriesId]/plates → plate assignment table]
+
+## Assign a plate
+
+1. Click **Assign plate**.
+2. Enter the **plate number**.
+3. Search for the rider by name (filtered to participants who have registered for any event in the series).
+4. Click **Assign**.
+
+Each plate can be held by exactly one rider at a time, and each rider can hold exactly one plate per series.
+
+## Search & filter
+
+The search box filters the table by rider name or plate number.
+
+## Release a plate
+
+Click the trash icon on a row to **release** that plate. The rider's `seriesPlate` is cleared; the plate becomes available for reassignment. The release is timestamped on the audit log.
+
+## Use across events
+
+Once assigned, the rider's series plate auto-flows into any race that has `bibSource: series` or `series_then_manual`. No further per-event work needed — bib day-of, transponder mapping, and printable lists all use it.

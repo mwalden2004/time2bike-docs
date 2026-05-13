@@ -1,0 +1,40 @@
+---
+title: "Custom questions"
+description: "Ask riders extra info during registration."
+---
+
+Add custom questions that every registrant for this event must answer during checkout. Manage them at **Event → Questions**.
+
+[IMAGE: /organizations/[id]/events/[eventId]/questions → questions list with reorder handles]
+
+## Supported types
+
+| Type | Use it for |
+|---|---|
+| **text** | Short free-form answers (jersey number, club). |
+| **textarea** | Long free-form (allergies, notes). |
+| **select / radio** | Single choice from a list. |
+| **checkbox** | Yes/no acknowledgements. |
+| **number** | Numeric answer. |
+| **email** / **phone** | Pre-validated formats. |
+
+## Add a question
+
+Click **New question** and fill in:
+
+- **Text** — the prompt riders see.
+- **Description** — optional helper text under the prompt.
+- **Type** — see above.
+- **Required** — toggle to block checkout until answered.
+- **Placeholder** — hint text inside the input.
+- **Options** — for `select` and `radio`, one per row.
+
+## Order
+
+Drag the handle on each row to reorder. Order is preserved on the rider's registration screen.
+
+[IMAGE: /events/[slug]/register → Questions step rendering a select and a checkbox]
+
+## Answers
+
+Riders' answers appear on the registration record (see [Event registrations](/organizers/registrations/event-registrations)) and are exportable from there.

@@ -1,0 +1,31 @@
+---
+title: "Uploads & CDN"
+description: "How logos, banners, and product images are served."
+---
+
+Every image you upload — org logos, event banners, gallery photos, product images, sponsor logos — flows through Time2Bike's CDN.
+
+## Upload limits
+
+- **Max file size**: 5 MB per image.
+- **Types**: `image/png`, `image/jpeg`, `image/webp`, `image/gif`. SVG is accepted for logos only.
+- **Org logos**: square recommended; auto-rendered as a circle in some surfaces.
+- **Event banners**: 16:9 recommended; cropped on mobile.
+
+## Where it goes
+
+The upload endpoint (`POST /cdn/upload`) signs the file, stores it on object storage, and returns a public URL. The image record (URL + alt text + dimensions) is then attached to the resource (org, event, product).
+
+URLs look like `https://cdn.time2.bike/[random-id].[ext]` and are immutable.
+
+## Alt text
+
+Every image surface in Time2Bike requires an alt text field. This is enforced for accessibility and is read by screen readers and indexed by search engines.
+
+## Deleting images
+
+Removing an image from a resource detaches it from the resource but does not delete the file from the CDN — old URLs continue to serve. To purge a file entirely, contact support.
+
+## Caching
+
+CDN responses are cached aggressively (`Cache-Control: public, max-age=31536000, immutable`). Because URLs are content-addressed, "edits" require a fresh upload — you can't replace an image at the same URL.
