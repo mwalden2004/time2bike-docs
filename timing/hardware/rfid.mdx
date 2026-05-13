@@ -1,42 +1,41 @@
 ---
 title: "RFID"
-description: "Ingest finishes from an RFID timing pad."
+description: "Ingest finishes from an RFID timing pad keyed by bib number."
 ---
 
-Time2Bike supports two RFID ingestion paths. Both write into the same event log as `kind: external_rfid` and resolve transponders to participants via your [transponder map](/timing/hardware/transponder-mapping).
+Time2Bike's RFID integration treats each chip read as a **bib finish**. Whatever your reader software reports for the rider becomes the bib number, so the only setup you need is to make sure each rider's chip is paired with their assigned bib on the reader side.
 
-## Option 1 — In-browser file watcher
+There are two ingestion paths. Both write into the same event log as `kind: external_rfid`.
+
+## CSV file watcher (recommended)
 
 Best for an RFID pad whose software (e.g. `rfidtimer`) writes to a CSV file on the same machine.
 
 1. On the operator screen, open the **RFID CSV import** panel.
-2. Click **Pick CSV & watch**.
-3. Choose your pad's output file.
-4. Each new line appended to the file is read and emitted as a finish in the active race.
+2. Click **Pick CSV & watch** and choose the file the reader writes to.
+3. Leave the tab open. Each new line is parsed and ingested as it lands.
 
-Uses the File System Access API. Chromium-only (Chrome, Edge, Brave). Stays running as long as the operator screen is open.
+Expected CSV columns: `bib,timestamp` (additional columns are ignored).
 
 [IMAGE: /organizations/[id]/events/[eventId]/timing/[sessionId] → RFID CSV import panel with watching state]
 
-## Option 2 — Bridge POST endpoint
+## HTTP bridge
 
 Best when the RFID pad is on a different machine or you want a small companion script.
 
-`POST /events/:eventId/timing/external` accepts newline-delimited records:
+`POST /timing/sessions/:sessionId/events`
 
+```json
+{ "kind": "external_rfid", "payload": { "bib": "117", "timestamp": "2026-05-13T15:02:11.421Z" } }
 ```
-[transponderId],[isoTimestamp]
-1234ABCD,2025-09-21T14:23:01.456Z
-1234ABCE,2025-09-21T14:23:02.118Z
-```
-
-Each line becomes an `external_rfid` event. Ship a ~30-line Node or Python companion that tails the file and POSTs; runs on any OS, on any network reachable to the API.
 
 Auth: include a timing token in the `Authorization: Bearer tt_[hex]` header.
 
-## Mapping
+Each line becomes an `external_rfid` event. Ship a ~30-line Node or Python companion that tails the file and POSTs; runs on any OS, on any network reachable to the API.
 
-Both paths map `transponderId → participantId` through the [transponder assignment](/timing/hardware/transponder-mapping) you set up before the race. Unmapped IDs still land in the event log; you can map them after the fact and re-project.
+## How bibs are resolved
+
+Each ingested event uses the **bib** field to look up the registered rider in the active race \(via the same `bibSource` rules as manual entry — direct, series plate, or series-then-manual\). Unknown bibs still land in the event log; assign them later and re-project to attach them to a rider.
 
 ## Race tab and RFID
 

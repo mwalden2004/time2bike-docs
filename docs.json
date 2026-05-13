@@ -199,7 +199,6 @@
             "group": "Hardware & sync",
             "pages": [
               "timing/hardware/rfid",
-              "timing/hardware/transponder-mapping",
               "timing/hardware/offline-and-sync"
             ]
           },
