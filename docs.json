@@ -251,8 +251,6 @@
     "options": ["copy", "view", "chatgpt", "claude"]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/time2bike"
-    }
+    
   }
 }
