@@ -108,9 +108,7 @@
               "organizers/events/landing-page-builder",
               "organizers/events/event-settings",
               "organizers/events/questions",
-              "organizers/events/waivers",
               "organizers/events/bibs",
-              "organizers/events/transponders",
               "organizers/events/event-analytics"
             ]
           },
