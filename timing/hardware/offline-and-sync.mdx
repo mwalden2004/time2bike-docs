@@ -3,47 +3,39 @@ title: "Offline & sync"
 description: "How the operator screen survives flaky LTE."
 ---
 
-Live Timing is **offline-first**. The UI reads from IndexedDB; the network is a sync target, not a dependency.
+Live Timing is **offline-first**. The operator screen records to your device first, then catches the server up in the background. If the network drops mid-race, nothing pauses.
 
-## The five layers
+## What you'll see
 
-1. **UI** — reads only from IndexedDB.
-2. **Local event log** (IndexedDB, append-only) — `{ clientEventId, sessionId, kind, payload, localTimestamp, clockOffset, syncedAt? }`.
-3. **Materialized state** — per-participant timing record, rebuilt by replaying the log. Surviving a tab refresh "for free" falls out of this.
-4. **Sync worker** — drains unsynced rows, POSTs them, marks `syncedAt`. Idempotent via `clientEventId`. Background Sync on Chromium; in-page worker fallback elsewhere.
-5. **Live broadcast** — when online, the server fan-outs accepted events to other devices in the same session via SSE.
+The top-right of the operator screen shows a sync pill:
 
-## Sync indicator
+- 🟢 **Synced** — everything is uploaded.
+- 🟡 **N queued** — you have unsynced finishes waiting for the network.
+- 🔴 **Offline — recording locally** — no network detected. Keep recording; queued events will upload as soon as you're back online.
 
-Top-right pill on the operator screen:
-
-- 🟢 **synced** — IndexedDB and server agree.
-- 🟡 **N queued** — N events in IndexedDB not yet uploaded.
-- 🔴 **OFFLINE — recording locally** — no network detected. Everything you record is safe; it'll drain when connectivity returns.
-
-## What survives a disaster
+## What survives what
 
 | Scenario | Outcome |
 |---|---|
-| Tab refresh | UI rebuilds instantly from IndexedDB. |
-| Wi-Fi drops mid-race | Recording continues; events queue locally. |
-| Phone dies, you swap in a new phone | New phone re-fetches the server state and resumes from `seq`. Anything on the dead phone that didn't upload is lost — see _Rescue export_ below. |
-| Browser evicts IndexedDB | Lost. Mitigate by hitting **Export log** periodically. |
-| Server restart | No data loss; events replay from MongoDB. |
+| You refresh the tab | The screen rebuilds instantly from local storage. No data lost. |
+| Wi-Fi drops mid-race | Recording continues. Queue grows; drains on reconnect. |
+| Phone dies, you swap to another phone | The new phone re-loads the session from the server. Anything that hadn't uploaded yet from the dead phone is gone — use the rescue export to recover it. |
+| Server restart | No data loss; the server catches up from its own log. |
 
 ## Rescue export
 
-The footer of the operator screen has **Export log (CSV / JSON)** buttons. These dump your local IndexedDB log to a file you can hand to the race director if the device dies before draining. The director can replay it via the bridge POST endpoint.
+The footer of the operator screen has an **Export log** button. It saves a copy of everything your device has recorded so you can hand it to the race director if the device itself dies before it finishes uploading. The director can replay the file back into the session.
 
-## When sync engine retries
+## When sync retries
 
-- On `online` event (network restored).
-- On `visibilitychange` (tab returning to foreground).
-- Every 5 seconds while running.
-- On the Service Worker's Background Sync push (Chromium).
+The operator screen retries automatically:
 
-Retries are batched (up to 50 events per POST) and idempotent on `clientEventId`.
+- The moment network is restored.
+- When you bring the tab back to the foreground.
+- On a slow heartbeat while idle.
+
+You rarely need to do anything; if you do, pulling-to-refresh kicks off a manual retry.
 
 ## Resume after long offline
 
-When a device comes back online after a long offline period, the SSE stream reconnects, and a `GET /timing/:sessionId/events?since=N` request fetches anything the device missed. The reducer merges; the UI updates.
+When a device that's been offline for a long stretch comes back online, it reconnects and asks the server for anything it missed. The screen updates to match within a few seconds.

@@ -35,6 +35,8 @@
               "riders/registering/registration-flow",
               "riders/registering/waivers",
               "riders/registering/custom-questions",
+              "riders/registering/licenses",
+              "riders/registering/plate-requests",
               "riders/registering/coupons-and-pricing",
               "riders/registering/checkout-and-confirmation",
               "riders/registering/start-list"
@@ -45,7 +47,8 @@
             "pages": [
               "riders/race-day/live-results",
               "riders/race-day/final-results",
-              "riders/race-day/rider-profile"
+              "riders/race-day/rider-profile",
+              "riders/race-day/volunteering"
             ]
           },
           {
@@ -61,7 +64,8 @@
               "riders/account/profile",
               "riders/account/privacy",
               "riders/account/security-and-sessions",
-              "riders/account/billing-history"
+              "riders/account/billing-history",
+              "riders/account/teams"
             ]
           },
           {
@@ -97,7 +101,9 @@
             "group": "Contacts & analytics",
             "pages": [
               "organizers/organization/contacts",
-              "organizers/organization/analytics"
+              "organizers/organization/analytics",
+              "organizers/organization/imports",
+              "organizers/organization/teams"
             ]
           },
           {
@@ -109,6 +115,11 @@
               "organizers/events/event-settings",
               "organizers/events/questions",
               "organizers/events/bibs",
+              "organizers/events/plate-requests",
+              "organizers/events/transponders",
+              "organizers/events/licenses",
+              "organizers/events/volunteers",
+              "organizers/events/imports",
               "organizers/events/event-analytics"
             ]
           },

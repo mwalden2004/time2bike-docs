@@ -1,0 +1,72 @@
+---
+title: "Bulk imports"
+description: "Bring your contacts, registrations, and results over from another platform."
+icon: "file-import"
+---
+
+If you're moving from **BikeReg**, **RunSignup**, or another platform, you can import your historical data without retyping it. Imports live under **Organization → Imports** and follow the same upload → map → preview → commit flow regardless of type.
+
+## What you can import
+
+| Type | Scope | What it does |
+|---|---|---|
+| **Contacts** | Organization | Adds people to your contacts list so they can be invited to events. |
+| **Registrations** | Event | Adds participants to a specific race, with optional bib and category. |
+| **Results** | Event | Loads finish times and placements onto a race. |
+
+Contacts are org-wide. Registrations and results are imported from inside an event under **Event → Imports**.
+
+## The four-step wizard
+
+<Steps>
+  <Step title="Upload">
+    Drop in a **CSV** or **PDF**. Max 10 MB. We never crawl third-party platforms — you have to upload the file yourself.
+  </Step>
+  <Step title="Map columns">
+    Time2Bike makes its best guess at which column is the first name, last name, email, plate, etc. Adjust the mapping if anything's wrong. A sample of the first few rows is shown so you can verify.
+  </Step>
+  <Step title="Preview">
+    We run a **dry run** and show you exactly how many rows would be **created**, **updated**, **skipped**, or have **errors**. Click **Download errors** to grab a CSV of the rows that need attention.
+  </Step>
+  <Step title="Commit">
+    Confirm. Rows are written one at a time; if any single row fails, the rest still go through. You get a final summary.
+  </Step>
+</Steps>
+
+Nothing is written to your data until you click **Commit** on step 4.
+
+## Supported sources
+
+- **BikeReg** exports — `First Name, Last Name, Email, Category, License, Team`.
+- **RunSignup** exports — similar columns plus `Bib`.
+- **Generic CSVs** — any column layout, you'll map them yourself.
+- **Results PDFs** — tables of `Place, Plate, Name, Team, Category, Time`. Time formats `H:MM:SS.ms`, `MM:SS.ms`, and `MM:SS` are all parsed.
+
+## Import history
+
+The Imports page lists every job with its status:
+
+| Status | Meaning |
+|---|---|
+| **Uploaded** | File received, awaiting column mapping. |
+| **Mapped** | Mapping confirmed, waiting on preview/commit. |
+| **Committing** | Rows are being written now. |
+| **Committed** | Done. Results column shows created/error counts. |
+| **Cancelled** | You backed out before committing. |
+| **Failed** | The job errored out — open it for the reason. |
+
+Click **View** on any job to see row-level results and re-download the error CSV.
+
+## Security notes
+
+- Imports are admin-only. Every row is re-scoped server-side to your org and (for event imports) the event you're inside.
+- Uploaded files are stored under a generated ID — your filenames never hit disk.
+- PDF parsing is sandboxed; embedded scripts can't run.
+- License numbers and date-of-birth fields are treated as PII — never echoed back in error messages or logs.
+
+## Tips
+
+- **Always preview first.** A bad column mapping won't damage anything until you click Commit.
+- **Email is the dedupe key for contacts.** Importing the same person twice updates them; it doesn't create duplicates.
+- **Plates come over as strings**, preserving leading zeros (`007` stays `007`).
+- For results PDFs, double-check the **time column** in the preview — different platforms format times differently.

@@ -29,3 +29,39 @@ Click the trash icon on a row to **release** that plate. The rider's `seriesPlat
 ## Use across events
 
 Once assigned, the rider's series plate auto-flows into any race that has `bibSource: series` or `series_then_manual`. No further per-event work needed — bib day-of, RFID lookups, and printable lists all use it.
+
+## Filters and search
+
+The table is paginated and supports:
+
+- **Status** filter — `assigned`, `retired`, `conflict`, `reserved`, or `all`.
+- A single **search box** that matches participant name **or** plate number (server-side, honoring the series' leading-zero rule).
+
+## Auto-assign missing plates
+
+Click **Auto-assign** to fill in plates for participants who don't have one yet. You enter a **starting number** and Time2Bike previews the full plan (every proposed `participant → plate`, plus any skipped rows with a reason) before anything is committed. **Reserved ranges** are skipped automatically.
+
+## Reserved ranges
+
+From **Reserved ranges**, define ranges of plate numbers you don't want assigned (e.g. `1–50` for pros, `100–199` for staff). Both auto-assign and manual assign refuse to use plates inside a reserved range with a clear error.
+
+## Bulk import
+
+Click **Import CSV** to upload a `plate,participantId` CSV. You'll see row-level results before anything is written:
+
+- **Created** — new assignment.
+- **Updated** — participant's existing assignment changed.
+- **Skipped (conflict)** — that plate is already on another rider.
+- **Error** — bad row; reason is shown.
+
+## Merge participants
+
+If the same rider has been registered twice (e.g. as two different participants), **Merge** consolidates their plate history onto a single participant. The operation is audit-logged and requires typed confirmation.
+
+## History
+
+Click the history icon on a row to see every change to that plate — who, when, before, after, and an optional note.
+
+## Download CSV
+
+**Download CSV** streams the current filtered view. Works for large series (500+ plates).
