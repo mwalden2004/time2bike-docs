@@ -19,24 +19,16 @@ Expected CSV columns: `bib,timestamp` (additional columns are ignored).
 
 ![RFID CSV import](/images/timing/rfid-csv.png)
 
-## HTTP bridge
+## Network bridge
 
-Best when the RFID pad is on a different machine or you want a small companion script.
+Use this when the RFID pad is on a different machine from the operator phone, or when you want a small helper script to forward reads from a custom reader.
 
-`POST /timing/sessions/:sessionId/events`
-
-```json
-{ "kind": "external_rfid", "payload": { "bib": "117", "timestamp": "2026-05-13T15:02:11.421Z" } }
-```
-
-Auth: include a timing token in the `Authorization: Bearer tt_[hex]` header.
-
-Each line becomes an `external_rfid` event. Ship a ~30-line Node or Python companion that tails the file and POSTs; runs on any OS, on any network reachable to the API.
+Contact Time2Bike support for the bridge helper — it's a tiny script (Node or Python) that tails a file or socket and forwards each read into your timing session. You authenticate it with a timing token, just like the operator screen.
 
 ## How bibs are resolved
 
-Each ingested event uses the **bib** field to look up the registered rider in the active race \(via the same `bibSource` rules as manual entry — direct, series plate, or series-then-manual\). Unknown bibs still land in the event log; assign them later and re-project to attach them to a rider.
+Each incoming read uses its **bib** field to look up the registered rider in the active race, following the same rules as manual entry — a direct race plate, the rider's series plate, or whichever has been set up for that race. Unknown bibs still land in the log so you can assign them later; the timing table will retro-fill them once you do.
 
 ## Race tab and RFID
 
-`external_rfid` events take the **active race tab** at the time of ingestion as the race scope. Switch tabs before starting the watcher to scope correctly.
+Incoming reads are scoped to whichever **race tab is active** when they arrive. Switch tabs before you start the watcher so reads land in the right race.

@@ -1,0 +1,26 @@
+---
+title: "Event imports"
+description: "Import registrations and results into a single event."
+---
+
+**Event → Imports** is the event-scoped version of [Bulk imports](/organizers/organization/imports). It supports the same upload → map → preview → commit flow, but everything you commit lands on this event.
+
+## What you can import here
+
+- **Registrations** — add participants to one or more races. Maps to `race`, `category`, `plate`, plus contact fields.
+- **Results** — load finish times, placements, and categories from a CSV or results PDF.
+
+If you want to add people to your overall **contacts** list (not tied to an event), use the org-level [Imports](/organizers/organization/imports) page instead.
+
+## Picking the right race
+
+When importing **registrations**, the column-mapping step lets you map the source's race or category column onto Time2Bike races. If your CSV only has one race in it, you can choose the destination race manually instead.
+
+## Re-running a results import
+
+Results imports are **idempotent on plate + race**. Re-uploading a corrected file replaces the prior numbers for the same rider rather than creating duplicates.
+
+## See also
+
+- [Bulk imports](/organizers/organization/imports) — full description of the wizard, supported sources, and security model.
+- [Race results](/organizers/races/race-results) — managing results after they're imported.

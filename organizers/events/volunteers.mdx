@@ -1,0 +1,89 @@
+---
+title: "Volunteers"
+description: "Recruit, schedule, and check in volunteers — with optional reward discounts."
+icon: "hand-holding-heart"
+---
+
+**Event → Volunteers** is a complete volunteer system: create opportunities, define roles and shifts, take public signups, and check people in on race day. Completed shifts can automatically issue a **discount code** for a future registration.
+
+## Concepts
+
+| Term | What it is |
+|---|---|
+| **Effort** | A top-level opportunity for an event (e.g. "Race-day course marshals"). |
+| **Role** | A type of help within an effort (e.g. "Aid station lead"). |
+| **Shift** | A time slot for a role with a **capacity**. |
+| **Signup** | A volunteer claim on a shift. |
+| **Reward** | Percent or dollar discount issued when the shift is marked complete. |
+
+## Create an effort
+
+From the Volunteers tab click **New volunteer effort**. You'll set:
+
+- **Name** and **description**.
+- **Reward** — `No reward`, `% off`, or `$ off` a future registration. Issued automatically when a shift is marked complete.
+
+Open the new effort to add **roles** and **shifts**. Each shift takes a role, a time window, and a capacity. Default shift = the whole event window with capacity 1.
+
+## Take public signups
+
+Once the effort is **open**, it's visible at:
+
+- The event page's **Volunteer** action.
+- The direct URL `time2.bike/events/[slug]/volunteer`.
+
+Public users see open shifts and the reward (if any). They can't see who else has signed up — only the **spots remaining** count.
+
+Close an effort to stop signups without deleting it.
+
+## Add a volunteer manually
+
+From the effort's **Signups** table click **Add volunteer**. Useful for in-person additions and people without email accounts.
+
+## Race-day check-in
+
+The **Signups** table supports:
+
+- **Move shift** — drag someone from a full slot to one that still needs help.
+- **Check in / Check out** — sets the volunteer's status to `checkedIn` (and records the timestamp).
+- **No-show** — used after the fact to flag people who didn't appear. Their reward isn't issued.
+- **Cancel** — releases their spot back to the pool.
+
+Each signup also gets a **QR token** in their confirmation email. If you're scanning at the volunteer tent, the scanner page on the same effort handles check-in.
+
+## Print a check-in sheet
+
+Click **Print sheet** on a shift for a paper roster with name, phone, role, and check-boxes. Useful when network is spotty at the start/finish.
+
+## Communicate
+
+- **Bulk email** — select rows, click **Email**. Goes through the standard event email sender (idempotent — re-sending the same announcement won't double up).
+- **Optional SMS reminders** — sent the day before via the platform's SMS service. Volunteers opt in at signup; STOP replies are respected.
+
+## Rewards
+
+When you mark a shift **completed** for a signup, the configured reward is issued:
+
+- A unique single-use discount code is generated.
+- The code lands in the volunteer's email.
+- The code is valid on any future registration with your organization.
+
+Codes are idempotent — re-marking the same shift complete won't generate a new code.
+
+## Export
+
+**Export CSV** dumps the current signups table including status and hours. Background-check notes (if used) are excluded from the default export.
+
+## Dashboard metrics
+
+The effort detail page shows:
+
+- Total signups and capacity fill.
+- Shifts fully staffed vs. understaffed.
+- Checked-in count and no-shows.
+- A **gaps** panel listing shifts that still need help, so you know where to recruit.
+
+## See also
+
+- [Rider-side volunteering](/riders/race-day/volunteering) — the public signup flow.
+- [Discounts](/organizers/pricing/discounts) — how volunteer rewards interact with your discount system.

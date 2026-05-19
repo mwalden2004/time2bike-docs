@@ -1,0 +1,50 @@
+---
+title: "Licenses"
+description: "Track one-day licenses you've collected and need to file with the sanctioning body."
+icon: "id-card-clip"
+---
+
+**Event → Licenses** is your worksheet for filing one-day licenses with the sanctioning body after the event. It shows every paid one-day license you've collected, plus the riders who used an annual license that's already on file.
+
+This page only appears on events that have a **permit issuer** configured. Set that on **Event → Settings** under **Permitting & Sanctioning**, or on the create-event wizard.
+
+## Default view: one-day licenses
+
+The default filter is **One-day** — these are the riders **you** are responsible for filing for. For each row you'll see:
+
+| Column | What it is |
+|---|---|
+| **Participant** | The racer's name. |
+| **Race** | The specific race they entered. |
+| **Issuer** | The sanctioning body code (`USAC`, `UCI`, `CUSTOM`, etc.). |
+| **Tier** | `beginner` or `experienced`. |
+| **Fee** | What the rider paid. |
+| **Submission status** | Your filing status — see below. |
+
+## Filing status
+
+Each row has a four-state status you cycle as you process the file:
+
+- **Not started** — collected but not yet filed.
+- **In progress** — you're working on it.
+- **Submitted** — filed with the sanctioning body. You can add a **reference number** for the filing.
+- **N/A** — exclude this row (e.g. you've reconciled it elsewhere).
+
+Click the status pill on a row to advance it, or open the **notes** modal to add notes and a reference number.
+
+## Annual-license view
+
+Toggle the filter to **Annual** to see riders who entered with an annual license already on file. These riders are **not your responsibility** — the sanctioning body already has them. They're shown for reference (e.g. spot-checking who said they had a license).
+
+## Group by participant
+
+Switch **Group by** to **Participant** to roll up riders who entered multiple races. Useful when one person has three days' worth of one-day fees and you only need to file once.
+
+## Export
+
+**Download CSV** exports the current filtered view with all columns — perfect for pasting into your sanctioning body's bulk-upload tool.
+
+## See also
+
+- [Rider-side license flow](/riders/registering/licenses) — what riders experience at registration.
+- [Event settings](/organizers/events/event-settings) — where to set the permit issuer.
