@@ -38,5 +38,18 @@ Switch race tabs first, then any future Enter goes to the correct race. To move 
 ## Marshal vs admin
 
 - `marshal` can edit, status-change, manual-time, and delete finishes.
-- `admin` can also **finalize** and **publish**.
+- `admin` can also **finalize**, **publish**, **void laps** (mechanical/crash/penalty), and **change relay team status** (DNF/DSQ/reinstate).
 - Only org members can override `finalize` once set (by re-opening a session).
+
+## Voiding a lap
+
+Some lap-mode formats (criteriums, time trials, relays) need a lap to be discarded without removing the rider from the race — typically after a mechanical, crash, or penalty.
+
+From the per-rider dropdown menu (admin role), choose **Void a lap…**. Pick the lap, select a reason, and optionally add a note. The reducer:
+
+1. Removes the voided lap from the rider's rendered lap list.
+2. Recomputes `bestLapMs`.
+3. Reverts an auto-finish if the voided lap was the one that finished the rider.
+4. Appends an audit entry to the result's `notes[]` so the action is visible in the review screen and exports.
+
+The original `lap` event stays in the log; the void is itself a new `lap_void` event referencing the original `clientEventId`. Replay re-derives the same result.

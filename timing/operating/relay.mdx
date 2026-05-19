@@ -1,0 +1,54 @@
+---
+title: "Relay races"
+description: "Timing relay formats: per-rider bibs, shared bibs, and team scoreboards."
+---
+
+Relay races have multiple riders sharing a single team result. Each completed lap counts toward the team's leg total; the team finishes when its `legsCompleted` reaches `legCount`.
+
+## Race configuration
+
+When creating the race, set:
+
+- **Format**: `relay`
+- **Leg count**: how many legs each team must complete (e.g. `4`)
+- **Leg assignment**:
+  - `fixed` — each rider is pre-assigned a specific leg (1, 2, 3, …). Used when leg order matters.
+  - `any_order` — riders may take legs in any order; legs are credited sequentially as laps come in.
+- **Bib strategy**:
+  - `per_rider` — each rider on the team has their own bib; the timing operator scans whichever rider is on course.
+  - `shared` — the team has a single bib that is physically handed off between riders. Operators see one row per team rather than one per rider.
+
+## Registration
+
+Each `RaceRegistration` for a relay race carries `relayTeamId` (and `relayLegIndex` when the race is `fixed`). Teams are created via the operator UI at **Timing → Relay teams** or via the API endpoint `POST /organizations/:orgId/events/:eventId/timing/relay-teams`.
+
+A `joinCode` is generated automatically when a team is created; share it with teammates so they can self-register into the same team.
+
+## Operator UI
+
+The operator timing screen renders a **Relay teams** panel above the standard "On course" list whenever the active race has `relayConfig`. Each row shows:
+
+- Team name and status (`racing` / `finished` / `dnf` / `dsq`).
+- Legs completed (e.g. `2 / 4`).
+- Best leg time across the team.
+- Total elapsed once the team has finished.
+
+The kebab menu on each row (admin-only) lets you:
+
+- **Mark team DNF** — emits a `relay_team_status` event with status `dnf`. Per-rider results are NOT affected (riders keep their individual `racing`/`finished` status).
+- **Mark team DSQ** — same as above but status `dsq`.
+- **Reinstate** — sets the team back to `racing` and clears `finishAt`/`elapsedMs`.
+
+## How laps are credited
+
+Each `lap` event flows through the standard finisher pipeline. If the rider belongs to a relay team (resolved via the session's `relayConfig` snapshot taken at session create or via the **Refresh relay** action), the reducer also:
+
+1. Locates the team's `LiveTimingRelayTeamResult`.
+2. Appends a leg entry with `legIndex` (from the member's pre-assigned slot for `fixed`, otherwise sequential) and the lap's elapsed time.
+3. Updates `legsCompleted`, `bestLegMs`, and (when the team is on its final leg) `finishAt` + `elapsedMs`.
+
+Voiding a lap also walks the relay state: the credited leg is removed, aggregates recomputed, and an auto-finish reverted if the voided lap was the finishing leg.
+
+## Refreshing relay membership
+
+If teams or registrations change after a session is created, hit **Refresh relay** to re-snapshot `relayConfig` into the session document. The reducer then replays from the beginning against the updated snapshot, producing a fresh set of team results without losing any lap events.
