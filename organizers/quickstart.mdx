@@ -1,0 +1,197 @@
+---
+title: "Quickstart"
+description: "From an empty account to open registration — every step, in the order you actually do them."
+icon: "rocket"
+---
+
+This is the shortest complete path to taking entries for a race. Nine steps.
+Each one links to the page with the full detail, so use this as the spine and
+branch off when you need to.
+
+<Note>
+  Budget an hour for your first event. Most of it is Stripe onboarding and
+  writing your waiver — the Time2Bike part is quick.
+</Note>
+
+## Before you start
+
+Have these ready:
+
+- A **logo** (square, under 5 MB).
+- Your **waiver text**, or the PDF your insurer requires.
+- Your **bank details and business info** for Stripe.
+- The **race schedule** — categories, start times, and what you're charging.
+
+## 1. Create your organization
+
+[time2.bike/organizations/create](https://time2.bike/organizations/create).
+
+Name, slug, contact details, brand color, logo. The slug becomes your public
+URL, so pick something you'll still want in three years.
+
+→ [Create an organization](/organizers/organization/create-organization)
+
+## 2. Connect Stripe
+
+**Settings → Billing**, then work through Stripe's onboarding.
+
+<Warning>
+  You cannot publish a paid event until Stripe is connected and onboarding is
+  complete. Do this first — Stripe verification can take a day or two, and it's
+  the one step you can't rush on the morning you wanted to open registration.
+</Warning>
+
+→ [Billing & payouts](/organizers/organization/settings-billing) ·
+[Stripe Connect](/platform/stripe-connect)
+
+## 3. Upload a waiver
+
+**Settings → Waivers**. You need at least one before anyone can register.
+
+Waivers are org-level, then assigned to individual races — so write the general
+one now and add discipline-specific ones later.
+
+→ [Waivers](/organizers/organization/settings-waivers)
+
+## 4. Invite your crew
+
+**Settings → Team**. Registration desk, timing crew, whoever handles the money.
+
+<Note>
+  During beta, every org member has full access regardless of the role you
+  assign. Invite accordingly.
+</Note>
+
+→ [Team & invites](/organizers/organization/settings-team)
+
+## 5. Create the event
+
+**Create event** from the dashboard. A four-step wizard: basic info, location,
+details, settings.
+
+Leave the status as **draft**. Nothing is public until you say so, which means
+you can build the rest of this with the page live but invisible.
+
+→ [Create an event](/organizers/events/create-event)
+
+## 6. Add your races
+
+**Event → Races → New race**, once per category group.
+
+For each race: name, format, capacity, categories, gender restriction, and
+whether it's a relay.
+
+<Tip>
+  Get the race *structure* right before you touch pricing — pricing, waivers,
+  and questions all attach to races, so splitting one race into two afterwards
+  means redoing all three.
+</Tip>
+
+→ [Races list](/organizers/races/races-list)
+
+## 7. Set pricing
+
+Two levels:
+
+- **Price schedules** (org-level) — reusable early-bird / regular / late tiers.
+- **Race pricing** — apply a schedule to a race, or set a flat price.
+
+Add discount codes now if you're running any.
+
+→ [Price schedules](/organizers/pricing/price-schedules) ·
+[Race pricing](/organizers/races/race-pricing) ·
+[Discounts](/organizers/pricing/discounts)
+
+## 8. Attach waivers and questions
+
+- **Race → Waivers** — tick which waivers each race requires.
+- **Event → Questions** — anything you need to ask (t-shirt size, emergency
+  contact, category self-select, club affiliation).
+
+→ [Race waivers](/organizers/races/race-waivers) ·
+[Custom questions](/organizers/events/questions)
+
+## 9. Build the landing page and publish
+
+**Event → Landing page** for the banner, description, schedule, sponsors, and
+photos. Then set the event status to **published**.
+
+Open `time2.bike/events/[slug]` in a private window and register yourself for
+the cheapest race. It's the only way to be sure the whole chain works —
+waiver, questions, price, receipt.
+
+→ [Landing page builder](/organizers/events/landing-page-builder)
+
+> !!-IMAGE-NEEDED-!! — A published event landing page as a rider sees it, with the race list and Register button.
+
+## Then, before race day
+
+<Steps>
+  <Step title="Assign bib numbers">
+    **Event → Bibs**. Auto-assign a range or import a list.
+
+    → [Bibs](/organizers/events/bibs)
+  </Step>
+  <Step title="Recruit volunteers">
+    **Event → Volunteers** — opportunities, shifts, and race-day check-in.
+
+    → [Volunteers](/organizers/events/volunteers)
+  </Step>
+  <Step title="Set up timing">
+    Create a timing session, pick your mode, and issue scoped tokens or QR codes
+    to your operators. They don't need org access.
+
+    → [Operator quickstart](/timing/operator-quickstart)
+  </Step>
+  <Step title="Print your start lists">
+    **Event → Registrations**, filtered per race.
+
+    → [Event registrations](/organizers/registrations/event-registrations)
+  </Step>
+</Steps>
+
+## And after
+
+<Steps>
+  <Step title="Finalize and publish results">
+    → [Finalize & publish](/timing/finishing/finalize-and-publish)
+  </Step>
+  <Step title="Handle refunds and no-shows">
+    → [Refunds](/organizers/pricing/refunds)
+  </Step>
+  <Step title="Check your numbers">
+    → [Event analytics](/organizers/events/event-analytics)
+  </Step>
+</Steps>
+
+## Things people get wrong the first time
+
+<AccordionGroup>
+  <Accordion title="Leaving Stripe until the end" icon="triangle-exclamation">
+    Verification isn't instant. Start it on day one, even if the event is
+    months out.
+  </Accordion>
+  <Accordion title="Publishing before test-registering" icon="triangle-exclamation">
+    Register yourself for real, from a private window, before you share the
+    link. Refund yourself afterwards.
+  </Accordion>
+  <Accordion title="Pricing before the races are settled" icon="triangle-exclamation">
+    Pricing, waivers, and questions all hang off races. Settle the race
+    structure first.
+  </Accordion>
+  <Accordion title="Giving timing volunteers org accounts" icon="triangle-exclamation">
+    Use scoped timing tokens instead — they work on one session and nothing
+    else. See [Tokens & QR](/timing/setup/tokens-and-qr).
+  </Accordion>
+</AccordionGroup>
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Dashboard tour" icon="gauge" href="/organizers/organization/dashboard-tour">
+    Reading your org dashboard.
+  </Card>
+  <Card title="Create an event" icon="calendar-plus" href="/organizers/events/create-event">
+    The wizard, field by field.
+  </Card>
+</Columns>

@@ -1,0 +1,110 @@
+---
+title: "Practices"
+description: "Schedule a practice, and time your own athletes with the same tools used at real races."
+icon: "stopwatch"
+---
+
+A **practice** is a timing-only session your team runs for itself. No
+registration, no pricing, nothing public — but it uses the full Time2Bike timing
+stack, so a Tuesday interval session is timed exactly the way a race is.
+
+Open the **Practices** tab. You'll see it if you're a **coach**, **manager**,
+team **admin**, or **owner**.
+
+> !!-IMAGE-NEEDED-!! — The **Practices** tab in calendar view with the "Up next" card at the top.
+
+<Note>
+  Your entire active roster is entered into every practice automatically. You
+  never enter anyone.
+</Note>
+
+## Creating a practice
+
+<Steps>
+  <Step title="Click New practice">
+    > !!-IMAGE-NEEDED-!! — The **New practice** modal with two activities added.
+  </Step>
+  <Step title="Name it and set the date and time">
+    `Tuesday intervals`. Location is optional.
+  </Step>
+  <Step title="Add activities">
+    A practice holds one or more **activities**, and each activity is timed
+    separately. Pick from:
+
+    | Activity | What it runs |
+    |---|---|
+    | **Time trial** | Per-rider gate starts, several riders on course at once |
+    | **Endurance / lap ride** | Open-ended lap accumulation, credits each lap and tracks best lap |
+    | **Dual slalom** | Head-to-head brackets |
+    | **Group ride / mass start** | Everyone off at once |
+    | **Short track** | Lap-based short track |
+
+    Endurance and short track let you set a target lap count — leave it blank
+    for an open-ended ride.
+  </Step>
+  <Step title="Create it">
+    The practice appears on the calendar.
+  </Step>
+</Steps>
+
+## Two activities at once
+
+This is the point of activities. Each one gets **its own clock**, so a time
+trial, an endurance lap ride, and a dual-slalom bracket can run at the same time
+under one practice — each on a different phone, with a different coach, and
+nobody has to coordinate.
+
+The operator screen picks the right surface per activity automatically.
+
+## Timing a practice
+
+Every practice row has a **Time it** button that drops you straight onto the
+operator screen. The practice happening today — or the next one, or the most
+recent — is pulled out into a loud card at the top of the page, because on a
+phone at the trailhead that should be the only thing you need to hit.
+
+From there, everything in the [Live Timing](/timing/overview) documentation
+applies: recording finishes, fixing mistakes, offline capture, and so on.
+
+<Tip>
+  Drop-ins who aren't on the roster can be added at the timer. You don't have to
+  fix the roster first.
+</Tip>
+
+## Calendar and list views
+
+- **Calendar** — the month, with practice days highlighted. Tap a day to see
+  what's on it. Opens on the month that actually has something in it.
+- **List** — grouped by month, newest first.
+
+## Seasons
+
+Create a season (`Fall 2026`) and tag practices to it. Then filter the practice
+list, and the [clipboard](/teams/clipboard), to one season at a time.
+
+Seasons are created from the **Results** tab — **New season**.
+
+## Re-syncing the roster
+
+The refresh icon on a practice row re-enters your current roster. Use it when
+athletes joined the team after you created the practice — they won't be in it
+otherwise.
+
+## What's happening behind the scenes
+
+Worth knowing, because it explains a few things you'll see:
+
+- A practice is an ordinary event marked as a practice, hidden from every public
+  surface. That's why it inherits the whole timing stack unchanged.
+- If your team isn't attached to an organization, Time2Bike quietly provisions a
+  hidden one to own your practices. You never see it, it has no Stripe account,
+  and nothing under it can be paid for.
+- Your coaches and managers are mirrored into that hidden org with the minimum
+  permission needed to run the operator screen. Athletes aren't — they're the
+  people being timed.
+
+## Next
+
+<Card title="The clipboard" icon="clipboard-list" href="/teams/clipboard">
+  What to do with the times once you've collected them.
+</Card>

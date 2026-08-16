@@ -1,0 +1,126 @@
+---
+title: "Roster & roles"
+description: "Who's on the team, what athletes / coaches / managers can each do, and how to fix someone's role."
+icon: "users"
+---
+
+The **Members** tab is your roster — everyone on the team, their role, and their
+status.
+
+> !!-IMAGE-NEEDED-!! — Team **Members** page: roster rows with role dropdowns, consent toggles, and the Emergency sheet button.
+
+## The two role systems
+
+Teams have two independent role systems. Both matter, and they're set in
+different places.
+
+### Team role — who can change the team
+
+Set when someone is invited, or by promoting them.
+
+| Role | Can do |
+|---|---|
+| **Owner** | Everything, including deleting the team and transferring ownership. The person who created the team. |
+| **Admin** | Edit settings, manage the roster, send invites, review applications, edit the public page. |
+| **Member** | See the team, see the roster, add and remove their own profiles. |
+
+### Roster role — what someone does on the team
+
+Set per person on the roster, with the dropdown on their row.
+
+| Role | What it means | Unlocks |
+|---|---|---|
+| **Athlete** | Races for the team | Entered into practices automatically |
+| **Coach** | Runs practices, manages riders | The **Practices** and **Results** tabs, and every athlete's emergency info |
+| **Manager** | Paperwork and logistics, doesn't coach | Same access as a coach |
+
+<Note>
+  These do not have to match. A head coach who is a plain **member** with the
+  roster role **coach** has everything they need to schedule practices, run the
+  timer, and see emergency contacts. They just can't change the team's settings.
+</Note>
+
+Coaches and managers are also mirrored into the timing permissions behind the
+scenes, which is what lets them open the operator screen on a practice without
+anyone granting them anything.
+
+## Statuses
+
+| Status | Meaning |
+|---|---|
+| **Active** | On the roster and counted. |
+| **Invited** | Not confirmed yet. Either an invite that hasn't been accepted, or a staff claim waiting on an admin. |
+| **Left** / **Removed** | No longer on the roster. |
+
+### Confirming a staff claim
+
+Someone who joins with the *rider* code but picks Coach or Manager lands as
+**invited**. They're on the roster but count for nothing — no dues priced, no
+placement chased — until an admin presses **Confirm as coach** (or manager) on
+their row.
+
+This is deliberate. A rider code that anyone can pass along must never be able
+to mint a coach on a youth team.
+
+## Fixing someone's role
+
+Admins get a dropdown on every row: **Athlete / Coach / Manager**. Change it and
+it saves immediately.
+
+## Admin-register consent
+
+Each member has a **Consent** toggle. When it's on, team admins can register
+that member for races in one batch checkout rather than each family doing it
+separately.
+
+- Members and their parents control this — it's opt-in.
+- It's shown on every roster row as `Admin-register: allowed` or `off`.
+
+See [Racing together](/teams/racing-together).
+
+## Opening a rider
+
+Click anyone's name to open their detail panel. What you see depends on who you
+are:
+
+- **Coaches, managers, and admins** see their contact and emergency information.
+- **Anyone** can open their own profiles.
+- A plain member clicking a teammate gets nothing — the row isn't clickable,
+  rather than opening an empty panel.
+
+The panel pulls from three places, kept visually distinct because they have
+different owners:
+
+| Source | What's in it | Who owns it |
+|---|---|---|
+| The rider's profile | Contact, emergency contact | The person (shared with race registrations) |
+| Their team membership | Medical notes, allergies, medications, alt contact | What they told **this** team, and nowhere else |
+| The league | Status, dues, agreements | Read-only here — the league owns it |
+
+## Adding your own riders
+
+If you own a rider profile that isn't on this roster, a prompt appears at the
+top of the Members page: **Add to roster**. One click.
+
+## Removing people
+
+- **Admins** remove anyone with the trash icon on their row.
+- **Anyone** can take their own profiles off with **Take off roster**, whether
+  or not they're an admin.
+
+## The emergency sheet
+
+The **Emergency sheet** button at the top right of the roster opens one printable
+page with every athlete's emergency details — built for standing at a trailhead
+with no signal. See [Emergency & medical info](/teams/emergency-info).
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Invites & join codes" icon="key" href="/teams/invites-and-codes">
+    Every way to get someone onto this roster.
+  </Card>
+  <Card title="Emergency & medical info" icon="briefcase-medical" href="/teams/emergency-info">
+    Who to call, and who can see it.
+  </Card>
+</Columns>

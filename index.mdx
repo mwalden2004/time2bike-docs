@@ -1,23 +1,27 @@
 ---
 title: "Welcome to Time2Bike"
-description: "The race-day platform for bike racing — registration, timing, results, and the storefront that ties it all together."
+description: "The race-day platform for bike racing — registration, timing, results, teams, and the storefront that ties it all together."
 icon: "flag-checkered"
 ---
 
-Time2Bike is an end-to-end platform for putting on bike races. Organizers
-build event pages, sell registrations and merch, run live timing on race day,
-and publish official results — all in one place. Riders sign up, sign waivers,
-get bib numbers, follow live results, and keep a profile of every race they've
-finished.
+Time2Bike is an end-to-end platform for bike racing. Organizers build event
+pages, sell registrations and merch, run live timing on race day, and publish
+official results. Riders sign up, sign waivers, get bib numbers, follow live
+results, and keep a profile of every race they've finished. Clubs run their
+rosters, schedule practices, and time their own athletes.
 
 These docs are organized by who you are.
 
 <Columns cols={2}>
-  <Card title="Riders" icon="person-biking" href="/riders/account/create-account">
+  <Card title="Riders" icon="person-biking" href="/riders/start-here">
     Create an account, register for events, sign waivers, follow live results,
     and manage your profile.
   </Card>
-  <Card title="Organizers" icon="clipboard-list" href="/organizers/overview">
+  <Card title="Teams" icon="people-group" href="/teams/overview">
+    Racing clubs — join a roster, run practices, and race under your team's
+    name.
+  </Card>
+  <Card title="Organizers" icon="clipboard-list" href="/organizers/quickstart">
     Build your organization, launch events, configure races and pricing,
     and run day-of operations.
   </Card>
@@ -25,24 +29,43 @@ These docs are organized by who you are.
     Run timing on race day — standard mode, dual slalom, RFID, offline sync,
     and publishing results.
   </Card>
-  <Card title="Platform" icon="gear" href="/platform/slugs">
-    Cross-cutting reference: slugs, Stripe Connect, uploads, roles, and SEO.
-  </Card>
 </Columns>
 
 ## New here?
 
 <Steps>
   <Step title="Riders">
-    Start with [Create an account](/riders/account/create-account), then read
-    [The event page](/riders/finding-events/event-page).
+    Read [Start here](/riders/start-here). It's the whole path from creating an
+    account to crossing a finish line, on one page.
   </Step>
-  <Step title="Organizers">
-    Start with [Create an organization](/organizers/organization/create-organization),
-    then [Create an event](/organizers/events/create-event).
+  <Step title="Coaches and club organizers">
+    Read [What a team is](/teams/overview), then
+    [Start a team](/teams/start-a-team) — about ten minutes to a working roster.
+  </Step>
+  <Step title="Race organizers">
+    Read the [Organizer quickstart](/organizers/quickstart) — empty account to
+    open registration, in order.
   </Step>
   <Step title="Race-day operators">
     Read the [Operator quickstart](/timing/operator-quickstart). It's a single
     page you can keep open on the phone you're timing with.
   </Step>
 </Steps>
+
+## The three words that get mixed up
+
+<Columns cols={3}>
+  <Card title="Organization" icon="building">
+    Hosts events and takes entry fees.
+  </Card>
+  <Card title="Team" icon="people-group">
+    A racing club riders belong to.
+  </Card>
+  <Card title="League" icon="landmark">
+    A governing body teams race under.
+  </Card>
+</Columns>
+
+They're separate, they don't share permissions, and you can be involved in all
+three. Anything cross-cutting — slugs, Stripe, uploads, roles, SEO — is in
+[Platform](/platform/slugs).

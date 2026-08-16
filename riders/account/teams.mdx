@@ -1,62 +1,98 @@
 ---
 title: "Teams"
-description: "Join a racing club, apply with custom questions, and race under your team colors."
+description: "Your racing clubs — joining one, racing under it, and where the rest of the team documentation lives."
 icon: "people-group"
 ---
 
-A **team** on Time2Bike is your racing club — separate from the organizations that put on events. Teams have a public page, members, captains, and (optionally) an application form.
+A **team** on Time2Bike is your racing club — a high-school squad, a junior
+program, a shop team. It's separate from the organizations that put on events:
+you race *for* your team, *at* an organization's event.
 
-Manage your teams from **Account → Teams** at [time2.bike/teams](https://time2.bike/teams).
+Your teams live at [time2.bike/teams](https://time2.bike/teams), or **Teams** in
+the top navigation.
 
-## Join a team
+> !!-IMAGE-NEEDED-!! — The **Teams** page at `/teams` showing a rider's team cards.
 
-There are three ways to end up on a team:
+<Note>
+  Everything about teams — rosters, practices, applications, coaching tools — has
+  its own section. This page is the rider's summary.
+  See the **[Teams](/teams/overview)** tab for the rest.
+</Note>
 
-- **Direct invite** — a captain emails you an invite link. Open it and accept.
-- **Apply** — visit the team's public page at `time2.bike/team/[slug]` and click **Apply**. Fill out any questions the team requires.
-- **Public join** — for teams set to **public join**, click **Join team** on the team page and you're in instantly.
+## Joining a team
 
-The join method is set by the captain in the team's **Join policy**.
+Four ways in, depending on what your coach handed you:
 
-## Apply with questions
+| You were given | What to do |
+|---|---|
+| A code like `ABCD-1234` | Go to [time2.bike/join](https://time2.bike/join) and type it in |
+| A link ending in `/join/…` | Open it |
+| An email invite | Click the link in the email |
+| A team page with **Apply to join** | Apply, and wait for an admin to approve |
 
-Teams that use **Application** mode walk you through a short wizard:
+Step-by-step: [Join a team](/teams/join-a-team).
+
+<Tip>
+  Signing up more than one rider — three kids, or two kids and yourself as a
+  coach? Do it in one pass. The join screen lets you tick several profiles at
+  once and set each person's role individually.
+</Tip>
+
+## Your role on a team
+
+You'll see two roles and they mean different things:
+
+- **Athlete / Coach / Manager** — what you *do* on the team. This is picked when
+  you join.
+- **Owner / Admin / Member** — whether you can *change* the team. Most people are
+  members.
+
+Claiming coach or manager on a rider join code doesn't take effect until a team
+admin confirms it. You'll be on the roster in the meantime.
+
+## Racing under your team
+
+Set a **default team** on your rider profile and it's applied automatically
+every time you register — and shown next to your name in results.
 
 <Steps>
-  <Step title="Pick the participant">
-    If the team requires it, link the application to one of your saved participants.
+  <Step title="Open your rider profile">
+    `time2.bike/profiles/[participantId]`.
   </Step>
-  <Step title="Answer questions">
-    Text, multiple choice, yes/no, file uploads — whatever the team asks.
+  <Step title="Find the Race Team card">
+    It only appears once you belong to at least one team.
   </Step>
-  <Step title="Review & submit">
-    Confirm your answers. The captain is notified and decides.
+  <Step title="Pick your team, or 'Personal entry'">
+    You can still remove it for a one-off entry during any single registration.
   </Step>
 </Steps>
 
-You'll see your application under **Account → Teams** with status **Pending**, **Approved**, or **Declined**.
+Not on a Time2Bike team? You can still type a club or sponsor name during
+registration — it's shown in results the same way.
 
-## Your teams
+More: [Racing together](/teams/racing-together).
 
-The **Teams** page lists every team you belong to with your role:
+## If your team races in a league
 
-- **Member** — you're on the roster.
-- **Admin** — you can edit team details and manage other members.
-- **Owner** — you created the team and can do everything, including transfer ownership.
+Joining a team that races under a league leaves you owing things — dues,
+agreements, sometimes a division placement. Time2Bike shows you what's
+outstanding right after you join, and again on the team's **League** tab.
 
-Click a team to open the team management page.
+Get it done before race day. A rider with unpaid dues or unsigned agreements can
+be blocked from starting.
 
-## Create your own team
+## Leaving a team
 
-Click **Create team** from the Teams page. You'll set:
+Open the team's **Members** page, find your own row (marked **You**), and click
+**Take off roster**. You can always remove your own profiles.
 
-- **Name** and a **slug** for the public URL (`time2.bike/team/your-slug`).
-- **Logo** and **primary color**.
-- **Visibility** — public or unlisted.
-- **Join policy** — invite only, application, or public join.
+## Next
 
-Once created, you're the owner. Invite riders from **Members**, define the application form from **Settings**, and customize the public page from **Public Page**.
-
-## Race for your team
-
-Your team is shown on your rider profile, on start lists, and in results. If a race organizer pulls team standings, your finishes count toward your team automatically — no extra step at registration.
+<Columns cols={2}>
+  <Card title="What a team is" icon="people-group" href="/teams/overview">
+    The full teams documentation.
+  </Card>
+  <Card title="Start a team" icon="flag" href="/teams/start-a-team">
+    Setting up your own club.
+  </Card>
+</Columns>

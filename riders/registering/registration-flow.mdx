@@ -1,11 +1,15 @@
 ---
 title: "The registration flow"
-description: "What the 5-step registration flow looks like, from picking participants to paying."
+description: "What the registration flow looks like, from picking participants to paying."
 icon: "list-check"
 ---
 
-When you click **Register** on an event page, you enter a 5-step flow at
+When you click **Register** on an event page, you enter a step-by-step flow at
 `/events/[slug]/register?races=[race-ids]`.
+
+There are up to five steps. **Questions** and **Add-ons** only appear when the
+event actually has them, so a simple race is three steps: participants,
+waivers, pay.
 
 <Steps>
   <Step title="Participants">
@@ -15,11 +19,11 @@ When you click **Register** on an event page, you enter a 5-step flow at
     Sign the waivers each participant needs to compete. See
     [Waivers](/riders/registering/waivers).
   </Step>
-  <Step title="Questions">
+  <Step title="Questions (only if the organizer asks any)">
     Answer any custom questions the organizer is collecting. See
     [Custom questions](/riders/registering/custom-questions).
   </Step>
-  <Step title="Add-ons">
+  <Step title="Add-ons (only if the event sells any)">
     Optionally throw merch (jerseys, parking passes, etc.) into the order.
   </Step>
   <Step title="Review & pay">
@@ -62,7 +66,7 @@ Time2Bike refuses to add a participant to a race when:
 
 - They're already registered for that race (paid or pending).
 - The race has a **gender restriction** they don't match (the race is
-  "women only" / "men only" — based on `competitionSex` on the
+  "women only" / "men only" — based on `gender` on the
   participant's profile).
 - They've already been picked for this race in another slot of this same
   registration.

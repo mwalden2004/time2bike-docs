@@ -18,6 +18,7 @@
             "group": "Getting started",
             "pages": [
               "index",
+              "riders/start-here",
               "riders/account/create-account",
               "riders/account/sign-in"
             ]
@@ -77,12 +78,55 @@
         ]
       },
       {
+        "tab": "Teams",
+        "groups": [
+          {
+            "group": "Start here",
+            "pages": [
+              "teams/overview",
+              "teams/join-a-team",
+              "teams/start-a-team"
+            ]
+          },
+          {
+            "group": "Running your team",
+            "pages": [
+              "teams/roster",
+              "teams/invites-and-codes",
+              "teams/applications",
+              "teams/emergency-info"
+            ]
+          },
+          {
+            "group": "Training",
+            "pages": [
+              "teams/practices",
+              "teams/clipboard"
+            ]
+          },
+          {
+            "group": "Racing",
+            "pages": [
+              "teams/racing-together"
+            ]
+          },
+          {
+            "group": "Team page & settings",
+            "pages": [
+              "teams/public-page",
+              "teams/settings"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Organizers",
         "groups": [
           {
             "group": "Get set up",
             "pages": [
               "organizers/overview",
+              "organizers/quickstart",
               "organizers/organization/create-organization",
               "organizers/organization/dashboard-tour"
             ]

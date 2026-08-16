@@ -7,14 +7,25 @@ description: "Import registrations and results into a single event."
 
 ## What you can import here
 
-- **Registrations** — add participants to one or more races. Maps to `race`, `category`, `plate`, plus contact fields.
+- **Registrations** — add participants to one or more races. Maps `race` and `category`, plate/bib, plus rider details: name, email, phone, **address**, **birthday**, **gender**, and **license / USAC number** (the issuer defaults to USAC when the file doesn't say). Free-text values are normalized to our format — e.g. a gender column of "M", "Male", or "Guy" all map to `male`; unrecognized values are skipped rather than stored.
 - **Results** — load finish times, placements, and categories from a CSV or results PDF.
+
+When a row matches a rider already in your organization, the import **fills in any details that rider was missing** (birthday, address, license, gender, contact) without overwriting what's already there.
 
 If you want to add people to your overall **contacts** list (not tied to an event), use the org-level [Imports](/organizers/organization/imports) page instead.
 
-## Picking the right race
+> !!-IMAGE-NEEDED-!! — Event → **Imports**, on the column-mapping step of a registrations CSV.
 
-When importing **registrations**, the column-mapping step lets you map the source's race or category column onto Time2Bike races. If your CSV only has one race in it, you can choose the destination race manually instead.
+## Picking races & categories
+
+When importing **registrations**, the column-mapping step maps the source's race (or category) column onto Time2Bike races. If your CSV only has one race in it, you can choose the destination race manually instead.
+
+Any race names in your file that don't exist yet are listed on the preview screen. Rather than resolving them one by one, use the **bulk bar**:
+
+- **Create all as new races** — one click turns every unknown race into a new race. Pick how the category is set for all of them: use each race's own category from the file, create a category named after each race, or assign them all to one existing category.
+- **Skip all** — leave them unresolved (those rows will error).
+
+You can still override any individual race afterwards, and a filter box helps when there are a lot of them — so importing dozens of categories at once is a couple of clicks instead of dozens.
 
 ## Re-running a results import
 

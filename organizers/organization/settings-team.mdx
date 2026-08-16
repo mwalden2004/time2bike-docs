@@ -20,10 +20,23 @@ description: "Invite teammates and manage roles."
 
 The invitee gets an email with a one-time link. When they accept (see [Accept an invite](/riders/invites/accept-invite)) they join immediately.
 
+<Warning>
+  **While Time2Bike is in beta, every team member has full access regardless of
+  the role you pick.** The role is stored and will be enforced later, but it
+  restricts nothing today. Only invite people you'd be comfortable making an
+  admin.
+
+  For race-day volunteers, issue a scoped [timing token](/timing/setup/tokens-and-qr)
+  instead of an org invite — those really are limited to one session.
+</Warning>
+
 ## Manage existing members
 
-- **Change role** by editing a member row.
 - **Remove member** revokes access. They keep their personal Time2Bike account, but lose this org.
 - **Revoke invite** cancels a pending invite. Resend by inviting again.
+- **Resend invite** re-sends the email to someone who lost the link.
 
-You cannot remove the last admin. Promote someone else first.
+Roles are chosen at invite time. To change someone's role, remove them and
+invite them again with the role you want.
+
+The organization's owner can't be removed from the team list.

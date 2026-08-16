@@ -1,33 +1,87 @@
 ---
 title: "Organizers overview"
-description: "What you can do with a Time2Bike organization."
+description: "What a Time2Bike organization is, what's inside one, and where to start."
+icon: "clipboard-list"
 ---
 
-A **Time2Bike organization** is the workspace your team uses to publish events, sell registrations and merch, run live timing, and publish results.
+A **Time2Bike organization** is the workspace your race crew uses to publish
+events, sell registrations and merch, run live timing, and publish results.
 
-Most organizers work through these surfaces:
+If you're setting one up for the first time, go straight to the
+[Quickstart](/organizers/quickstart) — it's the whole path from empty account to
+open registration in one page. This page is the map.
 
-- **Organization dashboard** — recent activity, upcoming events, revenue.
-- **Events** — registration pages, races, questions, waivers, bibs, timing, results, analytics.
-- **Pricing** — schedules, discount codes, redemptions, refunds.
+> !!-IMAGE-NEEDED-!! — A first-time organization dashboard: stat cards across the top and the **Create event** button.
+
+## Organization, team, league
+
+Three words that get mixed up. They're separate, and they don't share
+permissions.
+
+| | What it is | You want one if… |
+|---|---|---|
+| **Organization** | The workspace that *hosts* races | You put on events and take money for entries |
+| **Team** | A racing club riders belong to | You coach a squad — [see Teams](/teams/overview) |
+| **League** | A governing body teams race under | You run a season across multiple clubs |
+
+You can be all three. They're managed separately.
+
+## What's inside an organization
+
+- **Dashboard** — recent activity, upcoming events, revenue.
+- **Events** — registration pages, races, questions, waivers, bibs, timing,
+  results, analytics.
+- **Registrations** — who's entered, manual entry, edits and refunds.
+- **Pricing** — price schedules, discount codes, redemptions, refunds.
 - **Merch** — products, variants, orders.
 - **Series** — multi-event championships with shared plates.
-- **Volunteers** — opportunities, shifts, rewards, race-day check-in (per event).
-- **Imports** — bulk import contacts, registrations, and results from other platforms.
+- **Volunteers** — opportunities, shifts, rewards, race-day check-in.
+- **Imports** — bulk import contacts, registrations, and results from another
+  platform.
 - **Settings** — org profile, team, sponsors, waivers, Stripe payouts.
-
-[IMAGE: organization dashboard → first-time overview with stat cards and "Create event"]
 
 ## Roles inside an organization
 
-Invite teammates from **Settings → Team**. Each member has one of:
+Invite teammates from **Settings → Team**. A user can belong to many
+organizations with a different role in each.
 
-- **Viewer** — read-only access to events, registrations, and analytics.
-- **Editor** — create and edit events, races, pricing, merch.
-- **Manager** — everything editors can do, plus billing, team, and series.
+| Role | What it's for |
+|---|---|
+| **Viewer** | Read-only access to org data. |
+| **Timer** | Manage bib assignments and race timing. |
+| **Finance** | Manage billing and payouts. |
+| **Manager** | Create and edit events, races, pricing, and merch. |
+| **Admin** | Full access, including team management. |
 
-The user who creates the org is automatically the first manager.
+The user who creates the org becomes its first **admin**.
+
+<Note>
+  **While Time2Bike is in beta, every org member has full access regardless of
+  the role you assign.** The role is recorded and will be enforced later — but
+  don't rely on it to restrict anyone today. Invite people you'd trust with
+  admin.
+</Note>
+
+For race day, you can hand out narrower, single-session timing tokens instead of
+org access — see [Timing roles](/timing/concepts/roles).
 
 ## Where money moves
 
-Time2Bike uses **Stripe Connect**. Riders pay through Stripe Checkout and funds settle into your connected Stripe account on Stripe's normal payout schedule. You connect Stripe once under **Settings → Billing**; nothing else collects rider payments.
+Time2Bike uses **Stripe Connect**. Riders pay through Stripe Checkout and funds
+settle into your connected Stripe account on Stripe's normal payout schedule.
+You connect Stripe once under **Settings → Billing**; nothing else collects rider
+payments.
+
+You cannot publish a paid event before Stripe is connected. See
+[Stripe Connect](/platform/stripe-connect).
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/organizers/quickstart">
+    Empty account to open registration, in order.
+  </Card>
+  <Card title="Create an organization" icon="building" href="/organizers/organization/create-organization">
+    The form, field by field.
+  </Card>
+</Columns>
