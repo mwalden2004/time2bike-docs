@@ -4,65 +4,80 @@ description: "Two lanes, head to head, one button per volunteer."
 icon: "code-branch"
 ---
 
-Dual slalom (and 4X) needs both lanes timed independently and accurately. The
-design goal here is that your finish-line volunteers have exactly one button —
-because they're watching a rider come down a hill at speed, not reading a
-screen.
+Dual slalom and 4X need both lanes timed independently and accurately. Your
+finish-line volunteers get exactly one button, because they're watching a rider
+come down a hill at speed rather than reading a screen.
 
 ![Dual slalom](/images/timing/dual-salom.png)
 
-## One phone per job
+A race gets this screen automatically when its format is set to **dual slalom
+bracket** on the [Races](/organizers/races/races-list) page. Nothing to switch on
+in timing.
 
-| Phone | Where it stands | What that person does |
+## One device per job
+
+| Device | Where it stands | What that person does |
 |---|---|---|
-| **Starter** | Top of the course | Enters both riders, presses **START** at the gate |
-| **Finisher — red** | Bottom of the red lane | Presses **FINISH** when the red rider crosses |
-| **Finisher — blue** | Bottom of the blue lane | Same, for blue |
+| **Starter** | Top of the course | Stages both riders, presses **Start both lanes** |
+| **Finisher — red** | Bottom of the red lane | Presses **Finish red** as their rider crosses |
+| **Finisher — blue** | Bottom of the blue lane | Presses **Finish blue** |
 | **Marshal** *(optional)* | Anywhere | Corrections, DNFs, disqualifications |
 
-Three phones is the normal setup, four if you want a marshal. Each person picks
-their job when they join the session.
+Three devices is normal, four if you want a marshal.
 
-## The starter
+## A run, start to finish
 
-The starter's screen has two slots — red and blue.
+<Steps>
+  <Step title="Stage both riders">
+    The starter types each rider's plate into the red and blue slots. When a
+    bracket is running, this is filled in already.
+  </Step>
+  <Step title="Start both lanes">
+    One press opens the clock for both riders.
+  </Step>
+  <Step title="Each finisher presses their lane">
+    Once both lanes are in, the run is complete and the next pair can stage.
+  </Step>
+</Steps>
 
-1. Type the red rider's bib.
-2. Type the blue rider's bib.
-3. Press the big **START** button as the gate drops.
+## Pressed too early?
 
-That's what pairs the two riders into a head-to-head match. Nobody has to tell
-the system who was racing whom later on.
+**Clear last finish** on that lane. It removes the bad time cleanly and the lane
+goes live again.
 
-## The finishers
+Always use Clear rather than trying to re-finish over the top of a wrong time.
 
-The entire screen is one **FINISH** button, coloured for that lane, with the
-running time on it. Press it when your rider crosses. There's nothing to select
-and nothing to type — that was all handled at the start gate.
+## Lane swapping
 
-**Pressed too early?** Tap **CLEAR**. Your lane goes back to live and you press
-FINISH again when the rider actually crosses. Do this immediately; it undoes
-your most recent press.
+In a bracket, riders swap lanes between legs — rider A starts red on the first
+leg and blue on the second — so both riders run both courses. The screen handles
+which lane each rider is in; you just stage and start.
 
-## Watching the match
+## With an RFID pad
 
-Tap the trophy icon to see the current match with both lanes side by side, each
-lane's running time, and the final result once both riders are down.
+If you're running RFID, the reads turn themselves into lane finishes: while a run
+is in flight, a read for a plate that started in the red lane records a red-lane
+finish. Reads for plates that aren't currently on course are ignored.
 
-Times pair themselves into matches automatically.
+A **Listening for plates** panel shows exactly which two bibs the watcher is
+waiting for, so you can see at a glance whether it's going to work.
 
-## Settings that matter for slalom
+→ [RFID](/timing/hardware/rfid)
 
-| Setting | Use |
+## Settings worth getting right
+
+Under **More actions → Advanced timing tools**:
+
+| Setting | For slalom |
 |---|---|
-| **Pausing** | Freeze the clock — a course hold shouldn't count against anyone |
-| **Display precision** | Hundredths. Slalom margins are smaller than a whole second |
-| **Allow self-remove** | On, so finishers can undo an early press themselves |
+| **Displayed precision** | Hundredths — slalom margins are smaller than a second |
+| **Pause behaviour** | Freeze the clock, so a course hold doesn't count against anyone |
 
-Both are set when you [create the session](/timing/setup/create-session).
+Set the pause behaviour before you record anything; it locks once the first entry
+lands.
 
 ## Running a full bracket
 
-Seeding runs, then rounds, then a final — all inside one session.
+Seeding, rounds, and a final all happen on this screen.
 
-→ [Brackets](/timing/operating/brackets)
+→ [Brackets](/timing/formats/brackets)

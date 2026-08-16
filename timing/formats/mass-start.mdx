@@ -1,80 +1,84 @@
 ---
-title: "Standard mode"
-description: "Running a normal race from the timing screen."
-icon: "stopwatch"
+title: "Mass start"
+description: "Everyone off at once — road, XC, gravel, cyclocross, criterium."
+icon: "flag-checkered"
 ---
 
-Standard mode is what you'll use for almost every race.
+The default screen, and the one you'll use for most racing. A race gets it when
+its format is mass start or anything that isn't an interval start, dual slalom,
+or relay.
 
 ![Standard mode](/images/timing/xc-finish.png)
 
-## What's on the screen
-
-| Area | What it's for |
-|---|---|
-| **Race tabs**, across the top | Which race your finishes go into. Check this before every race |
-| **Start / Pause / Stop** | The race clock |
-| **The big number box** | Type a bib, press Enter, that rider is finished |
-| **On course** | Riders who've started but not finished, ordered by elapsed time |
-| **Registered riders** | Everyone signed up for this race — tap a name to finish them now |
-| **Recent finishes** | The last few you've recorded, with times |
-| **Sync dot**, top right | Whether your finishes have uploaded |
-| **± figure** | How confident this phone is of its clock. See [How times stay accurate](/timing/concepts/time-model) |
-
-## Running a race
+## Running one
 
 <Steps>
-  <Step title="Check the race tab">
-    The highlighted tab is where finishes land. This is the mistake that causes
-    the most cleanup, so check it every time.
+  <Step title="Select the race at the top">
+    The highlighted tab is where your entries go. Check it every time.
   </Step>
-  <Step title="Press Start when the race begins">
-    Didn't get to it in time? Keep recording finishes anyway. They'll say
-    "awaiting start" until you press it, then the times work themselves out.
-  </Step>
-  <Step title="Record finishes">
-    Type the bib and press Enter, as fast as riders come in. The clock never
-    stops for you.
+  <Step title="Press START RACE when the gun goes">
+    The label under the button confirms what's about to happen — *all 47 riders
+    go on course*.
 
-    Can't read a bib? Tap the rider's name in **Registered riders** instead.
+    Missed the gun? Record finishes anyway. They'll sit as "awaiting start"
+    until you press it, then every time works itself out.
   </Step>
-  <Step title="Press Stop when the race is over">
-    You can still fix everything after stopping.
+  <Step title="Type bibs as riders cross">
+    Bib, Enter, bib, Enter — as fast as riders come in. The clock never waits
+    for you.
+
+    Can't read a number? Tap the rider in **Registered riders** instead.
+  </Step>
+  <Step title="Press STOP when the race is done">
+    Everything is still editable afterwards.
   </Step>
 </Steps>
 
-## Fixing things
+## Speed at the line
 
-Long-press (or right-click) any rider's row:
+Things that matter when riders arrive three abreast:
 
-- **Set manual time** — type in a time you took by hand, as `mm:ss` or
-  `mm:ss.SSS`.
-- **DNF / DNS / DSQ** — didn't finish, didn't start, disqualified.
-- **Add note** — anything the director should see later.
-- **Delete** — removes a wrong entry from the results. Recoverable.
+- **The input keeps focus.** Never click before typing.
+- **Match chips.** Partial numbers surface matching riders — tap instead of
+  finishing the number.
+- **The digit pad.** Big touch targets for gloves and rain.
+- **UNDO.** One tap reverses your last entry. Use it the moment you notice,
+  rather than hunting for the row.
 
-Marking riders out requires the **marshal** level. Recording and correcting
-times needs only **timer**.
+<Tip>
+  With a big field, put two people on it. Both type into the same race and the
+  entries merge. If you both catch the same rider it's flagged, not silently
+  discarded — you pick which time is right afterwards.
+</Tip>
 
-→ [Edits & corrections](/timing/operating/edits-and-corrections)
+## Riders who don't finish
 
-## Two people on the same race
+At the end, **On course** is your list of riders still unaccounted for. Work down
+it and mark each one DNF or DNS before you finalize, or they'll sit in the
+results with no explanation.
 
-Fine, and often a good idea. Put two volunteers on the same race with their own
-phones and their finishes combine.
+## Pausing
 
-If both record the same rider, that rider is flagged with two candidate times
-and you pick which one is right afterwards — nothing is silently thrown away.
+- **Freeze clock** — elapsed time stops for everyone. Use it for a real course
+  hold or a red flag.
+- **Pause entries** — the clock keeps running, recording is just held.
 
-## Lap racing
+Which one you get depends on a timer-wide setting under **More actions →
+Advanced timing tools**. It's locked once the first entry is recorded, so decide
+before you start.
 
-For criteriums, short track, and other lap-based formats, each pass of the line
-is recorded the same way. The screen tracks each rider's lap count and best lap.
-If a lap needs discarding after a mechanical or a penalty, an admin can void
-that single lap without taking the rider out of the race.
+## Related setups
+
+| If your race also… | See |
+|---|---|
+| Has a mid-course timing point | [Recording points](/timing/screen/recording-points) |
+| Starts in groups | [Waves](/timing/screen/waves) |
+| Counts laps or has primes | [Laps & primes](/timing/formats/laps-and-primes) |
+| Shares a chute with other races | [Combined finish](/timing/formats/combined-finish) |
+| Doesn't mass-start at all | [Interval starts](/timing/formats/interval-starts) |
 
 ## Next
 
-<Card title="Edits & corrections" icon="pen" href="/timing/operating/edits-and-corrections">
-  Every way to fix a result.
+<Card title="Corrections" icon="pen" href="/timing/screen/corrections">
+  Fixing wrong bibs, missed finishes, and duplicates.
 </Card>

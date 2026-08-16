@@ -1,0 +1,89 @@
+---
+title: "Combined finish"
+description: "One chute for every race in the event — with blind capture for when riders arrive faster than you can type."
+icon: "layer-group"
+---
+
+Normally the timing screen is scoped to one race at a time. **Combined finish**
+turns that off: one screen, one chute, every rider in the event.
+
+Use it when several categories share a finish line and sorting riders into races
+at the moment they cross is unrealistic.
+
+> !!-IMAGE-NEEDED-!! — Combined finish: the wave board on top, the plate box, and the combined finish feed below with overall and per-race places.
+
+## Turning it on
+
+**More actions → Advanced timing tools → Finish style → Combined**.
+
+It's a timer-wide setting. It isn't available if any race in the event is dual
+slalom, since those need their own screen.
+
+## What changes
+
+| | Per-race (default) | Combined |
+|---|---|---|
+| Race tabs | Pick one, everything scopes to it | Gone — everything at once |
+| Start controls | START/PAUSE/STOP for the selected race | A **wave board** releasing each start group |
+| Typing a bib | Resolves within the selected race | Resolves across the whole event |
+| The finish list | That race only | Every rider, with overall place and place within their race |
+
+Scoring stays per race. This changes how you *capture*, not how anyone is placed.
+
+## Blind capture
+
+The feature that makes a busy chute survivable.
+
+Riders arrive faster than you can read numbers, so **stamp the crossing without a
+bib**. Press the capture button each time someone crosses; you get a timestamped
+slot with no rider attached.
+
+Afterwards — minutes later, or after the race — work through the queue of
+unassigned times and attach a bib to each. The **time never moves**; you're only
+saying who it belonged to.
+
+<Tip>
+  This is what you fall back to when the chute gets away from you. Better a
+  complete set of accurate times you attach names to later than a partial set of
+  times with names on them.
+</Tip>
+
+## Typing a bib across races
+
+The plate box searches every race at once. When it finds someone, it shows their
+name, their race, and their wave so you can confirm before committing.
+
+If two riders in different races share a bib number, it asks which one you mean
+rather than guessing.
+
+<Warning>
+  Duplicate bib numbers across races cost you time at the finish line. If you're
+  planning to use combined finish, assign one number per rider across the whole
+  event on the **Bibs** page rather than restarting numbering per race.
+</Warning>
+
+## The finish feed
+
+One list, every finisher, newest first:
+
+- **Overall place** and **place within their own race**.
+- **Net time** (from their wave) and **gun time** (from the race start).
+- Filter to one race when you want to read just that podium.
+- Choose which columns you want to see.
+
+## Waves fit naturally here
+
+Combined finish and [waves](/timing/screen/waves) are usually used together: the
+wave board releases each group in turn, and net time keeps everyone comparable
+even though they didn't start at the same moment.
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Waves" icon="flag" href="/timing/screen/waves">
+    Releasing start groups and how net time works.
+  </Card>
+  <Card title="Bibs" icon="hashtag" href="/organizers/events/bibs">
+    Assigning one number per rider across the event.
+  </Card>
+</Columns>

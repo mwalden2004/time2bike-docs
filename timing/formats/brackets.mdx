@@ -1,57 +1,94 @@
 ---
 title: "Brackets"
-description: "Running seeding, rounds, and a final in one session."
+description: "Seeding, rounds, byes, and fixing a bracket that's gone wrong."
 icon: "sitemap"
 ---
 
-For knockout formats — dual slalom, 4X — the timing screen adds a bracket panel
-showing the current match and who advances.
+Knockout racing — dual slalom, 4X — gets a bracket panel and diagram on top of
+the [dual slalom](/timing/formats/dual-slalom) screen.
 
 ![Bracket](/images/timing/bracket.png)
 
-## The shape of the day
+## Setting it up
 
-<Steps>
-  <Step title="Run seeding">
-    Set up a **standard** session for the seeding runs, where riders go down one
-    at a time against the clock. Finalize and publish those results — that's
-    your seeding order.
-  </Step>
-  <Step title="Create a dual slalom session">
-    A second session, in dual slalom mode, for the bracket itself.
+Run your qualifying first, then click **Setup bracket**.
 
-    → [Create a session](/timing/setup/create-session)
-  </Step>
-  <Step title="Run each match">
-    The starter enters both riders and presses START. Each finisher presses
-    FINISH for their lane. The bracket panel fills in both times and the winner.
-  </Step>
-  <Step title="Work through the rounds">
-    Winners advance and the diagram updates. Carry on to the final. The whole
-    bracket lives in this one session.
-  </Step>
-</Steps>
+### Bracket format
 
-<Note>
-  **Matchups are set by hand.** Time2Bike doesn't currently build the draw
-  automatically from your seeding results — the starter enters each round's
-  pairings on the on-deck panel. Have your bracket sheet with you.
-</Note>
+| Option | What you get |
+|---|---|
+| **Single + 3rd place** | Straight knockout plus a ride-off for third. The usual choice |
+| **Single elimination** | Knockout, first and second only |
+| **Single + consolation** | Knockout plus a full consolation bracket placing every first-round loser — 5th to 8th in a field of eight. More runs |
+| **Double elimination** | Two losses to go out |
 
-## Best of two
+### Match format
 
-The usual slalom rule: each pair races twice with the lanes swapped, and the
-lowest combined time wins.
+| Option | Winner is |
+|---|---|
+| **Combined time** | Lowest total across both legs. The standard slalom rule |
+| **Best of 2** | Whoever wins more legs |
+| **Single run** | One leg, straight up |
 
-1. Run the first leg.
-2. Swap lanes, run the second.
-3. Both leg times are added automatically, and the bracket shows each leg plus
-   the combined total.
+### Size and seeds
 
-## Overriding a result
+Pick 4, 8, 16, or 32. Seeds default to qualifying order — drag to reorder, or
+seed by hand.
 
-Long-press a match and choose **Mark winner** to set the outcome by hand — for a
-crash, a disqualification, or a rider who doesn't take their second run.
+If you have fewer riders than slots, the empty ones become **byes** and their
+opponents advance automatically when you resolve the bracket.
 
-The recorded times stay visible; you're overriding who advances, not erasing
-what happened.
+> !!-IMAGE-NEEDED-!! — The bracket setup dialog with format, match format, size, and the seed list.
+
+## Running it
+
+The **bracket diagram** shows every match. Click one to point the operator panel
+at it, then stage and run it like any other dual-slalom pair.
+
+Winners cascade into the next round on their own. A match is decided when both
+riders have all their legs recorded, or one forfeits.
+
+**Resolve byes** re-walks the bracket and advances anyone with no opponent. Run
+it after setup, and after any reseed or substitution.
+
+## Fixing a bracket
+
+Things go wrong at a slalom more than anywhere else. All of this is available:
+
+<AccordionGroup>
+  <Accordion title="Wrong rider in a match" icon="user-pen">
+    **Edit match** in the operator panel — substitute either rider by plate or
+    name. Substituted riders are badged so you can see it was a manual change.
+  </Accordion>
+  <Accordion title="Riders on the wrong sides" icon="arrow-right-arrow-left">
+    **Edit match** → swap A and B.
+  </Accordion>
+  <Accordion title="A leg time is wrong" icon="clock">
+    Fix it inline in the match panel, or open **Edit all times** for a table of
+    every match and every leg with editable cells. That's the fastest route
+    when an import double-fired or a tag was missed.
+  </Accordion>
+  <Accordion title="A rider can't take their run" icon="ban">
+    **Forfeit / DNF** at the bottom of the match panel. Their opponent advances.
+  </Accordion>
+  <Accordion title="The seeding was wrong" icon="list-ol">
+    **Edit seeds** re-runs seeding for the whole bracket. Only available before
+    any match has been decided — after that, substitute riders instead.
+  </Accordion>
+  <Accordion title="The bracket is in a state you don't understand" icon="triangle-exclamation">
+    Press **Resolve byes** first — it fixes most of it. If it's still wrong, open
+    **Edit all times** to see every leg at once and work out what's missing.
+  </Accordion>
+</AccordionGroup>
+
+## Seeding runs
+
+Run qualifying as a normal timed race first — riders go down one at a time
+against the clock. That's the [interval-start](/timing/formats/interval-starts)
+screen, and the resulting times become your default seed order.
+
+## Next
+
+<Card title="Corrections" icon="pen" href="/timing/screen/corrections">
+  Fixing results outside the bracket.
+</Card>

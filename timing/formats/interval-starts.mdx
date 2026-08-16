@@ -1,0 +1,80 @@
+---
+title: "Interval starts"
+description: "Downhill, time trial, hill climb, enduro stages — one rider off the gate at a time."
+icon: "gauge-high"
+---
+
+Races where riders leave one at a time and several are on course at once get
+their own screen. Time2Bike gives it to any race whose format is **time trial**,
+**downhill**, or **enduro stages**.
+
+Every rider carries their own start time, so nobody's result depends on a shared
+gun.
+
+> !!-IMAGE-NEEDED-!! — The interval-start screen: the on-deck rider, the on-course list with live clocks, and the big FINISH button.
+
+## The shape of it
+
+<Steps>
+  <Step title="Start each rider as they drop in">
+    Type the rider's bib into the start box and press start as the gate opens.
+    Their clock begins right then.
+  </Step>
+  <Step title="They join the on-course list">
+    Everyone currently on the hill, each with their own running time, oldest
+    first.
+  </Step>
+  <Step title="Press FINISH as each rider crosses">
+    The big **FINISH** button closes out **the rider who's been on course
+    longest** — which is right whenever nobody has been passed.
+  </Step>
+</Steps>
+
+## When someone gets passed
+
+The big button's guess is wrong exactly when a rider is overtaken. Two ways out:
+
+- **Every rider on course has their own Finish button.** Use that one when you
+  can see who's actually coming down.
+- **Reassign afterwards.** If a finish landed on the wrong rider, move it to any
+  other rider still on course. **The recorded crossing time doesn't change** —
+  only who owns it. You're fixing identity, not the clock.
+
+<Tip>
+  Don't try to fix an ownership mistake by deleting and re-recording. You'd lose
+  the real crossing time and replace it with the time you noticed. Reassign
+  instead.
+</Tip>
+
+## What else is on the screen
+
+| Control | For |
+|---|---|
+| **Void** | A false start — throws the run away entirely |
+| **DNF** | A rider who set off and didn't come down |
+| **Clear** | Undo a finish you just recorded |
+| **Race picker** | Switch between interval races without leaving this screen |
+
+## Enduro stages
+
+Make each stage its own race. Riders get an independent start and finish per
+stage, and the transfers between them aren't timed.
+
+## Hardware
+
+This is the screen that benefits most from beam-break timing — a start gate and
+a finish beam remove human reaction time from both ends, which matters when
+runs are separated by hundredths.
+
+→ [Laser timing](/timing/hardware/laser)
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Laser timing" icon="tower-broadcast" href="/timing/hardware/laser">
+    GPS-accurate gate and finish beams.
+  </Card>
+  <Card title="Dual slalom" icon="code-branch" href="/timing/formats/dual-slalom">
+    Two riders, side by side.
+  </Card>
+</Columns>
