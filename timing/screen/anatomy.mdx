@@ -1,0 +1,145 @@
+---
+title: "A tour of the screen"
+description: "Every part of the timing screen, top to bottom, and what it does."
+icon: "table-columns"
+---
+
+Open your event and click **Live Timing**. This is what you're looking at.
+
+![Live Timing](/images/timing/home.png)
+
+> !!-IMAGE-NEEDED-!! — The full timing screen with callout numbers on each region described below.
+
+## Top bar
+
+| What | What it tells you |
+|---|---|
+| **Race tabs** | Every race in the event. The highlighted one is where your entries go. Tap to switch — the controls below change to suit that race's format. |
+| **Status badge** | Whether the timer is running, paused, stopped, finalized, or published. |
+| **Clock chip** — `±5 ms` | How closely this device agrees with Time2Bike's clock. Under 50 ms is excellent; over 200 ms means a flaky connection. |
+| **Sync chip** | 🟢 synced, 🟡 *N* queued, 🔴 offline. Tap it to see exactly what's waiting to upload. |
+| **Help** | The full operator reference, built into the screen. |
+
+<Tip>
+  Getting the race tab wrong is the most common race-day mistake and the one
+  that takes longest to unpick. Check it before every race.
+</Tip>
+
+## The blue hint bar
+
+A one-line prompt telling you what to do next — *Step 1: Start Cat 3 Men to begin
+timing*, then *Step 2: Enter a plate number or tap a rider*. It follows the state
+of the race, so if you're not sure what to do, read that line.
+
+## Start / Pause / Stop
+
+Big buttons, sized for cold hands.
+
+- **START RACE** — opens the clock. The label underneath tells you what pressing
+  it actually does to the field: *all 47 riders go on course*, or *riders go on
+  course as you check them in*.
+- **Pause / Resume** — labelled **Freeze clock** or **Pause entries** depending
+  on how the timer is set. Freezing stops everyone's elapsed time (a real course
+  hold); pausing entries just stops recording while the clock runs on.
+- **STOP** — ends the race. You can still fix everything afterwards.
+
+Pressing START on a race that's already running says **RESTART RACE** instead —
+only do that if you fired the previous start by mistake, because it invalidates
+the finishes already recorded against the old clock.
+
+Interval-start and dual-slalom races don't show this grid; their starts happen
+per rider or per lane.
+
+## The big number box
+
+The single most important control. Type a bib, press **Enter**.
+
+- It stays focused, so you don't have to click it before typing.
+- As you type, matching riders appear as chips — tap one instead of finishing
+  the number.
+- There's an on-screen digit pad for gloved hands and touchscreens.
+- An **UNDO** button sits next to it. One tap reverses your last recording.
+
+What Enter *does* depends on your recording point — finish, lap, split, or
+check-in. See [Recording points](/timing/screen/recording-points).
+
+## On course
+
+Riders who've started but not finished, sorted by elapsed time. This is your
+"who's still out there" list, and at the end of a race it's your DNF list.
+
+## Registered riders
+
+The full roster for the selected race. Tap any name to record them right now —
+what you reach for when a bib is unreadable or caked in mud.
+
+There's a search box, and the list collapses automatically for big fields so the
+timing controls stay above the fold.
+
+## Any result row
+
+Tap a row to open its menu: manual time, DNF/DNS/DSQ, add a note, record a
+split, void a lap, delete. What you see depends on your access level.
+
+→ [Corrections](/timing/screen/corrections)
+
+## Footer
+
+| Button | What it does |
+|---|---|
+| **More actions** | Exports, add riders, PDFs, operator links, advanced settings — see below |
+| **Share live results** | Opens a public spectator link that updates as you time |
+| **Finalize Session** | Locks the results |
+| **Results PDF** / **Publish to public** | Appear once you've finalized |
+
+## Inside More actions
+
+Worth knowing what's in there before you need it:
+
+<AccordionGroup>
+  <Accordion title="Download for offline" icon="download">
+    Saves the timing screen onto this device so it opens with no signal at all.
+    Do this the day before if you're racing somewhere remote.
+  </Accordion>
+  <Accordion title="Add riders" icon="user-plus">
+    Enter a drop-in by bib, name, and team without them registering. Works
+    offline. → [Adding riders](/timing/screen/adding-riders)
+  </Accordion>
+  <Accordion title="Exports and printing" icon="file-export">
+    CSV, JSON, printed results, per-race PDF, whole-event PDF, whole-event CSV.
+    Printing and the CSV/JSON exports work offline.
+    → [Exports](/timing/results/exports)
+  </Accordion>
+  <Accordion title="Operator tokens" icon="qrcode">
+    Create and revoke volunteer links.
+    → [Volunteer links](/timing/crew/tokens-and-qr)
+  </Accordion>
+  <Accordion title="Advanced timing tools" icon="sliders">
+    Per race: lap mode and a target lap count, named split points, and whether
+    the race is a mass start or checks riders in. Timer-wide: displayed
+    precision, pause behaviour, and combined-finish mode.
+  </Accordion>
+  <Accordion title="Record prime" icon="award">
+    Award a mid-race prime to a rider on a given lap.
+    → [Laps & primes](/timing/formats/laps-and-primes)
+  </Accordion>
+  <Accordion title="Import results" icon="upload">
+    Pull results in from another timing platform's file.
+  </Accordion>
+  <Accordion title="Reset timing data" icon="triangle-exclamation">
+    Wipes timing for one race or the whole event and starts over. There's a
+    confirmation, and it's blocked while anything is still waiting to upload.
+    Use it after a test run.
+  </Accordion>
+</AccordionGroup>
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Recording points" icon="map-pin" href="/timing/screen/recording-points">
+    Telling the screen where on the course you're standing.
+  </Card>
+  <Card title="Corrections" icon="pen" href="/timing/screen/corrections">
+    Fixing what goes wrong.
+  </Card>
+</Columns>

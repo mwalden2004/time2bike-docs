@@ -1,100 +1,139 @@
 ---
 title: "Live Timing overview"
-description: "Time your race on a phone. No timing hardware required, and it keeps working when the signal doesn't."
+description: "Time your race on a phone or laptop. Nothing to set up, and it keeps working when the signal doesn't."
 icon: "stopwatch"
 ---
 
 **Live Timing** is how you time a race on Time2Bike. It runs in a normal web
-browser on a normal phone — no app to install, no laptop required, no timing
-hardware to buy.
+browser — no app to install, no timing hardware to buy, and nothing to
+configure before race day.
 
 ![Live Timing](/images/timing/home.png)
+
+## There's nothing to create
+
+Open your event and click the **Live Timing** tab. That tab *is* the timer.
+
+- Your event has **one timer**, made for you the first time you open the tab.
+- It covers **every race in the event** automatically.
+- Add a race later and the timer picks it up on its own.
+
+The only thing you have to do first is [create your races](/organizers/races/races-list)
+and [assign bib numbers](/organizers/events/bibs). If you have no races yet,
+the tab tells you so.
+
+<Note>
+  You don't pick a timing "mode" either. Each race gets the right screen based
+  on the format you already chose when you created it — mass start, time trial,
+  downhill, dual slalom. Switch races at the top of the screen and the controls
+  change with it. See [Race formats](/timing/formats/mass-start).
+</Note>
 
 ## What you actually need
 
 <Columns cols={2}>
-  <Card title="A phone" icon="mobile">
-    Any phone from the last few years. A tablet or laptop works too.
+  <Card title="A phone or laptop" icon="mobile">
+    Anything from the last few years, in a normal browser.
   </Card>
-  <Card title="Your riders' bib numbers" icon="hashtag">
-    That's the only rider identity Time2Bike uses. Assign them under
+  <Card title="Bib numbers on your riders" icon="hashtag">
+    Bib numbers are the only rider identity Time2Bike uses. Assign them under
     **Event → Bibs**.
   </Card>
 </Columns>
 
-That's it. Signal is optional — see below.
+Signal is optional — see below.
 
 ## How it works, in one paragraph
 
-You open the timing screen on your phone and press **Start** when the race
-begins. As riders cross the line you type their bib number and press Enter, or
-tap their name in the rider list. Each entry is stamped with the exact moment
-you pressed the button. When the race is over you press **Stop**, fix anything
-that looks wrong, then **Finalize** and **Publish** — and the results appear on
-your event page.
+Open the Live Timing tab and press **Start** when the race begins. As riders
+cross the line you type their bib number and press Enter, or tap their name in
+the rider list. Each entry is stamped with the exact moment you pressed the
+button. When the race is over you press **Stop**, fix anything that looks wrong,
+then **Finalize** and **Publish** — and the results appear on your event page.
 
-## The four things that matter on race day
+## The things that matter on race day
 
 <AccordionGroup>
   <Accordion title="It works with no signal" icon="wifi">
-    Every finish is saved to your phone the instant you record it, before
-    anything is sent anywhere. If you lose signal in the middle of a race,
-    nothing stops — keep timing. Your phone catches up on its own when the
-    signal comes back.
+    Every finish is saved to your device the instant you record it, before
+    anything is sent anywhere. Lose signal mid-race and nothing stops — keep
+    timing. It catches up on its own when the signal comes back.
 
-    A small indicator in the corner tells you where you stand: green (all
-    uploaded), yellow (a few waiting), red (offline, still recording).
+    You can even save the whole screen to a device ahead of time so it opens
+    with no signal at all.
 
-    → [Offline & sync](/timing/hardware/offline-and-sync)
+    → [Timing without signal](/timing/hardware/offline-and-sync)
   </Accordion>
-  <Accordion title="Several people can time the same race" icon="users">
-    Put four volunteers on four phones and they'll all be recording into the
-    same race. Their finishes combine correctly, in the right order, even if
-    some of them were offline at the time.
+  <Accordion title="Your whole crew can time at once" icon="users">
+    Put four volunteers on four devices and they all record into the same timer.
+    Their entries combine correctly, in the right order, even if some of them
+    were offline at the time — and everyone sees everyone else's finishes
+    within about a second.
+
+    Better still, each person says **where on the course they're standing**, and
+    the same screen does the right job for each of them.
+
+    → [Recording points](/timing/screen/recording-points)
   </Accordion>
   <Accordion title="Volunteers don't need accounts" icon="qrcode">
-    You hand out a QR code or a link. Your volunteer scans it, and their phone
+    You hand out a QR code or a link. Your volunteer scans it and their device
     is a timing device — no password, no account, no access to anything else in
-    your organization. You can switch it off the moment the race ends.
+    your organization. Switch it off whenever you like.
 
-    → [Tokens & QR codes](/timing/setup/tokens-and-qr)
+    → [Volunteer links](/timing/crew/tokens-and-qr)
   </Accordion>
-  <Accordion title="Mistakes are fixable and nothing is lost" icon="clock-rotate-left">
-    Wrong bib, missed finish, forgot to press start, two people recorded the
-    same rider — all of it is fixable after the fact, and every correction keeps
-    a record of what was originally entered. You can't accidentally destroy a
-    result.
+  <Accordion title="Mistakes are fixable, and there's an UNDO button" icon="rotate-left">
+    Every recording can be undone with one tap. Beyond that: wrong bib, missed
+    finish, forgot to press start, two people recorded the same rider — all
+    fixable after the fact, and every correction keeps a record of what was
+    originally entered.
 
-    → [Edits & corrections](/timing/operating/edits-and-corrections)
+    → [Corrections](/timing/screen/corrections)
+  </Accordion>
+  <Accordion title="Spectators can follow along before results are official" icon="radio">
+    Flip **Share live results** and you get a public link that updates as you
+    record. Results stay unofficial until you finalize and publish.
+
+    → [Sharing live results](/timing/results/live-sharing)
   </Accordion>
 </AccordionGroup>
 
 ## What it can time
 
-| Your race | What to use |
+| Your race | Screen you get |
 |---|---|
-| Mass start — road, XC, gravel, cyclocross, criterium | Standard |
-| Time trial or individual starts | Standard |
-| Downhill or enduro stages | Standard, one session per stage |
-| Lap-based racing with a lap count | Standard |
-| Relay | Standard |
-| Dual slalom or 4X (two lanes, head to head) | Dual slalom |
+| Mass start — road, XC, gravel, cyclocross, criterium | [Mass start](/timing/formats/mass-start) |
+| Time trial, downhill, hill climb, enduro stages | [Interval starts](/timing/formats/interval-starts) |
+| Lap racing and criteriums with primes | [Laps & primes](/timing/formats/laps-and-primes) |
+| Several races finishing through one chute | [Combined finish](/timing/formats/combined-finish) |
+| Dual slalom or 4X | [Dual slalom](/timing/formats/dual-slalom) and [Brackets](/timing/formats/brackets) |
+| Relay | [Relay](/timing/formats/relay) |
 
-→ [Picking a mode](/timing/setup/modes)
+Staggered starts within a race are handled by [waves](/timing/screen/waves).
+
+## Hardware, if you have it
+
+Everything above works by typing bib numbers. If you already own timing
+hardware, you can feed it in instead:
+
+- **RFID pads** — [read from your reader's file](/timing/hardware/rfid), keyed
+  by bib.
+- **Beam-break gate boxes** — [Time2Bike's laser timing system](/timing/hardware/laser),
+  for GPS-accurate starts and finishes.
 
 ## Where to go next
 
 <Columns cols={2}>
   <Card title="I'm the race director" icon="clipboard-list" href="/timing/race-day">
-    The race-day runbook: what to do the week before, the morning of, and after.
+    The race-day runbook: the week before, the morning of, and after.
   </Card>
   <Card title="I'm timing today" icon="stopwatch" href="/timing/operator-quickstart">
-    The one-page field guide. Keep it open on the phone you're timing with.
+    The one-page field guide. Keep it open while you time.
   </Card>
-  <Card title="I'm setting this up for the first time" icon="gear" href="/timing/setup/create-session">
-    Create a timing session and get your volunteers on it.
+  <Card title="What am I looking at?" icon="table-columns" href="/timing/screen/anatomy">
+    A tour of the timing screen, part by part.
   </Card>
-  <Card title="I'm using an RFID pad" icon="tower-broadcast" href="/timing/hardware/rfid">
-    Feed reads from a timing pad in, keyed by bib.
+  <Card title="Getting my crew set up" icon="qrcode" href="/timing/crew/tokens-and-qr">
+    Volunteer links, and who should get what.
   </Card>
 </Columns>

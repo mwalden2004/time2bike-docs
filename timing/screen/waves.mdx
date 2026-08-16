@@ -1,0 +1,76 @@
+---
+title: "Waves"
+description: "Staggered starts within one race, and the difference between net time and gun time."
+icon: "flag"
+---
+
+A **wave** is a group of riders released separately within the same race — 19-and-
+under at 9:00, 20-to-39 at 9:03, everyone else at 9:06. Each wave gets its own
+start time, and each rider's result is measured from their own wave.
+
+Waves are optional. If you don't define any, nothing about the screen changes.
+
+> !!-IMAGE-NEEDED-!! — The wave board with three waves: one running with a live clock, one started, one waiting.
+
+## Setting waves up
+
+Open the wave setup from the timing screen, then:
+
+1. Add a wave and give it a label riders will recognise — "Juniors", "Wave 2".
+2. Assign riders to it.
+3. Optionally set a planned offset from the gun — "+3 minutes".
+
+Riders you don't assign stay with the main field.
+
+## Releasing them on the day
+
+Once the race has started, each wave gets a **Start wave** button on the wave
+board. Press it as that group is released; the clock for that wave starts and
+runs live on screen.
+
+<Note>
+  **The gun comes first.** Waves can't be released until the race itself has been
+  started, because net time is measured from the wave and gun time from the race
+  start — a wave start with no gun doesn't mean anything.
+</Note>
+
+### Pressed it early or late?
+
+Each wave has an **Adjust** panel: nudge the start a few seconds either way,
+restart it, or clear it entirely. Do it as soon as you notice — riders in that
+wave are being timed against it.
+
+## Net time and gun time
+
+Every rider ends up with both:
+
+| | Measured from | Used for |
+|---|---|---|
+| **Net time** | Their own wave's start | Fair comparison between riders in different waves |
+| **Gun time** | The race start | Overall finishing order, which is what usually decides the podium |
+
+Both are recorded, and you choose which to show in results and exports.
+
+<Tip>
+  The **actual** press is what counts. A wave's planned offset is only a fallback
+  for working out net time if that wave never got started live — so if you set
+  "+3 minutes" and released them at 3:40, the 3:40 is what's used.
+</Tip>
+
+## Waves vs separate races
+
+Both split a field into groups. Which you want:
+
+| Use waves when | Use separate races when |
+|---|---|
+| It's one race with one result list, released in groups for safety or road width | The groups are genuinely different races with their own results, prices, and categories |
+| You want one overall finishing order | You want separate podiums per group |
+
+If you already made them separate races and they all finish through one chute,
+look at [combined finish](/timing/formats/combined-finish) instead.
+
+## Next
+
+<Card title="Combined finish" icon="layer-group" href="/timing/formats/combined-finish">
+  One finish chute across every race in the event.
+</Card>

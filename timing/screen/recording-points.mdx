@@ -1,0 +1,92 @@
+---
+title: "Recording points"
+description: "Tell the screen where on the course you're standing, and the big input does that job."
+icon: "map-pin"
+---
+
+A timing crew is spread around a course: someone at the start chute, someone at
+the halfway split, someone on the line. Rather than giving each of them a
+different little form, **each device says where it is standing once**, and the
+one big input does that job.
+
+Same keystrokes, same chips, same digit pad. Only the meaning of **Enter**
+changes.
+
+> !!-IMAGE-NEEDED-!! — The recording-point button row above the plate input, with "Halfway" selected.
+
+## The buttons
+
+A row above the plate box, showing only the points that exist for this race:
+
+| Point | Enter records | Appears when |
+|---|---|---|
+| **Start line** | A rider checking onto the course | The race checks riders in rather than mass-starting |
+| **A named split** | That rider's time at that point | You've defined split points for the race |
+| **Finish line** | A finish | Always |
+| **Lap** | One lap for that rider | The race is in lap mode |
+
+If a race only has a finish line, no buttons appear — there's nothing to choose.
+
+## It's per device, and it sticks
+
+Your choice is remembered **on your device, for that race**. Two laptops on the
+same timer are normally standing in two different places, so this is deliberately
+not shared.
+
+It also survives a reload — the split marshal doesn't come back from a page
+refresh silently reset to the finish line halfway through a race.
+
+<Tip>
+  Set it once when you get to your post, then don't think about it again. The
+  submit button and the hint text both name what you're recording, so a glance
+  confirms you're still pointed at the right place.
+</Tip>
+
+## Setting up split points
+
+Splits are defined per race by whoever runs timing: **More actions → Advanced
+timing tools**, with a race selected.
+
+Give each split a short name your marshals will recognise — "Top of the climb",
+"Halfway", "Bell lap". Those names become the buttons, and the column headings
+in results.
+
+If you use RFID, each split can also be tied to a specific mat so reads from that
+mat land on that split automatically.
+
+## Mass start vs check-in
+
+Also set per race under **Advanced timing tools**:
+
+- **Mass start** — the whole roster goes on course the moment you press START.
+  Right for road races, XC, criteriums.
+- **Check riders in** — nobody is on course until someone records them at the
+  start line. Right for rolling starts and staged chutes, where knowing who
+  actually left matters.
+
+Either way, **elapsed time is measured from the gun** (or from that rider's
+[wave](/timing/screen/waves)), so a late check-in never shortens somebody's run.
+
+## A worked example
+
+A 50 km gravel race with a timing point at the halfway aid station:
+
+| Person | Where | They set | They do |
+|---|---|---|---|
+| You | Finish arch | Finish line | Type bibs as riders come in |
+| Marshal | Aid station | Halfway | Type bibs as riders roll through |
+
+Both use the same screen, and both just type numbers. The results end up with a
+halfway split and a finish time per rider, and you never told either person to
+use a different control.
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Waves" icon="flag" href="/timing/screen/waves">
+    Staggered starts within one race.
+  </Card>
+  <Card title="Laps & primes" icon="rotate" href="/timing/formats/laps-and-primes">
+    Lap racing, target lap counts, and mid-race primes.
+  </Card>
+</Columns>
