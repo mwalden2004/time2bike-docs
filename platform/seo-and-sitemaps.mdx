@@ -1,44 +1,65 @@
 ---
-title: "SEO & sitemaps"
-description: "How Time2Bike pages appear to search engines."
+title: "Getting found online"
+description: "How your event pages show up in search and when people share them."
+icon: "magnifying-glass"
 ---
 
-Time2Bike auto-generates SEO metadata for every public page and exposes a sitemap.
+Your public pages are built to be found — by Google, and by whoever your riders
+share the link with. You don't have to configure any of it, but a few of your
+own choices make a real difference.
 
-## Page metadata
+## What happens automatically
 
-Each public page sets:
+- Your event, organization, and series pages are submitted to search engines
+  for you.
+- Each page gets a title and summary built from what you've already filled in.
+- Sharing a link on social media pulls in your banner image, event name, and
+  description automatically.
+- Draft and hidden events stay invisible — they're never indexed, and neither is
+  anything behind a login.
 
-- **Title** — `<Event name> · <Org name> | Time2Bike`.
-- **Description** — short summary from your event description / org blurb.
-- **Open Graph** — `og:title`, `og:description`, `og:image` (banner or logo).
-- **Twitter card** — `summary_large_image` with the banner.
-- **Canonical URL** — points back to the time2.bike page.
+## What actually moves the needle
 
-You don't have to author these by hand — they come from the fields you fill in on your dashboards.
+<AccordionGroup>
+  <Accordion title="Write a real description" icon="align-left">
+    Put your event name, discipline, city, and state in the first sentence of
+    your event description. That's what people search for — "gravel race
+    Bentonville" — and it's what search engines read first.
+  </Accordion>
+  <Accordion title="Upload a good banner" icon="image">
+    Your banner is the preview image whenever anyone shares your event on social
+    media. A sharp, bright action shot gets clicked; a stretched logo doesn't.
+  </Accordion>
+  <Accordion title="Use one link everywhere" icon="link">
+    Put the same `time2.bike/events/your-event` link in every post, email, and
+    flyer. Splitting your traffic across different links weakens all of them.
 
-## Sitemap
+    And don't change your web address once you've publicised it — old links
+    don't redirect. → [Web addresses](/platform/slugs)
+  </Accordion>
+  <Accordion title="Get shared early" icon="share-nodes">
+    Links from local clubs, shops, and tourism sites are worth more than
+    anything you can change on the page. Ask the venue and your sponsors to link
+    to your event page rather than to a PDF flyer.
+  </Accordion>
+</AccordionGroup>
 
-`time2.bike/sitemap.xml` lists:
+## Knowing what worked
 
-- Every published org public page.
-- Every published event landing page and its sub-pages (register, results, live).
-- Every published series page.
-- Every public rider profile (privacy-permitting).
+Time2Bike remembers where each registration came from. If you tag your own links
+— the ones in your newsletter, your Instagram bio, a partner's site — you'll see
+which channel produced which signups under **Event → Analytics**, in the
+**Attribution** section.
 
-Google, Bing, and DuckDuckGo crawl it automatically.
+Any tracking tags you add to a link are carried through to the registration, so
+whatever you already use for campaign tracking keeps working.
 
-## Robots
+→ [Event analytics](/organizers/events/event-analytics)
 
-`time2.bike/robots.txt` allows all crawlers and points at the sitemap. Draft and hidden content (private dashboards, draft events) is gated behind authentication and never indexed.
+## Rider profiles
 
-## Attribution parameters
+Riders' public profiles are findable too, which is how a rider's results turn up
+when someone searches their name. Riders control this themselves under
+**Account → Privacy**.
 
-Time2Bike preserves `utm_source`, `utm_medium`, `utm_campaign`, and `referrer` on the rider's registration. These show up in your [event analytics](/organizers/events/event-analytics) under **Attribution** so you can see which channel produced which signups.
-
-## Tips for ranking
-
-- Put your event name, discipline, city, and state in the description.
-- Upload a good banner image — it's the OG image.
-- Encourage social shares early; backlinks help.
-- Use your org's custom slug consistently across your own marketing.
+→ [Privacy](/riders/account/privacy)

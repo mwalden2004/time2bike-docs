@@ -1,0 +1,118 @@
+---
+title: "Laser timing"
+description: "Beam-break gate boxes that time the rider, not the person with the button."
+icon: "bolt"
+---
+
+Time2Bike's laser timing system replaces the human at the button with a beam
+across the course. A rider breaks the beam, the box stamps the moment, and it
+lands in your results.
+
+It's the right tool when hundredths decide the podium: downhill, time trials,
+dual slalom, hill climbs.
+
+> !!-IMAGE-NEEDED-!! — The laser panel with three boxes connected, showing signal, battery, and last pass.
+
+## What's in the kit
+
+| Piece | What it does |
+|---|---|
+| **Gate boxes** | Sit on the course with a beam across it. Stamp each pass |
+| **Base station** | Plugs into a laptop by USB. Receives from every box by radio |
+
+Boxes talk to the base over long-range radio. A box too far from the base is
+relayed by the others, so a start gate at the top of a hill still reaches a
+laptop at the bottom.
+
+## Getting connected
+
+<Steps>
+  <Step title="Plug the base station into a laptop">
+    Use Chrome or Edge, on Windows or macOS. Firefox and Safari can't talk to
+    the base station.
+  </Step>
+  <Step title="Open the laser panel on the timing screen">
+    Click connect and pick the base station from the browser's device list.
+  </Step>
+  <Step title="Add your boxes">
+    Each box has an ID printed on it. Add the ones you're using — boxes you
+    haven't added are ignored even if they're heard on the radio.
+  </Step>
+  <Step title="Say what each box is">
+    Map each one to its job: the start gate, the finish, the red lane, the blue
+    lane. This is what turns a beam break into a timing entry.
+  </Step>
+  <Step title="Arm the fleet">
+    Once armed, passes are recorded. Until then, boxes report but nothing lands
+    in your results.
+  </Step>
+</Steps>
+
+## Accuracy
+
+Each box stamps a pass **at the box**, against satellite time, before it's sent
+anywhere. So the time in your results is the moment the rider broke the beam —
+not the moment the message arrived at the laptop.
+
+You'll see a "delivered +12 ms" figure next to passes. That's how long the
+message took to reach you, and it has no effect on the recorded time.
+
+## The whole crew sees it
+
+The base station is plugged into one laptop, but the fleet isn't that laptop's
+private business. Whoever holds the USB cable becomes the bridge and mirrors
+everything to everyone else timing the event — box health, alerts, passes,
+mappings, the arm switch.
+
+So a marshal at the bottom of the hill can wake a sleeping box or disarm the
+fleet without walking up to the tent.
+
+If a remote operator loses connection they lose *visibility*, never a rider's
+time — the timing path itself runs through the bridge laptop.
+
+## Speed readings
+
+Each box measures how long between your front and rear wheel and works out your
+speed from it. There's one wheelbase setting for the course (1.2 m by default).
+
+If the wheels didn't give the beam a clean look, you get no speed for that pass.
+The time is unaffected.
+
+## Watch for these
+
+The panel raises alarms for the states that silently stop recording riders. Each
+one shows a countdown and a one-press way out:
+
+| State | What it means |
+|---|---|
+| **Align** | The box is being aimed. Records nothing at all |
+| **Quiet** | The box is timing but not transmitting |
+| **Storm** | The box has paused its radio over a suspected sensor fault |
+| **Deaf** | Bench-test mode. Pretends the link is dead |
+
+All of them expire on their own, but don't wait — a box in align mode during a
+race run is a lost rider.
+
+**Silence is itself an alarm.** A box that hasn't checked in for 15 seconds is
+flagged, because a box you can't hear from is a box that isn't timing.
+
+## If a pass goes missing
+
+Every box keeps its own record on a memory card. If a message never arrives, the
+panel notices the gap and the pass is still recoverable from the box afterwards.
+
+## You don't need any of this
+
+Laser boxes are an option, not a requirement. Most races on Time2Bike are timed
+by two people typing bib numbers into phones, and that works.
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Interval starts" icon="gauge-high" href="/timing/formats/interval-starts">
+    The format that gains most from beam timing.
+  </Card>
+  <Card title="RFID pads" icon="tower-broadcast" href="/timing/hardware/rfid">
+    The other hardware route, keyed by bib.
+  </Card>
+</Columns>

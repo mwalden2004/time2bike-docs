@@ -1,31 +1,65 @@
 ---
-title: "Uploads & CDN"
-description: "How logos, banners, and product images are served."
+title: "Images"
+description: "Logos, banners, and photos — what to upload and where they show up."
+icon: "image"
 ---
 
-Every image you upload — org logos, event banners, gallery photos, product images, sponsor logos — flows through Time2Bike's CDN.
+Every image on Time2Bike — org logos, event banners, gallery photos, product
+shots, sponsor logos — is uploaded the same way: click the field, pick a file,
+done.
 
-## Upload limits
+There's no media library to keep tidy. Images attach to whatever you were
+editing.
 
-- **Max file size**: 5 MB per image.
-- **Types**: `image/png`, `image/jpeg`, `image/webp`, `image/gif`. SVG is accepted for logos only.
-- **Org logos**: square recommended; auto-rendered as a circle in some surfaces.
-- **Event banners**: 16:9 recommended; cropped on mobile.
+## What to upload
 
-## Where it goes
+| Where | Shape | Notes |
+|---|---|---|
+| **Organization logo** | Square | Shown in the nav, on your public page, and in emails. Rendered as a circle in some places, so keep the important part centred |
+| **Event banner** | Wide, 16:9 | The hero image on your event page, and the preview when someone shares the link |
+| **Team logo** | Square | 500 × 500 is plenty |
+| **Team banner** | Wide, around 1600 × 400 | |
+| **Sponsor logo** | Any | PNG with a transparent background looks best |
+| **Product photo** | Square | |
+| **Gallery photos** | Any | |
 
-When you pick a file, Time2Bike uploads it, stores it, and attaches it to whatever you were editing — your organization, an event, or a product — along with its alt text. You don't manage files separately; there's no media library to keep tidy.
-
-URLs look like `https://cdn.time2.bike/[random-id].[ext]` and are immutable.
+**Limits:** 5 MB per image. PNG, JPEG, WebP, or GIF — plus SVG for logos.
 
 ## Alt text
 
-Every image surface in Time2Bike requires an alt text field. This is enforced for accessibility and is read by screen readers and indexed by search engines.
+Every image field asks for a short description. It's read aloud to riders using
+a screen reader, and search engines use it too.
 
-## Deleting images
+One plain sentence: "Riders climbing the fire road at sunrise." Not "banner" or
+"image1".
 
-Removing an image from a resource detaches it from the resource but does not delete the file from the CDN — old URLs continue to serve. To purge a file entirely, contact support.
+## Replacing an image
 
-## Caching
+Upload a new one over the top. The old one stops being used immediately.
 
-CDN responses are cached aggressively (`Cache-Control: public, max-age=31536000, immutable`). Because URLs are content-addressed, "edits" require a fresh upload — you can't replace an image at the same URL.
+<Note>
+  If you replace a banner and still see the old one, refresh the page — your
+  browser is showing you its cached copy. Riders loading the page fresh get the
+  new one.
+</Note>
+
+## Deleting
+
+Removing an image from an event or product takes it off that page. If you need a
+file taken down entirely — you uploaded the wrong photo, or someone asked to be
+removed — contact support and we'll purge it.
+
+## Making banners look good
+
+- **Shoot wide.** Banners are cropped tighter on phones, so keep the subject
+  near the middle.
+- **Avoid text baked into the image.** It'll be unreadable on a phone, and screen
+  readers can't reach it.
+- **Bright and high-contrast wins.** Your banner is the preview image when
+  somebody shares your event on social — it's competing in a busy feed.
+
+## Next
+
+<Card title="Landing page builder" icon="image" href="/organizers/events/landing-page-builder">
+  Where the banner and gallery live.
+</Card>

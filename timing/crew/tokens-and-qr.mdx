@@ -4,7 +4,7 @@ description: "Hand a volunteer a phone without giving them access to your organi
 icon: "qrcode"
 ---
 
-A **timing link** turns any phone into a timing device for one session. Your
+A **timing link** turns any device into a timing device for one event. Your
 volunteer scans a QR code and starts timing — no account, no password, no access
 to anything else you run.
 
@@ -13,8 +13,9 @@ to anything else you run.
 ## Create one
 
 <Steps>
-  <Step title="Open the session and click Tokens">
-    You need to be an organization member or hold an admin timing link.
+  <Step title="Open More actions → Operator tokens">
+    You need to be an organization member, or hold a timing link with admin
+    access.
   </Step>
   <Step title="Click Issue new token">
     Fill in:
@@ -22,9 +23,9 @@ to anything else you run.
     | Field | What to put |
     |---|---|
     | **Label** | For you, not them — "Finish line phone 1", "Sarah's phone" |
-    | **Roles** | What they're allowed to do. **Timer** for most volunteers — see [Who can do what](/timing/concepts/roles) |
+    | **Roles** | What they're allowed to do. **Timer** for most volunteers — see [Who can do what](/timing/crew/roles) |
     | **Expires in** | Hours from now. Set it to just past the end of your event |
-    | **Allowed races** | Optional. Restricts them to specific races in the session |
+    | **Allowed races** | Optional. Restricts them to specific races in the event |
   </Step>
   <Step title="Save the QR code before you close the dialog">
     You see the link and QR code **once**. Screenshot it, print it, or copy it
@@ -51,8 +52,8 @@ Or text the link. Either works.
 ## What your volunteer sees
 
 They open the QR code or link on their phone and get a confirmation card showing
-which organization, event, and session they're joining and what they'll be able
-to do. They tap **Continue** and they're on the timing screen.
+which organization and event they're joining and what they'll be able to do.
+They tap **Continue** and they're on the timing screen.
 
 ![Join page](/images/timing/join-op.png)
 
@@ -61,7 +62,7 @@ out. They can pick it up again all day.
 
 ## Switching one off
 
-Click **Revoke** next to any link in the token list. That phone stops working
+Click **Revoke** next to any link in the token list. That device stops working
 immediately.
 
 Anything they already recorded is unaffected — revoking access never removes
@@ -72,7 +73,7 @@ lost in between.
 
 - Reach any other event or race in your organization.
 - See registrations, rider details, or anything financial.
-- Create or delete sessions.
+- Reconfigure the timer, or wipe its data.
 - Issue further links, unless you gave it the admin role.
 
 This is enforced on Time2Bike's side, not just hidden in the interface — a

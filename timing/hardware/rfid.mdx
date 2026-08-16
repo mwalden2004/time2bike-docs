@@ -1,73 +1,120 @@
 ---
 title: "Timing with an RFID pad"
-description: "Feed reads from a timing pad into your session. Time2Bike identifies riders by bib number only."
+description: "Feed reads from a timing pad straight into the timer. Time2Bike identifies riders by bib number only."
 icon: "tower-broadcast"
 ---
 
-If you already own an RFID timing pad, you can feed its reads straight into your
-session instead of typing bibs by hand.
+If you already own an RFID timing pad, you can feed its reads straight into the
+timer instead of typing bibs by hand.
 
 <Note>
   **Time2Bike identifies riders by bib number and nothing else.** There's no chip
-  database to build here, no transponder list to import, and nothing to
-  reconcile before the race. Whatever bib number your reader reports is the
-  rider Time2Bike credits.
+  database to build here, no transponder list to import, and nothing to reconcile
+  before the race. Whatever bib number your reader reports is the rider Time2Bike
+  credits.
 
   Pairing a chip to a rider is handled in your reader's own software, the way you
   already do it. That's the only place it needs to happen.
 </Note>
 
-## Reading from a file (the usual way)
+## Watching your reader's file
 
-Best when your reader's software writes to a file on the same computer you're
-timing from.
+Best when your reader's software writes to a file on the machine you're timing
+from. It works with the usual systems — Impinj, MyLaps, and anything else that
+writes a line per read.
 
 <Steps>
   <Step title="Open the RFID panel on the timing screen">
-    It sits below the main finish input.
+    It sits below the main number box.
   </Step>
   <Step title="Click 'Pick CSV & watch' and choose the file your reader writes to">
     ![RFID CSV import](/images/timing/rfid-csv.png)
   </Step>
   <Step title="Leave the tab open">
-    Every new line the reader writes is picked up and recorded as a finish, as
-    it happens. Nothing to press.
+    Every new line the reader writes is picked up and recorded as it lands.
+    Nothing to press.
   </Step>
 </Steps>
 
-The file needs a bib column and a time column. Anything else in it is ignored.
+Each line needs a bib and a timestamp. A typical line looks like:
+
+```
+2,205,205,"2025-09-27 10:37:01.926"
+```
+
+Extra columns are ignored.
+
+<Note>
+  **Continuous watching needs Chrome or Edge.** In Safari and Firefox you get a
+  one-shot import instead — re-pick the file to pull in newer rows. On a race
+  day where the pad is running all afternoon, use Chrome.
+</Note>
+
+## Things worth knowing
+
+<AccordionGroup>
+  <Accordion title="It resumes where it left off" icon="bookmark">
+    The watcher remembers its position in the file, so reopening the timer
+    later doesn't re-import everything and create duplicate finishes.
+
+    **Reset cursor** deliberately re-reads the file from the top. Safe — reads
+    already recorded aren't doubled up — but expect a flurry of notifications.
+  </Accordion>
+  <Accordion title="Check the race tab first" icon="tag">
+    Incoming reads go into whichever race is selected when they arrive. Set it
+    before you start the watcher.
+  </Accordion>
+  <Accordion title="Unknown bibs are skipped" icon="circle-question">
+    A read for a bib that isn't on the start list is passed over rather than
+    recorded against the wrong person.
+  </Accordion>
+  <Accordion title="Mats can map to split points" icon="map-pin">
+    If your reader reports which mat produced a read, you can tie each mat to a
+    named split point under **More actions → Advanced timing tools**. Reads from
+    that mat then land on that split automatically.
+
+    → [Recording points](/timing/screen/recording-points)
+  </Accordion>
+  <Accordion title="The watcher stops if the tab goes to the background" icon="triangle-exclamation">
+    Some machines pause background tabs. Keep the timing tab in front, and if
+    reads stop arriving, re-pick the file. If you swapped drives, the browser
+    lost track of the file — re-pick it.
+  </Accordion>
+  <Accordion title="You can still type" icon="keyboard">
+    The number box keeps working while the watcher runs. If a chip doesn't read,
+    type the bib and it's recorded the same way.
+  </Accordion>
+</AccordionGroup>
+
+## Dual slalom
+
+In two-lane racing the pad reads turn themselves into lane finishes: while a run
+is in flight, a read for a plate that started in the red lane records a red-lane
+finish. Reads for plates not currently on course are dropped.
+
+A **Listening for plates** panel shows exactly which two bibs the watcher is
+waiting for.
+
+<Warning>
+  A pad mounted near the start line will fire on warm-up runs. Either move the
+  pad or plan to clean up the extra reads afterwards — the **Listening for
+  plates** panel is how you tell whether what you're seeing is real.
+</Warning>
 
 ## Reading from another machine
 
 If the pad is on a different computer from the one you're timing on, Time2Bike
-can accept reads over the network instead. Contact support and we'll give you a
-small helper program that forwards reads from your reader into the session — it
-signs in with a timing link, the same as any volunteer phone.
-
-## Things to know
-
-<AccordionGroup>
-  <Accordion title="Check the race tab before you start the watcher" icon="tag">
-    Incoming reads go into whichever race tab is active when they arrive. Set it
-    first.
-  </Accordion>
-  <Accordion title="Unknown bibs still get recorded" icon="circle-question">
-    A read for a bib nobody's assigned isn't thrown away. It sits in the results
-    unattached, and fills in automatically once you assign that number to a
-    rider.
-  </Accordion>
-  <Accordion title="The watcher stops if the tab goes to the background" icon="triangle-exclamation">
-    Some computers pause background tabs. Keep the timing tab in front, and if
-    reads stop arriving, re-pick the file to start it again.
-  </Accordion>
-  <Accordion title="You can mix it with typing" icon="keyboard">
-    The manual input keeps working while the watcher runs. If a chip doesn't
-    read, type the bib — it's recorded the same way.
-  </Accordion>
-</AccordionGroup>
+can accept reads over the network. Contact support and we'll give you a small
+helper program that forwards reads from your reader into the timer — it signs in
+with a timing link, the same as any volunteer device.
 
 ## You don't need any of this
 
-An RFID pad is an option, not a requirement. Plenty of races are timed
-perfectly well with two volunteers typing bib numbers into phones — that's what
-the rest of this section is about.
+An RFID pad is an option, not a requirement. Plenty of races are timed perfectly
+well with two volunteers typing bib numbers into phones.
+
+## Next
+
+<Card title="Laser timing" icon="bolt" href="/timing/hardware/laser">
+  Beam-break boxes, for when hundredths decide it.
+</Card>

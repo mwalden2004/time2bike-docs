@@ -1,39 +1,75 @@
 ---
-title: "PDF exports"
-description: "Printed results for the awards tent, protests, and your sanctioning body."
-icon: "file-pdf"
+title: "Exports & printing"
+description: "PDFs for the awards tent, spreadsheets for your files, and a printout that works with no signal."
+icon: "file-export"
 ---
 
-Time2Bike generates printable result sheets for any session — you don't have to
-finalize or publish first.
+Everything here is under **More actions** on the timing screen, except the
+results PDF, which sits in the footer once you've finalized.
 
-## One session
+## What you can get
 
-Click **Download PDF** on the session. You get:
-
-- Event name, race, date, and location at the top.
-- A table per race: place, bib, name, category, time, status.
-- Who timed it and when the document was generated.
-
-If the session isn't finalized yet, every page is stamped **DRAFT**, so a
-provisional sheet can never be mistaken for a final one on a noticeboard.
+| Export | Contains | Works offline |
+|---|---|---|
+| **Results PDF** | Printable sheet for this timer — one table per race | No |
+| **Selected race PDF** | Just the race you're on | No |
+| **Combined event results PDF** | Every published race plus imported and manually entered results, in one document | No |
+| **Print results** | The current results straight from this device | **Yes** |
+| **Export CSV** | The full record of entries, with reconciled times | **Yes** |
+| **Export JSON** | The same plus rider and race detail | **Yes** |
+| **Export event results CSV** | Every result on the event, including ones that didn't come from live timing | No |
 
 > !!-IMAGE-NEEDED-!! — A generated results PDF, and a second showing the DRAFT watermark.
 
-## The whole event
+## The PDFs
 
-From the **Live Timing** list, click **Combined PDF** in the header. One document
-covering every published session for the event — the right thing to post at the
-end of a weekend.
+Each includes the event name, race, date, and location, then a table per race:
+place, bib, name, category, time, status. The footer records who timed it and
+when the document was generated.
 
-## What it's good for
+Before you finalize, every page is stamped **DRAFT** — so a provisional sheet
+can't be mistaken for a final one on a noticeboard.
 
-| Situation | Why the PDF |
+You can customise what's included before generating.
+
+<Tip>
+  The **combined event results PDF** is what to post at the end of a weekend. It
+  gathers every published race plus anything you imported or entered by hand, so
+  nothing is missing just because it wasn't timed live.
+</Tip>
+
+## Printing with no signal
+
+**Print results** renders from what's on your device, so it works at a trailhead
+with no bars. It's the one to use when the awards are happening now and the
+network isn't.
+
+The CSV and JSON exports are the same — both come off your device.
+
+## What the exports are for
+
+| Situation | Use |
 |---|---|
-| Awards ceremony | Print it, pin it up, read from it |
-| Protest window | Post the draft and start the clock on protests |
-| Sanctioning body | Most want a document, not a link |
-| Sponsors | Something to send that won't change under them |
+| Awards ceremony | Results PDF, or Print results if you're offline |
+| Protest window | Draft PDF pinned up, protest clock starts |
+| Sanctioning body | PDF — most want a document, not a link |
+| Your own records | Event results CSV |
+| Backing up before finalizing | Export CSV or JSON, off the device |
+| Comparing two operators' records | Export CSV from each and diff them |
 
-Everyone downloading the same PDF gets the same document, so what you print and
-what a rider downloads always match.
+## Importing from elsewhere
+
+**More actions → Import results** takes a file from another timing platform and
+brings those results in. Useful when part of your weekend was timed on something
+else, or when you're moving over mid-season.
+
+Imported results appear alongside timed ones and are included in the combined
+event PDF and CSV.
+
+→ [Event imports](/organizers/events/imports)
+
+## Next
+
+<Card title="Finalize & publish" icon="circle-check" href="/timing/results/finalize-and-publish">
+  Making results official and public.
+</Card>
