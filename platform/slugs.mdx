@@ -1,18 +1,20 @@
 ---
 title: "Slugs"
-description: "How Time2Bike resolves human-readable URLs."
+description: "The readable web addresses your organization, events, and series live at."
 ---
 
-Time2Bike uses **slugs** for human-readable URLs across organizations, events, and series.
+A **slug** is the readable part of a web address — the `mountain-bike-club` in `time2.bike/mountain-bike-club`. Organizations, events, and series each get one.
 
-## Slug rules
+## The rules
 
-- Lowercase letters, numbers, and hyphens.
-- Must match `^[a-z0-9-]+$`.
-- Cannot start or end with a hyphen.
-- Globally unique across each type (one org slug per system; event slugs are unique per org).
+- Lowercase letters, numbers, and hyphens only.
+- Can't start or end with a hyphen.
+- Organization addresses are unique across all of Time2Bike; event addresses are
+  unique within your organization.
 
-## URL shapes
+If what you want is taken, the picker tells you and suggests something close.
+
+## Where each one goes
 
 | URL | Resolves to |
 |---|---|
@@ -25,14 +27,19 @@ Time2Bike uses **slugs** for human-readable URLs across organizations, events, a
 | `time2.bike/series/[series-slug]` | Series public page |
 | `time2.bike/profiles/[participantId]` | Rider public profile (note: uses the participant ID, not a slug) |
 
-## Slug resolution
+## Changing one
 
-The `/slug/[slug]` API returns `{ type, organization | event | series | user }` so the frontend can resolve ambiguous links generically.
+You can change an organization, event, or series address from its settings page
+at any time.
 
-## Changing slugs
+<Warning>
+  **Old addresses don't redirect.** Every link anyone has already shared — on a
+  flyer, in an email, on Facebook — stops working the moment you change it.
 
-You can change an org, event, or series slug from its settings page at any time. **Old slugs do not redirect** — links posted with the previous slug break. Coordinate slug changes carefully.
+  If you have to change one, do it before you publicise anything, and search
+  your own emails and posts for the old link afterwards.
+</Warning>
 
-## Reserved slugs
+## Words you can't use
 
-Slugs that collide with top-level Time2Bike routes (such as `auth`, `dashboard`, `account`, `organizations`, `events`, `series`, `profiles`, `timing`, `legal`, and `api`) are rejected by the slug picker. If a slug isn't available, the picker tells you and suggests an alternative.
+A handful of words are part of Time2Bike's own addresses and can't be taken — `auth`, `dashboard`, `account`, `organizations`, `events`, `series`, `profiles`, `timing`, and a few others. The picker rejects them and offers an alternative.

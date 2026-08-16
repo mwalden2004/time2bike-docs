@@ -17,7 +17,7 @@ When a rider checks out:
 
 1. Time2Bike creates a Stripe **Checkout Session** scoped to your connected account.
 2. The rider pays Stripe directly.
-3. Webhooks confirm payment; the registration flips to `confirmed`.
+3. Stripe confirms the payment and the registration becomes confirmed.
 4. Funds settle on your Stripe payout schedule (typically daily).
 
 ## Service fee
@@ -41,4 +41,4 @@ When you issue a refund (see [Refunds](/organizers/pricing/refunds)):
 
 ## Disputes
 
-Cardholder disputes go through Stripe. Time2Bike forwards Stripe's dispute webhook into your inbox; respond inside your Stripe dashboard with whatever evidence you have (waiver signature, registration email, etc.).
+Cardholder disputes go through Stripe. Time2Bike emails you when one is opened; respond inside your Stripe dashboard with whatever evidence you have (waiver signature, registration email, and so on).

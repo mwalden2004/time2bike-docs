@@ -23,11 +23,11 @@ Open **Event → Bibs**. Rows with a pending request are flagged with a **Needs 
 
 ## Assign a new plate
 
-Click the row, enter the plate number, and save. The action goes through the plate-request endpoint, which:
+Click the row, enter the plate number, and save. Time2Bike then:
 
 1. Sets the request status to **assigned**.
 2. Writes a history entry on the assignment.
-3. Propagates the new plate to the matching **series** plate (if the race's `bibSource` is `series` or `series_then_manual`).
+3. Updates their **series** plate to match, if this race takes its numbers from the series.
 
 ## Refunding a request
 

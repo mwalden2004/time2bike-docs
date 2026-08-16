@@ -160,7 +160,6 @@
               "organizers/events/questions",
               "organizers/events/bibs",
               "organizers/events/plate-requests",
-              "organizers/events/transponders",
               "organizers/events/licenses",
               "organizers/events/volunteers",
               "organizers/events/imports",
@@ -221,55 +220,67 @@
             "group": "Start here",
             "pages": [
               "timing/overview",
+              "timing/race-day",
               "timing/operator-quickstart"
             ]
           },
           {
-            "group": "Concepts",
+            "group": "The timing screen",
             "pages": [
-              "timing/concepts/sessions-and-races",
-              "timing/concepts/time-model",
-              "timing/concepts/event-log",
-              "timing/concepts/roles"
+              "timing/screen/anatomy",
+              "timing/screen/recording-points",
+              "timing/screen/waves",
+              "timing/screen/adding-riders",
+              "timing/screen/corrections"
             ]
           },
           {
-            "group": "Setup",
+            "group": "Race formats",
             "pages": [
-              "timing/setup/create-session",
-              "timing/setup/modes",
-              "timing/setup/tokens-and-qr"
+              "timing/formats/mass-start",
+              "timing/formats/interval-starts",
+              "timing/formats/laps-and-primes",
+              "timing/formats/combined-finish",
+              "timing/formats/dual-slalom",
+              "timing/formats/brackets",
+              "timing/formats/relay"
             ]
           },
           {
-            "group": "Operating",
+            "group": "Your crew",
             "pages": [
-              "timing/operating/standard-mode",
-              "timing/operating/dual-slalom",
-              "timing/operating/brackets",
-              "timing/operating/relay",
-              "timing/operating/edits-and-corrections"
+              "timing/crew/roles",
+              "timing/crew/tokens-and-qr"
             ]
           },
           {
-            "group": "Hardware & sync",
+            "group": "Hardware",
             "pages": [
               "timing/hardware/rfid",
+              "timing/hardware/laser",
               "timing/hardware/offline-and-sync"
             ]
           },
           {
-            "group": "Finishing up",
+            "group": "Results",
             "pages": [
-              "timing/finishing/finalize-and-publish",
-              "timing/finishing/pdf-exports",
-              "timing/finishing/troubleshooting"
+              "timing/results/live-sharing",
+              "timing/results/finalize-and-publish",
+              "timing/results/exports",
+              "timing/results/troubleshooting"
+            ]
+          },
+          {
+            "group": "Good to know",
+            "pages": [
+              "timing/how-times-stay-accurate",
+              "timing/history-and-audit"
             ]
           }
         ]
       },
       {
-        "tab": "Platform",
+        "tab": "Reference",
         "groups": [
           {
             "group": "Reference",
@@ -304,9 +315,12 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
   },
-  "footer": {
-    
-  }
+  "footer": {}
 }

@@ -1,41 +1,74 @@
 ---
-title: "Offline & sync"
-description: "How the operator screen survives flaky LTE."
+title: "Timing without signal"
+description: "What happens when the network drops, and the one thing you shouldn't do."
+icon: "wifi"
 ---
 
-Live Timing is **offline-first**. The operator screen records to your device first, then catches the server up in the background. If the network drops mid-race, nothing pauses.
+Every finish is saved to your phone the instant you record it, before anything
+is sent anywhere. **Signal is a bonus, not a requirement.** If the network drops
+mid-race, keep timing exactly as normal.
 
-## What you'll see
+## The dot in the corner
 
-The top-right of the operator screen shows a sync pill:
+| | Meaning | What to do |
+|---|---|---|
+| 🟢 **Green** | Everything on this phone has uploaded | Nothing |
+| 🟡 **Yellow** | Some finishes are waiting to upload | Nothing — they'll go when there's signal |
+| 🔴 **Red** | No signal, recording to this phone | Nothing — keep timing |
 
-- 🟢 **Synced** — everything is uploaded.
-- 🟡 **N queued** — you have unsynced finishes waiting for the network.
-- 🔴 **Offline — recording locally** — no network detected. Keep recording; queued events will upload as soon as you're back online.
+Yellow and red are normal at a bike race. They don't mean anything is wrong.
+
+> !!-IMAGE-NEEDED-!! — Close-up of the timing screen's top bar with the sync dot showing queued finishes.
+
+## The one thing to be careful about
+
+<Warning>
+  If the dot isn't green, the finishes on that phone exist **only on that
+  phone**. Don't put it away, hand it off, or let it die until it's green.
+
+  If you need to move to a different device mid-race, walk the old phone
+  somewhere with signal and wait for green first.
+</Warning>
+
+This is the only way to actually lose timing data, and it's avoidable.
 
 ## What survives what
 
-| Scenario | Outcome |
+| If this happens | What you get |
 |---|---|
-| You refresh the tab | The screen rebuilds instantly from local storage. No data lost. |
-| Wi-Fi drops mid-race | Recording continues. Queue grows; drains on reconnect. |
-| Phone dies, you swap to another phone | The new phone re-loads the session from the server. Anything that hadn't uploaded yet from the dead phone is gone — use the rescue export to recover it. |
-| Server restart | No data loss; the server catches up from its own log. |
+| You refresh or close the tab | Everything's still there when you reopen it |
+| Signal drops for an hour | You keep timing. It all uploads on reconnect |
+| Your battery dies mid-race | Anything already uploaded is safe. Anything not, is on that phone — charge it and let it connect |
+| You switch to a spare phone | The spare loads everything from the server. Anything the old phone hadn't uploaded still needs the old phone |
+| Time2Bike has a hiccup | Nothing is lost. Your phone keeps recording and catches up |
 
-## Rescue export
+## When it uploads
 
-The footer of the operator screen has an **Export log** button. It saves a copy of everything your device has recorded so you can hand it to the race director if the device itself dies before it finishes uploading. The director can replay the file back into the session.
+Automatically — as soon as signal returns, whenever you switch back to the tab,
+and periodically while you're idle. You don't have to trigger it.
 
-## When sync retries
+If you want to nudge it, pull down on the page to refresh.
 
-The operator screen retries automatically:
+A phone that's been offline for a long stretch sorts itself out within a few
+seconds of reconnecting, and slots its finishes into the right places in the
+results rather than tacking them on the end.
 
-- The moment network is restored.
-- When you bring the tab back to the foreground.
-- On a slow heartbeat while idle.
+## The rescue export
 
-You rarely need to do anything; if you do, pulling-to-refresh kicks off a manual retry.
+At the bottom of the timing screen there's an **Export log** button. It saves
+everything that phone has recorded to a file.
 
-## Resume after long offline
+Use it if a phone is in trouble and you want the finishes off it before anything
+worse happens — a dying battery, a cracked screen, a phone that won't reconnect.
+Send the file to your race director, who can load it back into the session.
 
-When a device that's been offline for a long stretch comes back online, it reconnects and asks the server for anything it missed. The screen updates to match within a few seconds.
+Think of it as the fire extinguisher. You'll probably never need it, and you'll
+be glad it's there if you do.
+
+## Practical advice
+
+- **Battery packs for every timing phone.** A phone with the screen on for three
+  hours will not make it on its own.
+- **Set timing phones to never sleep** while charging.
+- **Check for green before you pack up.** Make it the last thing you do at each
+  finish line.

@@ -1,0 +1,176 @@
+---
+title: "Race-day runbook"
+description: "For the race director: what to do the week before, the morning of, during, and after."
+icon: "clipboard-list"
+---
+
+This is the checklist version. It assumes your event is published and people are
+registered — if you're not there yet, start with the
+[Organizer quickstart](/organizers/quickstart).
+
+## The week before
+
+<Steps>
+  <Step title="Assign bib numbers">
+    **Event → Bibs → Auto-assign**. Pick a starting number and let it fill.
+
+    Bib numbers are the only way Time2Bike identifies a rider on course, so
+    nobody can be timed without one.
+
+    → [Bibs](/organizers/events/bibs)
+  </Step>
+  <Step title="Create your timing sessions">
+    **Event → Live Timing → New session**, one per group of races that share a
+    clock and a finish line.
+
+    A criterium where three categories start together is **one** session with
+    three races in it. A downhill and a dual slalom on the same day are **two**
+    sessions.
+
+    → [Create a session](/timing/setup/create-session)
+  </Step>
+  <Step title="Issue links for your volunteers">
+    Open the session, click **Tokens**, and create one per person or per phone.
+    Label them so you know which is which ("Finish line 1", "Backup").
+
+    You see each link and QR code once — screenshot or print them now. Put them
+    in an envelope with the volunteer's name on it.
+
+    → [Tokens & QR codes](/timing/setup/tokens-and-qr)
+  </Step>
+  <Step title="Do a five-minute dry run">
+    Open the session on your own phone, press **Start**, type a few bib numbers,
+    press **Stop**. Check the times look right. Then delete the test finishes.
+
+    This is the single highest-value thing on this page. It catches a missing
+    bib assignment, a wrong race, or a volunteer link that doesn't work — a
+    week early instead of at the start line.
+  </Step>
+</Steps>
+
+> !!-IMAGE-NEEDED-!! — The **Live Timing** tab on an event, listing two sessions ready to go.
+
+## The night before
+
+- **Charge every phone** that will be timing, and pack a battery pack for each
+  one. A phone timing a three-hour race with the screen on will not survive on
+  its own battery.
+- **Print your start lists** — **Event → Registrations**, filtered per race.
+  You want paper if everything else fails.
+- **Print the bib list** — **Event → Bibs → Download CSV**. Your finish-line
+  volunteer will want to look up an unreadable number.
+- **Set the timing phones to never sleep** while plugged in.
+
+## Race morning
+
+<Steps>
+  <Step title="Get your volunteers onto their sessions">
+    Hand out the QR codes. Each volunteer scans, confirms the card that appears,
+    and lands on the timing screen. Watch one of them do it.
+  </Step>
+  <Step title="Check the sync dot on every phone">
+    Green is ideal. Red just means no signal — that's fine, they can still time.
+    What you want to know is which phones are which before the race starts, not
+    during it.
+  </Step>
+  <Step title="Handle late registrations and bib changes">
+    Run **Auto-assign** again to top up anyone who registered overnight. It only
+    fills empty numbers and won't touch what's already assigned.
+  </Step>
+  <Step title="Confirm the right race tab is selected">
+    On the timing screen, the tab strip across the top decides which race a
+    finish is recorded into. Getting this wrong is the most common race-day
+    mistake, and the one that takes longest to unpick.
+  </Step>
+</Steps>
+
+## During the race
+
+| Moment | Do this |
+|---|---|
+| The gun goes off | Press **Start** on that race |
+| A rider crosses | Type their bib, press Enter — or tap their name in the rider list |
+| You can't read a bib | Tap the rider's name in **Registered riders** instead |
+| A rider quits | Long-press their row → **DNF** |
+| Course hold | Press **Pause**, then **Resume** |
+| The race ends | Press **Stop** on that race |
+
+<Warning>
+  **Don't switch devices mid-race unless you have to.** If a phone still has
+  finishes that haven't uploaded, they live on that phone until it gets signal.
+  If you must swap, get the old phone back onto Wi-Fi and wait for the dot to
+  go green before you put it away.
+</Warning>
+
+## Right after each race
+
+Do this while the riders are still on site — it's much easier to resolve a
+disputed time when the rider is standing in front of you.
+
+<Steps>
+  <Step title="Scan the finish list for flags">
+    The screen marks anything it isn't sure about: a rider recorded twice, a
+    finish with no matching start, someone who started but never finished.
+  </Step>
+  <Step title="Fix what needs fixing">
+    Long-press any row for the correction menu — change the time, mark DNF /
+    DNS / DSQ, delete a bad entry, add a note.
+
+    → [Edits & corrections](/timing/operating/edits-and-corrections)
+  </Step>
+  <Step title="Mark your non-starters">
+    Anyone registered who didn't line up should be DNS, or they'll sit in the
+    results as unaccounted for.
+  </Step>
+  <Step title="Finalize">
+    Locks the race so nothing else can change. It won't let you finalize while
+    a phone still has finishes waiting to upload — which is exactly the check
+    you want at this moment.
+  </Step>
+  <Step title="Publish">
+    Results go live on your event page, land on each rider's profile, and
+    finishers get an email.
+
+    → [Finalize & publish](/timing/finishing/finalize-and-publish)
+  </Step>
+</Steps>
+
+## After the event
+
+- **Post a PDF** for the awards tent — **Download PDF** on the session, or
+  **Combined PDF** for the whole weekend on one sheet.
+  → [PDF exports](/timing/finishing/pdf-exports)
+- **Handle protests.** You can unlock a finalized session, correct it, and
+  publish again. Every original entry is still there.
+- **Process refunds** for no-shows if your policy allows.
+  → [Refunds](/organizers/pricing/refunds)
+- **Check your numbers** — **Event → Analytics**.
+
+## If something goes wrong
+
+<AccordionGroup>
+  <Accordion title="A volunteer's phone says 'session not found'" icon="triangle-exclamation">
+    Their link expired or was switched off. Issue a new one from **Tokens** and
+    have them scan it. Nothing they already recorded is lost.
+  </Accordion>
+  <Accordion title="Nobody pressed Start" icon="triangle-exclamation">
+    Keep recording finishes. They'll show as "awaiting start". Press **Start**
+    and the elapsed times fill themselves in.
+  </Accordion>
+  <Accordion title="Finishes went into the wrong race" icon="triangle-exclamation">
+    Switch to the correct race tab first so new entries land properly, then
+    delete and re-record the ones that went astray.
+  </Accordion>
+  <Accordion title="A timing phone died" icon="triangle-exclamation">
+    Anything it had already uploaded is safe on the server and visible from any
+    other device. Anything it hadn't is on that phone — charge it and let it
+    connect. If it won't come back at all, the finish list from your other
+    phones plus your paper backup is your recovery path.
+  </Accordion>
+  <Accordion title="Everything is on fire" icon="triangle-exclamation">
+    Time on paper. You can enter finish times by hand afterwards from the
+    correction menu, and results publish exactly the same way.
+  </Accordion>
+</AccordionGroup>
+
+→ [Full troubleshooting](/timing/finishing/troubleshooting)

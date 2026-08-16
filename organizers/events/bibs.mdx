@@ -23,14 +23,14 @@ Click **Auto-assign**. You choose:
 
 - **Start number** — first plate to hand out (default `1`).
 - **Race scope** — apply to a specific race, or to all races in the event.
-- **Assignment scope** — `event` (one plate per rider across all their races) or `race` (separate plate per race entry).
-- **Method** — `sequential` or `random`.
+- **One plate per rider**, used across every race they've entered — or **a separate plate per race entry**. One per rider is what most events want.
+- **Sequential** (1, 2, 3…) or **random** numbering.
 
 The action only fills empty slots; existing assignments are preserved. Run it again after late registrations to top up.
 
 ## Manual assign
 
-Click a row's plate cell to enter or edit a number by hand. You'll also pick the scope (`event` or `race`).
+Click a row's plate cell to type a number in by hand. You'll also choose whether that number belongs to the rider for the whole event or just for that one race.
 
 ## Export
 
@@ -42,6 +42,13 @@ Riders who paid the **replacement plate fee** during registration appear here as
 
 Click the row to assign a new number; the request transitions to **New plate assigned** and the new plate propagates to the series if the race is series-scoped. See [New-plate requests](/organizers/events/plate-requests) for the full workflow, including refunds.
 
-## Transponders
+## Bibs are the only rider identity
 
-For RFID-timed events, each rider's plate also needs a chip mapping. Use the [Transponders](/organizers/events/transponders) page next to **Bibs** to manage chip-to-participant assignments.
+Time2Bike identifies riders by bib number and nothing else. There's no chip
+database to maintain, no transponder list to import, and nothing to reconcile
+before the race.
+
+If you time with an RFID pad, it works the same way: your reader tells Time2Bike
+a bib number, and Time2Bike looks it up here. Pairing a chip to a rider happens
+in your reader's own software, not in Time2Bike. See
+[Timing with an RFID pad](/timing/hardware/rfid).

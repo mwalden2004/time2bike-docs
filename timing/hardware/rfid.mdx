@@ -1,34 +1,73 @@
 ---
-title: "RFID"
-description: "Ingest finishes from an RFID timing pad keyed by bib number."
+title: "Timing with an RFID pad"
+description: "Feed reads from a timing pad into your session. Time2Bike identifies riders by bib number only."
+icon: "tower-broadcast"
 ---
 
-Time2Bike's RFID integration treats each chip read as a **bib finish**. Whatever your reader software reports for the rider becomes the bib number, so the only setup you need is to make sure each rider's chip is paired with their assigned bib on the reader side.
+If you already own an RFID timing pad, you can feed its reads straight into your
+session instead of typing bibs by hand.
 
-There are two ingestion paths. Both write into the same event log as `kind: external_rfid`.
+<Note>
+  **Time2Bike identifies riders by bib number and nothing else.** There's no chip
+  database to build here, no transponder list to import, and nothing to
+  reconcile before the race. Whatever bib number your reader reports is the
+  rider Time2Bike credits.
 
-## CSV file watcher (recommended)
+  Pairing a chip to a rider is handled in your reader's own software, the way you
+  already do it. That's the only place it needs to happen.
+</Note>
 
-Best for an RFID pad whose software (e.g. `rfidtimer`) writes to a CSV file on the same machine.
+## Reading from a file (the usual way)
 
-1. On the operator screen, open the **RFID CSV import** panel.
-2. Click **Pick CSV & watch** and choose the file the reader writes to.
-3. Leave the tab open. Each new line is parsed and ingested as it lands.
+Best when your reader's software writes to a file on the same computer you're
+timing from.
 
-Expected CSV columns: `bib,timestamp` (additional columns are ignored).
+<Steps>
+  <Step title="Open the RFID panel on the timing screen">
+    It sits below the main finish input.
+  </Step>
+  <Step title="Click 'Pick CSV & watch' and choose the file your reader writes to">
+    ![RFID CSV import](/images/timing/rfid-csv.png)
+  </Step>
+  <Step title="Leave the tab open">
+    Every new line the reader writes is picked up and recorded as a finish, as
+    it happens. Nothing to press.
+  </Step>
+</Steps>
 
-![RFID CSV import](/images/timing/rfid-csv.png)
+The file needs a bib column and a time column. Anything else in it is ignored.
 
-## Network bridge
+## Reading from another machine
 
-Use this when the RFID pad is on a different machine from the operator phone, or when you want a small helper script to forward reads from a custom reader.
+If the pad is on a different computer from the one you're timing on, Time2Bike
+can accept reads over the network instead. Contact support and we'll give you a
+small helper program that forwards reads from your reader into the session — it
+signs in with a timing link, the same as any volunteer phone.
 
-Contact Time2Bike support for the bridge helper — it's a tiny script (Node or Python) that tails a file or socket and forwards each read into your timing session. You authenticate it with a timing token, just like the operator screen.
+## Things to know
 
-## How bibs are resolved
+<AccordionGroup>
+  <Accordion title="Check the race tab before you start the watcher" icon="tag">
+    Incoming reads go into whichever race tab is active when they arrive. Set it
+    first.
+  </Accordion>
+  <Accordion title="Unknown bibs still get recorded" icon="circle-question">
+    A read for a bib nobody's assigned isn't thrown away. It sits in the results
+    unattached, and fills in automatically once you assign that number to a
+    rider.
+  </Accordion>
+  <Accordion title="The watcher stops if the tab goes to the background" icon="triangle-exclamation">
+    Some computers pause background tabs. Keep the timing tab in front, and if
+    reads stop arriving, re-pick the file to start it again.
+  </Accordion>
+  <Accordion title="You can mix it with typing" icon="keyboard">
+    The manual input keeps working while the watcher runs. If a chip doesn't
+    read, type the bib — it's recorded the same way.
+  </Accordion>
+</AccordionGroup>
 
-Each incoming read uses its **bib** field to look up the registered rider in the active race, following the same rules as manual entry — a direct race plate, the rider's series plate, or whichever has been set up for that race. Unknown bibs still land in the log so you can assign them later; the timing table will retro-fill them once you do.
+## You don't need any of this
 
-## Race tab and RFID
-
-Incoming reads are scoped to whichever **race tab is active** when they arrive. Switch tabs before you start the watcher so reads land in the right race.
+An RFID pad is an option, not a requirement. Plenty of races are timed
+perfectly well with two volunteers typing bib numbers into phones — that's what
+the rest of this section is about.

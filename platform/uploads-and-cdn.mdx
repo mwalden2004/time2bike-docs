@@ -14,7 +14,7 @@ Every image you upload — org logos, event banners, gallery photos, product ima
 
 ## Where it goes
 
-The upload endpoint (`POST /cdn/upload`) signs the file, stores it on object storage, and returns a public URL. The image record (URL + alt text + dimensions) is then attached to the resource (org, event, product).
+When you pick a file, Time2Bike uploads it, stores it, and attaches it to whatever you were editing — your organization, an event, or a product — along with its alt text. You don't manage files separately; there's no media library to keep tidy.
 
 URLs look like `https://cdn.time2.bike/[random-id].[ext]` and are immutable.
 

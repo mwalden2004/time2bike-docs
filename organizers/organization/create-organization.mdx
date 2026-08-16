@@ -1,31 +1,87 @@
 ---
 title: "Create an organization"
-description: "Spin up a new organization to host events."
+description: "Set up the workspace you'll host events from. Takes about five minutes."
+icon: "building"
 ---
 
-Anyone with a Time2Bike account can create an organization. From the top nav choose **Organizations → Create organization**, or visit [time2.bike/organizations/create](https://time2.bike/organizations/create).
+Your **organization** is the workspace everything else hangs off — your events,
+your races, your money, your crew. You make one, once.
+
+Anyone with a Time2Bike account can create one, and it's free to set up. From
+the top navigation choose **Organizations → Create organization**, or go to
+[time2.bike/organizations/create](https://time2.bike/organizations/create).
 
 ![Create organization form](/images/orgs/create.png)
 
 ## What you'll need
 
-| Field | Notes |
+| Field | What to put |
 |---|---|
-| **Name** | Display name shown to riders. |
-| **Slug** | Lowercase, hyphens only. Becomes your public URL: `time2.bike/[slug]`. Auto-generated from the name; you can edit it. |
-| **Website** | Optional. Linked from your public org page. |
-| **Contact email & phone** | Surfaced to riders and on receipts. |
-| **Brand color** | Hex value used as the accent on your public pages. |
-| **Logo** | Square image, max 5 MB. |
+| **Name** | What riders should call you. Your club or promotion name. |
+| **Web address** | The last part of your public URL: `time2.bike/your-name`. Filled in from your name — edit it if you want something shorter. |
+| **Website** | Optional. Linked from your public page. |
+| **Contact email & phone** | Riders see these, and they go on receipts. Use an address you'll actually check on race weekend. |
+| **Brand color** | The accent color on your public pages. |
+| **Logo** | A square image, up to 5 MB. |
 
-Slugs must match `^[a-z0-9-]+$` and cannot start or end with a hyphen.
+<Tip>
+  **Pick your web address carefully.** It's the link you'll put on flyers, in
+  emails, and on social media — and if you change it later, every link anyone
+  has already shared stops working. Short and obvious beats clever.
+</Tip>
 
-## After creation
+Web addresses can use lowercase letters, numbers, and hyphens, and can't start
+or end with a hyphen. If the one you want is taken, Time2Bike tells you and
+suggests something close.
 
-You land on the **organization dashboard**. From there:
+## What happens next
 
-1. Open **Settings → Billing** and connect Stripe — you cannot publish a paid event until this is done.
-2. Open **Settings → Team** to invite collaborators.
-3. Open **Settings → Waivers** to upload at least one waiver template.
+You land on your **organization dashboard**. It's empty, which is correct — you
+haven't done anything yet.
 
 ![Dashboard after org creation](/images/orgs/raw.png)
+
+Three things to do before you can take a single entry:
+
+<Steps>
+  <Step title="Connect Stripe — do this first">
+    **Settings → Billing**. This is how you get paid, and it's the step with a
+    waiting period: Stripe verifies your business and bank details, which can
+    take a day or two.
+
+    Start it now even if your first event is months away. You can't publish a
+    paid event until it's done.
+
+    → [Stripe payouts](/organizers/organization/settings-billing)
+  </Step>
+  <Step title="Upload a waiver">
+    **Settings → Waivers**. You need at least one before anyone can register.
+
+    → [Waiver library](/organizers/organization/settings-waivers)
+  </Step>
+  <Step title="Invite your crew">
+    **Settings → Team**. Whoever helps you run registration, timing, or the
+    money.
+
+    → [Team & invites](/organizers/organization/settings-team)
+  </Step>
+</Steps>
+
+Then you're ready to build an event.
+
+<Note>
+  **Free events don't need Stripe.** If you're just putting on a group ride or
+  a free series, skip step one — you only need Stripe once you charge for
+  something.
+</Note>
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/organizers/quickstart">
+    The full path from here to open registration.
+  </Card>
+  <Card title="Dashboard tour" icon="gauge" href="/organizers/organization/dashboard-tour">
+    Reading the numbers on your dashboard.
+  </Card>
+</Columns>

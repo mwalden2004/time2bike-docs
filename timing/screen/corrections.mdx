@@ -1,0 +1,84 @@
+---
+title: "Edits & corrections"
+description: "Fixing wrong bibs, missed finishes, and everything else that goes wrong."
+icon: "pen"
+---
+
+Everything is fixable after the fact, and nothing you do here can permanently
+destroy a result — corrections sit on top of what was originally recorded, and
+both remain. See [History & corrections](/timing/concepts/event-log).
+
+## The correction menu
+
+Long-press (or right-click) any rider's row:
+
+![Result actions](/images/timing/result-actions.png)
+
+| Option | What it does | Level needed |
+|---|---|---|
+| **Set manual time** | Replaces the recorded time with one you type | Marshal |
+| **DNF** | Started, didn't finish | Marshal |
+| **DNS** | Never started | Marshal |
+| **DSQ** | Disqualified | Marshal |
+| **Add note** | Attaches a note visible in reviews and exports | Timer |
+| **Delete** | Hides a wrong entry from the results | Timer |
+| **Restore** | Brings a deleted entry back | Marshal |
+
+Finalizing, publishing, and voiding laps need **admin**.
+
+## The things that actually go wrong
+
+<AccordionGroup>
+  <Accordion title="I typed the wrong bib" icon="keyboard">
+    Delete that finish, then record the correct bib. The rider's real time is
+    the moment the button was pressed, so re-recording immediately gives them a
+    slightly late time — use **Set manual time** if the difference matters.
+  </Accordion>
+  <Accordion title="Nobody pressed Start" icon="clock">
+    Keep recording finishes. They'll sit as **awaiting start**. Press **Start**
+    and every elapsed time fills itself in from the actual start moment.
+
+    This works because finishes are recorded as real moments in time, not as
+    "time since start".
+  </Accordion>
+  <Accordion title="Two volunteers recorded the same rider" icon="copy">
+    The row is flagged as a **duplicate** with both times shown. Open the row,
+    pick the one you want to keep, delete the other. Neither is discarded until
+    you choose.
+  </Accordion>
+  <Accordion title="Finishes went into the wrong race" icon="tag">
+    Switch to the correct race tab first so nothing else lands in the wrong
+    place. Then delete the misplaced finishes and re-record them under the right
+    tab.
+  </Accordion>
+  <Accordion title="I missed a finish entirely" icon="eye-slash">
+    Find the rider in **Registered riders** and use **Set manual time** with
+    whatever you have — a hand time, a photo timestamp, the time from another
+    volunteer's phone.
+  </Accordion>
+  <Accordion title="A rider needs a lap discarded" icon="rotate-left">
+    For lap racing, an admin can void one lap — after a mechanical, a crash, or
+    a penalty — without removing the rider from the race. Their lap count and
+    best lap recalculate, and a note is added so the reason is visible later.
+  </Accordion>
+  <Accordion title="I finalized too early" icon="lock-open">
+    Unlock the session from its menu, make your corrections, and finalize again.
+    Republish if you'd already published.
+  </Accordion>
+</AccordionGroup>
+
+## Manual times
+
+When you type a time by hand, enter it as elapsed time — `mm:ss` or
+`mm:ss.SSS` — not a clock time. Time2Bike works out the finish moment from the
+race start.
+
+## Who should hold what
+
+Give your finish-line volunteers **timer**: they can record, note, and delete
+their own mistakes, which covers the fixes that need to happen in the moment.
+
+Keep **marshal** for whoever is actually judging the race — marking riders out
+and typing in official times is a judgement call, not data entry.
+
+→ [Who can do what](/timing/concepts/roles)

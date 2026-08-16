@@ -1,26 +1,100 @@
 ---
 title: "Live Timing overview"
-description: "Run race-day timing on a phone or laptop — even offline."
+description: "Time your race on a phone. No timing hardware required, and it keeps working when the signal doesn't."
+icon: "stopwatch"
 ---
 
-**Live Timing** is Time2Bike's race-day timing surface. It runs in any modern browser, records finishes locally first, and reconciles to the server when you're online. You can use it for everything from a small group ride to a dual-slalom bracket with four operators.
+**Live Timing** is how you time a race on Time2Bike. It runs in a normal web
+browser on a normal phone — no app to install, no laptop required, no timing
+hardware to buy.
 
 ![Live Timing](/images/timing/home.png)
 
-## Why it exists
+## What you actually need
 
-Race day phones are outdoors, in bright sun, on flaky LTE, and often handed to volunteers who aren't org admins. Live Timing is built around those constraints:
+<Columns cols={2}>
+  <Card title="A phone" icon="mobile">
+    Any phone from the last few years. A tablet or laptop works too.
+  </Card>
+  <Card title="Your riders' bib numbers" icon="hashtag">
+    That's the only rider identity Time2Bike uses. Assign them under
+    **Event → Bibs**.
+  </Card>
+</Columns>
 
-- **Offline-first**. Finishes are written to IndexedDB before they ever hit the network. Network is a sync target, not a dependency.
-- **Idempotent**. Every event has a client-generated UUID; resending the same event is a no-op.
-- **Absolute timestamps**. We never store "seconds since start"; we store wall-clock + clock-offset and reduce later.
-- **Multi-device**. Four phones on the same session merge cleanly because the reducer is the same client-side and server-side.
-- **Audit-friendly**. The event log is append-only, including deletes.
+That's it. Signal is optional — see below.
 
-## How to navigate the docs
+## How it works, in one paragraph
 
-- New volunteer? Start with [Operator quickstart](/timing/operator-quickstart).
-- Setting up your first session? Read [Concepts](/timing/concepts/sessions-and-races) first.
-- Running a bracket? See [Dual slalom](/timing/operating/dual-slalom) and [Brackets](/timing/operating/brackets).
-- Using an RFID pad? See [RFID](/timing/hardware/rfid).
-- Done racing? See [Finalize & publish](/timing/finishing/finalize-and-publish).
+You open the timing screen on your phone and press **Start** when the race
+begins. As riders cross the line you type their bib number and press Enter, or
+tap their name in the rider list. Each entry is stamped with the exact moment
+you pressed the button. When the race is over you press **Stop**, fix anything
+that looks wrong, then **Finalize** and **Publish** — and the results appear on
+your event page.
+
+## The four things that matter on race day
+
+<AccordionGroup>
+  <Accordion title="It works with no signal" icon="wifi">
+    Every finish is saved to your phone the instant you record it, before
+    anything is sent anywhere. If you lose signal in the middle of a race,
+    nothing stops — keep timing. Your phone catches up on its own when the
+    signal comes back.
+
+    A small indicator in the corner tells you where you stand: green (all
+    uploaded), yellow (a few waiting), red (offline, still recording).
+
+    → [Offline & sync](/timing/hardware/offline-and-sync)
+  </Accordion>
+  <Accordion title="Several people can time the same race" icon="users">
+    Put four volunteers on four phones and they'll all be recording into the
+    same race. Their finishes combine correctly, in the right order, even if
+    some of them were offline at the time.
+  </Accordion>
+  <Accordion title="Volunteers don't need accounts" icon="qrcode">
+    You hand out a QR code or a link. Your volunteer scans it, and their phone
+    is a timing device — no password, no account, no access to anything else in
+    your organization. You can switch it off the moment the race ends.
+
+    → [Tokens & QR codes](/timing/setup/tokens-and-qr)
+  </Accordion>
+  <Accordion title="Mistakes are fixable and nothing is lost" icon="clock-rotate-left">
+    Wrong bib, missed finish, forgot to press start, two people recorded the
+    same rider — all of it is fixable after the fact, and every correction keeps
+    a record of what was originally entered. You can't accidentally destroy a
+    result.
+
+    → [Edits & corrections](/timing/operating/edits-and-corrections)
+  </Accordion>
+</AccordionGroup>
+
+## What it can time
+
+| Your race | What to use |
+|---|---|
+| Mass start — road, XC, gravel, cyclocross, criterium | Standard |
+| Time trial or individual starts | Standard |
+| Downhill or enduro stages | Standard, one session per stage |
+| Lap-based racing with a lap count | Standard |
+| Relay | Standard |
+| Dual slalom or 4X (two lanes, head to head) | Dual slalom |
+
+→ [Picking a mode](/timing/setup/modes)
+
+## Where to go next
+
+<Columns cols={2}>
+  <Card title="I'm the race director" icon="clipboard-list" href="/timing/race-day">
+    The race-day runbook: what to do the week before, the morning of, and after.
+  </Card>
+  <Card title="I'm timing today" icon="stopwatch" href="/timing/operator-quickstart">
+    The one-page field guide. Keep it open on the phone you're timing with.
+  </Card>
+  <Card title="I'm setting this up for the first time" icon="gear" href="/timing/setup/create-session">
+    Create a timing session and get your volunteers on it.
+  </Card>
+  <Card title="I'm using an RFID pad" icon="tower-broadcast" href="/timing/hardware/rfid">
+    Feed reads from a timing pad in, keyed by bib.
+  </Card>
+</Columns>

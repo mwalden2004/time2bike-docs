@@ -1,111 +1,123 @@
 ---
 title: "Operator quickstart"
-description: "The one-page field guide for race day."
+description: "The one-page field guide. Keep it open on the phone you're timing with."
+icon: "stopwatch"
 ---
 
-Print this or pin it on the phone you're timing with.
+You've been handed a phone and asked to time a race. This is everything you need
+and nothing you don't.
 
-## 1. Get a token (or sign in)
+## 1. Get on the timing screen
 
-Two paths:
+**If the race director sent you a QR code or a link**, scan or open it on the
+phone you'll be timing with. You'll see a card confirming which event and race
+you're joining — tap **Continue**. That's it. No password, no account.
 
-**You're an event admin.** Sign in to your org. You already have full access; skip to step 2.
+The link remembers itself on that phone, so if the screen closes you can just
+open the browser again.
 
-**You're a volunteer.** The race director shares a **timing QR code** or a link of the form:
+![Join page](/images/timing/join-op.png)
 
-```
-https://time2.bike/timing/join?token=tt_[48-hex]
-```
+**If you have a Time2Bike login for this organization**, sign in and open
+**Event → Live Timing**, then tap your session.
 
-- Scan / open it on the device you'll be timing on.
-- The token saves to that browser. No password needed.
-- Each token has roles attached (`timer`, `marshal`, `admin`, `view`).
-- Tokens expire when revoked or at their configured TTL. If the screen suddenly says "session not found", ask for a fresh token.
+## 2. Check you're on the right race
 
-See [Tokens & QR](/timing/setup/tokens-and-qr) for how directors issue them.
-
-## 2. Pick a session
-
-From the event's **Live Timing** tab, tap the session you're running. Volunteers with a session-scoped token land on that session directly.
+Across the top is a strip of race tabs. **Whichever one is highlighted is where
+your finishes go.** If the event has one race, ignore this. If it has several,
+check it before every single race.
 
 ![Live Timing](/images/timing/home.png)
 
-## 3. Pick your role / race
+## 3. Start the clock
 
-Big buttons at the top:
+Press the big **Start** button when the race begins.
 
-- **Race start / Pause / Resume / Stop** — controls the running clock for the active race. Anyone with `timer` can press these.
-- **Race tabs** — switch which race is the recipient of plate input.
-
-For a bracket, tap the trophy icon to see the current match.
+Missed it? Don't panic — record finishes anyway. They'll say "awaiting start"
+until someone presses Start, then the times work themselves out.
 
 ## 4. Record finishes
 
-### Plate entry (default)
+Three ways, use whichever is fastest in the moment:
 
-1. Make sure the right race tab is selected.
-2. Type the bib / plate number into the giant input.
-3. Press **Enter** (or tap **Record**).
-
-The clock keeps running; you can record as fast as you can type. Each finish is timestamped client-side and queued in IndexedDB.
-
-### Tap a registered rider
-
-The **Registered riders** panel under the input shows everyone signed up for the active race. Tap a name to record their finish at "now". Useful when bibs are unreadable.
-
-### Two-lane (dual slalom)
-
-Two side-by-side lane panels. Hit **Lane finish** when each rider crosses; the reducer pairs the two lanes into a match leg.
-
-### RFID CSV import
-
-In the RFID panel, click **Pick CSV & watch**. Each new line is ingested as a finish keyed by bib.
-
-## 5. Working offline
-
-The operator screen runs entirely from cache:
-
-- A **service worker** keeps the page available without network.
-- **IndexedDB** holds every finish you record.
-- A **sync indicator** in the top bar shows 🟢 synced / 🟡 N queued / 🔴 OFFLINE.
-
-When network returns, queued events drain in chronological order. You don't have to do anything.
-
-> If you switch devices mid-race, finishes from the old device may not have uploaded yet. Reconnect the old device to Wi-Fi and let it drain before powering down.
-
-## 6. Resync if something looks wrong
-
-- **Pull-to-refresh** the operator page.
-- The **clock chip** shows your offset from the server. Big offsets (over ~250 ms) reconcile automatically; if it looks frozen, refresh.
-- If a finish is on the wrong rider, long-press / right-click → **Edit** or **Delete**. Deletes are soft — the audit log is preserved.
-
-## 7. Finish & publish
-
-When the race is over:
-
-1. Tap **Stop** on each race in the session.
-2. Review the finishes. Edit anomalies.
-3. Tap **Finalize** — locks the session.
-4. Tap **Publish** — surfaces results on the public page and enables the PDF download.
-
-The **Combined PDF** button on the Live Timing list generates one document covering every published session for the event.
+<Columns cols={2}>
+  <Card title="Type the bib" icon="keyboard">
+    Type the number into the big input and press **Enter**. Fastest by a mile.
+    The clock keeps running — go as fast as you can type.
+  </Card>
+  <Card title="Tap a name" icon="hand-pointer">
+    The **Registered riders** list shows everyone in this race. Tap a name to
+    record them finishing right now. Use it when a bib is unreadable or covered
+    in mud.
+  </Card>
+</Columns>
 
 ![XC finish](/images/timing/xc-finish.png)
+
+**Two-lane racing (dual slalom)?** Your screen is one giant **FINISH** button
+for your lane. Press it when your rider crosses. That's your whole job.
+→ [Dual slalom](/timing/operating/dual-slalom)
+
+## 5. Fix mistakes
+
+Long-press (or right-click) any rider's row for the correction menu:
+
+| Option | What it does |
+|---|---|
+| **Set manual time** | Type in a time you took by hand |
+| **DNF / DNS / DSQ** | Didn't finish / didn't start / disqualified |
+| **Add note** | Anything the director should see later |
+| **Delete** | Removes a wrong entry from the results |
+
+Nothing you do here is permanent damage — the original entry is always
+recoverable, and a director can undo anything.
+
+![Result actions](/images/timing/result-actions.png)
+
+## 6. About signal
+
+**You don't need it.** Every finish is saved to your phone the moment you record
+it. If you're in a canyon with no bars, keep timing exactly as normal.
+
+The dot in the corner tells you where things stand:
+
+| | Meaning | Do you need to do anything? |
+|---|---|---|
+| 🟢 | Everything uploaded | No |
+| 🟡 | A few finishes waiting to upload | No — they'll go when there's signal |
+| 🔴 | No signal, recording to this phone | No — keep timing |
+
+<Warning>
+  If the dot isn't green, the finishes on this phone haven't reached anyone else
+  yet. **Don't put the phone away, hand it off, or let it die** until it goes
+  green. Walk it to a spot with signal if you have to.
+</Warning>
+
+## 7. When the race ends
+
+1. Press **Stop** on the race.
+2. Look down the finish list. Anything the screen has flagged, sort out now
+   while riders are still around.
+3. Mark anyone who didn't start as **DNS**.
+4. Hand the phone back, or if you have the access: **Finalize**, then
+   **Publish**.
 
 ## Cheat sheet
 
 | What | Where |
 |---|---|
-| Active race | Race tab strip at top |
-| Plate input | Giant input under tabs |
-| Live finishes | "On course" list |
-| Roster | "Registered riders" list — tap to finish |
-| RFID watcher | "RFID CSV import" panel |
-| Bracket match | Trophy icon → bracket panel |
-| Sync status | Top-right pill |
-| Resync | Pull-to-refresh |
-| Finalize | Bottom of session screen |
-| Publish | Bottom of session screen, after finalize |
-| Combined PDF | Live Timing list page header |
+| Which race am I recording into | Tab strip across the top |
+| Type a bib | Big input under the tabs |
+| Riders still out on course | "On course" list |
+| Tap someone in instead of typing | "Registered riders" list |
+| Fix a finish | Long-press the row |
+| Have my finishes uploaded? | Coloured dot, top right |
+| Refresh | Pull down on the page |
+| Lock the results | **Finalize**, at the bottom |
+| Put results on the website | **Publish**, after finalize |
 
-If something's broken, screenshot and ping the race director. The full event log is server-side; nothing is lost even if your screen dies mid-race.
+## If something looks wrong
+
+Take a screenshot and tell the race director. Nothing you can press loses data —
+every entry, every edit, and every deletion is recorded, so a problem can always
+be unpicked afterwards.
