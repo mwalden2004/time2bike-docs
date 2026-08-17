@@ -31,9 +31,26 @@ A one-line prompt telling you what to do next — *Step 1: Start Cat 3 Men to be
 timing*, then *Step 2: Enter a plate number or tap a rider*. It follows the state
 of the race, so if you're not sure what to do, read that line.
 
+## The race board
+
+A panel at the top listing every race in the event and what it's doing right
+now — running with a live clock, stopped with a finisher count, or not started.
+
+> !!-IMAGE-NEEDED-!! — The race board with three races running and one not started.
+
+- The header says **3 of 5 races running**, so you never have to click through
+  tabs to find out what's live.
+- **Start or stop any race from here**, without leaving the one you're recording
+  into.
+- Tap a race name to switch to it. The row you're recording into is badged
+  **recording**, and defers to the big buttons below rather than offering a
+  second set.
+
+It collapses, and starts collapsed when the event has only one race.
+
 ## Start / Pause / Stop
 
-Big buttons, sized for cold hands.
+Big buttons for the race you're recording into, sized for cold hands.
 
 - **START RACE** — opens the clock. The label underneath tells you what pressing
   it actually does to the field: *all 47 riders go on course*, or *riders go on
@@ -89,37 +106,40 @@ split, void a lap, delete. What you see depends on your access level.
 
 → [Corrections](/timing/screen/corrections)
 
-## Advanced timing tools
+## Timer setup
 
-A collapsible section below the rider lists, marked *Optional*. **This is on the
-main screen, not inside More actions** — worth knowing, because most of what
-people go hunting for lives in here.
+One button below the rider lists opens **Timer setup** — every setting for this
+timer, in one panel with three sections.
 
-It only appears if you can manage the timer, the race isn't finalized, and the
-event has at least one race.
+> !!-IMAGE-NEEDED-!! — The **Timer setup** panel open on the "How I am timing" section.
 
-| What's inside | Opens |
+| Section | What's in it |
 |---|---|
-| **This device is timing the…** | Your standing post — one or more of start line, a split, and the finish — plus whether it follows you between races → [Recording points](/timing/screen/recording-points) |
-| **[Race name] · Lap + split points** — one button per race | That race's settings: lap mode and target lap count, named split points and their RFID mats, and whether the race mass-starts or checks riders in |
-| **Configure default lap mode (fallback)** | The **timer-wide** settings, despite the name: **finish style**, **display precision**, **pause behaviour**, plus fallback lap mode |
-| **Set up staggered (wave) starts** | Defining waves and assigning riders → [Waves](/timing/screen/waves) |
+| **This device** | Where you're standing, and whether that follows you between races. Saves as you tap → [Recording points](/timing/screen/recording-points) |
+| **How I am timing** | One race at a time vs one shared chute · how precisely times are shown · what pause means. Plus the way into wave setup and operator links |
+| **Races** | Pick a race, then set laps, timing points on course, and whether riders start at the gun or check in |
 
-<Warning>
-  **The button named "Configure default lap mode (fallback)" is where finish
-  style, display precision, and pause behaviour live.** Nothing in its name says
-  so. If you're looking for a timer-wide setting and can't find it, it's behind
-  that button. The dialog it opens is titled **Format extras**.
+<Note>
+  Settings used to be spread across four surfaces, including a button called
+  "Configure default lap mode (fallback)" that held finish style and display
+  precision. If you're looking for something from an older screenshot, it's in
+  here.
+</Note>
 
-  The same button is also in **More actions**, which is the way back to it once
-  combined finish is switched on and this section leaves the screen.
-</Warning>
+Anything that has to talk to a device — the RFID watcher, laser boxes — stays on
+the timing screen itself, because it needs the machine you're standing at.
+
+<Tip>
+  The interval-start, dual-slalom and combined screens replace the standard one,
+  so they don't show the Timer setup button. Reach it from **More actions →
+  Timer setup** there.
+</Tip>
 
 ## Footer
 
 | Button | What it does |
 |---|---|
-| **More actions** | Exports, add riders, PDFs, operator links, advanced settings — see below |
+| **More actions** | Exports, imports, add riders, PDFs, reset — plus a second way into **Timer setup**, for the screens that don't show its button |
 | **Share live results** | Opens a public spectator link that updates as you time |
 | **Finalize Session** | Locks the results |
 | **Results PDF** / **Publish to public** | Appear once you've finalized |
@@ -145,11 +165,6 @@ Worth knowing what's in there before you need it:
   <Accordion title="Operator tokens" icon="qrcode">
     Create and revoke volunteer links.
     → [Volunteer links](/timing/crew/tokens-and-qr)
-  </Accordion>
-  <Accordion title="Configure default lap mode (fallback)" icon="sliders">
-    The timer-wide settings — finish style, display precision, pause behaviour.
-    Same dialog as the button of that name under **Advanced timing tools**
-    above.
   </Accordion>
   <Accordion title="Record prime" icon="award">
     Award a mid-race prime to a rider on a given lap.
