@@ -241,6 +241,7 @@
               "timing/formats/interval-starts",
               "timing/formats/laps-and-primes",
               "timing/formats/combined-finish",
+              "timing/formats/dual-slalom-event",
               "timing/formats/dual-slalom",
               "timing/formats/brackets",
               "timing/formats/relay"

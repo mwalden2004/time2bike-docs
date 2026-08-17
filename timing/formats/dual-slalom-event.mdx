@@ -1,0 +1,260 @@
+---
+title: "Running a dual slalom event"
+description: "The whole day, USAC and collegiate style — qualifying several categories together, seeding brackets, and publishing."
+icon: "flag-checkered"
+---
+
+This is the full day, in the order it happens. It follows the USAC dual slalom
+format used at collegiate conference races: mixed-category qualifying, a bracket
+per category, head-to-head with lane swaps and a maximum differential.
+
+If you just need the buttons, see [Dual slalom](/timing/formats/dual-slalom) for
+the operator screen and [Brackets](/timing/formats/brackets) for the bracket
+panel.
+
+## How the day is shaped
+
+<Steps>
+  <Step title="Practice and course inspection">
+    Nothing to time. Riders session both lanes.
+  </Step>
+  <Step title="Qualifying">
+    Every rider takes a timed run — **one run, down one lane**. All categories
+    go through the chute together, first come first served. The lane is the
+    same for everyone in a category, which is what makes the times comparable.
+  </Step>
+  <Step title="Seeding">
+    Fastest qualifier is the top seed in their category. You decide how many
+    advance — 8, 16, whatever the field and the daylight support.
+  </Step>
+  <Step title="Head-to-head rounds">
+    Two riders, red and blue. Two runs with the lanes swapped so both ride both
+    courses. Lowest combined time wins the match, capped by the maximum
+    differential. Winner advances.
+  </Step>
+  <Step title="Finals">
+    Semifinal losers usually ride off for third, so the sheet places 1 to 4.
+  </Step>
+  <Step title="Results">
+    Finalize, publish, print.
+  </Step>
+</Steps>
+
+## Before the day
+
+**Make one race per category** — Men's A, Men's B, Women's A, and so on — and
+set each one's format to **dual slalom bracket** on the
+[Races](/organizers/races/races-list) page. That's what gives them the two-lane
+screen and their own bracket.
+
+Assign bib numbers as usual. Everything else is set up on the day.
+
+> !!-IMAGE-NEEDED-!! — The Races page with four dual slalom categories created.
+
+## Qualifying several categories at once
+
+This is the part that would be painful if you had to do it per category, so it
+isn't. Turn on **seeding mode** on the timing screen and you can time riders
+from *any* dual slalom race in the event through both lanes at once — a men's A
+rider in red, a women's B rider in blue — in whatever order they present at the
+gate.
+
+**Each rider's time records against their own category**, so the brackets can
+seed from it afterwards. You never sort riders into categories at the gate.
+
+> !!-IMAGE-NEEDED-!! — Seeding mode with two riders from different categories staged in red and blue.
+
+### One lane per category
+
+A category qualifies down **one** lane. The screen works out which lane a
+category is using from the first rider down it, then flags anyone who runs the
+other one — because a time set on the other course isn't comparable, and silently
+ranking it against everybody else's is how you seed a bracket wrong.
+
+The qualifying board shows the lane each category is on and names anyone who
+went down the wrong side.
+
+<Note>
+  **Both lanes is a nationals thing.** At nationals riders qualify down both
+  lanes and the seed time is red + blue combined, which cancels out any
+  difference between the courses. Bracket setup offers that as an option, but
+  for a conference race one run each is all qualifying needs.
+</Note>
+
+### If somebody needs a re-run
+
+Just run them again. The best time in a lane is what counts, so a second run
+only helps them.
+
+## Setting up each category's bracket
+
+Once a category's field is timed, switch to that race and open **Setup bracket**.
+
+<Steps>
+  <Step title="Pick the bracket format">
+    **Single + 3rd place** is the collegiate default — a straight knockout plus
+    a ride-off between the semifinal losers, so the sheet places 1 through 4.
+
+    The others are single elimination (1st and 2nd only), single + consolation
+    (places every first-round loser, 5th–8th in a field of eight — more runs),
+    and double elimination.
+  </Step>
+  <Step title="Pick the match format">
+    **Combined time** is the standard: both runs added, lowest total wins.
+
+    Best of 2 scores by runs won. Single run is one and done, for when you're
+    losing the light.
+  </Step>
+  <Step title="Say how many riders advance">
+    This is your real decision — *31 qualified, 16 advance*. The bracket itself
+    is the next power of two above that, and the top seeds take byes for the
+    difference.
+  </Step>
+  <Step title="Seed from qualifying">
+    Choose **From quali times** and the order fills in fastest-first. You can
+    still drag riders around, or seed manually or at random.
+
+    The dialog tells you how many riders have a qualifying time, so you can see
+    at a glance whether anybody is missing before you build.
+  </Step>
+  <Step title="Set the maximum differential">
+    Defaults to **1.5 seconds**, per USAC 5E2(c). Adjust it if your course
+    warrants.
+  </Step>
+</Steps>
+
+> !!-IMAGE-NEEDED-!! — Bracket setup with "From quali times" chosen and the seed order filled in.
+
+Repeat per category. Each one gets its own bracket, its own seeds, and its own
+podium.
+
+### What the maximum differential does
+
+If a rider wins the first run by more than the maximum, only the maximum is
+carried into the second run. A blown corner costs you the run, not the match —
+so a rider who goes down on run one can still ride back into it.
+
+The same cap applies when someone doesn't finish a run at all: they're charged
+the maximum rather than an infinite gap.
+
+The match panel shows each rider's carried time, and marks it when it has hit
+the cap.
+
+## Running the rounds
+
+Riders swap lanes between the two runs, and the screen tracks which lane each
+one is in — the starter stages, the finishers press their own lane's button.
+
+Full mechanics: [Dual slalom](/timing/formats/dual-slalom).
+
+Byes advance automatically when you **Resolve byes** — worth pressing after
+setup and after any substitution.
+
+<Tip>
+  Put one person on each lane's finish and one at the gate, and nobody has more
+  than one button. It's the difference between a smooth bracket and a protest.
+</Tip>
+
+### When it goes wrong
+
+Slalom generates more corrections than any other format. All of these are
+available from the match panel:
+
+| Problem | Fix |
+|---|---|
+| Wrong rider in a match | **Edit match** → substitute by plate or name |
+| Riders on the wrong sides | **Edit match** → swap A and B |
+| A leg time is wrong | Fix it inline, or **Edit all times** for a table of every leg |
+| A rider can't take their run | **Forfeit / DNF** — the opponent advances |
+| Seeding was wrong | **Edit seeds**, available until a match is decided |
+| The bracket looks broken | **Resolve byes** first; then **Edit all times** to see what's missing |
+
+→ [Brackets](/timing/formats/brackets)
+
+## Finishing and publishing
+
+<Steps>
+  <Step title="Finish every category's bracket">
+    Including the third-place ride-off, if you're running one.
+  </Step>
+  <Step title="Check the placings while riders are still there">
+    A disputed match is much easier to settle with both riders in front of you
+    than by email on Tuesday.
+  </Step>
+  <Step title="Finalize">
+    Locks the results. It won't let you through while any device still has
+    times waiting to upload, which is exactly the check you want here.
+  </Step>
+  <Step title="Publish">
+    Results go live on the event page, land on each rider's profile, and
+    finishers get an email.
+
+    → [Finalize & publish](/timing/results/finalize-and-publish)
+  </Step>
+  <Step title="Print for the awards tent">
+    **Results PDF**, or the combined event PDF for every category on one sheet.
+
+    → [Exports](/timing/results/exports)
+  </Step>
+</Steps>
+
+Published results show the bracket diagram alongside the finishing order, so
+riders can see the path each rider took rather than a bare list of placings.
+
+## Conference points and team results
+
+Time2Bike publishes the individual placings per category. Conference and team
+scoring is applied by whoever runs your league from those placings — see the
+[league](/teams/overview) tools, or export the results and score them your own
+way.
+
+→ [Exports](/timing/results/exports)
+
+## Worth knowing before your first one
+
+<AccordionGroup>
+  <Accordion title="Set the displayed precision to hundredths" icon="stopwatch">
+    Slalom margins are routinely under a second, and whole seconds will show you
+    ties that aren't. **Timer setup → How I am timing → Show times to → 0.01s**.
+
+    Every time is stored to the millisecond regardless, so you can tighten it
+    afterwards if two riders still tie.
+  </Accordion>
+  <Accordion title="Set pause to freeze the clock" icon="pause">
+    A course hold shouldn't count against anyone. **Timer setup → How I am
+    timing → What pause means**. It locks once the first time is recorded, so do
+    it before qualifying.
+  </Accordion>
+  <Accordion title="Combined finish isn't available, and doesn't need to be" icon="layer-group">
+    A dual slalom race always keeps its two-lane screen. If your event has other
+    races as well, they can still use a shared chute — the two coexist.
+
+    → [Combined finish](/timing/formats/combined-finish)
+  </Accordion>
+  <Accordion title="An RFID pad will resolve lane finishes for you" icon="tower-broadcast">
+    While a run is in flight, a read for a plate that started in red records a
+    red-lane finish. The **Listening for plates** panel shows which two bibs the
+    watcher is waiting for.
+
+    Watch for a pad near the start line firing on warm-up runs.
+
+    → [RFID](/timing/hardware/rfid)
+  </Accordion>
+  <Accordion title="Beam timing pays for itself here" icon="bolt">
+    Two riders separated by hundredths is exactly where human reaction time at
+    the button stops being good enough.
+
+    → [Laser timing](/timing/hardware/laser)
+  </Accordion>
+</AccordionGroup>
+
+## Next
+
+<Columns cols={2}>
+  <Card title="Dual slalom screen" icon="code-branch" href="/timing/formats/dual-slalom">
+    Lanes, staging, and the one-button finish.
+  </Card>
+  <Card title="Brackets" icon="sitemap" href="/timing/formats/brackets">
+    Setup, byes, and every way to repair one.
+  </Card>
+</Columns>
