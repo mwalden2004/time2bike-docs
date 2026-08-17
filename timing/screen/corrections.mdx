@@ -35,11 +35,26 @@ Finalizing, publishing, and voiding laps need **admin**.
     slightly late time — use **Set manual time** if the difference matters.
   </Accordion>
   <Accordion title="Nobody pressed Start" icon="clock">
-    Keep recording finishes. They'll sit as **awaiting start**. Press **Start**
-    and every elapsed time fills itself in from the actual start moment.
+    Keep recording finishes. They'll sit as **awaiting start**.
+
+    Then use **Set the start time** under the start buttons and type the time the
+    race actually went. Every elapsed time fills itself in from that moment —
+    including finishes you recorded before you got round to it.
 
     This works because finishes are recorded as real moments in time, not as
-    "time since start".
+    "time since start". Pressing **START RACE** instead would put the gun at
+    *now*, which is after those riders crossed the line, so their times can't be
+    worked out — the rows stay flagged until a start that precedes them exists.
+
+    Same story for a wave nobody released: see [Waves](/timing/screen/waves).
+  </Accordion>
+  <Accordion title="Start was pressed late" icon="stopwatch">
+    Use **Correct the start time** and type when the gun really went. Every
+    finish already recorded is re-timed against it, and the screen tells you how
+    many that is before you confirm.
+
+    Don't use **RESTART RACE** for this — that's for firing a start you didn't
+    mean to fire, and it invalidates the finishes recorded against the old clock.
   </Accordion>
   <Accordion title="Two volunteers recorded the same rider" icon="copy">
     The row is flagged as a **duplicate** with both times shown. Open the row,
