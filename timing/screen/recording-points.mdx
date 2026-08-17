@@ -14,9 +14,44 @@ changes.
 
 > !!-IMAGE-NEEDED-!! — The recording-point button row above the plate input, with "Halfway" selected.
 
+## Two places to set it
+
+| Where | When to use it |
+|---|---|
+| **Above the plate box** | The quick switch during a race. Only appears when the race has more than one point — a race with just a finish line has nothing to choose |
+| **Advanced timing tools → This device is timing the…** | Setting your post before the gun, or when the inline row isn't showing because this race only has a finish line. It always offers both ends, even on a race that doesn't use them, so you can set your post for the whole day |
+
+Both do the same thing. The settings one is the reliable place to look, because
+it's always there.
+
+> !!-IMAGE-NEEDED-!! — The "This device is timing the…" card inside Advanced timing tools.
+
+## You can pick more than one
+
+A criterium's start and finish are the same line on the tarmac. The person
+standing there checks riders out and takes their finishes, and shouldn't have to
+flip a control between the two on every pass.
+
+So **tap both ends** and the screen stops asking. Each plate is resolved by the
+rider, not by you:
+
+| The rider | What your entry records |
+|---|---|
+| Not on course yet | Checks them in |
+| Already racing | Records their finish (or lap) |
+
+It's the same rule an RFID mat at a shared start/finish already follows.
+
+<Note>
+  **A split can't be combined with anything.** It's a mid-course point where a
+  plate read means exactly one thing — mixing it in would leave the rider's state
+  choosing between two records that are both plausible. Tapping a split replaces
+  whatever else was selected.
+</Note>
+
 ## The buttons
 
-A row above the plate box, showing only the points that exist for this race:
+Showing only the points that exist for this race:
 
 | Point | Enter records | Appears when |
 |---|---|---|
@@ -29,12 +64,29 @@ If a race only has a finish line, no buttons appear — there's nothing to choos
 
 ## It's per device, and it sticks
 
-Your choice is remembered **on your device, for that race**. Two laptops on the
-same timer are normally standing in two different places, so this is deliberately
-not shared.
+Your choice is remembered **on your device only**. Two laptops on the same timer
+are normally standing in two different places, so this is deliberately not
+shared — setting yours doesn't move anyone else.
 
-It also survives a reload — the split marshal doesn't come back from a page
-refresh silently reset to the finish line halfway through a race.
+### When you switch races
+
+You choose what happens, in the same settings card under **When I switch races**:
+
+| Option | Use it when |
+|---|---|
+| **Keep me here** *(default)* | Your races share a start/finish. The finish judge is at the same arch for the 9am, the 10:30, and the juniors — set it once for the day |
+| **Ask per race** | Each race has its own points, and you'd rather say explicitly every time |
+
+Either way a **split** never carries over. Split names belong to one race, so
+carrying one to the next would name a point that doesn't exist there — splits
+are always remembered against their own race.
+
+Your choice also survives a reload, so a refresh mid-race doesn't quietly put you
+back on the finish line.
+
+The inline row appears as soon as you open the race — you don't have to wait for
+the start — so a marshal walking to their post can set it while there's still
+time to read the screen.
 
 <Tip>
   Set it once when you get to your post, then don't think about it again. The
@@ -44,8 +96,8 @@ refresh silently reset to the finish line halfway through a race.
 
 ## Setting up split points
 
-Splits are defined per race by whoever runs timing: **More actions → Advanced
-timing tools**, with a race selected.
+Splits are defined per race by whoever runs timing. On the timing screen expand
+**Advanced timing tools**, then click that race's **Lap + split points** button.
 
 Give each split a short name your marshals will recognise — "Top of the climb",
 "Halfway", "Bell lap". Those names become the buttons, and the column headings
@@ -56,7 +108,7 @@ mat land on that split automatically.
 
 ## Mass start vs check-in
 
-Also set per race under **Advanced timing tools**:
+Also set per race, in the same **Lap + split points** dialog:
 
 - **Mass start** — the whole roster goes on course the moment you press START.
   Right for road races, XC, criteriums.
