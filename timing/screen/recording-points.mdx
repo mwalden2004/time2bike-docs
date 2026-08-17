@@ -113,6 +113,43 @@ in results.
 If you use RFID, each split can also be tied to a specific mat so reads from that
 mat land on that split automatically.
 
+### List them in the order riders reach them
+
+The order of the list **is** the running order — use the arrows beside each one
+to move it. There's no separate "order" field to keep in step with the list.
+
+That order is what makes the race sheet readable: split columns run left to
+right in course order, so a rider's row reads as their progress round the
+course, and a gap in the middle of it is visible at a glance.
+
+### "Every rider must pass here"
+
+Tick this on a point you're actually staffing, and any rider who gets past it
+without a time there is **flagged** on the race sheet — the cell goes amber and
+their name picks up a **missed** badge. A **Missed a point** filter appears in
+the sheet header so you can pull up just those riders.
+
+A rider is only flagged once they've demonstrably gone past: they finished, or
+they have a time at a *later* point. Riders who simply haven't reached it yet
+are not flagged, because on a long course most of the field is between two
+points at any moment.
+
+<Warning>
+  **A missed point never changes anybody's result.** Their finish stands, their
+  place stands, and publishing is unaffected.
+
+  It is a prompt to go and look, not a verdict. A blank cell is far more often a
+  post that went unstaffed, a marshal who missed a number, or a radio that
+  dropped than it is a rider cutting the course. If you investigate and conclude
+  they did cut it, **DQ them yourself** —
+  [corrections](/timing/screen/corrections).
+</Warning>
+
+Leave it unticked for a point you're not sure you'll staff all day, and for
+anything genuinely optional. Points that already existed before you touched this
+stay unticked, so turning it on can't make an event that was running fine start
+throwing warnings at you.
+
 ## Mass start vs check-in
 
 Also set per race, in the same **Timer setup → Races** section:
@@ -125,6 +162,18 @@ Also set per race, in the same **Timer setup → Races** section:
 
 Either way, **elapsed time is measured from the gun** (or from that rider's
 [wave](/timing/screen/waves)), so a late check-in never shortens somebody's run.
+
+<Note>
+  **Checking somebody in starts the clock if nobody has.** Because elapsed runs
+  from the gun and not from the check-in, a rider checked in before the gun would
+  otherwise have nothing to be timed against — and every split recorded for them
+  afterwards would compute to nothing.
+
+  So the first check-in fires the race gun, and releases that rider's wave if
+  they're in one. It tells you it has, because it's guessing at when the field
+  actually went — if they left earlier, correct it with **Correct the start
+  time**.
+</Note>
 
 ## A worked example
 

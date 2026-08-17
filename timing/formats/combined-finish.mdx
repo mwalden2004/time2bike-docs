@@ -106,8 +106,17 @@ it does that job:
 | **A timing point** | A split at that point, in that rider's own race |
 | **Both ends** | Resolved per rider — not out yet checks them in, on course finishes them |
 
+Checking a rider in **starts the race gun if nobody has**, and releases their
+wave if they're in one — otherwise they'd be on course with no clock to be timed
+against, and their splits would record as nothing. It says so when it does, so
+you can correct the gun if the field went earlier.
+
+Finishing and recording splits don't auto-start anything: firing the gun at the
+moment somebody finishes would hand the whole field a time of about zero. Those
+tell you the race hasn't started and point you at the race guns.
+
 The submit button changes with it — **CHECK IN**, **SPLIT**, **FINISH**, or
-**OUT / IN** — and so does the riders panel, so nothing ever claims to finish a
+**OUT / IN** — and so does the race sheet, so nothing ever claims to finish a
 rider who hasn't started.
 
 <Note>
@@ -122,27 +131,11 @@ rider who hasn't started.
 | Way | When |
 |---|---|
 | **Bib box** | You can read the number. Resolves across every selected race and confirms the rider, their race, and their wave before committing |
-| **Riders panel** | The number is unreadable or caked in mud. Search the whole selected field and tap the rider |
+| **Race sheet** | The number is unreadable or caked in mud. Search the field and tap that rider's row |
 | **Stamp the time** | The chute is moving faster than you can read numbers. Stamps the moment with no bib — add it afterwards |
 
 Stamping is a finish-line tool, so it's hidden at a start line or a timing point
 where a bib-less crossing wouldn't mean anything.
-
-## The riders panel
-
-Collapsed by default, with a live count in its header — **12 out · 40 in · 3 not
-started** — so you can read the state of your chute without opening it.
-
-Open it for a searchable list of every rider in the races you've selected:
-
-- Filter to **Out**, **In**, **Not started**, or all of them.
-- Search by name or bib.
-- Riders still out show a running clock; finished riders show their time.
-- **Tap anyone still out to finish them** — this is the fallback when you can't
-  read a number.
-
-Close it again when you don't need it. On race day the screen should be showing
-the chute, not a list.
 
 ## Blind capture
 
@@ -176,14 +169,102 @@ rather than guessing.
   event on the **Bibs** page rather than restarting numbering per race.
 </Warning>
 
-## The finish feed
+## The race sheet
 
-One list, every finisher, newest first:
+Every rider, one row each, a column per timing point — the shape a timing crew
+already reads on paper.
 
-- **Overall place** and **place within their own race**.
-- **Net time** (from their wave) and **gun time** (from the race start).
-- Filter to one race when you want to read just that podium.
-- Choose which columns you want to see.
+```
+Pl  Bib  Rider              Race          Halfway  Summit     Time
+    112  Dana Ruiz          Cat A · XC     12:04    15:40    18:32
+    418  Sam Okafor         Cat B · XC     12:51             19:07
+ 1  427  Jane Smith         Cat A · XC     11:58    15:02    31:44
+ 2  203  Alex Bright        Cat A · XC     12:10    15:22    32:06
+```
+
+- **Split columns run left to right in course order** — the order you listed the
+  points in during setup. A row therefore reads as that rider's progress round
+  the course.
+- **A blank cell is a point that rider hasn't reached.** Deliberately blank
+  rather than a dash — a column of times with holes in it is exactly what you're
+  scanning for.
+- Riders still out are tinted and show a **running time** in the Time column.
+- Finished riders show their finishing time and place, and `N in race` next to
+  their name.
+- **Search by name or bib**, and filter to Out / In / Not started, one race, or
+  everything.
+- The header row stays put while you scroll.
+
+Riders still out sort first, furthest round first; finishers follow in placing
+order. So the top of the sheet is the road and the bottom is the result.
+
+### Tap a row to record
+
+The sheet is also how you record somebody whose bib you can't read. Tapping a
+row does whatever your recording point does — checks them in, records their
+split, records a lap, or finishes them.
+
+The **recording-point buttons sit in the sheet header too**, so a marshal
+working down the sheet can see and change what their taps do without scrolling
+back to the bib box. It's the same setting in both places — change it in one and
+the other follows.
+
+Rows that can't be actioned (a rider already finished, when you're at the
+finish) simply aren't tappable.
+
+### Lap races
+
+If any race in your chute is in [lap mode](/timing/formats/laps-and-primes) or is
+a relay, the sheet grows a **Lap** column (`3/5`) and a **Last lap** column, and
+a crossing recorded for one of those riders is a **lap**, not a finish. The
+reducer finishes them on the lap that hits the target, and the toast tells you
+that's what happened.
+
+Riders in ordinary races on the same screen are unaffected — what a crossing
+means is read from the rider's race, not from a control you have to remember to
+flip.
+
+### Riders who missed a timing point
+
+Tick **Every rider must pass here** on a point in
+[setup](/timing/screen/recording-points), and a rider who gets past it without a
+time there is flagged: the cell turns amber, their name picks up a **missed**
+badge naming the points, and a **Missed a point** filter appears in the header.
+
+They're only flagged once they've demonstrably gone past — they finished, or
+they have a time at a *later* point. Nobody is flagged for a point they simply
+haven't reached yet.
+
+<Warning>
+  **This never changes a result.** Their finish stands and their place stands.
+  A blank cell is far more often an unstaffed post or a missed number than a
+  rider cutting the course, so treat it as a prompt to go and check the post. If
+  you look into it and conclude they did cut the course, DQ them yourself —
+  [corrections](/timing/screen/corrections).
+</Warning>
+
+## Rearranging the screen
+
+Nobody uses all six panels at once. The person working the chute wants the bib
+box and the sheet; whoever is releasing waves wants the start board at the top
+and doesn't care about the RFID importer.
+
+**Panels**, at the top right, lists every panel with arrows to move it and a
+switch to hide it:
+
+| Panel | |
+|---|---|
+| Races through my chute | Which races resolve on this device |
+| Bib entry & capture | The number box and the stamp button |
+| Times waiting for a bib | The blind-capture queue |
+| RFID timing pad | CSV import |
+| Start board | Waves and race guns |
+| Race sheet | Every rider |
+
+**Per device**, like everything else on this screen that describes how one
+person works — moving yours doesn't move anyone else's. **Reset** puts them
+back. The Panels button itself never moves or hides, so you can always get back
+even if you switch everything off.
 
 ## RFID
 
