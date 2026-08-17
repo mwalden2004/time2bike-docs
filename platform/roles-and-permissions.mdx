@@ -3,7 +3,7 @@ title: "Roles & permissions"
 description: "Who can do what across Time2Bike."
 ---
 
-Permissions are checked at three layers: account, organization, and timing session.
+Three separate things decide what someone can do: their account, their role in an organization, and any timing link they've been handed.
 
 ## Account
 
@@ -21,21 +21,28 @@ Set on the **Settings → Team** page of each org. A user can be in many orgs, w
 | **Manager** | Create and edit events, races, pricing, and merch. |
 | **Admin** | Full access including team management and destructive actions. |
 
-The user who creates an org becomes its first **Admin**. You can't remove the last admin — promote someone else first.
+The person who creates an organization becomes its first **admin**.
 
-## Timing session roles
+<Note>
+  **While Time2Bike is in beta, every organization member has full access
+  regardless of the role you assign.** The role is recorded and will be enforced
+  later, but it restricts nothing today. Use timing links when you genuinely need
+  to limit someone.
+</Note>
 
-For race day, scoped tokens can grant a narrower set of permissions on a single session (see [Roles](/timing/crew/roles)):
+## Timing access
+
+For race day you can hand out timing links that work on one event and nothing else (see [Who can do what](/timing/crew/roles)):
 
 | Role | Capabilities |
 |---|---|
-| **view** | Read-only operator screen. |
-| **timer** | Record finishes, plates, lane starts/finishes, self-clear. |
-| **marshal** | Above + manual times, status changes, notes, deletes. |
-| **admin** | Above + finalize, publish, issue new tokens. |
-| **refund** | Reserved. |
+| **View** | Watch the timing screen, change nothing. |
+| **Timer** | Record finishes, add day-of riders, undo their own entries. |
+| **Marshal** | Above, plus DNF / DNS / DSQ and typing times in by hand. |
+| **Admin** | Above, plus finalize, publish, and issuing more links. |
+| **Refund** | Reserved for a future release. |
 
-Token roles do **not** stack with org roles. A volunteer with a `timer` token cannot edit registrations elsewhere in the org.
+A timing link never widens into organization access. A volunteer holding a **timer** link can't touch registrations, money, or any other event you run.
 
 ## Participant access
 
@@ -45,7 +52,7 @@ Riders can grant other people limited access to their registrations:
 - **editor** — change race / category / answers.
 - **manager** — full control including transfers.
 
-Set this on a rider's account → **Participants** page or from a participant card in the registration flow.
+Riders set this from a participant's **Access** page. See [Your rider profile](/riders/race-day/rider-profile).
 
 ## Rider data access
 

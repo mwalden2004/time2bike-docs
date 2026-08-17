@@ -3,7 +3,7 @@ title: "Notifications"
 description: "Which emails Time2Bike sends, when."
 ---
 
-Time2Bike sends a small, predictable set of transactional emails. There is no marketing email infrastructure — bring your own ESP for that.
+Time2Bike sends a small, predictable set of emails — receipts, confirmations, and results. It isn't a marketing tool, so keep using whatever you already send newsletters with.
 
 ## To riders
 
@@ -27,14 +27,20 @@ Time2Bike sends a small, predictable set of transactional emails. There is no ma
 | Stripe action required | "Update your payout details for [Org]" (mirrors Stripe's notice). |
 | Daily digest | Optional: registrations + revenue summary (opt-in per user). |
 
-## Sender
+## Who it comes from
 
-All email is sent from `no-reply@time2.bike` (display name: `Time2Bike`). For rider-facing emails the footer includes your org name and a link to your public page.
+Email arrives from Time2Bike, not from your own address. Rider-facing emails carry your organization's name and a link to your public page in the footer, so it's clear whose race it is.
+
+<Tip>
+  Put your own contact address in your event description and on your
+  organization page. Riders reply to race emails, and you want those replies
+  reaching you rather than bouncing off a no-reply address.
+</Tip>
 
 ## Opting out
 
 Riders can disable all non-essential email under **Account → Privacy**. Receipts and confirmations are not opt-out-able — they're transactional and required.
 
-## Templates
+## Branding
 
-Email templates are currently fixed. Custom branding and per-org template editing is on the roadmap. Today, your org name, logo, and primary color are inserted automatically.
+Your organization's name, logo, and brand color are inserted automatically. Writing your own email templates isn't available yet.
