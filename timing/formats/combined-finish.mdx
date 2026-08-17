@@ -64,6 +64,9 @@ Scoring stays per race. This changes how you *capture*, not how anyone is placed
 
 ## Which races come through your chute
 
+The selector collapses — it's a set-up decision, and it starts closed so the
+screen leads with the chute rather than its own configuration.
+
 By default every race in the event resolves on your screen. If your chute only
 takes some of them — juniors finish on the field, the road race finishes on the
 hill — tick just those at the top of the screen.
@@ -84,16 +87,62 @@ prompt that asks which race a shared bib belongs to.
 
 > !!-IMAGE-NEEDED-!! — The "Races through my chute" selector with two of four races selected.
 
-## Three ways to record a finish
+## Where you're standing
+
+A shared chute isn't only a finish line. The same crew works a shared
+start/finish on a criterium, and a marshal on a multi-race course stands at one
+split with every category coming past.
+
+So this screen has the same **This device is timing the…** control as the
+per-race one — start line, any timing point, the finish, or both ends at once.
+
+**Whatever you select is what an entry records.** Type a bib or tap a rider and
+it does that job:
+
+| Where you are | An entry records |
+|---|---|
+| **Finish line** | A finish |
+| **Start line** | Checks that rider onto the course |
+| **A timing point** | A split at that point, in that rider's own race |
+| **Both ends** | Resolved per rider — not out yet checks them in, on course finishes them |
+
+The submit button changes with it — **CHECK IN**, **SPLIT**, **FINISH**, or
+**OUT / IN** — and so does the riders panel, so nothing ever claims to finish a
+rider who hasn't started.
+
+<Note>
+  **Timing points are matched by name across races.** Each race owns its own
+  points, so "Halfway" is a separate record in every category — you pick the name
+  once and each rider's split lands on their own race's point. A race with no
+  point of that name says so rather than recording something else.
+</Note>
+
+## Three ways to record
 
 | Way | When |
 |---|---|
-| **STAMP TIME** | The chute is moving faster than you can read numbers. Stamps the moment with no bib — add it afterwards |
 | **Bib box** | You can read the number. Resolves across every selected race and confirms the rider, their race, and their wave before committing |
-| **Find a rider by name** | The number is unreadable or caked in mud. Search the whole selected field by name or bib and tap them in |
+| **Riders panel** | The number is unreadable or caked in mud. Search the whole selected field and tap the rider |
+| **Stamp the time** | The chute is moving faster than you can read numbers. Stamps the moment with no bib — add it afterwards |
 
-The rider lookup is the same tool the per-race screen has in its **Registered
-riders** list — it searches across every race you've selected rather than one.
+Stamping is a finish-line tool, so it's hidden at a start line or a timing point
+where a bib-less crossing wouldn't mean anything.
+
+## The riders panel
+
+Collapsed by default, with a live count in its header — **12 out · 40 in · 3 not
+started** — so you can read the state of your chute without opening it.
+
+Open it for a searchable list of every rider in the races you've selected:
+
+- Filter to **Out**, **In**, **Not started**, or all of them.
+- Search by name or bib.
+- Riders still out show a running clock; finished riders show their time.
+- **Tap anyone still out to finish them** — this is the fallback when you can't
+  read a number.
+
+Close it again when you don't need it. On race day the screen should be showing
+the chute, not a list.
 
 ## Blind capture
 
@@ -138,8 +187,11 @@ One list, every finisher, newest first:
 
 ## RFID
 
-The RFID watcher is on this screen too, below the capture controls — a chip-timed
-shared chute is the commonest place to be running a pad.
+The RFID watcher is on this screen too — a chip-timed shared chute is the
+commonest place to be running a pad.
+
+It follows your chute selection: only the races you've ticked are offered as
+targets, and only their riders are matched against incoming reads.
 
 → [Timing with an RFID pad](/timing/hardware/rfid)
 
