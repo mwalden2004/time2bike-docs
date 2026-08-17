@@ -195,8 +195,44 @@ Pl  Bib  Rider              Race          Halfway  Summit     Time
   everything.
 - The header row stays put while you scroll.
 
-Riders still out sort first, furthest round first; finishers follow in placing
-order. So the top of the sheet is the road and the bottom is the result.
+### Rows stay put
+
+The sheet is in **bib order and stays in bib order**. Nothing reshuffles while
+you're using it.
+
+This matters because tapping a row is how you record a rider whose bib you can't
+read. A sheet that re-sorts itself as times land is a sheet where the row under
+your finger changes between looking and tapping — you reach for #114 and record
+#237, and neither rider finds out until results are published.
+
+<Note>
+  **Progress order** is still available from the sort control, and the option
+  says what it does — *rows move*. It's the right choice when you're watching the
+  race rather than recording it: riders still out sort first, furthest round
+  first, then finishers in placing order, so the top of the sheet is the road and
+  the bottom is the result.
+
+  Switch back to bib order before you start tapping rows.
+</Note>
+
+### Every pass, not just one
+
+Where a rider crosses the same point more than once — every lap of a criterium
+past the same marshal — the cell lists **each pass**, numbered:
+
+```
+Pl  Bib  Rider          Race           Halfway        Lap   Lap times
+    112  Dana Ruiz      Cat A · Crit   1  4:02        3/8   1  8:10
+                                       2  12:15             2  8:04
+                                       3  20:19             3  8:09
+```
+
+A single-pass point still shows as one plain number, so an ordinary race's sheet
+reads exactly as it always did.
+
+This is the point of the sheet in a lap race: a rider who lost two minutes on lap
+four is obvious in a column of lap times and invisible in a single summary
+number.
 
 ### Tap a row to record
 
@@ -215,10 +251,10 @@ finish) simply aren't tappable.
 ### Lap races
 
 If any race in your chute is in [lap mode](/timing/formats/laps-and-primes) or is
-a relay, the sheet grows a **Lap** column (`3/5`) and a **Last lap** column, and
-a crossing recorded for one of those riders is a **lap**, not a finish. The
-reducer finishes them on the lap that hits the target, and the toast tells you
-that's what happened.
+a relay, the sheet grows a **Lap** column (`3/5`) and a **Lap times** column
+listing every lap, and a crossing recorded for one of those riders is a **lap**,
+not a finish. Riders are finished on the lap that hits the target, and the
+confirmation says that's what happened.
 
 Riders in ordinary races on the same screen are unaffected — what a crossing
 means is read from the rider's race, not from a control you have to remember to
