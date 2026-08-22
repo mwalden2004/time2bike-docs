@@ -1,29 +1,65 @@
 ---
-title: "Races list"
-description: "Every race inside an event."
+title: "Groups & races"
+description: "Every race inside an event, and the folders you can file them under."
 ---
 
-The **Races** tab on an event shows every race (a.k.a. category group) you've created. Each race has its own registration window, pricing, waivers, capacity, and results.
+The **Races** tab on an event shows every race you've created. A **race** is
+what riders register for and what gets timed — it has its own registration
+window, pricing, waivers, capacity, and results.
 
-> !!-IMAGE-NEEDED-!! — /organizations/[id]/events/[eventId]/races → race cards with category counts and capacity bars
+A **group** is only a folder. Use one to keep a long race list readable —
+"Cross Country", "Saturday", "Juniors". Races don't need one, and ungrouped
+races are listed on their own under **Ungrouped**.
+
+> !!-IMAGE-NEEDED-!! — /organizations/[id]/events/[eventId]/races → groups with their races, counts, and capacity bars
+
+<Note>
+  Don't start with groups. Add races first, and add groups later if the list
+  gets long enough to need folders.
+</Note>
 
 ## Create a race
 
-1. Click **New race** in the header.
+1. Click **New race** — or the **+** on a group to file it there directly.
 2. Fill in:
    - **Name** — e.g. "Cat 1 Men".
    - **Format** — mass start, time trial, downhill, enduro stages, dual slalom bracket, short track, or other. This decides which timing screen your operators get on race day.
+   - **Group** — optional. Leave it blank and the race lands in **Ungrouped**.
    - **Capacity** — max registrants. Leave blank for unlimited.
-   - **Categories** — comma-separated category labels (e.g. "Cat 1, Cat 2"). At least one is required.
    - **Gender restriction** — open to everyone, men only, or women only.
    - **Team relay** — toggle on for relay races (lets riders register as a team).
 3. **Save**.
 
-## What each card shows
+### Pricing and waivers are prefilled
+
+Every race needs a price schedule and at least one waiver, and on a given event
+those are near-always the same for every race. Set an organization default once
+and the create form fills them in:
+
+- **Default price schedule** — star one at
+  [Pricing → Schedules](/organizers/pricing/price-schedules).
+- **Default waivers** — star one or more at
+  [Settings → Waivers](/organizers/organization/settings-waivers).
+
+A default is a starting point, not a constraint — change either on the race and
+your choice wins.
+
+## Groups
+
+- **Add group** — name it. Presets from your organization make common names one tap.
+- **Age groups** — set an age-group set on a group and every race in it inherits it. A race can still override its own.
+- **Delete group** — the races are **kept** and moved to **Ungrouped**. Deleting a folder never deletes what's in it.
+
+## Search
+
+The search box matches a group's name or any race name inside it, so searching a
+group name keeps its whole contents visible.
+
+## What each race shows
 
 - Race name, format, and whether registration is open, closed, or closed automatically by your cutoff date.
-- Categories with current registered counts.
+- Current registered count.
 - Capacity fill bar.
 - Total revenue from this race.
 
-Click a card to open the **Race overview**.
+Click a race to open the [Race overview](/organizers/races/race-overview).

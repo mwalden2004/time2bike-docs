@@ -157,11 +157,13 @@
               "organizers/events/event-overview",
               "organizers/events/landing-page-builder",
               "organizers/events/event-settings",
+              "organizers/events/test-entries",
               "organizers/events/questions",
               "organizers/events/bibs",
               "organizers/events/plate-requests",
               "organizers/events/licenses",
               "organizers/events/volunteers",
+              "organizers/events/event-sponsors",
               "organizers/events/imports",
               "organizers/events/event-analytics"
             ]

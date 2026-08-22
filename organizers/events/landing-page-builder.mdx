@@ -14,6 +14,27 @@ The editor has three sub-tabs.
 - **Description** — markdown body of the hero.
 - **Slug** — the URL slug (`/events/[slug]`).
 - **Refund policy** — appears in the rider's cart and on the rider event page.
+- **FAQ** — questions about the event as a whole: parking, packet pickup, the weather plan. See below.
+
+## FAQ
+
+Add question-and-answer rows for the things riders email you about. They render
+as one **FAQ** section on the public event page.
+
+Questions about a *single* race — a start-time quirk, a category rule — belong
+on that race instead, under its **FAQ** field
+([Race overview](/organizers/races/race-overview)). Those appear in the same
+section on the public page, attributed to their race, so a rider finds
+everything in one place.
+
+<Note>
+  Rows with a question but no answer are dropped when you save. A half-finished
+  row would otherwise render as an empty expander on the public page.
+</Note>
+
+FAQ entries are deliberately not drawn inside the race rows: those rows are the
+registration click target, and an expandable question inside a selectable row is
+a control inside a control.
 
 ## Images
 

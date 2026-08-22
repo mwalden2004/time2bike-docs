@@ -18,6 +18,10 @@ description: "The master list of everyone signed up for an event."
 - **Source** — `web` (self-serve), `manual`, `api`.
 - **Registered at**.
 
+Rows placed while the event was a draft carry a **Test** badge. They're dry runs
+by your own staff, they took no money, and they should be cleared before you
+publish — see [Test entries](/organizers/events/test-entries).
+
 Use the column header to sort. The search box filters by name, email, or bib.
 
 ## Row actions
@@ -44,3 +48,24 @@ From the panel you can:
 ## Bulk actions
 
 Select rows with the checkboxes for bulk **email**, **delete**, or **export selected**.
+
+## Clear entries
+
+**Clear entries** in the toolbar empties the event. Time2Bike counts what's
+there and shows you the numbers before deleting anything.
+
+| Scope | What it removes | Who can run it |
+|---|---|---|
+| **Test entries only** | Just the dry runs placed against the draft. No real rider is touched. | Admin or manager |
+| **Everything** | Every entry on the event, imports and paid entries included. Asks you to type the event name back. | Organization owner |
+
+<Warning>
+  Clearing is permanent and does **not** refund anybody. To give people their
+  money back, run **Refund all** first — see
+  [Editing and refunds](/organizers/registrations/editing-and-refunds).
+</Warning>
+
+Waiver signatures, guardian consents, discount redemptions, league memberships,
+start-list entries, and emptied relay teams go with the registrations. Plate
+assignments are kept. Full detail in
+[Test entries](/organizers/events/test-entries).

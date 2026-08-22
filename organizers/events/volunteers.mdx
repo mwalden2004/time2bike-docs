@@ -16,16 +16,76 @@ icon: "hand-holding-heart"
 | **Role** | A type of help within an effort (e.g. "Aid station lead"). |
 | **Shift** | A time slot for a role with a **capacity**. |
 | **Signup** | A volunteer claim on a shift. |
-| **Reward** | Percent or dollar discount issued when the shift is marked complete. |
+| **Reward** | What a completed shift earns — a free entry, or a percent or dollar discount. Issued when the shift is marked complete. |
 
 ## Create an effort
 
 From the Volunteers tab click **New volunteer effort**. You'll set:
 
 - **Name** and **description**.
-- **Reward** — `No reward`, `% off`, or `$ off` a future registration. Issued automatically when a shift is marked complete.
+- **Reward** — see [Rewards](#rewards) below. Issued automatically when a shift is marked complete.
 
 Open the new effort to add **roles** and **shifts**. Each shift takes a role, a time window, and a capacity. Default shift = the whole event window with capacity 1.
+
+### Shift instructions
+
+Each shift has an **Instructions** field — what to bring, where to check in, who
+to find. It's shown on the public signup page and repeated in the confirmation
+email, so a volunteer arriving on race morning has it without digging up the
+page again.
+
+<Warning>
+  Instructions are volunteer-facing. Put private notes in the shift's admin
+  note instead — that one is never returned by a public endpoint.
+</Warning>
+
+## Rewards
+
+Pick what a completed shift earns:
+
+| Reward | What the volunteer gets |
+|---|---|
+| **No reward** | Nothing. No code is issued. |
+| **Free entry** | A 100%-off entry credit. |
+| **% off** | A percentage off one registration. |
+| **$ off** | A flat amount off one registration. |
+
+### Where it can be spent
+
+Each reward has a **redeemable at** setting:
+
+- **This event** — the code only works on this event, which in practice makes
+  it a next-edition code.
+- **Any of our races** — the code works on any race your organization runs.
+
+**Free entry** defaults to *any of our races*. A volunteer has already worked
+the event they signed up for, so a credit locked to that event would be
+unspendable. Percent and amount rewards default to *this event*.
+
+### What the credit covers
+
+By default a reward covers the **entry fee only**. Two fees pass through unless
+you opt in:
+
+- **Permitting / one-day license fee** — that money is owed to a sanctioning
+  body, not to you.
+- **Series replacement-plate fee** — that covers a physical plate.
+
+Tick **also covers license fee** or **also covers plate fee** on the effort if
+you want your reward to absorb them.
+
+### How the code is issued
+
+When you mark a shift complete, Time2Bike generates a single-use discount code
+and emails it to the volunteer. Free entries get a `VOLFREE-` prefix and
+everything else gets `VOL-`, so a 100%-off code is obvious at a glance in your
+[discount code list](/organizers/pricing/discounts).
+
+Because these codes are single-use, Time2Bike now holds a use while a rider is
+mid-checkout, so two people can't both spend the last one. See
+[Discount codes](/organizers/pricing/discounts#usage-limits).
+
+A **no-show** or a cancelled signup never gets a code.
 
 ## Take public signups
 
@@ -35,6 +95,11 @@ Once the effort is **open**, it's visible at:
 - The direct URL `time2.bike/events/[slug]/volunteer`.
 
 Public users see open shifts and the reward (if any). They can't see who else has signed up — only the **spots remaining** count.
+
+The event page also previews your opening: while an effort has an open shift,
+riders see a **Want to volunteer?** card with the total spots and shifts open,
+the reward on offer, and the next few shifts by role, time, and location. It
+disappears on its own once everything is filled.
 
 Close an effort to stop signups without deleting it.
 

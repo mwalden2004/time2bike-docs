@@ -4,7 +4,7 @@ description: "From an empty account to open registration — every step, in the 
 icon: "rocket"
 ---
 
-This is the shortest complete path to taking entries for a race. Nine steps.
+This is the shortest complete path to taking entries for a race. Ten steps.
 Each one links to the page with the full detail, so use this as the spine and
 branch off when you need to.
 
@@ -76,9 +76,9 @@ you can build the rest of this with the page live but invisible.
 
 ## 6. Add your races
 
-**Event → Races → New race**, once per category group.
+**Event → Races → New race**, once per race riders can enter.
 
-For each race: name, format, capacity, categories, gender restriction, and
+For each race: name, format, capacity, gender restriction, and
 whether it's a relay.
 
 <Tip>
@@ -111,16 +111,30 @@ Add discount codes now if you're running any.
 → [Race waivers](/organizers/races/race-waivers) ·
 [Custom questions](/organizers/events/questions)
 
-## 9. Build the landing page and publish
+## 9. Build the landing page
 
-**Event → Landing page** for the banner, description, schedule, sponsors, and
-photos. Then set the event status to **published**.
+**Event → Landing page** for the banner, description, schedule, FAQ, sponsors,
+and photos. Leave the event in **draft** for now.
 
-Open `time2.bike/events/[slug]` in a private window and register yourself for
-the cheapest race. It's the only way to be sure the whole chain works —
-waiver, questions, price, receipt.
+→ [Landing page builder](/organizers/events/landing-page-builder) ·
+[Event sponsors](/organizers/events/event-sponsors)
 
-→ [Landing page builder](/organizers/events/landing-page-builder)
+## 10. Test the entry flow, then publish
+
+While the event is a draft, only your organization can open its page — and any
+entry you place is a free **test entry** that never touches Stripe. So register
+yourself for the cheapest race and read the confirmation email. It's the only
+way to be sure the whole chain works: waiver, questions, price, receipt.
+
+Then, in order:
+
+1. **Event → Registrations → Clear entries** to delete the test entries. Going
+   live with them still in place puts fake riders on your public start list.
+2. Set the status to **published** — or **unlisted** if you want a link-only
+   soft launch first.
+
+→ [Test entries](/organizers/events/test-entries) ·
+[Event settings](/organizers/events/event-settings)
 
 > !!-IMAGE-NEEDED-!! — A published event landing page as a rider sees it, with the race list and Register button.
 

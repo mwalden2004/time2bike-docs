@@ -10,9 +10,10 @@ Clicking a race opens the **Race overview** at `/organizations/[id]/events/[even
 ## Editable fields
 
 - **Name** and **format**.
-- **Categories** — add / remove / rename. Removing a category that has registrations is blocked; reassign first.
-- **Capacity** — total seats (across categories).
-- **Gender restriction** — open to everyone, men only, or women only.
+- **Group** — which folder this race is filed under on the races list, or none. See [Groups & races](/organizers/races/races-list).
+- **Capacity** — total seats.
+- **Gender restriction** — who may enter: open to everyone, men only, or women only.
+- **Score men and women separately** — see [Splitting one race into several results](#splitting-one-race-into-several-results).
 - **Team relay** — toggle.
 - **Registration disabled** — manual kill switch for this race.
 - **Cutoff days** — close registration N days before start.
@@ -20,6 +21,35 @@ Clicking a race opens the **Race overview** at `/organizations/[id]/events/[even
 - **FAQ** — race-specific Q&A rendered on the public race page.
 - **Info links** — extra resources (rule book, course map).
 - **Contact** — name / email / phone shown on the public race page.
+
+## Splitting one race into several results
+
+Two toggles let one race on the ground produce more than one result, so you
+don't have to build separate races and keep two sets of pricing, waivers, and
+timing config in step.
+
+- **Age-group split** — score each age bracket separately. Brackets come from
+  the age-group set on the race or its group.
+- **Score men and women separately** — score each gender separately.
+
+Everybody registers for and starts the **same** race. Placement, gaps, and
+exports are computed per group, so each one gets its own leader and its own
+POS 1. Turn both on and you get a result per age bracket per gender.
+
+<Note>
+  **Score men and women separately** is independent of **Gender restriction**.
+  One decides how results are scored; the other decides who may enter at all. A
+  race that's already restricted to one gender has nothing to split.
+</Note>
+
+Riders with no gender on file are grouped under **Unspecified** rather than
+being folded into the men's or women's result. Unlike age — which drifts with
+the calendar and is frozen at registration — gender is read live from the
+rider's profile.
+
+The split carries through to [results](/organizers/races/race-results), live
+results, and the [printable results PDF](/timing/results/exports), which renders
+one section per group.
 
 ## Recent registrations panel
 

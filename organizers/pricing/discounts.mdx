@@ -20,7 +20,7 @@ Discount codes are managed at the **organization** level and can be scoped to se
      - **Registration** (default) — race entry fees only.
      - **Merch** — storefront merch and registration add-ons only.
      - **Both** — either / combined.
-   - **Max uses** — total redemptions allowed across all riders. Blank = unlimited.
+   - **Max uses** — total redemptions allowed across all riders. Blank = unlimited. See [Usage limits](#usage-limits).
    - **Per-user limit** — how many times a single rider can use it.
    - **Valid from / to** — optional date window.
 3. **Save**.
@@ -34,6 +34,41 @@ At checkout the rider enters the code on the **Review** step (or in the cart for
 - **Percent codes** apply to the subtotal of eligible lines.
 - **Amount codes** apply once, capped at the subtotal so they never go negative.
 
+## Usage limits
+
+**Max uses** and **Per-user limit** are enforced on race registration as well as
+merch. A code with nothing left is refused outright.
+
+### Carts bigger than the code
+
+A rider entering themselves and a friend can have more eligible lines than the
+code has uses left. Time2Bike discounts the first lines and charges the rest at
+full price, rather than refusing the whole cart — the rider sees the discount on
+their own entry before their friend's.
+
+### Holds during checkout
+
+A use is only *recorded* once money settles, which used to leave a window where
+two people checking out at the same time could both spend the last use of a
+single-use code. Registrations that are still pending now hold a use for up to
+**60 minutes**, so the second checkout sees the code as exhausted.
+
+An abandoned cart releases its hold when that hour is up, so a code is never
+burned permanently by someone who walked away.
+
+<Note>
+  [Test entries](/organizers/events/test-entries) on a draft event never record
+  a redemption, so they never hold one either. An organizer testing their own
+  checkout can't burn a volunteer's free-entry credit.
+</Note>
+
+Per-user limits only apply when Time2Bike knows who's buying. An anonymous
+checkout has no account to count against, so **Max uses** carries the limit
+there.
+
+Clearing an event's registrations recounts every affected code from the
+redemptions that survive, so a code gets its uses back rather than drifting.
+
 The **service fee is computed on the net subtotal after the discount**, so reducing the subtotal also reduces the fee.
 
 ## Merch storefront vs registration add-ons
@@ -46,6 +81,12 @@ The **service fee is computed on the net subtotal after the discount**, so reduc
 ## Redemptions
 
 Every successful application writes a **redemption** row tied to the registration or merch order, so you can audit who used what and when. See [Redemptions](/organizers/pricing/redemptions).
+
+## Volunteer reward codes
+
+Codes issued for a completed volunteer shift show up in this list like any
+other. They're single-use and prefixed `VOLFREE-` (a free entry) or `VOL-` (a
+percent or amount reward). See [Volunteers](/organizers/events/volunteers#rewards).
 
 ## Lifecycle
 
