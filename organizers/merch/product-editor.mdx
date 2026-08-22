@@ -1,15 +1,16 @@
 ---
 title: "Product editor"
 description: "Edit a single product, its variants, visibility, and fulfillment."
+icon: "sliders"
 ---
 
 Click a product to open the editor.
 
-> !!-IMAGE-NEEDED-!! — /organizations/[id]/merch/[productId] → product editor with image uploader and variants table
+{/* IMAGE NEEDED: /organizations/[id]/merch/[productId] → product editor with image uploader and variants table */}
 
 ## Top-level fields
 
-- **Name**, **slug**.
+- **Name**, and the **web address** the product page sits at.
 - **Description** — markdown body shown on the product page.
 - **Images** — upload one or more; the first is the cover image. Click the trash icon on a thumbnail to remove it.
 - **Base price** (USD) — the default unit price; per-variant overrides take precedence.
@@ -45,7 +46,9 @@ When enabled, riders can add this product to their cart during signup for the **
 
 ### Show in public storefront
 
-When unchecked, the product is hidden from `time2.bike/[orgSlug]/store` and only sold as a registration add-on. Use this for event-exclusive items (a race shirt that ships with race entry, for example) you don't want random visitors buying.
+When unchecked, the product is hidden from your public store and sold only as a
+registration add-on. Use this for event-only items — a race shirt that goes with
+an entry, say — that you don't want passers-by buying.
 
 ### Enable shipping for storefront orders
 

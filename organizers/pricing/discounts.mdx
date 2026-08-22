@@ -1,11 +1,12 @@
 ---
 title: "Discount codes"
 description: "Create codes riders enter at checkout."
+icon: "tag"
 ---
 
 Discount codes are managed at the **organization** level and can be scoped to series, events, races, or applied across the org. Manage them at **Pricing → Discounts**.
 
-> !!-IMAGE-NEEDED-!! — /organizations/[id]/pricing/discounts → discount code list with usage counts
+{/* IMAGE NEEDED: /organizations/[id]/pricing/discounts → discount code list with usage counts */}
 
 ## Create a code
 
@@ -73,7 +74,9 @@ The **service fee is computed on the net subtotal after the discount**, so reduc
 
 ## Merch storefront vs registration add-ons
 
-- A code with eligibility **Merch** or **Both** works on the public store (`time2.bike/[orgSlug]/store`) only if `Applies to = any` — series/event/race scopes don't apply to a generic store order.
+- A code set to **Merch** or **Both** works in your public store only if
+  **Applies to** is set to **any**. A code tied to a specific series, event, or
+  race can't apply to a plain store order — there's no race to match it against.
 - When merch is purchased as an **add-on inside a registration**, event-scoped codes can apply as long as the registration is for that event.
 - The cart checks a code as the rider types it, so they see "applied" or "invalid" straight away — and re-checks whenever the cart changes, so an amount-off code can't end up worth more than the order.
 - A code that brings the total to exactly **$0.00** sends the order straight through without Stripe, but still records a redemption row.

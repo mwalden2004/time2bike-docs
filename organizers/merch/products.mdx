@@ -1,15 +1,16 @@
 ---
 title: "Products"
 description: "Your org's merch catalog."
+icon: "shirt"
 ---
 
 **Merch → Products** lists every product in your store.
 
-> !!-IMAGE-NEEDED-!! — /organizations/[id]/merch → products table with status pills and price ranges
+{/* IMAGE NEEDED: /organizations/[id]/merch → products table with status pills and price ranges */}
 
 ## Columns
 
-- **Product** — name and slug.
+- **Product** — its name, and the web address its page sits at.
 - **Price** — either a single price or a `min–max` range when variants override the base price.
 - **Variants** — total variant count.
 - **In stock** — inventory available across all variants (`∞` = unlimited).
@@ -27,7 +28,7 @@ Click **New product** and supply a **name** and a **base price** (in dollars). N
 
 A product can appear in two places, controlled per-product on the editor:
 
-- **Public storefront** at `time2.bike/[orgSlug]/store` — enabled by **Show in public storefront**.
+- **Public storefront** — your store page, switched on per product by **Show in public storefront**.
 - **Registration add-ons** — enabled by **Offer as a registration add-on** plus picking the events.
 
 A product can be in either, both, or neither. Use "add-on only" (storefront off, add-on on, with one event picked) for race-shirt-style items you don't want sold standalone.

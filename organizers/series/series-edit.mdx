@@ -1,17 +1,25 @@
 ---
 title: "Edit a series"
-description: "Rename, re-slug, or reschedule a series."
+description: "Rename a series, change its web address, or move its dates."
+icon: "pen-to-square"
 ---
 
-The **Edit** tab under a series exposes:
+The **Edit** tab of a series lets you change:
 
 - **Name**
-- **Slug** — changing it breaks old `time2.bike/series/[old-slug]` links unless you redirect.
+- **Web address** — the `summer-gravel-cup` in `time2.bike/series/summer-gravel-cup`.
 - **Description**
 - **Start date** / **end date**
 
-> !!-IMAGE-NEEDED-!! — /organizations/[id]/series/[seriesId]/edit → edit form
+{/* IMAGE NEEDED: /organizations/[id]/series/[seriesId]/edit → edit form */}
 
-Click **Save** to apply. The change is immediate; rider-facing pages refresh on next load.
+<Warning>
+  **Changing the web address breaks every link you've already shared.** Old
+  addresses don't redirect — a link on a flyer, in an email, or in a Facebook
+  post stops working the moment you save. Change it before you publicise the
+  series, not after.
+</Warning>
+
+Click **Save** to apply. The change takes effect straight away.
 
 To change which events are in the series, use the **Overview** tab instead.

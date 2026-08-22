@@ -8,7 +8,7 @@ Open your event and click **Live Timing**. This is what you're looking at.
 
 ![Live Timing](/images/timing/home.png)
 
-> !!-IMAGE-NEEDED-!! — The full timing screen with callout numbers on each region described below.
+{/* IMAGE NEEDED: The full timing screen with callout numbers on each region described below */}
 
 ## Top bar
 
@@ -16,7 +16,7 @@ Open your event and click **Live Timing**. This is what you're looking at.
 |---|---|
 | **Race tabs** | Every race in the event. The highlighted one is where your entries go. Tap to switch — the controls below change to suit that race's format. |
 | **Status badge** | Whether the timer is running, paused, stopped, finalized, or published. |
-| **Clock chip** — `±5 ms` | How closely this device agrees with Time2Bike's clock. Under 50 ms is excellent; over 200 ms means a flaky connection. |
+| **Clock chip** | How closely this device's clock agrees with Time2Bike's. A small number is good; a big one means a weak signal. It sorts itself out once you're back in coverage. |
 | **Sync chip** | 🟢 synced, 🟡 *N* queued, 🔴 offline. Tap it to see exactly what's waiting to upload. |
 | **Help** | The full operator reference, built into the screen. |
 
@@ -27,16 +27,16 @@ Open your event and click **Live Timing**. This is what you're looking at.
 
 ## The blue hint bar
 
-A one-line prompt telling you what to do next — *Step 1: Start Cat 3 Men to begin
+A one-line prompt telling you what to do next: *Step 1: Start Cat 3 Men to begin
 timing*, then *Step 2: Enter a plate number or tap a rider*. It follows the state
 of the race, so if you're not sure what to do, read that line.
 
 ## The race board
 
 A panel at the top listing every race in the event and what it's doing right
-now — running with a live clock, stopped with a finisher count, or not started.
+now: running with a live clock, stopped with a finisher count, or not started.
 
-> !!-IMAGE-NEEDED-!! — The race board with three races running and one not started.
+{/* IMAGE NEEDED: The race board with three races running and one not started */}
 
 - The header says **3 of 5 races running**, so you never have to click through
   tabs to find out what's live.
@@ -64,8 +64,8 @@ Big buttons for the race you're recording into, sized for cold hands.
   race that went while nobody was at the screen. Once a race is running the same
   button reads **Correct the start time**.
 
-Pressing START on a race that's already running says **RESTART RACE** instead —
-only do that if you fired the previous start by mistake, because it invalidates
+Pressing START on a race that's already running says **RESTART RACE** instead.
+Only do that if you fired the previous start by mistake, because it invalidates
 the finishes already recorded against the old clock. If the start merely
 happened *earlier* than you pressed it, use **Correct the start time** instead:
 that keeps every finish and re-times them.
@@ -78,12 +78,12 @@ per rider or per lane.
 The single most important control. Type a bib, press **Enter**.
 
 - It stays focused, so you don't have to click it before typing.
-- As you type, matching riders appear as chips — tap one instead of finishing
+- As you type, matching riders appear as chips. Tap one instead of finishing
   the number.
 - There's an on-screen digit pad for gloved hands and touchscreens.
 - An **UNDO** button sits next to it. One tap reverses your last recording.
 
-What Enter *does* depends on your recording point — finish, lap, split, or
+What Enter *does* depends on your recording point: finish, lap, split, or
 check-in. See [Recording points](/timing/screen/recording-points).
 
 ## On course
@@ -93,11 +93,11 @@ Riders who've started but not finished, sorted by elapsed time. This is your
 
 ## Registered riders
 
-The full roster for the selected race. Tap any name to record them right now —
-what you reach for when a bib is unreadable or caked in mud.
+The full roster for the selected race. Tap any name to record them right now.
+It's what you reach for when a bib is unreadable or caked in mud.
 
-There's a search box, and the list collapses automatically for big fields so the
-timing controls stay above the fold.
+There's a search box, and for a big field the list collapses on its own so the
+timing buttons stay on screen.
 
 ## Any result row
 
@@ -108,10 +108,10 @@ split, void a lap, delete. What you see depends on your access level.
 
 ## Timer setup
 
-One button below the rider lists opens **Timer setup** — every setting for this
-timer, in one panel with three sections.
+One button below the rider lists opens **Timer setup**, which holds every
+setting for this timer in one panel with three sections.
 
-> !!-IMAGE-NEEDED-!! — The **Timer setup** panel open on the "How I am timing" section.
+{/* IMAGE NEEDED: The **Timer setup** panel open on the "How I am timing" section */}
 
 | Section | What's in it |
 |---|---|
@@ -122,8 +122,8 @@ timer, in one panel with three sections.
 ### Setting up several races at once
 
 Five criterium categories usually want identical settings, and doing them one at
-a time is how the fourth ends up different. Tick as many races as you like — or
-**All races** — and set them together.
+a time is how the fourth ends up different. Tick as many races as you like, or
+**All races**, and set them together.
 
 Two rules keep that safe:
 
@@ -134,7 +134,7 @@ Two rules keep that safe:
   way until you set it. Nothing picks a value on your behalf.
 
 Fields you have changed are badged **will change**, so you can see what's about to
-be written before you press save — which names its target: *Save to 5 races*.
+be written before you press save. The button names its target: *Save to 5 races*.
 
 Changing the selection mid-edit keeps your pending changes and applies them to
 whatever is selected when you save. Untouched fields re-read from the new
@@ -143,15 +143,9 @@ selection.
 There's also **…and the default for any race added later**, which writes the same
 settings to the fallback new races inherit.
 
-<Note>
-  Settings used to be spread across four surfaces, including a button called
-  "Configure default lap mode (fallback)" that held finish style and display
-  precision. If you're looking for something from an older screenshot, it's in
-  here.
-</Note>
-
-Anything that has to talk to a device — the RFID watcher, laser boxes — stays on
-the timing screen itself, because it needs the machine you're standing at.
+Anything that talks to a piece of hardware, like the RFID pad or the laser
+boxes, stays on the timing screen itself, because it has to run on the device
+you're standing at.
 
 <Tip>
   The interval-start, dual-slalom and combined screens replace the standard one,

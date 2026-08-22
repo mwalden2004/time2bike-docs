@@ -1,63 +1,64 @@
 ---
 title: "Following live results"
-description: "Watch results update in real time during a race."
+description: "Watch results come in while the race is still on."
 icon: "stopwatch"
 ---
 
-During an event, results post live at
-`time2.bike/events/[slug]/live`. The page refreshes every 30 seconds and
-shows whatever the timing crew has published from the operator screen.
+Every event has one results page, and it starts filling in while the race is
+still running. You'll find it at the event's **Results** link, or straight at
+`time2.bike/events/your-event/results`.
 
 ![Race results](/images/riders/live-results.png)
 
+There's no separate "live" page to find. The same page you'll read the official
+results on is the one showing times right now — it just updates itself and then
+settles down once the organizer signs the results off.
+
+<Note>
+  Results only appear while a race is on if the timing crew has switched
+  **live results** on for that race. If a race is running and the page is empty,
+  that's usually why — the times are being recorded, they're just not public yet.
+</Note>
+
 ## What's on the page
 
-- **Event name and date** at the top
-- A **search box** — filter by rider name or plate number
-- One **collapsible section per session** — for a multi-discipline event
-  there might be one session for the XC race and another for the dual
-  slalom
-- Inside each session, one **table per race**: rank, plate, name, elapsed
-  time, status
+- A **search box** — type a rider's name, team, or number to pull them out of a
+  long list.
+- A count of how many riders are **on course** right now.
+- One section per race, each with a table: place, number, name, team, and time.
+- A **Gap** column showing how far each rider is behind the leader.
 
 ## Statuses
 
-| Status | Meaning |
+| You'll see | It means |
 | --- | --- |
-| **racing** | On course, time still ticking |
+| **on course** | Still out there, time still running |
 | **finished** | Crossed the line with a recorded time |
-| **dnf** | Did not finish |
-| **dns** | Did not start |
-| **dsq** | Disqualified |
+| **dnf** | Started, didn't finish |
+| **dns** | Didn't start |
+| **dq** | Disqualified |
 
-## Time precision
+## While it's still live
 
-Each session displays times rounded to the precision the organizer set —
-typically:
+A banner at the top says **Live and provisional — times may change**. Take that
+seriously — a rider might be sitting in third and drop to fifth when the crew
+sorts out a missed number.
 
-- **1 second** for endurance races
-- **1/10 sec** for cross-country
-- **1/100 sec** for dual slalom
+- The page updates on its own. Leave it open; you don't need to refresh.
+- A time can change or disappear if the crew fixes a mistake — a number typed
+  wrong, a rider recorded in the wrong race. That's the system working.
+- Places shuffle as riders finish, which is what you'd expect.
 
-Internally Time2Bike stores millisecond precision; the page just rounds
-for display.
+## Dual slalom and other bracket racing
 
-## Why a result might disappear
-
-If the operator edits or deletes a finish (e.g., a wrong plate was
-entered), the row updates on the next 30-second poll. Times shouldn't
-"jump around" otherwise — nothing that was already recorded gets rewritten.
-
-## Brackets (dual slalom)
-
-For dual slalom sessions, the live page also renders the bracket
-diagram. Winners advance match-by-match as the timing crew records
-lane finishes.
+Bracket races show the bracket diagram above the table, so you can follow who
+beat whom round by round as the crew records each run.
 
 ![Dual slalom results](/images/riders/live-ds.png)
 
-## After the race
+## When they become official
 
-When the timing crew **finalizes and publishes** the session, results
-move from this page to the official
-[Final results](/riders/race-day/final-results) page.
+Once the timing crew finalizes and publishes, the **provisional** banner comes
+off and the same page becomes the official record.
+
+→ [Final results](/riders/race-day/final-results)

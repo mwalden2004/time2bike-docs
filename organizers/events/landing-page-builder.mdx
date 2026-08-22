@@ -1,9 +1,10 @@
 ---
 title: "Landing page builder"
 description: "Author the public-facing event page."
+icon: "pen-ruler"
 ---
 
-The **Landing** tab controls everything on the rider-facing event page at `time2.bike/events/[slug]`.
+The **Landing** tab controls everything riders see on your event page.
 
 ![Landing page editor](/images/orgs/landing.png)
 
@@ -12,7 +13,7 @@ The editor has three sub-tabs.
 ## Details
 
 - **Description** — markdown body of the hero.
-- **Slug** — the URL slug (`/events/[slug]`).
+- **Web address** — the `spring-classic` in `time2.bike/events/spring-classic`. → [Web addresses](/platform/slugs)
 - **Refund policy** — appears in the rider's cart and on the rider event page.
 - **FAQ** — questions about the event as a whole: parking, packet pickup, the weather plan. See below.
 
@@ -28,8 +29,8 @@ section on the public page, attributed to their race, so a rider finds
 everything in one place.
 
 <Note>
-  Rows with a question but no answer are dropped when you save. A half-finished
-  row would otherwise render as an empty expander on the public page.
+  Rows with a question but no answer are dropped when you save — otherwise
+  riders would click one open and find nothing inside.
 </Note>
 
 FAQ entries are deliberately not drawn inside the race rows: those rows are the
@@ -38,15 +39,21 @@ a control inside a control.
 
 ## Images
 
-- **Banner image** — large hero. Upload via the file picker; an `altText` field is required for accessibility.
-- **Gallery** — additional photos shown lower on the page; each is uploaded and can have alt text.
+- **Banner image** — the big image at the top. You'll be asked for a short
+  description of the photo, which is what screen readers read out.
+- **Gallery** — extra photos further down the page, each with its own
+  description.
 
-Uploads go through Time2Bike's CDN (see [Uploads & CDN](/platform/uploads-and-cdn)).
+→ [Images](/platform/uploads-and-cdn)
 
 ## Maps
 
-For each race in the event, paste a map **embed URL** (e.g. a Strava or RideWithGPS share). The rider event page renders one map per race in the **Course** section.
+For each race, paste the share link from a map — a Strava or RideWithGPS route,
+for example. Riders see one map per race in the **Course** section of your
+event page.
 
 ## Preview & publish
 
-The **Preview** button opens the rider page with your unsaved edits applied. **Save** persists changes; they're visible to riders immediately once the event status is `published`.
+**Preview** shows you the rider's view of the page including edits you haven't
+saved yet. **Save** keeps them. Riders see saved changes straight away, as long
+as the event is **published**.

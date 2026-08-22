@@ -1,6 +1,6 @@
 ---
 title: "Quickstart"
-description: "From an empty account to open registration — every step, in the order you actually do them."
+description: "From an empty account to open registration. Every step, in the order you actually do them."
 icon: "rocket"
 ---
 
@@ -10,7 +10,7 @@ branch off when you need to.
 
 <Note>
   Budget an hour for your first event. Most of it is Stripe onboarding and
-  writing your waiver — the Time2Bike part is quick.
+  writing your waiver. The Time2Bike part is quick.
 </Note>
 
 ## Before you start
@@ -20,14 +20,15 @@ Have these ready:
 - A **logo** (square, under 5 MB).
 - Your **waiver text**, or the PDF your insurer requires.
 - Your **bank details and business info** for Stripe.
-- The **race schedule** — categories, start times, and what you're charging.
+- The **race schedule**: categories, start times, and what you're charging.
 
 ## 1. Create your organization
 
 [time2.bike/organizations/create](https://time2.bike/organizations/create).
 
-Name, slug, contact details, brand color, logo. The slug becomes your public
-URL, so pick something you'll still want in three years.
+Name, web address, contact details, brand color, logo. The web address is what
+riders will see and what you'll print, so pick something you'll still want in
+three years. It doesn't redirect if you change it later.
 
 → [Create an organization](/organizers/organization/create-organization)
 
@@ -37,7 +38,7 @@ URL, so pick something you'll still want in three years.
 
 <Warning>
   You cannot publish a paid event until Stripe is connected and onboarding is
-  complete. Do this first — Stripe verification can take a day or two, and it's
+  complete. Do this first. Stripe verification can take a day or two, and it's
   the one step you can't rush on the morning you wanted to open registration.
 </Warning>
 
@@ -48,7 +49,7 @@ URL, so pick something you'll still want in three years.
 
 **Settings → Waivers**. You need at least one before anyone can register.
 
-Waivers are org-level, then assigned to individual races — so write the general
+Waivers are org-level, then assigned to individual races, so write the general
 one now and add discipline-specific ones later.
 
 → [Waivers](/organizers/organization/settings-waivers)
@@ -82,7 +83,7 @@ For each race: name, format, capacity, gender restriction, and
 whether it's a relay.
 
 <Tip>
-  Get the race *structure* right before you touch pricing — pricing, waivers,
+  Get the race *structure* right before you touch pricing. Pricing, waivers,
   and questions all attach to races, so splitting one race into two afterwards
   means redoing all three.
 </Tip>
@@ -93,7 +94,8 @@ whether it's a relay.
 
 Two levels:
 
-- **Price schedules** (org-level) — reusable early-bird / regular / late tiers.
+- **Price schedules**, set on the organization: reusable early-bird, regular,
+  and late tiers.
 - **Race pricing** — apply a schedule to a race, or set a flat price.
 
 Add discount codes now if you're running any.
@@ -121,7 +123,7 @@ and photos. Leave the event in **draft** for now.
 
 ## 10. Test the entry flow, then publish
 
-While the event is a draft, only your organization can open its page — and any
+While the event is a draft, only your organization can open its page, and any
 entry you place is a free **test entry** that never touches Stripe. So register
 yourself for the cheapest race and read the confirmation email. It's the only
 way to be sure the whole chain works: waiver, questions, price, receipt.
@@ -130,13 +132,13 @@ Then, in order:
 
 1. **Event → Registrations → Clear entries** to delete the test entries. Going
    live with them still in place puts fake riders on your public start list.
-2. Set the status to **published** — or **unlisted** if you want a link-only
+2. Set the status to **published**, or **unlisted** if you want a link-only
    soft launch first.
 
 → [Test entries](/organizers/events/test-entries) ·
 [Event settings](/organizers/events/event-settings)
 
-> !!-IMAGE-NEEDED-!! — A published event landing page as a rider sees it, with the race list and Register button.
+{/* IMAGE NEEDED: A published event landing page as a rider sees it, with the race list and Register button */}
 
 ## Then, before race day
 
@@ -147,12 +149,12 @@ Then, in order:
     → [Bibs](/organizers/events/bibs)
   </Step>
   <Step title="Recruit volunteers">
-    **Event → Volunteers** — opportunities, shifts, and race-day check-in.
+    **Event → Volunteers**, for opportunities, shifts, and race-day check-in.
 
     → [Volunteers](/organizers/events/volunteers)
   </Step>
   <Step title="Set up timing">
-    There's nothing to create — open the event's **Live Timing** tab and the
+    There's nothing to create. Open the event's **Live Timing** tab and the
     timer is there, covering every race. Issue QR codes to your operators; they
     don't need accounts.
 
@@ -195,7 +197,7 @@ Then, in order:
     structure first.
   </Accordion>
   <Accordion title="Giving timing volunteers org accounts" icon="triangle-exclamation">
-    Use timing links instead — they work on one event and nothing else.
+    Use timing links instead. They work on one event and nothing else.
     See [Volunteer links](/timing/crew/tokens-and-qr).
   </Accordion>
 </AccordionGroup>

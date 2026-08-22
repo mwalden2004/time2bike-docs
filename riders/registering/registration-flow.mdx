@@ -4,8 +4,8 @@ description: "What the registration flow looks like, from picking participants t
 icon: "list-check"
 ---
 
-When you click **Register** on an event page, you enter a step-by-step flow at
-`/events/[slug]/register?races=[race-ids]`.
+When you click **Register** on an event page, Time2Bike walks you through the
+sign-up step by step.
 
 There are up to five steps. **Questions** and **Add-ons** only appear when the
 event actually has them, so a simple race is three steps: participants,
@@ -97,9 +97,8 @@ name above. It exists only for this event.
 Time2Bike refuses to add a participant to a race when:
 
 - They're already registered for that race (paid or pending).
-- The race has a **gender restriction** they don't match (the race is
-  "women only" / "men only" — based on `gender` on the
-  participant's profile).
+- The race is **women only** or **men only** and the gender on that rider's
+  profile doesn't match.
 - They've already been picked for this race in another slot of this same
   registration.
 
@@ -119,11 +118,9 @@ member but you don't have their info on file.
     held as **invited**.
   </Step>
   <Step title="They click the link">
-    The link opens
-    `/events/[slug]/complete-registration?registrationId=[id]` where they
-    sign in (or create an account), pick or create their own participant
-    profile, sign waivers, and answer questions. No payment — already
-    paid by you.
+    It takes them to a page where they sign in (or create an account), pick or
+    create their own rider profile, sign waivers, and answer questions. No
+    payment — you already covered it.
   </Step>
   <Step title="They're confirmed">
     Once they finish, they show up on the start list with full details.

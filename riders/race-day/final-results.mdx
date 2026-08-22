@@ -1,52 +1,59 @@
 ---
 title: "Final results"
-description: "View official results after a race has been finalized."
+description: "Official results once the organizer has signed them off."
 icon: "trophy"
 ---
 
-After the timing crew finalizes a race, official results post at
-`time2.bike/events/[slug]/results`.
+When the timing crew finishes checking a race, they **finalize** it and
+**publish** it. The results page stops saying *provisional* and becomes the
+official record.
+
+It's the same page you were watching during the race —
+`time2.bike/events/your-event/results`. Nothing moves, and any link you already
+shared keeps working.
 
 ![Final results](/images/riders/results.png)
 
-## What's different from live results
+## What changes once they're official
 
-| | Live | Final |
+| | While racing | Once published |
 | --- | --- | --- |
-| **URL** | `/events/[slug]/live` | `/events/[slug]/results` |
-| **Updates** | Every 30 seconds | Locked after publishing |
-| **Status** | provisional | official |
-| **Podium badges** | – | Gold / silver / bronze on top 3 |
-| **Gap to leader** | – | Yes (e.g. `+0:42.123`) |
-
-A race shows up here only after the organizer's timing crew clicks
-**Finalize** and then **Publish** in the operator screen.
+| Banner | *Live and provisional — times may change* | Nothing — the times are settled |
+| Times | Can change as the crew fixes entries | Locked unless the organizer republishes |
+| Places | Shuffle as riders finish | Final, with medals on the top three |
 
 ## Reading the table
 
 Each race shows:
 
-- **Rank** with a podium medal for 1st / 2nd / 3rd
-- **Bib** number
-- **Athlete name**
-- **Finish time** in `h:mm:ss.ms` format
-- **Gap** to the leader
-- **Status** badge: finished / dnf / dns / dq
-- **Publication** badge: provisional or official
+- **Place**, with a medal on the top three
+- **Number** and **name**, plus the team the rider entered under
+- **Time**
+- **Gap** — how far behind the leader
+- **Status** — finished, dnf, dns, or dq
 
-## Downloading results
+Long start lists have a search box at the top: type a name, team, or number.
 
-Click the **Download** button on a race table to get a CSV of that
-race's official results. For a full PDF of every published session in
-the event, organizers also publish a **Combined PDF** on the event page.
+## Saving a copy
+
+The **CSV** button on each race downloads that race's results as a spreadsheet
+file you can open in Excel or Google Sheets. Organizers can also publish a PDF
+of the whole event.
 
 ## Brackets
 
-For dual slalom and other bracket formats, the bracket diagram appears
-above the table, showing who beat whom round by round.
+Dual slalom and other bracket formats show the bracket above the table, so the
+finished bracket stays readable after the event.
 
-## If results look wrong
+## Your own results
 
-Final results come from the **event log** the timing crew recorded — every
-button press, every CSV row from the RFID pad. If a result is wrong,
-contact the organizer; they can edit and re-publish.
+Every race you finish is saved to your rider profile, so you keep a running
+record without doing anything.
+
+→ [Your rider profile](/riders/race-day/rider-profile)
+
+## If a result looks wrong
+
+Contact the organizer. Everything the timing crew recorded is kept, including
+every correction and who made it, so they can check what happened at the line
+and republish if something needs fixing.

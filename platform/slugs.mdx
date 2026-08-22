@@ -1,31 +1,35 @@
 ---
-title: "Slugs"
-description: "The readable web addresses your organization, events, and series live at."
+title: "Web addresses"
+description: "The readable web address your organization, events, and series live at."
+icon: "link"
 ---
 
-A **slug** is the readable part of a web address — the `mountain-bike-club` in `time2.bike/mountain-bike-club`. Organizations, events, and series each get one.
+Every organization, event, and series gets its own web address — the
+`mountain-bike-club` part of `time2.bike/mountain-bike-club`. You pick it when
+you create the thing, and it's what you'll be putting on flyers and in emails.
 
 ## The rules
 
 - Lowercase letters, numbers, and hyphens only.
-- Can't start or end with a hyphen.
-- Organization addresses are unique across all of Time2Bike; event addresses are
-  unique within your organization.
+- It can't start or end with a hyphen.
+- Organization addresses have to be unique across all of Time2Bike. Event
+  addresses only have to be unique within your own organization.
 
-If what you want is taken, the picker tells you and suggests something close.
+If the one you want is taken, the form tells you and suggests something close.
 
-## Where each one goes
+## Where each address goes
 
-| URL | Resolves to |
+| Address | What's there |
 |---|---|
-| `time2.bike/[slug]` | Organization public page |
-| `time2.bike/[slug]/store` | Organization merch storefront |
-| `time2.bike/events/[event-slug]` | Event public page |
-| `time2.bike/events/[event-slug]/register` | Event registration flow |
-| `time2.bike/events/[event-slug]/results` | Event results |
-| `time2.bike/events/[event-slug]/live` | Event live results |
-| `time2.bike/series/[series-slug]` | Series public page |
-| `time2.bike/profiles/[participantId]` | Rider public profile (note: uses the participant ID, not a slug) |
+| `time2.bike/socalmtb` | The organization's public page |
+| `time2.bike/socalmtb/store` | Their merch store |
+| `time2.bike/events/spring-classic` | An event's page |
+| `time2.bike/events/spring-classic/register` | Signing up for that event |
+| `time2.bike/events/spring-classic/results` | That event's results — live during the race, official once published |
+| `time2.bike/series/summer-gravel-cup` | A series page |
+
+Rider profiles work differently: they're at `time2.bike/profiles/…` followed by
+an ID Time2Bike generates, not a name you choose.
 
 ## Changing one
 
@@ -36,10 +40,13 @@ at any time.
   **Old addresses don't redirect.** Every link anyone has already shared — on a
   flyer, in an email, on Facebook — stops working the moment you change it.
 
-  If you have to change one, do it before you publicise anything, and search
-  your own emails and posts for the old link afterwards.
+  If you have to change one, do it before you publicise anything, and go back
+  through your own emails and posts for the old link afterwards.
 </Warning>
 
 ## Words you can't use
 
-A handful of words are part of Time2Bike's own addresses and can't be taken — `auth`, `dashboard`, `account`, `organizations`, `events`, `series`, `profiles`, `timing`, and a few others. The picker rejects them and offers an alternative.
+A handful of words are part of Time2Bike's own addresses and can't be taken —
+`auth`, `dashboard`, `account`, `organizations`, `events`, `series`,
+`profiles`, `timing`, and a few others. The form rejects them and offers an
+alternative.
