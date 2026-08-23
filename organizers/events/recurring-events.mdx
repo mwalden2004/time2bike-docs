@@ -1,12 +1,12 @@
 ---
-title: "Races that run again"
+title: "Recurring events"
 description: "One permanent web address, one results archive, and a page that points riders at the next date."
 icon: "repeat"
 ---
 
-Most races come back. The same weekend next year, the first Tuesday of every
+Most events come back. The same weekend next year, the first Tuesday of every
 month, every Wednesday evening through the summer. Time2Bike can treat those
-runnings as one race, which changes three things:
+runnings as one **recurring event**, which changes three things:
 
 - **The web address stops changing.** `time2.bike/events/spring-classic` is the
   race, forever. It always shows whichever running is current, so the link on
@@ -18,10 +18,21 @@ runnings as one race, which changes three things:
 - **Results collect in one place.** Every running's results, on one page,
   under the race's own address.
 
+<Warning>
+  **Create the event first.** A recurring event is always built from one that
+  already exists — there is no "new recurring event" button, and there isn't
+  meant to be.
+
+  So: make your event and run it (or at least set it up), then open it and
+  choose **Schedule the next one**. That is the moment the recurring event comes
+  into being, with your existing event as its first running.
+
+  → [Create an event](/organizers/events/create-event)
+</Warning>
+
 <Note>
-  You never set this up in advance. Creating an event is exactly as it was — no
-  extra step, nothing to decide. A race becomes recurring the first time you ask
-  for the next one.
+  Nothing about creating an ordinary event changes, and most events never become
+  recurring. You are never asked about any of this up front.
 </Note>
 
 ## Scheduling the next one
@@ -31,8 +42,9 @@ this race happen again? → Schedule the next one**.
 
 {/* IMAGE NEEDED: /organizations/[id]/events/[id]/settings → "Does this race happen again?" panel */}
 
-You get a date, already filled in from the pattern your past runnings show —
-the third Saturday in May, the first Tuesday of the month — and two lists.
+You get a date, already filled in from the schedule you set — the third Saturday
+in May, the first Tuesday of the month — and two lists. If you haven't set one,
+the date is blank and you pick it.
 
 | Carries over | Starts empty |
 |---|---|
@@ -55,31 +67,102 @@ is public until you publish it as usual.
 
 ## The race's own page
 
-Once a race has run more than once, its permanent address shows:
+Its permanent address shows, in order:
 
-- the next running, with its entry link, or the date if entries aren't open yet;
-- when there's no date at all, how often it usually runs — "usually the first
-  Tuesday of the month" — and a form to be emailed when the next one is
-  announced;
-- every previous running, grouped by year.
+- your banner, the race's name and where it usually happens;
+- **what's next** — the next running with its entry link, a date you've set but
+  not built yet, or the schedule you stated;
+- **about this race** — what it is, for somebody who has never heard of it;
+- **race info** — the pages you've written for the race: rules, course, travel;
+- **previous runnings**, grouped by year;
+- a signed-in rider's own record here;
+- sponsors attached to the race.
 
-A race that runs monthly gets grouped by year so the page stays readable; a race
-that runs once a year reads as a simple list.
+Every one of those sections can be turned off. **Recurring events → your event →
+Settings → What the public page shows.**
+
+## Editing a recurring event
+
+**Recurring events → your event → Settings** covers all of it: name, web address,
+banner, description, where it usually happens, the schedule, the next date, what
+shows publicly, and ending it.
+
+<Warning>
+  Changing the **web address** breaks every link already shared — flyers, emails,
+  your sponsors' sites — and moves where each running redirects. Old addresses
+  don't forward. The whole point of a recurring event is that this address never
+  has to change, so change it before you publicise anything, or not at all.
+</Warning>
+
+## Saying when it runs
+
+Time2Bike does **not** guess your schedule. You state it, and the page repeats
+exactly what you said.
+
+Under **Settings → When does it run?**, build it from how often, which days and
+which week of the month:
+
+| You set | Your page says |
+|---|---|
+| Monthly · second · Saturday | Second Saturday of every month |
+| Yearly · July · first · Sunday | First Sunday in July |
+| Weekly · Wednesday | Every Wednesday |
+| Monthly · the 15th | The 15th of every month |
+
+The builder shows the exact sentence as you go, so you never have to publish
+something to see how it reads.
+
+If your schedule doesn't fit any of that — "Memorial Day weekend", "the Saturday
+before Thanksgiving", "whenever the snow clears" — type it into **Or say it in
+your own words**, and that's what appears instead.
+
+<Note>
+  Leave the schedule off entirely and the page simply shows the last date the
+  race was held. That's a fact, and it's better than a guess. Earlier versions of
+  this worked the pattern out from your dates and published it — a race with one
+  running announced it was "usually held in August". That's gone; nothing is
+  inferred any more.
+</Note>
+
+## Adding a running you already made
+
+**Recurring events → your event → Add a running.** Pick any event that isn't
+already part of a race.
+
+The grouping suggester only spots what it can match by name and venue, so a race
+that was renamed, moved town, or was called something else in 2019 will never be
+suggested. Adding it by hand is how those years join their own history.
+
+The event keeps its own web address, entries and results — it just joins the
+race.
+
+## Ending a recurring event
+
+Two different things, under **Settings**:
+
+- **No longer run** keeps the page, the address and the results archive, and
+  stops the page promising a next date. This is what you want for a race that
+  has finished for good.
+- **Delete** removes the grouping and the permanent address. Every event it held
+  keeps its own address, entries and results — nothing is deleted — but
+  `time2.bike/events/your-race` stops working, and the riders waiting to hear
+  about the next one are lost with it.
 
 ## Riders waiting to hear
 
-When there's no next date announced, riders can leave their email on the race
-page or on any finished running's page. You'll see the count on the race in
-**Events → Recurring races**, and they're reachable from **Messaging** like any
+When there's no next date announced, and you've left the "Tell me when it's on"
+form switched on, riders can leave their email on the race page or on any
+finished running's page. You'll see the count on the race in
+**Events → Recurring events**, and they're reachable from **Messaging** like any
 other audience.
 
 That list is worth taking seriously. Somebody who goes looking for your race
 eight months out has already decided to enter it.
 
-## Grouping races you've already run
+## Grouping events you've already run
 
 If you've been running events here for a while, Time2Bike will spot runnings of
-the same race and ask about them under **Events → Recurring races**:
+the same event and ask about them under **Events → Recurring events**:
 
 > **5 runnings of Spring Classic?** Usually the third Saturday in May.
 
@@ -117,9 +200,18 @@ once a year.
 
 ## Series that come back
 
-A series can recur too — a Winter Series that runs every year is one race with a
-whole season as each running. It works the same way: **Schedule the next one**
-from the series creates next season and links them.
+A series recurs exactly as much as a single race day does — a Winter Series that
+runs every year is one recurring event whose every running is a whole season,
+rounds and all.
+
+Open the series, go to **Edit details**, and use **Does this series run again? →
+Schedule the next season**. Same flow as a single event: you get a date, the two
+lists of what carries and what resets, and the new season is created as a draft
+linked to this one.
+
+Everything else works the same afterwards — one permanent address at
+`time2.bike/series/your-series`, every season listed under it, and a results
+archive across all of them.
 
 Season passes are never copied. A pass is a product with a price and a sales
 window, and quietly recreating one would put something purchasable on the
@@ -133,7 +225,7 @@ covers the rounds of the season it belongs to.
 Each running's results are public on its own page either way. What you choose is
 whether they're also collected into one archive on the race's page, at
 `time2.bike/events/your-race/results`. The switch is on the race, under
-**Events → Recurring races**.
+**Events → Recurring events**.
 
 The archive shows every running with its finisher count and the winner of each
 field, and links through to the full table for any one of them. Riders who are
@@ -155,7 +247,7 @@ raced more than one.
 
 ## Comparing one running to the next
 
-Open a recurring race and you'll see the two numbers a race director actually
+Open a recurring event and you'll see the two numbers a race director actually
 plans against.
 
 **The entry curve** plots entries against how long before race day they came in,
@@ -194,23 +286,24 @@ the checkout step.
 ## Sponsors that belong to the race
 
 A bike shop that has backed your race for nine years belongs to the *race*, not
-to any one year of it. Set a sponsor's scope to the recurring race and it
+to any one year of it. Set a sponsor's scope to the recurring event and it
 appears on every running, including ones you create later — so it can't quietly
 get dropped at a rollover.
 
 ## Being reminded
 
-When a race's rhythm says the next one is about due and nothing is scheduled,
-it appears under **Due for the next one** on the Recurring races page, along
-with how many riders are waiting to hear.
+When the schedule you set says the next one is about due and nothing is on the
+calendar, it appears under **Due for the next one** on the Recurring events page,
+along with how many riders are waiting to hear.
 
-The lead time follows the rhythm: a few weeks for a weekly series, a few months
-for an annual race. Nothing is ever created for you — a draft you didn't ask for
+The lead time follows the schedule: a few weeks for a weekly series, a few months
+for an annual race. A race with no schedule set only shows up here once it has
+been silent for over a year. Nothing is ever created for you — a draft you didn't ask for
 is just something else to delete.
 
-## Handing a race on
+## Handing one on
 
-Races change hands. Transfer the recurring race to another organization and the
+Races change hands. Transfer the recurring event to another organization and the
 name, the web address, the results archive and the riders waiting to hear all go
 with it.
 
