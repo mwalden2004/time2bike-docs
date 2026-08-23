@@ -157,6 +157,7 @@
               "organizers/events/event-overview",
               "organizers/events/landing-page-builder",
               "organizers/events/event-settings",
+              "organizers/events/recurring-races",
               "organizers/events/test-entries",
               "organizers/events/questions",
               "organizers/events/bibs",

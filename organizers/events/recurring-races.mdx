@@ -1,0 +1,229 @@
+---
+title: "Races that run again"
+description: "One permanent web address, one results archive, and a page that points riders at the next date."
+icon: "repeat"
+---
+
+Most races come back. The same weekend next year, the first Tuesday of every
+month, every Wednesday evening through the summer. Time2Bike can treat those
+runnings as one race, which changes three things:
+
+- **The web address stops changing.** `time2.bike/events/spring-classic` is the
+  race, forever. It always shows whichever running is current, so the link on
+  your flyer, in your newsletter and on your sponsor's site keeps working — and
+  keeps building up search ranking instead of starting over every year.
+- **A finished race stops being a dead end.** Someone landing on last season's
+  page in February gets the next date, or the chance to be told when there is
+  one, instead of "this event has ended".
+- **Results collect in one place.** Every running's results, on one page,
+  under the race's own address.
+
+<Note>
+  You never set this up in advance. Creating an event is exactly as it was — no
+  extra step, nothing to decide. A race becomes recurring the first time you ask
+  for the next one.
+</Note>
+
+## Scheduling the next one
+
+Open a race that has already run (or is about to) and go to **Settings → Does
+this race happen again? → Schedule the next one**.
+
+{/* IMAGE NEEDED: /organizations/[id]/events/[id]/settings → "Does this race happen again?" panel */}
+
+You get a date, already filled in from the pattern your past runnings show —
+the third Saturday in May, the first Tuesday of the month — and two lists.
+
+| Carries over | Starts empty |
+|---|---|
+| Race categories and the races inside them | Registrations and the start list |
+| Registration questions | Results and timing data |
+| Pricing schedules | Bib and plate assignments |
+| Waivers | Capacity counts and waitlists |
+| Course, distance and format settings | Discount code usage |
+| Sponsor policy and event pages | Publication status — the new one is a draft |
+
+The new running is created as a **draft**, linked to the previous one. Nothing
+is public until you publish it as usual.
+
+<Warning>
+  Registration open and close dates are deliberately **not** copied. They are
+  fixed dates, so a copy would either have a window that already closed or —
+  worse — one that is already open, taking real entries for a race you are
+  still building. Set them on the new running.
+</Warning>
+
+## The race's own page
+
+Once a race has run more than once, its permanent address shows:
+
+- the next running, with its entry link, or the date if entries aren't open yet;
+- when there's no date at all, how often it usually runs — "usually the first
+  Tuesday of the month" — and a form to be emailed when the next one is
+  announced;
+- every previous running, grouped by year.
+
+A race that runs monthly gets grouped by year so the page stays readable; a race
+that runs once a year reads as a simple list.
+
+## Riders waiting to hear
+
+When there's no next date announced, riders can leave their email on the race
+page or on any finished running's page. You'll see the count on the race in
+**Events → Recurring races**, and they're reachable from **Messaging** like any
+other audience.
+
+That list is worth taking seriously. Somebody who goes looking for your race
+eight months out has already decided to enter it.
+
+## Grouping races you've already run
+
+If you've been running events here for a while, Time2Bike will spot runnings of
+the same race and ask about them under **Events → Recurring races**:
+
+> **5 runnings of Spring Classic?** Usually the third Saturday in May.
+
+Accepting groups them, and the whole history appears at once — the archive is
+full immediately rather than in five years.
+
+It only ever asks. Nothing is grouped automatically, because a wrong guess would
+put one race's history on another race's public page.
+
+<Tip>
+  Got it wrong, or accepted a grouping you shouldn't have? Open the race and
+  choose **Not this race** beside any running. It's removed from the group and
+  nothing else changes — the event keeps its address, entries and results.
+</Tip>
+
+## What happens to your existing links
+
+When a race becomes recurring it takes the permanent form of its address:
+
+- If the event's address had a year in it — `spring-classic-2025` — the race
+  takes `spring-classic` and the event keeps the address it had.
+- If the event's address had no year — `spring-classic` — the race takes it, and
+  that event moves to `spring-classic-2025`.
+
+Either way **every link you have already shared keeps working**. In the second
+case the link people already have gets better: it now points at the race, so it
+shows whichever running is current rather than one frozen year.
+
+Each running also gets an address beneath the race's:
+`time2.bike/events/spring-classic/2025`, or
+`time2.bike/events/tuesday-tt/2026-03-04` for a race that runs more often than
+once a year.
+
+→ [Web addresses](/platform/slugs)
+
+## Series that come back
+
+A series can recur too — a Winter Series that runs every year is one race with a
+whole season as each running. It works the same way: **Schedule the next one**
+from the series creates next season and links them.
+
+Season passes are never copied. A pass is a product with a price and a sales
+window, and quietly recreating one would put something purchasable on the
+internet that you hadn't decided to sell. A pass also never spans seasons — it
+covers the rounds of the season it belongs to.
+
+→ [Series](/organizers/series/create-series)
+
+## The results archive
+
+Each running's results are public on its own page either way. What you choose is
+whether they're also collected into one archive on the race's page, at
+`time2.bike/events/your-race/results`. The switch is on the race, under
+**Events → Recurring races**.
+
+The archive shows every running with its finisher count and the winner of each
+field, and links through to the full table for any one of them. Riders who are
+signed in also see their own record at the race on its main page — how many
+times they've done it, their best time, and how many years running.
+
+### Best times, and being honest about them
+
+The archive lists the fastest time on record for each field. If your course has
+moved, set a **course version** on the race — a short label like "2019 course"
+or "post-bridge" — and times are grouped by it, with a note saying the field has
+raced more than one.
+
+<Note>
+  Without a course version, the archive says "fastest on record" rather than
+  "course record". A record that spans a course change isn't a comparison, and
+  it's not a claim worth making on your own results page.
+</Note>
+
+## Comparing one running to the next
+
+Open a recurring race and you'll see the two numbers a race director actually
+plans against.
+
+**The entry curve** plots entries against how long before race day they came in,
+one line per running, overlaid. It's the only way to know whether being 40
+entries down six weeks out is a problem or exactly where you were last year.
+
+**Returning against new** counts riders who raced an *earlier* running. A race
+with flat entry numbers and a falling returning share is in trouble a year
+before the total shows it.
+
+{/* IMAGE NEEDED: /organizations/[id]/recurring-events/[id] → entry curve chart */}
+
+The first running has no returning figure at all — nothing preceded it, so a
+percentage there would be a claim about riders who didn't exist yet.
+
+## Letting your regulars in first
+
+For a race that sells out, an early window is worth more than a discount: your
+regulars get a place without a lottery.
+
+On any race in the running, set **Early access opens** alongside the usual
+**Registration opens** date. Between the two, only riders holding a paid entry
+from an earlier running of this race can enter. From the public open date it's
+open to everyone.
+
+The race page says which state it's in, so nobody discovers they're too early at
+the checkout step.
+
+<Warning>
+  Setting early access also makes Time2Bike enforce that race's **Registration
+  opens** date, which it otherwise treats as display-only. Set both dates
+  deliberately — if you leave the public open date empty, the race is open to
+  everybody as soon as the early window starts.
+</Warning>
+
+## Sponsors that belong to the race
+
+A bike shop that has backed your race for nine years belongs to the *race*, not
+to any one year of it. Set a sponsor's scope to the recurring race and it
+appears on every running, including ones you create later — so it can't quietly
+get dropped at a rollover.
+
+## Being reminded
+
+When a race's rhythm says the next one is about due and nothing is scheduled,
+it appears under **Due for the next one** on the Recurring races page, along
+with how many riders are waiting to hear.
+
+The lead time follows the rhythm: a few weeks for a weekly series, a few months
+for an annual race. Nothing is ever created for you — a draft you didn't ask for
+is just something else to delete.
+
+## Handing a race on
+
+Races change hands. Transfer the recurring race to another organization and the
+name, the web address, the results archive and the riders waiting to hear all go
+with it.
+
+Past runnings **stay with the organization that ran them** — those were their
+events, their entries and their payouts, and none of that moves. What the new
+owner gets is the race's identity and its history, which is the part that would
+otherwise be lost.
+
+## Cloning vs scheduling the next one
+
+Both make a draft copy. The difference is the link:
+
+- **Schedule the next one** — this race, happening again. The runnings are tied
+  together, share an address, and build a shared results history.
+- **Clone event** — a *different* race that starts from the same setup. No
+  connection between the two.
