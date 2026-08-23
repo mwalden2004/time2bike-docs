@@ -1,5 +1,3 @@
-> **Customize this file**: Tailor this template to your project by noting specific contribution types you're looking for, adding a Code of Conduct, or adjusting the writing guidelines to match your style.
-
 # Contribute to the documentation
 
 Thank you for your interest in contributing to our documentation! This guide will help you get started.
@@ -22,7 +20,7 @@ Thank you for your interest in contributing to our documentation! This guide wil
 6. Preview your changes at `http://localhost:3000`
 7. Commit your changes and submit a pull request
 
-For more details on local development, see our [development guide](development.mdx).
+For more detail on running the site locally, see the [README](README.md).
 
 ## Writing guidelines
 
@@ -30,5 +28,5 @@ For more details on local development, see our [development guide](development.m
 - **Address the reader directly**: Use "you" instead of "the user"
 - **Keep sentences concise**: Aim for one idea per sentence
 - **Lead with the goal**: Start instructions with what the user wants to accomplish
-- **Use consistent terminology**: Don't alternate between synonyms for the same concept
+- **Use consistent terminology**: Don't alternate between synonyms for the same concept. The product vocabulary — organization vs. team vs. league, event vs. race, profile vs. participant, bib vs. plate — is defined in [AGENTS.md](AGENTS.md) and those distinctions are deliberate
 - **Include examples**: Show, don't just tell

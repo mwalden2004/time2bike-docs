@@ -1,55 +1,55 @@
-# Mintlify Starter Kit
+# Time2Bike documentation
 
-Use the starter kit to get your docs deployed and ready to customize.
+The user-facing documentation for [Time2Bike](https://time2.bike), published
+at **[docs.time2.bike](https://docs.time2.bike)**.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+Built with [Mintlify](https://mintlify.com). Pages are MDX with YAML
+frontmatter; the site structure lives in `docs.json`.
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+## Layout
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+The docs are organized by who the reader is, not by how the software is built.
+Each top-level directory is a tab in the published site:
 
-## AI-assisted writing
+| Directory | Tab | Who it's for |
+| --- | --- | --- |
+| `riders/` | Riders | People entering races: accounts, registration, waivers, results, profiles |
+| `teams/` | Teams | Clubs and coaches: rosters, practices, applications, racing together |
+| `organizers/` | Organizers | Race directors: organizations, events, races, pricing, merch, imports |
+| `timing/` | Live Timing | Race-day operators: the timing screen, formats, hardware, publishing results |
+| `platform/` | Reference | Cross-cutting topics: slugs, roles, Stripe Connect, uploads, SEO |
 
-Set up your AI coding tool to work with Mintlify:
+`index.mdx` is the landing page.
+
+## Local development
 
 ```bash
-npx skills add https://mintlify.com/docs
+npm i -g mint     # once
+mint dev          # serves http://localhost:3000
 ```
 
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
+Run from the repository root, where `docs.json` lives.
 
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
+```bash
+mint broken-links   # check internal links before opening a PR
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+## Adding a page
 
-```
-mint dev
-```
+1. Create the `.mdx` file in the directory for its audience.
+2. Give it frontmatter — `title`, `description`, and an `icon`.
+3. Add its path (without the `.mdx`) to the right group in `docs.json`.
 
-View your local preview at `http://localhost:3000`.
+A page that isn't listed in `docs.json` won't appear in the navigation. Every
+page currently on disk is in the navigation; keep it that way.
 
-## Publishing changes
+## Writing
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+See `AGENTS.md` for terminology and style — in particular the product
+vocabulary, which is deliberate and worth reading before writing a page.
+`CONTRIBUTING.md` covers the pull request process.
 
-## Need help?
+## Publishing
 
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+Merging to the default branch deploys to production via the Mintlify GitHub
+app.
