@@ -28,7 +28,7 @@ Open the **Refund** action.
 - **Partial refund** — refund any amount up to what was originally charged.
 - **Reason** — internal note for your records.
 
-The platform service fee is **not** refunded on partial refunds; on full refunds the service fee is also returned.
+The platform service fee is **not** refunded — on a partial refund or a full one. It is earned when the entry is taken. The only exception is a charge that should never have existed (a fraudulent charge, or a duplicate caused by a platform fault), where the whole charge including the service fee is returned.
 
 The registration status flips to `refunded` and Time2Bike emails the rider a refund confirmation. The Stripe refund typically settles in 5–10 business days.
 

@@ -56,8 +56,8 @@ Issue refunds from Time2Bike under **Pricing → Refunds**, and they go back to
 the rider's original card.
 
 - Your Stripe balance decreases by the refunded amount.
-- A **full** refund returns the service fee too.
-- A **partial** refund doesn't.
+- The service fee is **not** returned, on a full refund or a partial one. It is earned when the entry is taken.
+- The one exception is a charge that should never have existed — a fraudulent charge, or a duplicate caused by a platform fault — where the whole charge including the service fee comes back.
 
 → [Refunds](/organizers/pricing/refunds)
 
