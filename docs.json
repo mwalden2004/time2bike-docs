@@ -161,6 +161,7 @@
               "organizers/events/test-entries",
               "organizers/events/questions",
               "organizers/events/bibs",
+              "organizers/events/plate-labels",
               "organizers/events/plate-requests",
               "organizers/events/licenses",
               "organizers/events/volunteers",

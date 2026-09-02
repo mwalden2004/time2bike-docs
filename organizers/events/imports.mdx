@@ -8,7 +8,7 @@ icon: "file-import"
 
 ## What you can import here
 
-- **Registrations** — add participants to one or more races. Maps `race` and `category`, plate/bib, plus rider details: name, email, phone, **address**, **birthday**, **gender**, and **license / USAC number** (the issuer defaults to USAC when the file doesn't say). Messy columns are tidied up for you — a gender column of "M", "Male", or "Guy" all land on the same value. Anything Time2Bike can't make sense of is skipped rather than stored wrong.
+- **Registrations** — add participants to one or more races. Maps `race` and `category`, plate/bib, plus rider details: name, email, phone, **address**, **birthday**, **gender**, **emergency contact**, and **licence data** — number, status, expiry and one-day purchase (the issuer defaults to USAC when the file doesn't say). See [Licence check](#licence-check). Messy columns are tidied up for you — a gender column of "M", "Male", or "Guy" all land on the same value. Anything Time2Bike can't make sense of is skipped rather than stored wrong.
 - **Results** — load finish times, placements, and categories from a CSV or results PDF.
 
 When a row matches a rider already in your organization, the import **fills in any details that rider was missing** (birthday, address, license, gender, contact) without overwriting what's already there.
@@ -17,11 +17,21 @@ If you want to add people to your overall **contacts** list (not tied to an even
 
 {/* IMAGE NEEDED: Event → **Imports**, on the column-mapping step of a registrations CSV */}
 
-## Picking races & categories
+## Picking races & groups
 
-When importing **registrations**, the column-mapping step maps the source's race (or category) column onto Time2Bike races. If your CSV only has one race in it, you can choose the destination race manually instead.
+When importing **registrations**, the column-mapping step maps the source's race
+column — and, when the file has one, its group column — onto Time2Bike races.
+If your CSV only has one race in it, you can choose the destination race
+manually instead.
 
-Any race names in your file that don't exist yet are listed on the preview screen. Rather than resolving them one by one, use the **bulk bar**:
+A race is matched by its name **within its group**, which matters for a
+collegiate-style file where the same category names repeat: a `P/1/2` in
+`MEN P/1/2 XC` and a `P/1/2` in `WOMEN P/1/2 XC` are two races, and each gets
+its own. Map your file's division/group column and the two stay apart. If a
+race name repeats and your file names no group, those rows are reported rather
+than guessed at, so you can point them at the right race.
+
+Any (group, race) pairs in your file that don't exist yet are listed on the preview screen. Rather than resolving them one by one, use the **bulk bar**:
 
 - **Create all as new races** — one click turns every unknown race into a new race. Pick how the category is set for all of them: use each race's own category from the file, create a category named after each race, or assign them all to one existing category.
 - **Skip all** — leave them unresolved (those rows will error).
@@ -29,6 +39,78 @@ Any race names in your file that don't exist yet are listed on the preview scree
 You can still override any individual race afterwards, and a filter box helps
 when there are a lot of them, so importing dozens of categories at once is a
 couple of clicks instead of dozens.
+
+## Emergency contacts
+
+Map **Emergency contact**, **Emergency phone** and, if the file has it,
+**Emergency relationship**. Common headers (`Emergency Contact`,
+`Emergency Phone`, `Relationship`) are picked up automatically.
+
+A contact is stored only when it has **both a name and a phone number**. Half
+of one is worse than none: it prints on the rider's plate label and shows on
+the team emergency sheet as though someone can be reached. So a row whose phone
+column holds something that isn't a number — shifted columns do happen — leaves
+that rider with no contact, and the import tells you how many:
+
+> Emergency contacts: 172 of 184 — 5 riders had none, 7 had a name or a number
+> but not both.
+
+Imports never overwrite an emergency contact a rider entered themselves; they
+only fill the gap.
+
+## Licence check
+
+Registration exports carry licence data, and the import now reads it rather
+than filing the cell away untouched. Map the licence columns — **License /
+USAC #**, **License status**, **License expires**, **One-day license bought** —
+and every imported rider is checked against **race day**:
+
+| Result | What it means | On the chase list? |
+|---|---|---|
+| **On file** | A licence number in good standing. | No |
+| **Expired** | The export says lapsed, or it expires before race day. | Yes |
+| **One-day** | No annual licence, but a one-day was bought for this event. | No |
+| **International** | An `INTL`-style entry — no licence from this issuer. | Yes |
+| **Missing** | The column is mapped, this row is blank. | Yes |
+| **Unreadable** | Something is in the cell, but it isn't a licence number. | Yes |
+
+The summary appears the moment the import finishes, with **Download the list**
+for the riders who need chasing. The job page repeats it, adds a **Licences to
+chase** tab, and shows the result on every row.
+
+Two things this changes downstream. Stand-in codes like `INTL3` and `ONEDAY1`
+are **never stored as licence numbers** — they aren't licences, and filing them
+as one made those riders look covered. And a licence the issuer calls expired
+now counts as invalid even when the export gives no expiry date, so those
+riders are flagged at check-in and charged the one-day fee at registration
+instead of sailing through.
+
+Imported riders then appear on **Event → Licenses** like anyone else: with an
+annual licence on file they're not your responsibility, and without one they
+land in the one-day list. A rider whose export says they already bought a
+one-day shows as **paid at source**, so nobody collects the fee twice.
+
+Nothing is refused over a licence: every row still imports. Time2Bike doesn't
+contact USA Cycling — there's no public licence lookup — so this is the
+issuer's own export being read carefully, not a live verification.
+
+If you commit without mapping a licence column, the preview says so first:
+imported riders would have no licence on file at all.
+
+## Riders in several races
+
+A weekend file that enters the same rider in cross-country, short track, dual
+slalom and downhill imports as four entries, one per race — including when
+**update existing registrations** is on. Re-uploading a corrected version of the
+same file updates each of those entries in place rather than duplicating them.
+
+## Finishing later
+
+Big start lists raise a lot of questions, and you don't have to answer them all
+at once: every answer is saved on the job as you go. Leave the page and the
+**Imports** list shows the job with a **Resume** link, or start a new import of
+the same type to get a **Pick up where you left off** panel. See
+[Leaving and coming back](/organizers/organization/imports#leaving-and-coming-back).
 
 ## Re-running a results import
 

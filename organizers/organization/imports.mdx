@@ -12,7 +12,7 @@ If you're moving from **BikeReg**, **RunSignup**, or another platform, you can i
 
 | Type | Scope | What it does |
 |---|---|---|
-| **Contacts** | Organization | Adds people to your contacts list so they can be invited to events. |
+| **Contacts** | Organization | Adds people to your contacts list so they can be invited to events, including their emergency contact. |
 | **Registrations** | Event | Adds participants to a specific race, with optional bib and category. |
 | **Results** | Event | Loads finish times and placements onto a race. |
 
@@ -38,6 +38,25 @@ Contacts are org-wide. Registrations and results are imported from inside an eve
 
 Nothing is written to your data until you click **Commit** on step 4.
 
+## Leaving and coming back
+
+An import is saved as you go, so you don't have to finish it in one sitting.
+Your column mapping, your answers about which race each row belongs to, and
+your "same rider?" decisions are all stored on the job — close the tab, go look
+something up, come back tomorrow on a different machine, and it's all still
+there. The wizard shows **Progress saved** once it has caught up.
+
+To pick one back up:
+
+- The **Imports** page lists unfinished jobs with a **Resume** link.
+- Starting a new import of the same type shows a **Pick up where you left off**
+  panel listing anything still open, with **Resume** and **Discard**.
+- The wizard's address includes the job, so bookmarking or refreshing the page
+  returns to the same import.
+
+Unfinished jobs have written nothing to your event — **Discard** throws away the
+file and the answers, and costs you nothing else.
+
 ## Supported sources
 
 - **BikeReg** exports, with `First Name, Last Name, Email, Category, License, Team`.
@@ -51,14 +70,16 @@ The Imports page lists every job with its status:
 
 | Status | Meaning |
 |---|---|
-| **Uploaded** | File received, awaiting column mapping. |
-| **Mapped** | Mapping confirmed, waiting on preview/commit. |
+| **Uploaded** | File received, awaiting column mapping. Shows **Resume**. |
+| **Mapped** | Mapping confirmed, waiting on preview/commit. Shows **Resume**. |
 | **Committing** | Rows are being written now. |
 | **Committed** | Done. Results column shows created/error counts. |
 | **Cancelled** | You backed out before committing. |
 | **Failed** | The job errored out — open it for the reason. |
 
-Click **View** on any job to see row-level results and re-download the error CSV.
+Click **View** on a finished job to see row-level results, the licence check
+for registrations imports, and re-download the error CSV. Unfinished jobs show **Resume** instead, which reopens the wizard
+where you left it.
 
 ## Security notes
 
@@ -73,5 +94,9 @@ Click **View** on any job to see row-level results and re-download the error CSV
 - **Always preview first.** A bad column mapping won't damage anything until you click Commit.
 - **Email is the dedupe key for contacts.** Importing the same person twice updates them; it doesn't create duplicates.
 - **Plates come over as strings**, preserving leading zeros (`007` stays `007`).
+- **Emergency contacts need a name and a phone.** One without the other isn't
+  stored — see [Emergency contacts](/organizers/events/imports#emergency-contacts).
+- **Map the licence columns** on a registrations import. The export knows who's
+  lapsed; see [Licence check](/organizers/events/imports#licence-check).
 - For results PDFs, double-check the **time column** in the preview. Different
   platforms format times differently.
