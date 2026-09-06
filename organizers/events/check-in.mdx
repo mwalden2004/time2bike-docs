@@ -1,0 +1,270 @@
+---
+title: "Check-in desk"
+description: "Turn a list of names into people wearing numbers, on a tablet, in a field, with one bar of signal."
+icon: "clipboard-check"
+---
+
+**Event → Check-in** is the desk on race morning: the twenty minutes where a
+roster becomes riders with plates on their bikes. It replaces the printed
+spreadsheet and the highlighter.
+
+{/* IMAGE NEEDED: The check-in screen with the counts bar, a flagged rider, and the field below */}
+
+## What the screen is
+
+One row per rider — not per entry. Somebody in three races is one card with
+three races listed on it, so the desk serves a person rather than a spreadsheet.
+
+Across the top: **in**, **part done**, **to come**, and **flagged**. Below that,
+the field.
+
+The whole field loads in one request and is filtered in your browser, so the
+search box keeps working when the signal doesn't. A thousand riders is a few
+hundred kilobytes.
+
+| Control | What it does |
+|---|---|
+| **Search** | Name, bib, or team. Type-ahead, no network |
+| **Hide checked in** | Shrinks the list to who's left |
+| **Showing** | Narrows the screen to one race — for a desk working only the 8am field |
+| **Check in for** | Whether a tap checks a rider into **all races** or **one at a time** |
+| **Refresh** | Pulls in what the other desk has done, and says how old your list is |
+
+**Showing** and **Check in for** appear on events with more than one race, and
+they're separate on purpose: you can have every race on screen and still want to
+check somebody in for just one of them.
+
+<Note>
+  Waitlisted and unpaid riders are on the list too. Somebody who turns up
+  believing they're entered is a conversation that goes better with the truth on
+  screen.
+</Note>
+
+## Checking someone in
+
+Tap the row. That's it — the row flips immediately.
+
+- **One tap covers all their races.** A rider in three races is checked into all
+  three at once, unless you've set **Check in for** to *One at a time*, which
+  gives each of their races its own control.
+- **Double-tapping is fine.** Checking in someone already checked in refreshes
+  the record rather than complaining. Officials double-scan.
+- **Undo keeps the record.** Undoing a check-in marks it undone rather than
+  deleting it, so the audit trail survives.
+
+## It works offline
+
+This is the screen most likely to be run in a field with no signal, so it's
+built for it.
+
+Every tap is written to a durable queue on the device and replayed in order when
+the connection comes back. The roster itself is snapshotted, so a reload in a
+dead spot still shows the field.
+
+A bar appears only when there's something to say:
+
+- **Offline** — "check-ins are saved here and sent when the signal returns."
+- **Syncing** — how many writes are still queued.
+
+It's safe to keep working, and safe to close the tab. If the server rejects a
+queued write outright, the screen tells you rather than leaving a row that says
+"done" and isn't.
+
+→ [Offline & sync](/timing/hardware/offline-and-sync)
+
+## Flags
+
+A flag is something worth a second look before a rider starts. There are four:
+
+| Flag | Fires when |
+|---|---|
+| **Waiver** | No signature on file for the documents this rider has to sign |
+| **Licence** | A permitted race, and no valid licence covering the race date |
+| **Unpaid** | The entry is not paid |
+| **Minor** | Under 18 on race day, so a parent or guardian is expected |
+
+Two rules keep the colour worth reading.
+
+**One flag per rider, not per entry.** A rider in three races has one licence
+problem, not three. The one-day licence fee in particular is charged once per
+rider per date and deliberately deduped across their other entries, so the old
+per-entry view told somebody twice that they hadn't bought a licence they'd just
+bought.
+
+**A flag that fires on everybody isn't news.** When licensing is on but no
+licence file was ever imported, every rider is flagged; at a junior league every
+rider is under 18. Those are facts about the event, so they're said once in the
+header and the badge on each card goes grey — still there, still tappable, no
+longer pretending to be new information.
+
+<Warning>
+  **Nothing blocks.** A flag never stops you checking somebody in. The official
+  at the desk can see the paper form in the rider's hand; the software can't.
+</Warning>
+
+## Fixing a flag at the desk
+
+Every flag opens onto the thing that clears it. This matters more than it
+sounds: a flag nothing can resolve comes back on every reload for the rest of
+the morning, and officials learn to read past the amber — which is the same as
+never showing it.
+
+Tapping a flag does the real work, not a tick-box:
+
+<AccordionGroup>
+  <Accordion title="Waiver" icon="file-signature">
+    **Signed at the desk** — the rider types their full name. That's a real
+    e-signature against the current version of each document that applies to
+    them, stored like any other signature.
+
+    **Signed on paper** — notes that an official saw the form. It deliberately
+    does *not* forge a signature document; the paper form is the record.
+
+    Which documents get signed depends on the rider's age, and a document that
+    needs a parent or guardian won't be signed without one.
+
+    → [Waivers](/organizers/organization/settings-waivers)
+  </Accordion>
+  <Accordion title="Licence" icon="id-card">
+    **Add a licence** — key in the number and it's checked with the issuer
+    before it's saved to the rider's profile. The desk is exactly where a
+    mistyped number turns into a filing problem.
+
+    **Sell a one-day** — cash, card, or waived. It lands on the licence-filing
+    list either way; a waived fee is written as a licence of zero, because the
+    rider still raced on a one-day and the issuer still has to be told.
+
+    → [Licences & one-day fees](/organizers/events/licenses)
+  </Accordion>
+  <Accordion title="Unpaid" icon="credit-card">
+    **Cash**, **card**, or **waived**. Cash and waived mark the entry paid with
+    a note about which. Card takes the money — see below.
+  </Accordion>
+  <Accordion title="Minor" icon="user">
+    **Guardian present** — records the adult's name and their relationship to
+    the rider.
+  </Accordion>
+</AccordionGroup>
+
+A fix applies to every entry the flag covered, not just the race you tapped, and
+it's recorded — so it stays cleared on the next reload and at the other station.
+Resolved flags stay visible but quiet, labelled with what was done ("Signed at
+the desk", "One-day paid cash", "Fee waived").
+
+## Taking money at the desk
+
+Two ways, because a race venue is not an office.
+
+**QR code** — the screen shows a code, and the rider pays on their own phone
+through Stripe Checkout. No card ever touches the official's tablet, so the desk
+carries no card-handling scope at all. The entry is marked paid by the same
+mechanism that settles online registration, so it can land a moment after they
+tap.
+
+**Card on the desk device** — a card field on your own tablet, keyed in by the
+official. This is the one that works in the situation the platform is built for:
+the desk on Starlink with a good uplink, the rider's phone with no bars at all.
+It also answers immediately — approved or declined, on screen, while the rider
+is still standing there.
+
+Both are ordinary charges on your connected Stripe account with the same service
+fee as any other entry, so a desk payment reconciles, refunds, and pays out
+exactly like a registration taken online. Nothing here invents a second way for
+money to move.
+
+Entry fees and one-day licences are charged separately — a rider who owes only a
+licence isn't asked for an entry as well. The organizer's revenue and the money
+collected on behalf of the sanctioning body stay distinct.
+
+<Note>
+  Taking card payments needs a connected Stripe account on the organization. Cash
+  and waived work regardless.
+
+  → [Stripe Connect](/platform/stripe-connect)
+</Note>
+
+## Walk-ups
+
+**Walk-up Registration** enters somebody who isn't on the list at all. It's the
+other half of what this screen is for, so it's a button rather than something
+buried in a menu.
+
+It's the same form as [Manual entry](/organizers/registrations/manual-entry),
+running in race-morning mode, and it adds four things:
+
+<Steps>
+  <Step title="A price per race, quoted today">
+    Every race in the event with what a walk-up into it costs right now, plus
+    the group it belongs to — event races reuse names across groups, and a bare
+    race name in a picker puts riders on the wrong start line.
+
+    The number comes from the race's day-of rate where one is set, and otherwise
+    from whatever price tier resolves today, rather than refusing to quote.
+  </Step>
+  <Step title="The rules this entry would cross, named">
+    Registration closed. The race is full. There are people on the waitlist who
+    queued properly and are about to be walked past.
+
+    None of them block — the official at the desk outranks all of it — but every
+    one has to be shown and ticked before the entry is created, and what was
+    accepted is recorded against the person who accepted it.
+  </Step>
+  <Step title="The licence question, asked now">
+    Add an existing licence (checked with the issuer), sell a one-day, or skip
+    it deliberately. Manual entry used to ignore licensing, which left riders
+    owing a one-day nobody charged and nobody filed — the entry looked complete
+    and the sanctioning report came up short weeks later.
+  </Step>
+  <Step title="Payment and a plate, without leaving the screen">
+    Take the money, then hand over a number. The desk suggests one: the plate
+    the rider already resolves to — a series plate they carry all season, or one
+    assigned earlier at this event — or the next free number if they have none.
+
+    → [Bibs](/organizers/events/bibs)
+  </Step>
+</Steps>
+
+Walk-ups are tagged as such on the registration, so when a permit headcount or a
+revenue number looks wrong afterwards, they're findable.
+
+### Comping an entry
+
+Where a race allows it, the desk can give an entry away — a volunteer, a
+sponsor, the friend who drove the moto. A comp asks for a reason and records
+what the entry would have cost, so "what did we give away this season" has an
+answer. An entry priced at zero would have destroyed that.
+
+Comping is off unless the race allows it; the button says so when it's
+unavailable.
+
+## Print the roster
+
+**Print roster** opens **Race day paper** — the sheets a desk actually needs on
+a clipboard:
+
+- **Start lists** — who's in each race.
+- **Call-up sheet** — the order riders are called to the line.
+- **Podium sheet** — blank places for the awards tent.
+
+Pick the races you want — a whole group in one tap — and choose how they're
+broken up: split by age group, by gender, or both, each block on its own sheet,
+and a new sheet per race so different people can be handed different fields. The
+dialog estimates the page count as you go, since saving paper is the point. The
+podium sheet also asks how many places to leave room for.
+
+## What good looks like
+
+<Tip>
+  Two tablets, both on this screen, both working from their own cached copy. They
+  can each check people in with no signal at all; when either one reconnects,
+  its queue drains and **Refresh** pulls the other's work in.
+</Tip>
+
+<Columns cols={2}>
+  <Card title="Manual entry" icon="user-plus" href="/organizers/registrations/manual-entry">
+    The same form, from a desk chair.
+  </Card>
+  <Card title="Plate labels" icon="tag" href="/organizers/events/plate-labels">
+    Print the sticker for the back of the plate.
+  </Card>
+</Columns>

@@ -14,11 +14,52 @@ Waivers live at the **organization** level so you can author once and attach to 
 2. Set:
    - **Title** — what riders see.
    - **Version** — free-form string (e.g. `2025.1`). Each signed waiver records the exact version the rider agreed to.
-   - **Applies to** — **Adults**, **Minors**, or **Everyone**. A minors waiver asks for a parent or guardian signature.
+   - **Applies to** — **Adults**, **Minors**, or **Everyone**. An adults-only
+     release signed by a fourteen-year-old covers nothing, so it isn't offered
+     to them. See [Who signs](#who-signs-riders-and-guardians) below for where
+     this is enforced.
    - **Content** — markdown body of the waiver.
 3. **Save**.
 
 Once attached to a race, riders sign during checkout (see [Waivers](/riders/registering/waivers)) and the signature, timestamp, IP, and content hash are stored.
+
+## Who signs: riders and guardians
+
+A minor's signature on a liability release is voidable, which makes a wrongly
+self-signed release worse than none — it looks like protection and isn't. So
+Time2Bike decides who signs from the rider's age:
+
+- Riders at or over the **age of majority** sign for themselves.
+- Below it, a parent or guardian signs, and their name and relationship to the
+  rider are recorded alongside the signature.
+
+The age of majority is state law rather than a flat 18: it's **19** in Alabama
+and Nebraska and **21** in Mississippi and Puerto Rico. Time2Bike applies the
+one for the state the waiver is governed in, and everywhere else uses 18.
+
+The state is the one on the waiver where it's set, and otherwise your
+organization's mailing address, so most organizers never have to think about it.
+
+A rider with no birthday on file is asked for a guardian, and told why. That's
+the safe direction, and the fix is to collect the birthday.
+
+<Note>
+  The same rule is applied to league waivers, so the same seventeen-year-old
+  signing an event waiver and a league waiver on the same afternoon can't be a
+  minor for one and an adult for the other.
+</Note>
+
+### Where this is applied today
+
+**Applies to** and the guardian rules govern every signature Time2Bike collects
+on a rider's behalf: the [check-in desk](/organizers/events/check-in),
+[manual entry](/organizers/registrations/manual-entry), and league waivers. Each
+of those shows a rider only the documents that apply to their age, and won't
+record a minor's signature without a guardian.
+
+In the rider's own checkout, every waiver attached to the race is still
+presented. If you use adults-only and minors-only documents, expect riders
+registering online to see both for now.
 
 ## Default waivers
 

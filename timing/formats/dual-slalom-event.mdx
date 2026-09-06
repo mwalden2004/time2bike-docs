@@ -64,15 +64,17 @@ seed from it afterwards. You never sort riders into categories at the gate.
 
 {/* IMAGE NEEDED: Seeding mode with two riders from different categories staged in red and blue */}
 
-### One lane per category
+### One lane per field
 
-A category qualifies down **one** lane. The screen works out which lane a
-category is using from the first rider down it, then flags anyone who runs the
-other one, because a time set on the other course isn't comparable, and silently
-ranking it against everybody else's is how you seed a bracket wrong.
+A field qualifies down **one** lane. The screen works out which lane it's using
+from the first rider down it, then flags anyone who runs the other one, because
+a time set on the other course isn't comparable, and silently ranking it against
+everybody else's is how you seed a bracket wrong.
 
-The qualifying board shows the lane each category is on and names anyone who
-went down the wrong side.
+The qualifying board shows the lane, who still owes a run, and anyone who went
+down the wrong side. If you've
+[combined categories](#running-several-categories-as-one-field), the board
+covers the whole combined field — that's who is being compared.
 
 <Note>
   **Both lanes is a nationals thing.** At nationals riders qualify down both
@@ -86,9 +88,64 @@ went down the wrong side.
 Just run them again. The best time in a lane is what counts, so a second run
 only helps them.
 
+## Running several categories as one field
+
+A dual-slalom category rarely fills a bracket on its own. Six women's Cat 3
+riders don't make a bracket worth running, and neither do four men's P1. So
+categories get combined on the morning, off the entry sheet — the women run as
+one field, the men split P1 off and run Cat 1/2/3 together.
+
+Press **Combine categories** on the dual-slalom operator screen (it reads
+**Combined fields** once you have some).
+
+<Steps>
+  <Step title="Make a field and name it">
+    "Women", "Men Cat 1/2/3" — whatever you'll call it over the PA. The name is
+    what the bracket, the running order and the printed sheet all use.
+  </Step>
+  <Step title="Tap the categories that run in it">
+    Each shows its entry count, so you can see the field is worth running before
+    you commit. A category already in another field is greyed out — a race lives
+    in one field or none.
+  </Step>
+  <Step title="Choose how places are awarded">
+    **A podium per category** — they race together, and each category is placed
+    1st, 2nd, 3rd among its own riders. This is what a rider who entered Cat 3
+    expects to see.
+
+    **One podium** — one field, one set of places, and every rider keeps the
+    place they took in the bracket.
+  </Step>
+</Steps>
+
+{/* IMAGE NEEDED: The Combined fields modal with two fields built and the podium choice visible */}
+
+Riders stay entered in their own category throughout. A combined field changes
+who they qualify against and who they race — never what they're scored as, which
+licence they're filed under, or which league points they earn. Every run is
+recorded against the rider's own race.
+
+Anything you don't combine keeps running on its own; the modal lists those under
+**Running on their own** so you can see what's left out.
+
+<Warning>
+  Combining a category that already has decided matches sets its bracket aside.
+  Nothing is deleted — separating the categories again brings it back with its
+  results — but the new combined field starts from an empty bracket. The modal
+  says so before you save.
+</Warning>
+
+<Note>
+  If someone else changed the grouping on another device while you had the modal
+  open, you're told. Saving replaces theirs with what's on your screen; close and
+  reopen to start from their version instead.
+</Note>
+
 ## Setting up each category's bracket
 
-Once a category's field is timed, switch to that race and open **Setup bracket**.
+Once a field is timed, switch to it and open **Setup bracket**. A combined field
+gets **one** bracket covering all its categories; anything running on its own
+gets its own, as before.
 
 <Steps>
   <Step title="Pick the bracket format">
@@ -126,8 +183,9 @@ Once a category's field is timed, switch to that race and open **Setup bracket**
 
 {/* IMAGE NEEDED: Bracket setup with "From quali times" chosen and the seed order filled in */}
 
-Repeat per category. Each one gets its own bracket, its own seeds, and its own
-podium.
+Repeat per field. Each one gets its own bracket, its own seeds, and its own
+podium — or a podium per category inside it, if that's how you set the combined
+field up.
 
 ### What the maximum differential does
 
@@ -220,7 +278,7 @@ available from the match panel:
 ## Finishing and publishing
 
 <Steps>
-  <Step title="Finish every category's bracket">
+  <Step title="Finish every field's bracket">
     Including the third-place ride-off, if you're running one.
   </Step>
   <Step title="Check the placings while riders are still there">

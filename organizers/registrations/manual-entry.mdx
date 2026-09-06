@@ -1,36 +1,137 @@
 ---
 title: "Manual entry"
-description: "Add a registration without sending the rider through checkout."
+description: "Add a rider by hand — from a desk chair, or at the desk on race morning."
 icon: "keyboard"
 ---
 
-Click **Manual entry** on the **Event registrations** page to register a rider on their behalf. Useful for cash/check payments at the venue or comping a sponsor.
+**Manual entry** on the [Event registrations](/organizers/registrations/event-registrations)
+page registers a rider on their behalf. The same form runs the **Walk-up
+Registration** button on the [Check-in desk](/organizers/events/check-in) — the
+hard part is identical either way, and only the pricing and what happens
+afterwards differ.
 
 {/* IMAGE NEEDED: /organizations/[id]/events/[eventId]/registrations → ManualEntryModal open */}
 
+| Where you opened it | What it's for |
+|---|---|
+| **Registrations → Manual entry** | Tidying the roster at any point in the season |
+| **Check-in → Walk-up Registration** | Race morning: registration has shut, somebody is standing there |
+
 ## Three modes
 
-Manual entry supports three modes — pick the one that matches the situation:
+Pick the one that matches who you're adding:
 
-- **Existing participant** — the rider already has a profile (often a returning racer). Search and attach.
-- **New participant** — type in the rider's details (day-of walk-up).
-- **Invite** — you only have an email or phone. Time2Bike creates a pending registration and emails/texts the rider to finish their own details.
+- **Existing participant** — the rider already has a profile with your
+  organization. Search and attach, rather than creating their second profile.
+- **New participant** — full details, typed in.
+- **Invite** — you only have an email or phone. Time2Bike creates a pending
+  registration and invites the rider to finish their own details and waivers.
 
-A single submission can register the participant for **multiple races** at once via `raceIds`.
+One submission can enter the rider in **several races** at once.
 
-## Form fields
+## What the form asks
 
 | Section | Fields |
 |---|---|
-| **Rider** (new mode) | First/last name, optional gender, birthday, address, contact, emergency contact. |
-| **Invite** (invite mode) | Email and/or phone, optional name. |
-| **Race / category** | One or more races. Capacity-checked. |
-| **Payment** | **Amount paid** in USD (applied to every race, or override per race), **Mark as** `Paid` or `Pending`, optional **notes** (e.g., "cash at gate", "sponsor comp"). |
-| **Waivers** | Tick **Signed waiver on paper** if applicable; the operator name lands on the audit trail. |
+| **Rider** (new mode) | First/last name, gender, birthday, address, contact, emergency contact |
+| **Invite** (invite mode) | Email and/or phone, optional name |
+| **Races** | One or more. Capacity-checked |
+| **Waivers** | Sign here, or record that a paper form was signed |
+| **Licence** | Add an existing one, sell a one-day, or skip |
+| **Payment** | Amount, paid or pending, notes — or take the money now |
 
-## What happens
+## Relay teams
 
-- The registration is created server-side with the operator listed as the source of record.
-- For invite mode, the rider gets an email/SMS to finish their participant details and waivers.
-- Stripe is **not** charged. The amount you logged shows up in revenue analytics as a manual entry.
+Picking a relay race turns the rider section into one slot per leg, plus a team
+name — the same full form repeated, deliberately.
+
+Relay entry used to have its own thin modal that collected first name, last name
+and email and nothing else, so a relay rider arrived with no date of birth (no
+age group, no way to tell whether they were a minor), no emergency contact and
+no address. Half a rider, entered by the same organizer on the same morning as a
+full one.
+
+Waivers are asked **per member**, because a captain cannot sign a liability
+release for four other adults.
+
+## Waivers
+
+Two routes:
+
+- **Sign here** — the rider types their full name. That's a real e-signature
+  against the current version of every document that applies to them, and it's
+  strictly better evidence than a tick-box.
+- **Signed on paper** — records that you hold the form. It doesn't create a
+  signature document, because the paper form is the record.
+
+Which documents a rider signs, and whether a parent has to sign instead, depend
+on their age — so fill in the birthday.
+
+→ [Waiver library](/organizers/organization/settings-waivers)
+
+## Racing licences
+
+Manual entry used to ignore licensing entirely, which meant a rider added to a
+permitted event silently owed a one-day nobody charged and nobody filed: the
+entry looked complete, the sanctioning report came up short, and it surfaced
+weeks later.
+
+Now you're asked, at the moment the entry is made:
+
+- **Add an existing licence** — the number is checked with the issuer before
+  it's saved. This is exactly where a mistyped number becomes a filing problem.
+- **Sell a one-day** — priced from the event's own rate, and it lands on the
+  licence-filing list.
+- **Skip** — deliberate, for a rider you know is covered some other way.
+
+→ [Licences & one-day fees](/organizers/events/licenses)
+
+## Money
+
+**Amount paid** applies to every race, or you can override it per race, and the
+entry is marked **Paid** or **Pending** with an optional note ("cash at gate").
+Nothing is charged — you're recording money that moved elsewhere.
+
+**Take payment now** charges a card instead, through the same connected Stripe
+account and with the same service fee as an online registration, so it
+reconciles and refunds like any other entry. It's on by default at the desk (a
+walk-up is standing there with a card) and available from the registrations page
+too, where the only previous option was to add the entry and then chase the
+rider for payment.
+
+→ [Taking money at the desk](/organizers/events/check-in#taking-money-at-the-desk)
+
+### Comping an entry
+
+**Comp** gives the entry away and asks why — a volunteer, a sponsor, the friend
+who drove the moto. It's not the same as typing an amount of zero: a comp
+records the decision and captures what the entry would have cost, so "what did
+we give away this season" has an answer that a zero-priced registration would
+have destroyed.
+
+At the desk, comping has to be allowed on the race first; the button says so
+when it isn't.
+
+## What the desk adds
+
+Opened from check-in, the form also:
+
+- **Quotes a day-of price per race**, from the race's day-of rate where one is
+  set, otherwise from whatever price tier resolves today. Races are listed with
+  the group they belong to, because event races reuse names across groups.
+- **Names every rule the entry would cross** — registration closed, race full,
+  waitlist walked past — and makes you tick them before the entry is created.
+  Nothing blocks; everything is recorded against whoever accepted it.
+- **Tags the entry as a walk-up**, so it stays findable when a permit headcount
+  or a revenue figure looks wrong afterwards.
+- **Hands over a plate number** straight afterwards, suggesting the plate the
+  rider already resolves to (a season plate, or one assigned earlier at this
+  event) or the next free number.
+
+## What happens afterwards
+
+- The registration is created with the operator recorded as the source.
+- Invite mode emails or texts the rider to finish their details and waivers.
 - Manual entries count toward capacity exactly like web registrations.
+- Amounts logged (rather than charged) appear in revenue analytics as manual
+  entries.

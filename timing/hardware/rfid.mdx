@@ -50,6 +50,22 @@ Extra columns are ignored.
   day where the pad is running all afternoon, use Chrome.
 </Note>
 
+## Importing a file from a race that already happened
+
+If you're bringing in a file from last Saturday, the reads in it predate the
+start you pressed today — and a crossing before the gun looks to the timer like
+a lap that came too soon, so it used to be dropped in silence. A backfill that
+appeared to do nothing.
+
+Now those reads are held and counted, and the panel says what it found and
+offers to fix it: **move the start to when the file says the race began**. The
+file is the better witness — for a mass start its first crossing is within
+seconds of the real gun — so the start is backdated to it and everything that
+was waiting is applied.
+
+A backdated start is an ordinary operator action, not a special import mode: the
+same audit trail as any other, and reversible by setting the start again.
+
 ## Things worth knowing
 
 <AccordionGroup>

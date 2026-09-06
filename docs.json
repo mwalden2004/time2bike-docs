@@ -164,6 +164,7 @@
               "organizers/events/plate-labels",
               "organizers/events/plate-requests",
               "organizers/events/licenses",
+              "organizers/events/check-in",
               "organizers/events/volunteers",
               "organizers/events/event-sponsors",
               "organizers/events/imports",
