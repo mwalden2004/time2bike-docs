@@ -1,43 +1,73 @@
 ---
 title: "Team & invites"
-description: "Invite teammates and manage roles."
+description: "Invite teammates, pick what they can do, and limit them to specific events."
 icon: "users-gear"
 ---
 
-**Settings → Team** lists every member of your organization and every outstanding invite.
+**Settings → Team** lists every member of your organization and every outstanding invite, with what each one can do.
 
 ![Team settings page](/images/orgs/team.png)
 
 ## Invite a teammate
 
 1. Click **Invite member**.
-2. Enter their **email** and pick a **role**:
-   - **Viewer** — read-only access to org data.
-   - **Timer** — manage bib assignments and race timing.
-   - **Finance** — manage billing and payouts.
-   - **Manager** — create and edit events, races, pricing, and merch.
-   - **Admin** — full access.
-3. Click **Send invitation**.
+2. Enter their **email**.
+3. Pick a **role**. It fills in the permissions for you:
+   - **Admin** — everything, including the team, billing and org settings.
+   - **Manager** — runs events end to end. No team, billing or org settings.
+   - **Finance** — billing, pricing, refunds, merch orders and analytics.
+   - **Timer** — race day: live timing, results, check-in and bibs.
+   - **Check-in desk** — check riders in, take walk-ups, hand out bibs.
+   - **Viewer** — read-only.
+4. Choose **event access**:
+   - **All events** — everything you run, now and later.
+   - **Only selected events** — pick the events. They will not see the others.
+5. Optionally open **Permissions** and tick or untick anything. The role then shows as **Custom**.
+6. Click **Send invitation**.
 
-The invitee gets an email with a one-time link. When they accept (see [Accept an invite](/riders/invites/accept-invite)) they join immediately.
+The summary line at the bottom of the dialog always shows what you are about
+to grant — for example *Timer · 2 events · 6 permissions*.
 
-<Warning>
-  **While Time2Bike is in beta, every team member has full access regardless of
-  the role you pick.** The role is stored and will be enforced later, but it
-  restricts nothing today. Only invite people you'd be comfortable making an
-  admin.
+The invitee gets an email naming the role and events. When they accept (see
+[Accept an invite](/riders/invites/accept-invite)) they join immediately with
+exactly that access. You can change a pending invite from the list before it
+is accepted.
 
-  For race-day volunteers, issue a [timing link](/timing/crew/tokens-and-qr)
-  instead of an org invite — those really are limited to the one event.
-</Warning>
+<Tip>
+  A volunteer who only works one race day is a good fit for **Check-in desk**
+  or **Timer** limited to that one event. For someone who should never need to
+  sign in at all, a [timing link](/timing/crew/tokens-and-qr) still works and
+  is limited to a single timing session.
+</Tip>
 
-## Manage existing members
+<Note>
+  Event access limits which events a person can open. It does **not** narrow
+  organization-wide permissions such as Contacts, Billing or Series — the
+  dialog warns you when you combine the two. See
+  [Roles & permissions](/platform/roles-and-permissions) for the full list.
+</Note>
 
-- **Remove member** revokes access. They keep their personal Time2Bike account, but lose this org.
-- **Revoke invite** cancels a pending invite. Resend by inviting again.
-- **Resend invite** re-sends the email to someone who lost the link.
+## Change what someone can do
 
-Roles are chosen at invite time. To change someone's role, remove them and
-invite them again with the role you want.
+Click the **pencil** next to a member or a pending invite. The same dialog
+opens with their current role, events and permissions filled in. Save to
+apply; the change takes effect on their next request.
 
-The organization's owner can't be removed from the team list.
+You cannot edit your own access — ask the owner or another admin.
+
+## What you can grant
+
+You can only give people what you hold yourself. A manager cannot invite an
+admin, and someone limited to two events cannot grant a third. Anything you
+cannot grant appears locked in the dialog. The owner can grant everything.
+
+## Remove someone
+
+- **Remove member** revokes access immediately. They keep their personal
+  Time2Bike account, but lose this organization.
+- **Cancel invitation** stops a pending invite; the link in the email stops
+  working.
+- **Resend invitation** sends the email again to someone who lost it.
+
+The organization's **owner** always has full access and cannot be edited or
+removed from this page. A site admin can transfer ownership if needed.

@@ -8,6 +8,30 @@ Waivers live at the **organization** level so you can author once and attach to 
 
 ![Waivers settings page](/images/orgs/waivers.png)
 
+## Start from a template
+
+**New waiver → Start from** lists releases from sanctioning bodies, with
+their rules attached. Picking one fills in the text, the version, who it
+applies to, and the statements a signer has to tick — and shows the issuer's
+requirements beside the form so none of them is missed.
+
+### US Endurance
+
+The USE Waiver and Release of Liability (specific-event form) is included.
+Using it means meeting USE's own conditions for taking it electronically,
+and each is handled like this:
+
+| USE requires | How Time2Bike meets it |
+| --- | --- |
+| The event name and date(s) on the release | Written as `{{event.name}}` and `{{event.dates}}` in the text and filled in from the event every time the release is shown. The signature's content hash covers the filled-in text. |
+| Name, address, city/state/zip, phone, email, and the date completed | All required on the online registration form. At the desk, fill in address and phone for a walk-up. Name, email and the signing time are always recorded. |
+| Participants select *"I agree to the terms & conditions of the Agreement."* | Asked as a required checkbox at signing, online and at the desk. The exact wording is stored on the signature. |
+| For minors, a parent or legal guardian completes the form, the minor's and guardian's names are collected, and the guardian agrees to both guardian statements | A rider under the governing state's age of majority is asked for a guardian's name and relationship, and the two guardian statements replace the rider's one. |
+| Kept for a minimum of 7 years | Signatures stay with the registration. Clearing an event's real entries deletes them, and the clear-entries dialog says so. Don't do it for a USE event. |
+
+The text was transcribed from USE's own form. Check with US Endurance for
+the current wording before relying on it.
+
 ## Create a waiver
 
 1. Click **New waiver**.
@@ -18,8 +42,25 @@ Waivers live at the **organization** level so you can author once and attach to 
      release signed by a fourteen-year-old covers nothing, so it isn't offered
      to them. See [Who signs](#who-signs-riders-and-guardians) below for where
      this is enforced.
-   - **Content** — markdown body of the waiver.
+   - **Content** — markdown body of the waiver. Write `{{event.name}}` and
+     `{{event.dates}}` where the event goes; they're filled in per event.
+   - **Statements to tick** — one per line, separately for a rider signing
+     for themselves and for a parent or guardian. Each becomes its own
+     required checkbox at signing, and the wording is stored on the
+     signature. Leave blank for a waiver with no such requirement.
 3. **Save**.
+
+### Attaching the original PDF
+
+Open a waiver and use **Attach PDF** to keep the issuer's own document
+beside it. Riders get a *View the original PDF* link on every signing
+screen, and each signature records the PDF's hash.
+
+The markdown text remains the document that is signed, and that's
+deliberate. A PDF can't be read to the end on a phone, can't be shown
+offline at the desk, can't fill in the event name, and can't be hashed as
+what the rider actually saw. The PDF is the source; the text is what's
+agreed to.
 
 Once attached to a race, riders sign during checkout (see [Waivers](/riders/registering/waivers)) and the signature, timestamp, IP, and content hash are stored.
 
@@ -60,6 +101,67 @@ record a minor's signature without a guardian.
 In the rider's own checkout, every waiver attached to the race is still
 presented. If you use adults-only and minors-only documents, expect riders
 registering online to see both for now.
+
+## Signing at the desk
+
+A rider signing in their own checkout signs for themselves. A walk-up, or a
+rider who turns up unsigned, signs at the check-in desk on an official's
+tablet — and until now that meant the official typed the rider's name. That
+records that an official was present. It doesn't record that the rider agreed
+to anything.
+
+**Settings → Waivers → Signing at the check-in desk** changes what the desk
+collects. Two choices, saved as you pick them:
+
+| Setting | Options | What happens |
+| --- | --- | --- |
+| **Signature** | Typed by the official / Drawn by the rider | *Drawn* hands the tablet across. The rider reads the document to the end, types their name and signs with a finger. |
+| **Photo at signing** | No photo / Offered / Asked for | A picture of the signer, taken on the tablet as they sign. *Asked for* still lets the desk skip it, but a reason is recorded. |
+
+**Preview what the rider sees** opens the exact screen a rider would be
+handed, using one of your real waivers. Nothing is saved from a preview.
+
+<Tip>
+  For walk-ups, use a drawn signature with a photo. A walk-up has no online
+  checkout behind them — no account, no card on file, often no date of
+  birth — so what the desk records is the only evidence you'll ever have
+  that this person agreed to the release.
+</Tip>
+
+### What the rider sees
+
+The screen shows the document and nothing else — not the price, not the
+rest of the field. The rider scrolls to the end (or says they've read it;
+which one is recorded), signs, takes the photo if asked, and taps **Hand
+back**. Only then does the desk return. The official sees the signature and
+the photo before recording it; that look is what makes them the witness.
+
+For a minor, the screen asks the parent or guardian to sign, and their name
+and relationship are recorded — the same rule as everywhere else.
+
+### What is stored
+
+Alongside the usual timestamp, IP and content hash, a desk signature records
+**who held the pen** — the rider, a guardian, or the official typing on their
+behalf — plus the signature strokes themselves (with timing, which is what
+tells a live hand from a pasted image), whether the text was read to the
+end, and the photo if one was taken. All of it shows in the registration's
+details under **Waiver signing proof**.
+
+<Note>
+  The photo is evidence, not identification. Nobody compares it to anything
+  at the desk; its value is later, if somebody says they never signed. It is
+  stored privately, shown only to people who can see the registration, never
+  published, and never run through face recognition.
+</Note>
+
+### Nothing here blocks the desk
+
+A camera that won't start, a rider who'd rather not be photographed, a
+tablet with no space left — each is recorded as a reason against the
+signature, and the signature is still taken. The one thing a desk can't do is
+quietly loosen the setting: the record always says what was asked for and
+what was actually collected.
 
 ## Default waivers
 

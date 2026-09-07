@@ -10,42 +10,102 @@ Three separate things decide what someone can do: their account, their role in a
 
 A signed-in user is just a rider by default — they can register, manage their own registrations, sign waivers, and edit their profile.
 
-## Organization roles
+## Organization access
 
-Set on the **Settings → Team** page of each org. A user can be in many orgs, with a different role per org.
+Set on the **Settings → Team** page of each org. A person can be in many
+orgs with different access in each. See [Team & invites](/organizers/organization/settings-team)
+for the how-to; this page is the reference.
 
-| Role | What it's for |
+Access is made of three things:
+
+1. **Permissions** — the individual things a person may do (below).
+2. **A role** — a named preset of permissions. Change any single permission and
+   the role reads as **Custom**.
+3. **Event access** — every event the org runs, or only a chosen list.
+
+### Permissions
+
+**Per event** — these honour the person's event access.
+
+| Permission | Lets them |
 |---|---|
-| **Viewer** | Read-only access to org data. |
-| **Timer** | Manage bib assignments and race timing. |
-| **Finance** | Manage billing and payouts. |
-| **Manager** | Create and edit events, races, pricing, and merch. |
-| **Admin** | Full access including team management and destructive actions. |
+| **Create events** | Create new events and clone existing ones. |
+| **View events** | Open events, races, categories, questions and pages. Almost everything else needs this too. |
+| **Edit events** | Change event details, races, categories, questions, the event page and custom pages. |
+| **Publish & delete events** | Submit for review, and delete events. |
+| **View registrations** | See who is registered, licences, start lists and reports. |
+| **Manage registrations** | Add, edit, move, transfer and cancel registrations. |
+| **Check-in desk** | Run race-day check-in, including walk-ups and payments. |
+| **Live timing** | Run timing sessions, publish live results, hand out timing links. |
+| **Results** | Enter, edit and publish results. |
+| **Volunteers** | Set up volunteer roles and shifts and manage signups. |
 
-The person who creates an organization becomes its first **admin**.
+**Organization-wide** — these are *not* narrowed by event access.
+
+| Permission | Lets them |
+|---|---|
+| **Bibs & plates** | Assign bibs, handle plate requests, print labels. |
+| **Contacts & participant records** | Browse contacts, search participants, merge duplicates, decide profile claims. |
+| **Messaging** | Email and text riders, org-wide or per event. |
+| **Analytics** | View organization, event and pricing analytics. |
+| **Imports** | Import contacts, registrations and results. |
+| **Pricing** | Price schedules, templates and discount codes. |
+| **Refunds** | Refund registrations, plates and merch orders. |
+| **Series & plates** | Series, bundles and series plates. |
+| **Recurring events** | Create and roll over recurring events. |
+| **Merch products** | Products and variants. |
+| **Merch orders** | View and fulfil orders. |
+| **Sponsors** | Sponsors on the org and its events. |
+| **Waivers** | Publish new waiver versions. |
+| **Age groups** | Age-group sets. |
+| **Organization settings** | Name, contact details, branding, public page, race defaults. |
+| **Billing & payouts** | Stripe onboarding and payout status. |
+| **Team** | Invite, edit and remove members. |
+
+### Roles
+
+| Role | Preset |
+|---|---|
+| **Admin** | Everything. |
+| **Manager** | Everything except Team, Billing and Organization settings. |
+| **Finance** | Billing, Pricing, Refunds, Merch orders, Analytics, plus view events and registrations. |
+| **Timer** | View events and registrations, Check-in, Live timing, Results, Bibs & plates. |
+| **Check-in desk** | View events and registrations, Check-in, Bibs & plates. |
+| **Viewer** | View events, view registrations, Analytics. |
+| **Custom** | Any other combination. |
+
+The person who creates an organization is its **owner**, which is not a role:
+the owner always holds every permission and cannot be edited or removed from
+the team page.
+
+### Event access
+
+**All events** covers everything the organization runs, including events
+created later. **Only selected events** limits the person to a list. Outside
+that list, events do not appear in their dashboard and cannot be opened by
+URL. An event they create themselves is added to their list automatically.
+
+### Two rules that always hold
+
+- **Nobody grants more than they hold.** A manager cannot invite an admin. A
+  person limited to two events cannot give someone a third.
+- **Nobody edits their own access.** Another admin or the owner has to.
 
 ### Owner-only actions
 
 A few actions are limited to the human who **owns** the organization, whatever
-role anyone else holds. Both are irreversible and both affect real riders:
+permissions anyone else holds. Both are irreversible and both affect real riders:
 
 | Action | Where |
 |---|---|
 | **Refund all** — refund every paid registration on an event or race | [Editing and refunds](/organizers/registrations/editing-and-refunds) |
 | **Clear entries → Everything** — delete every registration on an event | [Test entries](/organizers/events/test-entries) |
 
-Clearing **test entries only** is routine setup work, so admins and managers can
-do that one.
+Clearing **test entries only** is routine setup work, so anyone with
+**Manage registrations** can do that one.
 
 Time2Bike staff can act for an owner who's unreachable. Those actions are
 recorded in the admin action log and stay attributable.
-
-<Note>
-  **While Time2Bike is in beta, every organization member has full access
-  regardless of the role you assign.** The role is recorded and will be enforced
-  later, but it restricts nothing today. Use timing links when you genuinely need
-  to limit someone.
-</Note>
 
 ## Timing access
 
