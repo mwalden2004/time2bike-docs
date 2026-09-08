@@ -7,7 +7,9 @@ icon: "credit-card"
 The final step of registration is **Review & Pay**. This is where the
 order is finalized.
 
-![Discount code applied](/images/riders/discount.png)
+<Frame caption="Review &amp; Pay with a discount applied. Demo data.">
+  <img src="/images/riders/discount.png" alt="Registration review showing rider details, a discount, and the final total" />
+</Frame>
 
 ## What's on the review screen
 
@@ -30,7 +32,7 @@ and on results.
   </Step>
   <Step title="Complete payment">
     Stripe handles the card, Apple Pay, Google Pay, and any other methods
-    the organizer has enabled. Time2Bike never sees your card number.
+    the organizer has enabled. Enter your payment details on Stripe Checkout.
   </Step>
   <Step title="Land on the confirmation page">
     Once the payment goes through, you're taken to a confirmation page
@@ -40,8 +42,9 @@ and on results.
 
 ## Confirmation email
 
-Time2Bike emails a receipt and confirmation to the email on your
-account. It includes:
+After successful checkout, Time2Bike sends a receipt and confirmation to your
+account email. Check your dashboard if the email is delayed or missing. The
+confirmation includes:
 
 - Event name, date, and venue
 - Each race you registered for, with your participant name
@@ -50,21 +53,21 @@ account. It includes:
 
 ## Holds & invites
 
-If you invited other riders during registration, their spots are held
-until they claim their invite. They get their own email with a "Finish
-your registration" link.
+After you pay for an invited rider, their entry remains **invited** until they
+complete their part. Time2Bike sends a "Finish your registration" link. Ask the
+organizer about an invite that remains unclaimed near race day.
 
-You can see the status of your registration (including any pending
-invites) on the event's [Who's registered](/riders/registering/start-list)
-page and on your account.
+Check your account for registration status. Invited riders appear on the
+public [Who's registered](/riders/registering/start-list) page after completing
+their registration, if the organizer makes that list public.
 
 ## Something went wrong?
 
 - **Stripe declined the card** — try a different method, or contact your
   bank.
-- **Page hung after Stripe** — check your email. If the receipt arrived,
-  you're registered. Otherwise, contact the organizer with your
-  participant name; they can confirm and resend the link.
+- **Page hung after Stripe** — check your dashboard and confirmation email
+  before trying payment again. If the entry is missing or its status is unclear,
+  contact the organizer with your participant name and receipt or payment reference.
 - **Wrong participant** — contact the organizer to swap before race day.
 
 ## Next

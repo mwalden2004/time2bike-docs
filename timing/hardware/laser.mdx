@@ -1,118 +1,117 @@
 ---
 title: "Laser timing"
-description: "Beam-break gate boxes that time the rider, not the person with the button."
+description: "Connect beam-break boxes, check their clock state, and monitor captured passes."
 icon: "bolt"
 ---
 
-Time2Bike's laser timing system replaces the human at the button with a beam
-across the course. A rider breaks the beam, the box stamps the moment, and it
-lands in your results.
+Time2Bike can use beam-break gate boxes to trigger starts and finishes. A mapped
+box reports a beam break to a USB-connected base station, and the timing screen
+uses it for the selected action when the panel is armed.
 
-It's the right tool when hundredths decide the podium: downhill, time trials,
-dual slalom, hill climbs.
+Test the complete setup on the course before relying on it. Detection, alignment,
+clock state, radio coverage, and the bridge laptop all affect the timing record.
 
-{/* IMAGE NEEDED: The laser panel with three boxes connected, showing signal, battery, and last pass */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/laser-panel.png" alt="Laser panel with three simulated timing boxes showing signal, battery, and last pass" />
+</Frame>
 
-## What's in the kit
+This example uses simulated box readings and a demo timing laptop.
 
-| Piece | What it does |
+## The equipment
+
+| Piece | Role |
 |---|---|
-| **Gate boxes** | Sit on the course with a beam across it. Stamp each pass |
-| **Base station** | Plugs into a laptop by USB. Receives from every box by radio |
+| **Gate boxes** | Detect and timestamp beam breaks on the course |
+| **Base station** | Receives box messages by radio and connects to a laptop by USB |
 
-Boxes talk to the base over long-range radio. A box too far from the base is
-relayed by the others, so a start gate at the top of a hill still reaches a
-laptop at the bottom.
+Compatible boxes support relaying messages through neighbouring boxes. Terrain,
+distance, interference, and box placement affect coverage; test each gate at its
+race-day position.
 
 ## Getting connected
 
 <Steps>
   <Step title="Plug the base station into a laptop">
-    Use Chrome or Edge, on Windows or macOS. Firefox and Safari can't talk to
-    the base station.
+    Use a browser with Web Serial support, such as Chrome or Edge on a supported
+    desktop system. The browser must grant access to the selected device.
   </Step>
   <Step title="Open the laser panel on the timing screen">
-    Click connect and pick the base station from the browser's device list.
+    Click connect and pick the base station from the browser’s device list.
   </Step>
   <Step title="Add your boxes">
-    Each box has an ID printed on it. Add the ones you're using. Boxes you
-    haven't added are ignored even if they're heard on the radio.
+    Add each box ID and confirm you can see its current status.
   </Step>
-  <Step title="Say what each box is">
-    Map each one to its job: the start gate, the finish, the red lane, the blue
-    lane. This is what turns a beam break into a timing entry.
+  <Step title="Map each box to its job">
+    Select the start, finish, or lane action that box should trigger. Confirm
+    the staged rider or lane before testing a crossing.
   </Step>
-  <Step title="Arm the fleet">
-    Once armed, passes are recorded. Until then, boxes report but nothing lands
-    in your results.
+  <Step title="Check clock state, then arm">
+    Check box clock status, alignment, battery, and communication. Arm the panel
+    and perform a test pass; verify that it reaches the intended timing record.
   </Step>
 </Steps>
 
-## Accuracy
+## Timestamps and clock state
 
-Each box stamps a pass **at the box**, against satellite time, before it's sent
-anywhere. So the time in your results is the moment the rider broke the beam,
-not the moment the message arrived at the laptop.
+When a usable box timestamp is available, the timing action uses that timestamp
+instead of the message’s arrival time. GPS lock, clock holdover, and fallback
+clock states are shown in the panel; they should not be treated as equivalent
+levels of accuracy.
 
-You'll see a "delivered +12 ms" figure next to passes. That's how long the
-message took to reach you, and it has no effect on the recorded time.
+If the box timestamp is absent or outside the accepted clock range, the panel
+can fall back to timing on arrival and shows a warning. Network or radio delay
+then affects the timestamp. Investigate those passes before accepting close
+results, using your backup timing evidence.
 
-## The whole crew sees it
+The **delivered** figure compares host arrival with the box timestamp. It can
+include disagreement between their clocks; it is not a certified timing-error
+measurement.
 
-The base station is plugged into one laptop, but the fleet isn't that laptop's
-private business. Whoever holds the USB cable becomes the bridge and mirrors
-everything to everyone else timing the event: box health, alerts, passes,
-mappings, the arm switch.
+## The bridge laptop and remote operators
 
-So a marshal at the bottom of the hill can wake a sleeping box or disarm the
-fleet without walking up to the tent.
+The laptop connected to the base station acts as the bridge. While connected,
+other timing operators can view shared box status and request supported controls.
+A remote command needs to reach the bridge and box before it can take effect.
 
-If a remote operator loses connection they lose *visibility*, never a rider's
-time, because the timing path itself runs through the bridge laptop.
+Keep the bridge laptop powered, connected, and its timing page running. Loss of
+remote visibility does not by itself stop the bridge from recording, but it also
+does not prove that passes are reaching the timing log. Check the bridge and its
+sync queue after an interruption.
 
 ## Speed readings
 
-Each box measures how long between your front and rear wheel and works out your
-speed from it. There's one wheelbase setting for the course (1.2 m by default).
+Speed is estimated from a detected wheel gap and the configured wheelbase
+(default **1.2 m**). Actual wheelbase and the quality of the detected breaks affect
+the estimate. Missing or unclear wheel detections can leave a pass without a
+speed reading; check the timing record separately.
 
-If the wheels didn't give the beam a clean look, you get no speed for that pass.
-The time is unaffected.
+## Watch the alerts
 
-## Watch for these
-
-The panel raises alarms for the states that silently stop recording riders. Each
-one shows a countdown and a one-press way out:
-
-| State | What it means |
+| State | What to check |
 |---|---|
-| **Align** | The box is being aimed. Records nothing at all |
-| **Quiet** | The box is timing but not transmitting |
-| **Storm** | The box has paused its radio over a suspected sensor fault |
-| **Deaf** | Bench-test mode. Pretends the link is dead |
+| **Align** | Alignment mode suppresses timing triggers; return the box to timing before a run |
+| **Quiet** | The box is not transmitting passes; restore communication and check its record |
+| **Storm** | Radio activity has paused after a suspected sensor fault; investigate the sensor |
+| **Deaf** | Test mode simulates a dead link; leave test mode before racing |
 
-All of them expire on their own, but don't wait. A box in align mode during a
-race run is a lost rider.
-
-**Silence is itself an alarm.** A box that hasn't checked in for 15 seconds is
-flagged, because a box you can't hear from is a box that isn't timing.
+Review the panel’s countdowns and available controls rather than waiting for a
+mode to expire. A missing heartbeat means communication is stale, not proof that
+the box has stopped sensing or that its records are recoverable.
 
 ## If a pass goes missing
 
-Every box keeps its own record on a memory card. If a message never arrives, the
-panel notices the gap and the pass is still recoverable from the box afterwards.
-
-## You don't need any of this
-
-Laser boxes are an option, not a requirement. Most races on Time2Bike are timed
-by two people typing bib numbers into phones, and that works.
+Check the box, bridge log, sync queue, and any sequence-gap warning. Compatible
+boxes can retain passes on a memory card when card logging is working. Recovery
+depends on the record having been written and remaining readable; keep a backup
+timing method and contact support for help with available box logs.
 
 ## Next
 
 <Columns cols={2}>
   <Card title="Interval starts" icon="gauge-high" href="/timing/formats/interval-starts">
-    The format that gains most from beam timing.
+    Starts and finishes recorded per rider.
   </Card>
   <Card title="RFID pads" icon="tower-broadcast" href="/timing/hardware/rfid">
-    The other hardware route, keyed by bib.
+    Importing reader crossings by bib.
   </Card>
 </Columns>

@@ -53,3 +53,21 @@ vocabulary, which is deliberate and worth reading before writing a page.
 
 Merging to the default branch deploys to production via the Mintlify GitHub
 app.
+
+## Screenshots
+
+The September 2026 screenshot update uses the real application UI with fictional
+demo records. Sample names, addresses, contact details, license numbers, and
+join codes are examples; they do not come from customer accounts. Hardware
+readings are simulated where the caption says so. Results PDFs come from the
+application's PDF renderer with demo results. Older screenshots have also been
+replaced in place, and unused legacy images removed.
+
+When replacing a screenshot, use demo data, include descriptive alt text, and
+check the final image for personal details, usable access links or QR codes,
+floating panels, and clipped controls. Keep the image focused on the task.
+Leave an `IMAGE NEEDED` comment when the requested view is unavailable; do not
+recreate a screen that the application does not provide.
+
+The expanded result-history screenshot in `timing/history-and-audit.mdx` is
+still pending because the current operator screen has no expanded history view.

@@ -8,31 +8,31 @@ If you already own an RFID timing pad, you can feed its reads straight into the
 timer instead of typing bibs by hand.
 
 <Note>
-  **Time2Bike identifies riders by bib number and nothing else.** There's no chip
-  database to build here, no transponder list to import, and nothing to reconcile
-  before the race. Whatever bib number your reader reports is the rider Time2Bike
-  credits.
-
-  Pairing a chip to a rider is handled in your reader's own software, the way you
-  already do it. That's the only place it needs to happen.
+  The importer matches the bib reported by the reader against the selected
+  start lists. Configure chip-to-bib mapping in the reader’s software, then
+  verify the mappings, race selection, and test crossings in Time2Bike before
+  racing. An incorrect mapping can credit the wrong rider.
 </Note>
 
 ## Watching your reader's file
 
 Best when your reader's software writes to a file on the machine you're timing
-from. It works with the usual systems: Impinj, MyLaps, and anything else that
-writes a line per read.
+from. The importer currently supports **RFIDServer exports** in the format
+shown below.
 
 <Steps>
   <Step title="Open the RFID panel on the timing screen">
-    It sits below the main number box.
+    Open **RFID timing pad**, then expand **RFID CSV import**.
   </Step>
   <Step title="Click 'Pick CSV & watch' and choose the file your reader writes to">
-    ![RFID CSV import](/images/timing/rfid-csv.png)
+    <Frame caption="Demo data. Names, races, and results are fictional.">
+      <img src="/images/timing/rfid-csv.png" alt="Expanded RFID CSV import panel with demo races and Pick CSV & watch control" />
+    </Frame>
   </Step>
   <Step title="Leave the tab open">
-    Every new line the reader writes is picked up and recorded as it lands.
-    Nothing to press.
+    The watcher checks for new lines while it is running. Monitor its status
+    and compare imported crossings against the reader’s log; file access,
+    browser suspension, filtering, or invalid rows can interrupt imports.
   </Step>
 </Steps>
 
@@ -52,38 +52,37 @@ Extra columns are ignored.
 
 ## Importing a file from a race that already happened
 
-If you're bringing in a file from last Saturday, the reads in it predate the
-start you pressed today — and a crossing before the gun looks to the timer like
-a lap that came too soon, so it used to be dropped in silence. A backfill that
-appeared to do nothing.
+Reads that predate the recorded start are held for review. The panel can
+suggest moving the start to the first crossing in the file so those reads can
+be applied.
 
-Now those reads are held and counted, and the panel says what it found and
-offers to fix it: **move the start to when the file says the race began**. The
-file is the better witness — for a mass start its first crossing is within
-seconds of the real gun — so the start is backdated to it and everything that
-was waiting is applied.
-
-A backdated start is an ordinary operator action, not a special import mode: the
-same audit trail as any other, and reversible by setting the start again.
+Check that proposed time against the actual gun before accepting it. A first
+read can be a warm-up, a start-line read, or a finish well after the gun; it does
+not establish when the race began. Also check the reader’s clock and time zone.
+Use **Set the start time** or **Correct the start time** with your verified
+backup record when the suggested time is wrong, then review the imported results.
 
 ## Things worth knowing
 
 <AccordionGroup>
   <Accordion title="It resumes where it left off" icon="bookmark">
-    The watcher remembers its position in the file, so reopening the timer
-    later doesn't re-import everything and create duplicate finishes.
+    The watcher stores its file position in this browser. That position can
+    be lost if browser data is cleared.
 
-    **Reset cursor** deliberately re-reads the file from the top. That's safe,
-    since reads already recorded aren't doubled up, but expect a flurry of
-    notifications.
+    **Reset cursor** re-reads the file from the top. Duplicate detection
+    recognizes matching read identifiers, but changed timestamps, bib mappings,
+    or file contents can produce different records. Check the resulting counts
+    and any duplicate flags.
   </Accordion>
-  <Accordion title="Check the race tab first" icon="tag">
-    Incoming reads go into whichever race is selected when they arrive. Set it
-    before you start the watcher.
+  <Accordion title="Check the listening races first" icon="tag">
+    Choose the races in **Listening races** before starting the watcher.
+    Reads are matched to bibs on those start lists.
   </Accordion>
-  <Accordion title="Unknown bibs are skipped" icon="circle-question">
-    A read for a bib that isn't on the start list is passed over rather than
-    recorded against the wrong person.
+  <Accordion title="Unknown bibs need attention" icon="circle-question">
+    Reads for bibs outside the start lists are held. The panel lists those
+    bibs and offers **Add riders as unidentified** so you can keep their
+    crossings and identify them later. Tags with no bib need to be mapped
+    in the reader software.
   </Accordion>
   <Accordion title="Mats can map to split points" icon="map-pin">
     If your reader reports which mat produced a read, you can tie each mat to a
@@ -115,24 +114,25 @@ waiting for.
 
 <Warning>
   A pad mounted near the start line will fire on warm-up runs. Either move the
-  pad or plan to clean up the extra reads afterwards. The **Listening for
-  plates** panel is how you tell whether what you're seeing is real.
+  pad or plan to clean up the extra reads afterwards. Use the **Listening for
+  plates** panel to check the expected riders, and verify that each detected
+  crossing belongs to the intended race run.
 </Warning>
 
 ## Reading from another machine
 
 If the pad is on a different computer from the one you're timing on, Time2Bike
-can accept reads over the network. Contact support and we'll give you a small
-helper program that forwards reads from your reader into the timer. It signs in
-with a timing link, the same as any volunteer device.
+supports timing integrations over the network. Contact support to check
+compatibility and setup for your reader before race day; do not assume an
+arbitrary reader or file format will work without testing.
 
 ## You don't need any of this
 
-An RFID pad is an option, not a requirement. Plenty of races are timed perfectly
-well with two volunteers typing bib numbers into phones.
+An RFID pad is an option, not a requirement. Manual bib recording is also available. Choose and test a timing method
+that meets your event’s rules and required accuracy.
 
 ## Next
 
 <Card title="Laser timing" icon="bolt" href="/timing/hardware/laser">
-  Beam-break boxes, for when hundredths decide it.
+  Beam-break boxes and their clock-status checks.
 </Card>

@@ -5,18 +5,17 @@ icon: "credit-card"
 ---
 
 Time2Bike handles registration payments through **Stripe**. You connect a Stripe
-account once, riders pay through it, and the money lands in your bank on Stripe's
-normal schedule.
-
-Time2Bike never holds your money.
+account for your organization. Registration charges are made on that connected
+account, and Stripe manages settlement and payouts. Check Stripe for your
+account's payout schedule, verification requirements, holds, and reserves.
 
 ## Connecting
 
 Once per organization: **Settings → Billing → Connect Stripe**.
 
 Stripe asks for your business details, bank account, and identity verification.
-Budget a day or two. It isn't instant, and you can't publish a paid event until
-it's done.
+Onboarding and verification times vary. Check that Stripe has enabled payments
+and that Time2Bike shows the account as connected before opening paid registration.
 
 → [Stripe payouts](/organizers/organization/settings-billing)
 
@@ -29,7 +28,7 @@ it's done.
 | Line | Goes to |
 |---|---|
 | Entry fee (and any merch or add-ons) | You |
-| **Service fee** — 3% of their subtotal | Time2Bike |
+| **Service fee** — the amount shown before purchase | Time2Bike |
 
 The service fee is added on top and shown separately on the rider's receipt. It
 doesn't come out of your entry fee.
@@ -39,15 +38,15 @@ you out. That's between you and Stripe, at whatever rate your account is on.
 
 ## Getting paid
 
-Money lands in your bank on Stripe's payout schedule, typically daily once
-your account is fully verified.
+Stripe displays your payout schedule and expected arrival dates. Bank processing,
+account reviews, reserves, or other holds can affect when funds arrive.
 
 **Settings → Billing → Open Stripe dashboard** takes you to your own Stripe
 dashboard for payout history, statements, tax forms, and bank details.
 
 <Warning>
-  If your Stripe account isn't fully verified, Stripe holds payouts until it is.
-  If money hasn't arrived, that's the first thing to check.
+  Missing verification information can delay payouts. Check your Stripe dashboard
+  for outstanding requirements and the status of the payout.
 </Warning>
 
 ## Money taken at the desk
@@ -56,9 +55,9 @@ The [check-in desk](/organizers/events/check-in) can take payment on race
 morning, two ways: a QR code the rider pays on their own phone, or a card field
 on your tablet for when the desk has signal and the rider doesn't.
 
-Both are ordinary charges on your connected account carrying the same service
-fee as an online registration, so a desk payment reconciles, refunds, and pays
-out exactly like any other entry. Nothing about it is a separate pot of money.
+Both use your connected Stripe account. Review the amount and service fee shown
+before collecting payment, then confirm the payment status at the desk. Stripe's
+settlement and refund processing still apply.
 
 Entry fees and one-day licence fees are charged separately, so a rider who owes
 only a licence isn't asked for an entry as well.
@@ -73,20 +72,28 @@ entry paid, with a note of which.
 
 ## Refunds
 
-Issue refunds from Time2Bike under **Pricing → Refunds**, and they go back to
-the rider's original card.
+Submit refunds from **Pricing → Refunds** to the original payment method.
+Submission does not confirm that funds have reached the rider's bank.
 
-- Your Stripe balance decreases by the refunded amount.
-- The service fee is **not** returned, on a full refund or a partial one. It is earned when the entry is taken.
-- The one exception is a charge that should never have existed — a fraudulent charge, or a duplicate caused by a platform fault — where the whole charge including the service fee comes back.
+- Review the remaining refundable amount before submitting. Registration refunds
+  cover the entry and one-day license fee, less discounts and earlier refunds;
+  other purchases may need their own refund action.
+- Ordinary organizer refunds exclude the platform service fee. The
+  [Terms of Service](https://time2.bike/legal/terms#refunds) describe the full-charge
+  refund exceptions for confirmed fraud and duplicate or failed charges caused
+  by a platform fault. Contact support about those cases.
+- Stripe's original processing fees are not returned. Insufficient available
+  balance or bank processing can delay or prevent a refund. Check the payment
+  in Stripe. See [Stripe's refund guidance](https://docs.stripe.com/refunds).
 
 → [Refunds](/organizers/pricing/refunds)
 
 ## Chargebacks
 
-If a rider disputes a charge with their bank, Stripe handles it and Time2Bike
-emails you. Respond in your Stripe dashboard with whatever evidence you have:
-the signed waiver, the registration confirmation, the start list.
+Monitor your Stripe dashboard for payment disputes and response deadlines.
+Submit relevant records there, such as the registration confirmation, applicable
+refund policy, and evidence of participation. Providing records does not
+guarantee that a dispute will be decided in your favor.
 
 ## Next
 

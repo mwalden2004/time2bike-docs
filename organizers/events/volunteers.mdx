@@ -4,9 +4,11 @@ description: "Recruit, schedule, and check in volunteers, with optional reward d
 icon: "hand-holding-heart"
 ---
 
-**Event → Event setup → Volunteers** is a complete volunteer system: create opportunities, define roles and shifts, take public signups, and check people in on race day. Completed shifts can automatically issue a **discount code** for a future registration.
+**Event → Event setup → Volunteers** lets you create opportunities, define roles and shifts, take public signups, and check people in on race day. You can issue a **discount code** to a checked-in or completed volunteer.
 
-{/* IMAGE NEEDED: Event → **Volunteers** showing an effort with its roles and shift capacities */}
+<Frame caption="Volunteer effort with roles and shift capacities. Demo data.">
+  <img src="/images/events/volunteers.png" alt="Volunteer effort with roles and shift capacities" />
+</Frame>
 
 ## Concepts
 
@@ -16,14 +18,14 @@ icon: "hand-holding-heart"
 | **Role** | A type of help within an effort (e.g. "Aid station lead"). |
 | **Shift** | A time slot for a role with a **capacity**. |
 | **Signup** | A volunteer claim on a shift. |
-| **Reward** | What a completed shift earns — a free entry, or a percent or dollar discount. Issued when the shift is marked complete. |
+| **Reward** | What a completed shift earns — a free entry, or a percent or dollar discount. Issued through **Issue volunteer credit**. |
 
 ## Create an effort
 
 From the Volunteers tab click **New volunteer effort**. You'll set:
 
 - **Name** and **description**.
-- **Reward** — see [Rewards](#rewards) below. Issued automatically when a shift is marked complete.
+- **Reward** — see [Rewards](#rewards) below. Review and issue it from the signup row.
 
 Open the new effort to add **roles** and **shifts**. Each shift takes a role, a time window, and a capacity. Default shift = the whole event window with capacity 1.
 
@@ -35,9 +37,8 @@ email, so a volunteer arriving on race morning has it without digging up the
 page again.
 
 <Warning>
-  Volunteers read these instructions. Anything you don't want them to see goes
-  in the shift's **admin note** instead. That one never leaves your
-  organization.
+  Shift instructions are public. Keep confidential information out of them,
+  and review any notes before sharing volunteer records or exports.
 </Warning>
 
 ## Rewards
@@ -55,13 +56,13 @@ Pick what a completed shift earns:
 
 Each reward has a **redeemable at** setting:
 
-- **This event** — the code only works on this event, which in practice makes
-  it a next-edition code.
+- **This event** — the code is tied to this event. It does not automatically
+  apply to a separately created future edition.
 - **Any of our races** — the code works on any race your organization runs.
 
-**Free entry** defaults to *any of our races*. A volunteer has already worked
-the event they signed up for, so a credit locked to that event would be
-unspendable. Percent and amount rewards default to *this event*.
+**Free entry** defaults to *any of our races*. Percent and amount rewards
+default to *this event*. Review the scope before promising a future-event
+reward.
 
 ### What the credit covers
 
@@ -77,16 +78,17 @@ you want your reward to absorb them.
 
 ### How the code is issued
 
-When you mark a shift complete, Time2Bike generates a single-use discount code
-and emails it to the volunteer. Free entries get a `VOLFREE-` prefix and
+Use **Issue volunteer credit** on a checked-in or completed signup. Time2Bike
+generates a single-use discount code and shows it in the confirmation. Share
+the code with the volunteer. Free entries get a `VOLFREE-` prefix and
 everything else gets `VOL-`, so a 100%-off code is obvious at a glance in your
 [discount code list](/organizers/pricing/discounts).
 
-Because these codes are single-use, Time2Bike now holds a use while a rider is
-mid-checkout, so two people can't both spend the last one. See
+Pending registration checkouts hold a code use while the checkout is active. See
 [Discount codes](/organizers/pricing/discounts#usage-limits).
 
-A **no-show** or a cancelled signup never gets a code.
+A signup must be checked in or completed to issue a credit. Review any credit
+already issued before later changing that signup's status.
 
 ## Take public signups
 
@@ -115,7 +117,8 @@ The **Signups** table supports:
 
 - **Move shift** — drag someone from a full slot to one that still needs help.
 - **Check in / Check out** — sets the volunteer's status to `checkedIn` (and records the timestamp).
-- **No-show** — used after the fact to flag people who didn't appear. Their reward isn't issued.
+- **No-show** — records that someone did not appear. Check any credit already
+  issued before changing their status.
 - **Cancel** — releases their spot back to the pool.
 
 Each signup also gets a **QR token** in their confirmation email. If you're scanning at the volunteer tent, the scanner page on the same effort handles check-in.
@@ -126,22 +129,21 @@ Click **Print sheet** on a shift for a paper roster with name, phone, role, and 
 
 ## Communicate
 
-- **Bulk email** — select rows, click **Email**. Sending the same announcement twice won't double up in anyone's inbox.
-- **Optional SMS reminders** — sent the day before via the platform's SMS service. Volunteers opt in at signup; STOP replies are respected.
+- **Bulk email** — select rows and click **Email**. Check the send result before
+  retrying; a separately submitted announcement may send another message.
+- Include the shift's date, location, and contact details in your message.
 
-## Rewards
+## Check issued rewards
 
-When you mark a shift **completed** for a signup, the configured reward is issued:
-
-- A unique single-use discount code is generated.
-- The code lands in the volunteer's email.
-- The code is valid on any future registration with your organization.
-
-Marking the same shift complete twice won't issue a second code.
+After issuing a credit, check the confirmation and the signup's credit status.
+The code follows the reward's configured scope and fee settings. An existing
+credit is returned when the same signup already has one recorded.
 
 ## Export
 
-**Export CSV** dumps the current signups table including status and hours. Background-check notes (if used) are excluded from the default export.
+**Export CSV** downloads signup details, status, and attendance timestamps.
+It omits background-check notes but includes the recorded clearance flag.
+Review the file before sharing it.
 
 ## Dashboard metrics
 

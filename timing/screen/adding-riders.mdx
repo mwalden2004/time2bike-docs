@@ -1,71 +1,47 @@
 ---
 title: "Adding riders on the day"
-description: "Day-of entries, drop-ins, and riders who never registered, without leaving the timing screen."
+description: "Register a day-of rider from the timer, or record an unknown bib while offline."
 icon: "user-plus"
 ---
 
-Somebody turns up on the morning, pays cash at the tent, and needs a number.
-You don't have to send them through registration, and you don't need signal.
+You can open the registration form without leaving the timing screen. With a
+connection, choose **More actions → Register a rider**.
 
-From the timing screen: **More actions → Add riders**.
+<Frame caption="Demo data.">
+  <img src="/images/organizers/manual-entry.png" alt="Manual entry dialog for a demo event" />
+</Frame>
 
-{/* IMAGE NEEDED: The Add riders panel with a bib, name, and team filled in */}
+## Register a rider with a connection
 
-## What you enter
+Use the same form as the event's **Participants** page to find an existing rider
+or create an entry. Pick their races, review the day-of price, and handle their
+payment and plate assignment.
 
-| Field | Notes |
-|---|---|
-| **Bib** | The number they'll wear. This is how they'll be timed |
-| **Name** | Shown on the start list and in results |
-| **Team / club** | Optional, shown next to their name |
-| **Race** | Which race they're entering. Defaults to the one you're on |
+Finding an existing rider first helps you avoid creating a second profile for
+the same person.
 
-They appear on the roster immediately and can be timed like anybody else.
+Follow [manual entry](/organizers/registrations/manual-entry) for the full
+registration steps, including payment and waiver options.
+
+## Record an unknown bib while offline
+
+**Register a rider** needs a connection. If you are offline and a rider crosses
+the line without a matching start-list entry, enter their bib in the timing
+box. The timer can record them as an unidentified rider and sync that entry
+when the connection returns.
+
+Finish their registration and payment on the **Participants** page once you are
+online. Identify the rider before publishing the results.
 
 <Note>
-  **This works offline.** Rider added at a trailhead with no bars will sync up
-  with everything else when you get signal back. It's designed for exactly the
-  moment you can't reach a registration page.
+  Recording an unknown bib captures a timing result. Complete the event's
+  required registration, waiver, and payment steps separately.
 </Note>
 
-## What it doesn't do
+## Who can open the form
 
-Adding a rider here puts them in the *race*, not through *registration*. It
-doesn't:
-
-- Take payment.
-- Collect a waiver signature.
-- Ask your custom questions.
-- Create a Time2Bike account for them.
-
-So it's the right tool for a rider you're handling on paper at the tent, and the
-wrong tool for someone who should have registered properly.
-
-<Warning>
-  Whatever your event needs for insurance (a signed waiver, a day licence, an
-  emergency contact) collect it on paper before you hand over a number. The
-  timing screen doesn't ask for any of it.
-</Warning>
-
-If you'd rather they went through the full flow, use
-[manual entry](/organizers/registrations/manual-entry) on the registrations page
-instead. That takes payment, waivers, and questions properly, but it needs a
-connection.
-
-## Who can do it
-
-Organization members can always add riders. It's also the one administrative
-action a **volunteer link** can be given, because an assistant coach or a
-registration volunteer on a borrowed phone is often exactly the person who needs
-to enter a drop-in.
-
-Everything else in **More actions** stays organization-members-only.
-
-## Cleaning up afterwards
-
-Riders added this way show in your results like everyone else. If you took money
-from them, record it separately. The timing screen isn't a till, and nothing
-you enter here reaches your Stripe account.
+The registration form is available to organization operators with the required
+access. Volunteer timing links do not show **Register a rider**.
 
 ## Next
 

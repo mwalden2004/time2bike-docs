@@ -4,31 +4,51 @@ description: "Process and audit registration refunds."
 icon: "rotate-left"
 ---
 
-**Pricing → Refunds** lists every refund issued across all your events, with a running total at the top.
+**Pricing → Refunds** lists refund records across your events, with a running
+total at the top. Check Stripe for the processor's status and settlement details.
 
-{/* IMAGE NEEDED: /organizations/[id]/pricing/refunds → refunds table and "issue refund" modal */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/refunds.png" alt="Refund totals and refund history" />
+</Frame>
 
 ## Issue a refund
 
 You can refund a specific registration from this page too:
 
-1. Click **Issue refund**.
+1. Click **Process refund**.
 2. Enter the **registration ID** (or open a registration from the [Event registrations](/organizers/registrations/event-registrations) page and refund from there — easier).
 3. Enter the **amount** (USD) and optional **reason**.
-4. Submit.
+4. Click **Process refund**.
 
-Time2Bike issues the refund through Stripe on the original payment method. The registration flips to `refunded`.
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/refund-modal.png" alt="Process refund dialog with an example registration ID, amount, and reason" />
+</Frame>
+
+Time2Bike submits the refund to Stripe for the original payment method. The
+amount cannot exceed the registration's remaining refundable balance. The
+registration changes to `refunded` when recorded refunds cover that refundable
+portion; the status does not confirm bank receipt.
+
+The registration refund excludes the platform service fee. See
+[Editing and refunds](/organizers/registrations/editing-and-refunds) for what is
+refundable and how to handle platform-error or fraud claims.
+
+If the result is unclear or the request times out, check Stripe before trying
+again. A refund can be pending or fail, and a confirmation in Time2Bike does
+not establish that the rider's bank has credited it.
 
 ## What's logged
 
 Each refund row stores:
 
-- Registration link, event, race.
+- **Registration** — the registration identifier.
 - **Amount** refunded (in dollars).
 - **Reason** (your note).
-- **Issued by** — the org member who initiated it.
-- **Stripe refund ID** for cross-referencing in your Stripe dashboard.
+- **Processor** — the payment processor.
+- **Refunded** — the refund date and time.
 
 ## Bulk view
 
-Use this page to reconcile your monthly Stripe statement against Time2Bike-issued refunds — every refund here corresponds to a Stripe refund on your connected account.
+Compare these records with your Stripe statement, including refunds started
+directly in Stripe. Investigate missing, pending, or failed refunds before
+treating the totals as reconciled.

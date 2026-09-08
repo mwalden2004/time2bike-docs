@@ -1,68 +1,71 @@
 ---
 title: "History & corrections"
-description: "Nothing is ever really deleted, which is why every mistake is fixable."
+description: "What timing records can help you review, and why you should keep a backup."
 icon: "clock-rotate-left"
 ---
 
-Time2Bike keeps a complete history of everything that happens on the timer:
-every finish recorded, every time edited, every rider marked DNF, every entry
-deleted, and who did each one.
+Recorded timing actions include timestamps and device information. Actions
+accepted by the server are retained in the session's timing log; queued actions
+still depend on the device that recorded them.
 
-You don't have to manage this. It's the reason a few things behave the way they
-do.
+Corrections such as manual times and result deletion are recorded as further
+actions. This helps reconstruct how a result changed while those records remain
+available. It is not a promise of permanent retention or recovery of every entry.
 
-{/* IMAGE NEEDED: A result row expanded to show its history: the original entry, a correction, and who made it */}
+{/* IMAGE NEEDED: An expanded result-history view showing the original entry and correction. Capture pending: the current operator screen has result actions but no expanded history view. Use fictional operator and rider labels if this view becomes available. */}
 
-## Deleting doesn't destroy anything
+## Deleting a result and resetting timing are different
 
-When you delete a wrong entry, it disappears from the results — but the record
-of it stays. That means:
+Deleting a result removes it from the current results. That correction does not
+itself erase the earlier action from the timing log. The current operator screen
+shows the result and its correction controls, not a full history or a general
+**Restore** button.
 
-- **A deleted finish can be brought back.** If you delete the wrong row, it's
-  recoverable.
-- **You can answer "what did we originally record?"** months later, when a rider
-  queries a result.
-- **A volunteer can't do permanent damage.** Whatever they press, the underlying
-  record is intact and a director can put it right.
+**Reset timing data** removes timing records for the selected race or session.
+It is not an ordinary correction and cannot be reversed with **UNDO**. Export
+records you need before resetting, and confirm the selected scope carefully.
+Cleared browser storage can also remove actions that have not uploaded.
 
-The same is true of edits. Typing in a manual time doesn't erase what the finish
-line recorded; it adds a correction on top of it, and both are visible.
+## Recent corrections
 
-## Why two phones recording the same rider isn't a problem
+**UNDO** applies to supported recent actions recorded on the current screen,
+subject to your timing role. The recent-action list is not retained through a
+page reload. For other corrections, use the rider's result menu and check the
+updated result against your backup record.
 
-Both entries are kept. The rider's row is flagged as having two candidate
-finishes, and you pick which one is right. Neither is thrown away before a human
-looks at it.
+See [Edits & corrections](/timing/screen/corrections).
 
-This is deliberate. Automatically discarding one would be guessing, and guessing
-about a rider's time is exactly what you don't want a computer doing.
+## Two devices record the same rider
 
-## Why offline phones merge cleanly
+Separate finish recordings can produce a duplicate flag. Compare the candidate
+times and identify the intended crossing before correcting the result. A flag
+helps identify a possible issue; it does not decide which record is right.
 
-Because each phone keeps its own history and every entry carries the moment it
-happened, a phone that's been offline can hand over everything it recorded and
-have it fall into the right place — not appended to the end of the results.
+## Offline corrections
 
-## What you'll actually see
+When a device reconnects, its queued actions are uploaded using their recorded
+timestamps. A queued correction can conflict with a change already made on
+another device. Open **Sync status** and review any conflict warning.
 
-| On the screen | What's behind it |
-|---|---|
-| A finish disappears after you delete it | Hidden from results, kept in the history |
-| **Restore** on a deleted row | Bringing back what was hidden |
-| A **duplicate** flag on a rider | Two entries kept, waiting for you to choose |
-| **Awaiting start** on a finish | A real recorded moment, waiting for a start to measure from |
-| A note on a result | Attached permanently, visible in reviews and exports |
-| A finalized result you reopen and change | Every version of the number is still there |
+→ [Timing without signal](/timing/hardware/offline-and-sync)
 
-## Getting a copy
+## Keep a review record
 
-Every action, including who was issued which volunteer link and when, is
-recorded on Time2Bike's servers — not just on the phone that did it. If you need
-a written record for a protest, a sanctioning body, or an insurer, contact
-support and ask for the audit trail for your event.
+Export the local CSV or JSON log from each timing device before clearing or
+resetting it. Keep finish-judge notes and other backup timing evidence alongside
+the published result. Local exports cover the records retained on that device;
+they are not a complete record of every device's activity.
+
+If you need help investigating a disputed result, contact support with the event,
+race, rider, approximate time, and available exports. Record availability depends
+on what was saved and uploaded; do not assume support can recover deleted or
+never-uploaded records.
+
+The organizer or sanctioning body decides protests and official results under
+the event's rules.
 
 ## Next
 
 <Card title="Edits & corrections" icon="pen" href="/timing/screen/corrections">
-  How to actually fix things on the timing screen.
+  How to correct results on the timing screen.
 </Card>

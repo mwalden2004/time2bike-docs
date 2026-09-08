@@ -17,7 +17,7 @@ won't disturb anything else they each have configured.
 | Setting | Effect |
 |---|---|
 | Lap mode on, no target | Laps accumulate. You decide when riders are done |
-| Lap mode on, target of 20 | A rider is automatically finished on their 20th lap |
+| Lap mode on, target of 20 | A rider is marked finished on their 20th counted lap recording |
 
 Each race carries its own setting, so a criterium and a road race in the same
 event don't have to agree.
@@ -25,12 +25,15 @@ event don't have to agree.
 ## Timing it
 
 Same as any other race: type the bib each time that rider crosses. The screen
-counts their laps for you and shows each rider's lap total and best lap.
+counts accepted lap recordings and shows each rider’s lap total and best lap.
+Review missed, duplicate, or suppressed crossings against your backup lap count.
 
 The recording point button reads **Lap** rather than **Finish** once lap mode is
-on, so there's no ambiguity about what Enter does.
+on. Check that label before recording a crossing.
 
-{/* IMAGE NEEDED: A lap-mode race in progress, showing per-rider lap counts and best lap */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/lap-race.png" alt="A demo lap race in progress with each rider’s lap count" />
+</Frame>
 
 ### In a shared chute
 
@@ -38,7 +41,7 @@ Lap races work on the [combined finish](/timing/formats/combined-finish) screen
 too. The race sheet grows a **Lap** column (`3/5`) and a **Lap times** column
 listing every lap, and a crossing recorded for a lap-race rider counts as a lap.
 
-Any timing point out on course lists **every pass** as well, so if a marshal at
+Timing points can list **multiple recorded passes** as well, so if a marshal at
 the top of the climb sees the field on all eight laps, you get eight times per
 rider, which is where you find the lap somebody lost two minutes.
 
@@ -49,9 +52,9 @@ that hits the target, and the confirmation says so.
 
 ## Voiding a lap
 
-A rider takes a lap they shouldn't have counted, after a mechanical, a crash, a
-penalty, or a wheel change. You need to remove that one lap without removing the
-rider.
+When a race official determines a recorded lap should not count, use the lap
+correction control without removing the rider. Apply your event’s rules; a
+mechanical, crash, or wheel change does not by itself establish a scoring penalty.
 
 From the rider's row menu, choose **Void a lap**, pick the lap, choose a reason,
 and add a note if it needs explaining.
@@ -64,9 +67,9 @@ What happens:
   back on course.
 - A note is attached to their result so the reason is visible later.
 
-The original lap stays in the record. You're marking it void, not erasing it.
-
-Voiding needs **admin** access.
+Voiding adds a correction to the timing record. Export records you need to
+retain before resetting timing. The control is available to timing roles with
+lap-void permission, including **Timer**.
 
 ## Primes
 
@@ -81,7 +84,9 @@ From **More actions → Record prime**:
 Primes are recorded against the race and show up in results and exports, so
 whoever's handing out envelopes at the end has a list.
 
-{/* IMAGE NEEDED: The Record prime dialog with a lap number and rider selected */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/record-prime.png" alt="Record prime with lap 3 and Rider 01 selected" />
+</Frame>
 
 ## Relay is different
 
@@ -92,5 +97,5 @@ Relay races also count laps, but they're credited to a team rather than a rider.
 ## Next
 
 <Card title="Corrections" icon="pen" href="/timing/screen/corrections">
-  Everything else that goes wrong and how to fix it.
+  Reviewing times and correcting recorded outcomes.
 </Card>

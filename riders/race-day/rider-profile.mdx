@@ -8,10 +8,14 @@ A **rider profile** is the racing identity used on the start list and in
 results. You can have many profiles on one account — yourself, a partner,
 your kids — so a parent can manage a whole family from one inbox.
 
-Each rider profile has its own public page. Open yours from
+Your profile management page requires sign-in and appropriate access; rider
+names and race details may also appear in public start lists and results. Open
+the profiles you can access from
 [time2.bike/profiles](https://time2.bike/profiles).
 
-![Your profiles](/images/riders/participant.png)
+<Frame caption="Your rider profiles with ownership labels and profile controls. Demo data.">
+  <img src="/images/riders/participant.png" alt="Your rider profiles with ownership labels and profile controls." />
+</Frame>
 
 ## Profile page
 
@@ -19,9 +23,8 @@ The profile page shows:
 
 - **Name and age** (calculated from birthday)
 - **Hometown** and competition gender
-- **Race history** — every event this rider has finished, with elapsed
-  time and rank
-- **Series standings** if they've raced a series
+- **Race history & payments** — linked registrations and payment details
+- **Season plates**, when assigned
 - An **Edit profile** button (visible only if you can edit) and a
   **Sharing** button (visible only if you're the owner)
 
@@ -36,9 +39,9 @@ Click **Edit profile**. You can update:
 - Team affiliation
 - Any optional fields the organizer asks for
 
-Saving updates the profile everywhere on the platform. **Past results
-keep the name that was recorded at the time** — name changes don't
-rewrite history.
+Saving updates the stored rider profile. Existing registrations and published
+results can contain separately recorded details; contact the organizer if a
+past entry or result also needs correcting.
 
 Only the **owner** of a profile or someone with **editor** / **manager**
 access can edit. If you don't have permission, the Edit button is hidden.
@@ -53,14 +56,15 @@ manage that rider. Common cases:
 
 ### Roles
 
-| Role | Can view | Can edit profile | Can register them | Can manage access |
-| --- | --- | --- | --- | --- |
-| **viewer** | ✅ | – | – | – |
-| **editor** | ✅ | ✅ | ✅ | – |
-| **manager** | ✅ | ✅ | ✅ | ✅ |
+| Role | Can view profile and history | Can edit profile | Can manage sharing |
+| --- | --- | --- | --- |
+| **viewer** | ✅ | – | – |
+| **editor** | ✅ | ✅ | – |
+| **manager** | ✅ | ✅ | – |
+| **owner** | ✅ | ✅ | ✅ |
 
-Owners always have all permissions and can never be removed by anyone
-else.
+The sharing controls do not let other managers revoke the profile owner's access.
+Shared access does not establish authority to sign a waiver or act as a guardian.
 
 ### Inviting someone
 
@@ -68,7 +72,9 @@ else.
   <Step title="Open the Sharing page">
     Click **Sharing** on the profile.
 
-    ![Sharing page](/images/riders/access.png)
+    <Frame caption="Rider-profile sharing with an invitation form and people who have access. Demo data.">
+      <img src="/images/riders/access.png" alt="Rider-profile sharing with an invitation form and people who have access." />
+    </Frame>
   </Step>
   <Step title="Enter their email and pick a role">
     Send the invite. They get an email link.

@@ -4,9 +4,11 @@ description: "Create codes riders enter at checkout."
 icon: "tag"
 ---
 
-Discount codes are managed at the **organization** level and can be scoped to series, events, races, or applied across the org. Manage them at **Pricing → Discounts**.
+Discount codes are managed at the **organization** level and can be scoped to series, events, races, or applied across the org. Manage them at **Pricing → Discount codes**.
 
-{/* IMAGE NEEDED: /organizations/[id]/pricing/discounts → discount code list with usage counts */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/discounts.png" alt="Discount codes with eligibility, usage counts, and status" />
+</Frame>
 
 ## Create a code
 
@@ -55,8 +57,8 @@ two people checking out at the same time could both spend the last use of a
 single-use code. Registrations that are still pending now hold a use for up to
 **60 minutes**, so the second checkout sees the code as exhausted.
 
-An abandoned cart releases its hold when that hour is up, so a code is never
-burned permanently by someone who walked away.
+An unpaid checkout's hold expires after that window. Review pending checkouts
+and redemptions if a code still appears exhausted.
 
 <Note>
   [Test entries](/organizers/events/test-entries) on a draft event never record
@@ -87,7 +89,8 @@ The **service fee is computed on the net subtotal after the discount**, so reduc
 
 ## Redemptions
 
-Every successful application writes a **redemption** row tied to the registration or merch order, so you can audit who used what and when. See [Redemptions](/organizers/pricing/redemptions).
+Completed non-test uses are recorded as **redemption** rows tied to the
+registration or merch order. Use these to review discount usage. See [Redemptions](/organizers/pricing/redemptions).
 
 ## Volunteer reward codes
 

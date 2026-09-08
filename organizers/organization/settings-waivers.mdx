@@ -6,178 +6,129 @@ icon: "file-signature"
 
 Waivers live at the **organization** level so you can author once and attach to any race in any event. **Settings → Waivers**.
 
-![Waivers settings page](/images/orgs/waivers.png)
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/orgs/waivers.png" alt="Waivers settings page" />
+</Frame>
 
 ## Start from a template
 
-**New waiver → Start from** lists releases from sanctioning bodies, with
-their rules attached. Picking one fills in the text, the version, who it
-applies to, and the statements a signer has to tick — and shows the issuer's
-requirements beside the form so none of them is missed.
+**New waiver → Start from** offers templates, including the US Endurance
+specific-event release. Choosing one fills in its text, version, audience,
+and signing statements, with issuer requirements shown beside the form.
 
-### US Endurance
-
-The USE Waiver and Release of Liability (specific-event form) is included.
-Using it means meeting USE's own conditions for taking it electronically,
-and each is handled like this:
-
-| USE requires | How Time2Bike meets it |
-| --- | --- |
-| The event name and date(s) on the release | Written as `{{event.name}}` and `{{event.dates}}` in the text and filled in from the event every time the release is shown. The signature's content hash covers the filled-in text. |
-| Name, address, city/state/zip, phone, email, and the date completed | All required on the online registration form. At the desk, fill in address and phone for a walk-up. Name, email and the signing time are always recorded. |
-| Participants select *"I agree to the terms & conditions of the Agreement."* | Asked as a required checkbox at signing, online and at the desk. The exact wording is stored on the signature. |
-| For minors, a parent or legal guardian completes the form, the minor's and guardian's names are collected, and the guardian agrees to both guardian statements | A rider under the governing state's age of majority is asked for a guardian's name and relationship, and the two guardian statements replace the rider's one. |
-| Kept for a minimum of 7 years | Signatures stay with the registration. Clearing an event's real entries deletes them, and the clear-entries dialog says so. Don't do it for a USE event. |
-
-The text was transcribed from USE's own form. Check with US Endurance for
-the current wording before relying on it.
+Confirm the current wording, signing process, and record-retention requirements
+with the issuer before using a template for your event. Selecting a template
+does not establish that your event meets those requirements.
 
 ## Create a waiver
 
 1. Click **New waiver**.
 2. Set:
    - **Title** — what riders see.
-   - **Version** — free-form string (e.g. `2025.1`). Each signed waiver records the exact version the rider agreed to.
-   - **Applies to** — **Adults**, **Minors**, or **Everyone**. An adults-only
-     release signed by a fourteen-year-old covers nothing, so it isn't offered
-     to them. See [Who signs](#who-signs-riders-and-guardians) below for where
-     this is enforced.
-   - **Content** — markdown body of the waiver. Write `{{event.name}}` and
-     `{{event.dates}}` where the event goes; they're filled in per event.
-   - **Statements to tick** — one per line, separately for a rider signing
-     for themselves and for a parent or guardian. Each becomes its own
-     required checkbox at signing, and the wording is stored on the
-     signature. Leave blank for a waiver with no such requirement.
-3. **Save**.
+   - **Version** — a label such as `2027.1`, recorded with signatures.
+   - **Applies to** — **Adults**, **Minors**, or **Everyone**. See
+     [Who signs](#who-signs-riders-and-guardians) for how this affects signing.
+   - **Content** — the markdown text presented for signing. Use
+     `{{event.name}}` and `{{event.dates}}` to insert event details.
+   - **Statements to tick** — separate lists for riders and guardians.
+     These appear as required checkboxes, and the submitted statements are
+     recorded with the signature.
+3. Click **Save**.
 
 ### Attaching the original PDF
 
-Open a waiver and use **Attach PDF** to keep the issuer's own document
-beside it. Riders get a *View the original PDF* link on every signing
-screen, and each signature records the PDF's hash.
-
-The markdown text remains the document that is signed, and that's
-deliberate. A PDF can't be read to the end on a phone, can't be shown
-offline at the desk, can't fill in the event name, and can't be hashed as
-what the rider actually saw. The PDF is the source; the text is what's
-agreed to.
-
-Once attached to a race, riders sign during checkout (see [Waivers](/riders/registering/waivers)) and the signature, timestamp, IP, and content hash are stored.
+Use **Attach PDF** to provide the issuer's document alongside the waiver text.
+Signing screens offer a **View the original PDF** link. The text shown in the
+signing screen is the content associated with the signature; the PDF is a
+separate reference. Check that the two agree before collecting signatures.
 
 ## Who signs: riders and guardians
 
-A minor's signature on a liability release is voidable, which makes a wrongly
-self-signed release worse than none — it looks like protection and isn't. So
-Time2Bike decides who signs from the rider's age:
+The signing form uses the rider's date of birth and the waiver's guardian
+policy to decide whether to request guardian details. The age-based policy uses
+the waiver's configured state, or the organization's mailing state when none is
+set. Missing birthdays can trigger a guardian request; collect the birthday
+and review the documents shown.
 
-- Riders at or over the **age of majority** sign for themselves.
-- Below it, a parent or guardian signs, and their name and relationship to the
-  rider are recorded alongside the signature.
-
-The age of majority is state law rather than a flat 18: it's **19** in Alabama
-and Nebraska and **21** in Mississippi and Puerto Rico. Time2Bike applies the
-one for the state the waiver is governed in, and everywhere else uses 18.
-
-The state is the one on the waiver where it's set, and otherwise your
-organization's mailing address, so most organizers never have to think about it.
-
-A rider with no birthday on file is asked for a guardian, and told why. That's
-the safe direction, and the fix is to collect the birthday.
-
-<Note>
-  The same rule is applied to league waivers, so the same seventeen-year-old
-  signing an event waiver and a league waiver on the same afternoon can't be a
-  minor for one and an adult for the other.
-</Note>
+These are the platform's collection rules. They do not determine whether a
+release is enforceable or whether a person has authority to sign for a rider.
+Confirm the signing requirements for your event when preparing its documents.
 
 ### Where this is applied today
 
-**Applies to** and the guardian rules govern every signature Time2Bike collects
-on a rider's behalf: the [check-in desk](/organizers/events/check-in),
-[manual entry](/organizers/registrations/manual-entry), and league waivers. Each
-of those shows a rider only the documents that apply to their age, and won't
-record a minor's signature without a guardian.
+The [check-in desk](/organizers/events/check-in) and
+[manual entry](/organizers/registrations/manual-entry) filter documents using
+**Applies to** and the rider's age. Where the configured guardian policy requires
+one, the form requires a guardian's name. League signing also uses guardian
+policies.
 
-In the rider's own checkout, every waiver attached to the race is still
-presented. If you use adults-only and minors-only documents, expect riders
-registering online to see both for now.
+Riders registering through checkout are currently shown every waiver attached
+to the race. If you use separate adult and minor documents, review both the
+online checkout and desk flows before opening registration.
 
 ## Signing at the desk
 
-A rider signing in their own checkout signs for themselves. A walk-up, or a
-rider who turns up unsigned, signs at the check-in desk on an official's
-tablet — and until now that meant the official typed the rider's name. That
-records that an official was present. It doesn't record that the rider agreed
-to anything.
-
-**Settings → Waivers → Signing at the check-in desk** changes what the desk
-collects. Two choices, saved as you pick them:
+**Settings → Waivers → Signing at the check-in desk** controls the information
+the desk asks for. Choices save as you select them:
 
 | Setting | Options | What happens |
 | --- | --- | --- |
-| **Signature** | Typed by the official / Drawn by the rider | *Drawn* hands the tablet across. The rider reads the document to the end, types their name and signs with a finger. |
-| **Photo at signing** | No photo / Offered / Asked for | A picture of the signer, taken on the tablet as they sign. *Asked for* still lets the desk skip it, but a reason is recorded. |
+| **Signature** | Typed by the official / Drawn by the rider | The official enters the supplied name, or hands over the device for the signer to read the document, enter a name, and draw a signature. |
+| **Photo at signing** | No photo / Offered / Asked for | The signing screen offers a photo capture. **Asked for** can still be skipped, with the reason recorded. |
 
-**Preview what the rider sees** opens the exact screen a rider would be
-handed, using one of your real waivers. Nothing is saved from a preview.
-
-<Tip>
-  For walk-ups, use a drawn signature with a photo. A walk-up has no online
-  checkout behind them — no account, no card on file, often no date of
-  birth — so what the desk records is the only evidence you'll ever have
-  that this person agreed to the release.
-</Tip>
+**Preview what the rider sees** opens a preview using your waiver text. Preview
+signatures and photos are not submitted as registration records.
 
 ### What the rider sees
 
-The screen shows the document and nothing else — not the price, not the
-rest of the field. The rider scrolls to the end (or says they've read it;
-which one is recorded), signs, takes the photo if asked, and taps **Hand
-back**. Only then does the desk return. The official sees the signature and
-the photo before recording it; that look is what makes them the witness.
+The signer reviews the document, records that they have read it, completes the
+signature fields, and taps **Hand back**. The official then reviews the captured
+information before submitting it. Where guardian details are required, the
+screen asks for them too.
 
-For a minor, the screen asks the parent or guardian to sign, and their name
-and relationship are recorded — the same rule as everywhere else.
+Choose the signature and photo options that fit your event's signing process.
+Explain any photo request to the signer and use the skip option when needed.
 
 ### What is stored
 
-Alongside the usual timestamp, IP and content hash, a desk signature records
-**who held the pen** — the rider, a guardian, or the official typing on their
-behalf — plus the signature strokes themselves (with timing, which is what
-tells a live hand from a pasted image), whether the text was read to the
-end, and the photo if one was taken. All of it shows in the registration's
-details under **Waiver signing proof**.
+Signature details include the version, signing time, supplied name, and a hash
+of the waiver text. Depending on the signing method and what was collected,
+they can also include initials, guardian details, the operator, IP address,
+drawn strokes, read confirmation, a photo, or a reason a photo was skipped.
+The registration details display this under **Waiver signing proof**.
 
-<Note>
-  The photo is evidence, not identification. Nobody compares it to anything
-  at the desk; its value is later, if somebody says they never signed. It is
-  stored privately, shown only to people who can see the registration, never
-  published, and never run through face recognition.
-</Note>
+The read confirmation records a scroll or acknowledgement; it does not verify
+that the signer understood the document. Signature strokes and photos are
+records of the submission, not an identity check.
 
-### Nothing here blocks the desk
+Photos that were saved are available through the registration's signing
+details to users with access to that registration.
 
-A camera that won't start, a rider who'd rather not be photographed, a
-tablet with no space left — each is recorded as a reason against the
-signature, and the signature is still taken. The one thing a desk can't do is
-quietly loosen the setting: the record always says what was asked for and
-what was actually collected.
+### Capture problems
+
+If a photo or drawn signature cannot be kept, the form can save the typed
+signature with a warning. Review those warnings and the saved signing details
+before relying on the record. A successful entry does not mean that every
+requested item was captured.
 
 ## Default waivers
 
-Every race requires at least one waiver, and it's nearly always the same one.
-Click **Set default** on a waiver to attach it to every new race you create.
-
-More than one waiver can be a default — a club that needs its own release
-alongside a venue's can star both, and both are prefilled.
-
-A default is a starting point, not a constraint. The race create form prefills
-your defaults and you can change them there; whatever you pick on the race wins.
+Click **Set default** to preselect a waiver on new races. You can set more than
+one default, such as your event release and a venue document. Review the
+selection on each race before opening registration.
 
 → [Groups & races](/organizers/races/races-list)
 
-## Versioning
+## Versioning and retention
 
-Editing a waiver creates a new version. Existing signatures continue to point at the version that was active when they signed — your audit trail is preserved.
+Saved waiver text is not edited in place. Create a new version and attach it
+to the relevant races when the wording changes. Existing signature records
+retain their recorded version and content hash.
 
-Attach waivers to races from the race's **Waivers** tab (see [Race waivers](/organizers/races/race-waivers)).
+Clearing registrations also deletes associated waiver signatures and guardian
+consents. Before clearing real entries, review which records you need to retain
+and arrange their retention. The waiver library does not guarantee a retention
+period or preserve records that you delete.
+
+Attach waivers from the race's **Waivers** tab. See
+[Race waivers](/organizers/races/race-waivers).

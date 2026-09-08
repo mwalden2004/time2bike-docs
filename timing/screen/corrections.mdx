@@ -1,18 +1,21 @@
 ---
 title: "Edits & corrections"
-description: "Fixing wrong bibs, missed finishes, and everything else that goes wrong."
+description: "Correcting bib assignments, recorded times, and rider statuses."
 icon: "pen"
 ---
 
-Everything is fixable after the fact, and nothing you do here can permanently
-destroy a result. Corrections sit on top of what was originally recorded, and
-both remain. See [History & corrections](/timing/history-and-audit).
+Use the correction controls to change a recorded result using your backup
+timing evidence. Available actions depend on your role and the session state.
+Corrections do not provide unlimited undo or recover records removed by a reset.
+See [History & corrections](/timing/history-and-audit).
 
 ## The correction menu
 
 Tap any rider's row:
 
-![Result actions](/images/timing/result-actions.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/result-actions.png" alt="Result actions" />
+</Frame>
 
 | Option | What it does | Level needed |
 |---|---|---|
@@ -20,19 +23,21 @@ Tap any rider's row:
 | **DNF** | Started, didn't finish | Marshal |
 | **DNS** | Never started | Marshal |
 | **DSQ** | Disqualified | Marshal |
-| **Add note** | Attaches a note visible in reviews and exports | Timer |
-| **Delete** | Hides a wrong entry from the results | Timer |
-| **Restore** | Brings a deleted entry back | Marshal |
+| **Delete time** | Removes a wrong entry from the current results | Marshal |
+| **Void a lap** | Removes a recorded lap from the rider’s counted laps | Timer |
 
-Finalizing, publishing, and voiding laps need **admin**.
+**UNDO** can reverse supported recent actions on this screen, subject to your
+role. Its recent-action list is cleared on reload. Finalizing needs **admin**
+timing access or organization access; publishing needs organization access.
 
 ## The things that actually go wrong
 
 <AccordionGroup>
   <Accordion title="I typed the wrong bib" icon="keyboard">
-    Delete that finish, then record the correct bib. The rider's real time is
-    the moment the button was pressed, so re-recording immediately gives them a
-    slightly late time. Use **Set manual time** if the difference matters.
+    Preserve the recorded crossing time before changing the assignment. Use
+    reassignment where available; otherwise record the correct rider and use
+    **Set manual time** with a verified elapsed time. Re-recording stamps a new
+    action time and does not preserve the original crossing automatically.
   </Accordion>
   <Accordion title="Nobody pressed Start" icon="clock">
     Keep recording finishes. They'll sit as **awaiting start**.
@@ -59,23 +64,23 @@ Finalizing, publishing, and voiding laps need **admin**.
     mean to fire, and it invalidates the finishes recorded against the old clock.
   </Accordion>
   <Accordion title="Two volunteers recorded the same rider" icon="copy">
-    The row is flagged as a **duplicate** with both times shown. Open the row,
-    pick the one you want to keep, delete the other. Neither is discarded until
-    you choose.
+    A separate second finish can flag the rider as a **duplicate**. Compare the
+    retained records and backup evidence, then set the intended time. The flag
+    does not decide which crossing is correct.
   </Accordion>
   <Accordion title="Finishes went into the wrong race" icon="tag">
     Switch to the correct race tab first so nothing else lands in the wrong
-    place. Then delete the misplaced finishes and re-record them under the right
-    tab.
+    place. Preserve the original crossing times, then correct the assignments or enter
+    verified elapsed times in the right race. Simply re-recording uses a new timestamp.
   </Accordion>
   <Accordion title="I missed a finish entirely" icon="eye-slash">
     Find the rider in **Registered riders** and use **Set manual time** with
-    whatever you have: a hand time, a photo timestamp, the time from another
-    volunteer's phone.
+    a verified backup time. Account for clock differences before converting a
+    photo timestamp or another device’s reading into elapsed time.
   </Accordion>
   <Accordion title="A rider needs a lap discarded" icon="rotate-left">
-    For lap racing, an admin can void one lap after a mechanical, a crash, or a
-    penalty, without removing the rider from the race. Their lap count and
+    For lap racing, an operator with permission can void a recorded lap when
+    the race official determines it should not count, without removing the rider from the race. Their lap count and
     best lap recalculate, and a note is added so the reason is visible later.
   </Accordion>
   <Accordion title="I finalized too early" icon="lock-open">
@@ -92,10 +97,11 @@ race start.
 
 ## Who should hold what
 
-Give your finish-line volunteers **timer**: they can record, note, and delete
-their own mistakes, which covers the fixes that need to happen in the moment.
+Give finish-line volunteers the role required for their assigned controls.
+**Timer** includes recording and several lap, lane, and bracket corrections;
+manual times and result-status changes require **marshal** or higher access.
 
 Keep **marshal** for whoever is actually judging the race. Marking riders out
-and typing in official times is a judgement call, not data entry.
+and approving replacement times requires a decision under the event’s rules.
 
 → [Who can do what](/timing/crew/roles)

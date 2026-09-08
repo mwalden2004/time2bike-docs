@@ -4,8 +4,8 @@ description: "The one-page field guide. Keep it open on the device you're timing
 icon: "stopwatch"
 ---
 
-You've been handed a phone and asked to time a race. This is everything you need
-and nothing you don't.
+Use this field guide alongside the race director's briefing and your backup
+timing plan.
 
 ## 1. Get on the timing screen
 
@@ -13,10 +13,12 @@ and nothing you don't.
 device you'll be timing with. You'll see a card confirming what you're joining,
 then tap **Continue**. That's it. No password, no account.
 
-The link remembers itself on that device, so if the screen closes you can just
-open the browser again.
+The browser stores the timing link locally. Keep a copy available in case
+browser data is cleared, and check its expiry before the race.
 
-![Join page](/images/timing/join-op.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/join-op.png" alt="Join page" />
+</Frame>
 
 **If you have a Time2Bike login**, open the event and click the **Live Timing**
 tab. That tab *is* the timer.
@@ -34,7 +36,9 @@ tab. That tab *is* the timer.
   </Card>
 </Columns>
 
-![Live Timing](/images/timing/home.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/operator-screen.png" alt="Live Timing" />
+</Frame>
 
 ## 3. Start the clock
 
@@ -43,7 +47,7 @@ tells you what that does to the field.
 
 Missed it? Record finishes anyway and they'll say "awaiting start". Then press
 **Set the start time** under the button and type when the race actually went;
-every time works itself out from there, including finishes you already took.
+recorded finishes are recalculated from that start. Check the updated results.
 
 Some races don't have this button. Interval starts release riders one at a time,
 and dual slalom starts per pair.
@@ -59,7 +63,9 @@ Whichever is fastest in the moment:
 | **Tap a name** | The **Registered riders** list. For unreadable or muddy bibs |
 | **Use the digit pad** | On-screen numbers, for gloves and rain |
 
-![XC finish](/images/timing/xc-finish.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/operator-screen.png" alt="XC finish" />
+</Frame>
 
 **Two-lane racing?** Your screen is one giant **FINISH** button for your lane.
 Press it when your rider crosses. That's the whole job.
@@ -67,8 +73,9 @@ Press it when your rider crosses. That's the whole job.
 
 ## 5. Fix mistakes
 
-**Just made one? Press UNDO.** It's next to the number box and reverses your last
-entry. Use it immediately rather than hunting for the row.
+**Just made a mistake? Check UNDO.** It is next to the number box and identifies
+the recent action it can reverse. Availability depends on the action and your
+role; the recent-action list does not survive a reload.
 
 For anything older, tap the rider's row:
 
@@ -76,38 +83,41 @@ For anything older, tap the rider's row:
 |---|---|
 | **Set manual time** | Type in a time you took by hand |
 | **DNF / DNS / DSQ** | Didn't finish / didn't start / disqualified |
-| **Add note** | Anything the director should see later |
-| **Delete** | Removes a wrong entry from the results |
+| **Delete time** | Removes a wrong entry from the results |
 
-![Result actions](/images/timing/result-actions.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/result-actions.png" alt="Result actions" />
+</Frame>
 
-Nothing here is permanent damage. The original entry is always recoverable, and
-a director can undo anything.
+Check the corrected result against your backup timing record. Avoid **Reset
+timing data** during correction work: it removes records and is not an undo step.
 
 ## 6. About signal
 
-**You don't need it.** Every entry is saved to your device the moment you record
-it. In a canyon with no bars, keep timing exactly as normal.
+A prepared timing screen can record locally during a connection loss while
+device storage is working. Check that each action appears and respond to any
+storage or recording error. See [Timing without signal](/timing/hardware/offline-and-sync).
 
 The dot in the corner tells you where things stand:
 
 | | Meaning | Do you need to do anything? |
 |---|---|---|
-| 🟢 | Everything uploaded | No |
-| 🟡 | A few entries waiting to upload | No — they'll go when there's signal |
-| 🔴 | No signal, recording to this device | No — keep timing |
+| 🟢 | No actions queued on this device | Check other devices before finalizing |
+| 🟡 | Actions waiting to upload | Tap for progress, errors, and retry |
+| 🔴 | Browser reports no connection | Keep powered; check local records |
 
 <Warning>
-  If the dot isn't green, your entries haven't reached anyone else yet.
+  Queued actions may exist only on this device until the server accepts them.
   **Don't put the device away, hand it off, or let it die** until it goes green.
   Walk it somewhere with signal if you have to.
 </Warning>
 
 ## 7. Someone turns up on the day
 
-**More actions → Add riders.** Bib, name, team, race. Works with no signal.
-
-Collect their waiver and money on paper. The timing screen doesn't do either.
+**More actions → Register a rider** opens registration for authorized
+organization operators while connected. If you are offline, use the unidentified
+bib workflow and follow the organizer’s registration, waiver, and payment
+procedure before allowing an entry.
 → [Adding riders](/timing/screen/adding-riders)
 
 ## 8. When the race ends
@@ -127,17 +137,17 @@ Collect their waiver and money on paper. The timing screen doesn't do either.
 | Where am I standing | Recording-point buttons above the number box |
 | Record someone | Big number box → Enter |
 | Undo what I just did | **UNDO**, next to the number box |
-| Riders still out there | "On course" list |
+| Riders without a recorded finish | "On course" list; verify with the race crew |
 | Tap someone in instead of typing | "Registered riders" list |
 | Fix an older entry | Tap that rider's row |
 | Have my entries uploaded? | Coloured dot, top right |
-| Add a day-of rider | More actions → Add riders |
+| Add a day-of rider | More actions → Register a rider; connection required |
 | Lock the results | **Finalize Session**, in the footer |
 | Put results on the website | **Publish**, after finalize |
 | Full built-in reference | **Help**, top right |
 
 ## If something looks wrong
 
-Take a screenshot and tell the race director. Nothing you can press loses data.
-Every entry, edit, and deletion is recorded, so a problem can always be unpicked
-afterwards.
+Tell the race director and save the relevant record or screenshot. If uploads
+are failing, retain the device and export its local log. Use your backup timing
+plan if recording itself is failing; do not reset or clear site data to troubleshoot.

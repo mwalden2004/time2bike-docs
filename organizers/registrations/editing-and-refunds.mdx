@@ -4,37 +4,51 @@ description: "Change a registration after the fact or refund money."
 icon: "pen-to-square"
 ---
 
-Open any registration from **Event → Registrations** to edit or refund it.
+Open any registration from **Event → Participants** to edit or refund it.
 
-{/* IMAGE NEEDED: /organizations/[id]/events/[eventId]/registrations → EditRegistrationModal open */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/editing-and-refunds.png" alt="Edit registration dialog showing race, status, payment, and profile editing limits" />
+</Frame>
 
 ## Edit a registration
 
-The **Edit** action lets you change:
+Click the pencil icon (**Edit registration**) to change the race, status, recorded amount paid, internal notes, or team / club. Changing the status does not issue a refund.
 
-- **Race / category** — moves the rider; capacity in both source and target is updated.
-- **Bib** — manual override.
-- **Answers** to custom questions.
-- **Emergency contact** / **address**.
-- **Status** — manually flip to `cancelled` (does not issue a refund).
+You can also edit personal details for a profile that has not been claimed by an account. If a registered user owns the profile, the dialog explains that only that rider can change their personal details.
 
-Saving sends a "registration updated" email to the rider unless you uncheck **Notify rider**.
+Click **Save Changes** to apply your edits. Edit a bib directly from the **Bib** cell in the table.
 
 ## Refunds
 
 Open the **Refund** action.
 
-- **Full refund** — refunds the entire amount paid via Stripe to the rider's original payment method.
-- **Partial refund** — refund any amount up to what was originally charged.
+- **Full refund** — submits the remaining refundable amount to the original
+  payment method. This can be less than the total charge.
+- **Partial refund** — enter an amount up to the remaining refundable balance.
 - **Reason** — internal note for your records.
 
-The platform service fee is **not** refunded — on a partial refund or a full one. It is earned when the entry is taken. The only exception is a charge that should never have existed (a fraudulent charge, or a duplicate caused by a platform fault), where the whole charge including the service fee is returned.
+For ordinary registration refunds, the refundable portion is the entry fee and
+one-day license fee, less discounts and earlier refunds. The platform service
+fee is excluded. Other items, such as plate fees or league dues, may need a
+separate refund process. Review the amount shown before submitting.
 
-The registration status flips to `refunded` and Time2Bike emails the rider a refund confirmation. The Stripe refund typically settles in 5–10 business days.
+The [Terms of Service](https://time2.bike/legal/terms#refunds) describe full-charge
+refund exceptions for confirmed fraud and duplicate or failed charges caused
+by a platform fault. Contact support about those cases.
+
+The registration changes to `refunded` when its refundable balance is exhausted.
+A partial refund can leave an amount still refundable. Check the refund record
+and Stripe payment status before telling the rider it is complete.
+
+Bank processing times vary. Refunds can remain pending or fail; if a request
+times out or its result is unclear, check Stripe before retrying. See
+[Stripe's refund guidance](https://docs.stripe.com/refunds).
 
 ## When a rider asks to cancel
 
-Riders can ask to cancel from their own dashboard. That is a message to you, not a refund: nothing changes on the entry until you act. Your refund terms decide the outcome.
+Riders can ask to cancel from their dashboard. The request does not itself
+refund or cancel the entry. Review it against your published refund terms and
+any applicable requirements, then record your response.
 
 Each open request shows up in three places on the Participants page:
 
@@ -51,7 +65,7 @@ To answer one:
 
 ## Transfer
 
-The **Transfer** action moves the registration's race entry from one rider account to another. Payments stay with the original payer; only the racer identity changes. Useful for selling/giving away a bib.
+The **Transfer** action moves the registration's race entry from one rider account to another. Payments stay with the original payer; only the racer identity changes. Confirm that the transfer is permitted under your event's rules.
 
 ## Delete
 

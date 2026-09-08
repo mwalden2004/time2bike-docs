@@ -4,11 +4,13 @@ description: "Two lanes, head to head, one button per volunteer."
 icon: "code-branch"
 ---
 
-Dual slalom and 4X need both lanes timed independently and accurately. Your
+The dual-slalom screen records starts and finishes separately for its two lanes. Your
 finish-line volunteers get exactly one button, because they're watching a rider
 come down a hill at speed rather than reading a screen.
 
-![Dual slalom](/images/timing/dual-salom.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/dual-salom.png" alt="Dual slalom" />
+</Frame>
 
 A race gets this screen automatically when its format is set to **dual slalom
 bracket** on the [Races](/organizers/races/races-list) page. Nothing to switch on
@@ -67,7 +69,8 @@ is in flight, a read for a plate that started in the red lane records a red-lane
 finish. Reads for plates that aren't currently on course are ignored.
 
 A **Listening for plates** panel shows exactly which two bibs the watcher is
-waiting for, so you can see at a glance whether it's going to work.
+waiting for, so you can check the expected riders before each run. Verify the resulting
+times against the detected crossings.
 
 → [RFID](/timing/hardware/rfid)
 
@@ -78,7 +81,7 @@ Under **Timer setup → How I am timing**:
 | Setting | For slalom |
 |---|---|
 | **Displayed precision** | Hundredths — slalom margins are smaller than a second |
-| **Pause behaviour** | Freeze the clock, so a course hold doesn't count against anyone |
+| **Pause behaviour** | Freeze the clock only when your event’s hold rules exclude the paused time |
 
 Set the pause behaviour before you record anything; it locks once the first entry
 lands.

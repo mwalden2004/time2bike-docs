@@ -1,6 +1,6 @@
 ---
 title: "Series plates"
-description: "Assign permanent plate numbers across every event in a series."
+description: "Assign season plate numbers for races in a series."
 icon: "hashtag"
 ---
 
@@ -8,11 +8,13 @@ A series **plate** is a number assigned to a rider for the entire season. When a
 
 Manage plates from the **Plates** tab of the series.
 
-{/* IMAGE NEEDED: /organizations/[id]/series/[seriesId]/plates → plate assignment table */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/series-plates.png" alt="Series plate table with rider numbers, assignment status, and filters" />
+</Frame>
 
 ## Assign a plate
 
-1. Click **Assign plate**.
+1. Open the **…** menu and click **Assign plate**.
 2. Enter the **plate number**.
 3. Search for the rider by name (filtered to participants who have registered for any event in the series).
 4. Click **Assign**.
@@ -48,7 +50,8 @@ From **Reserved ranges**, define ranges of plate numbers you don't want assigned
 
 ## Bulk import
 
-Click **Import CSV** to upload a `plate,participantId` CSV. You'll see row-level results before anything is written:
+Click **Import CSV** to upload a `plate,participantId` CSV. Review any preview
+and confirmation offered before importing, then check the row-level results:
 
 - **Created** — new assignment.
 - **Updated** — participant's existing assignment changed.

@@ -7,7 +7,9 @@ icon: "sitemap"
 Knockout racing (dual slalom, 4X) gets a bracket panel and diagram on top of
 the [dual slalom](/timing/formats/dual-slalom) screen.
 
-![Bracket](/images/timing/bracket.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/bracket.png" alt="Bracket" />
+</Frame>
 
 ## Setting it up
 
@@ -34,7 +36,7 @@ bracket — covers all of them.
 
 | Option | Winner is |
 |---|---|
-| **Combined time** | Lowest total across both legs. The standard slalom rule |
+| **Combined time** | Lowest scored total across both legs, with the configured differential cap |
 | **Best of 2** | Whoever wins more legs |
 | **Single run** | One leg, straight up |
 
@@ -49,12 +51,15 @@ manually or at random.
 
 ### Maximum differential
 
-Defaults to **1.5 seconds**, per USAC 5E2(c). A rider who wins the first run by
+The software defaults to **1.5 seconds**. Confirm the value and scoring method
+with your event’s rules before racing. A rider who wins the first run by
 more than this only carries the maximum into the second, so a blown corner
 costs the run, not the match. A rider who doesn't finish a run is charged the
 maximum rather than an infinite gap.
 
-{/* IMAGE NEEDED: The bracket setup dialog with format, match format, size, and the seed list */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/bracket-setup.png" alt="Bracket setup showing format, match format, size, and fictional seeds" />
+</Frame>
 
 ## Running it
 
@@ -92,7 +97,7 @@ Things go wrong at a slalom more than anywhere else. All of this is available:
     any match has been decided. After that, substitute riders instead.
   </Accordion>
   <Accordion title="The bracket is in a state you don't understand" icon="triangle-exclamation">
-    Press **Resolve byes** first, which fixes most of it. If it's still wrong, open
+    Use **Resolve byes** to check advancement of riders without opponents. If it's still wrong, open
     **Edit all times** to see every leg at once and work out what's missing.
   </Accordion>
 </AccordionGroup>

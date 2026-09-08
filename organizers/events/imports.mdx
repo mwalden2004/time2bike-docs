@@ -8,14 +8,16 @@ icon: "file-import"
 
 ## What you can import here
 
-- **Registrations** — add participants to one or more races. Maps `race` and `category`, plate/bib, plus rider details: name, email, phone, **address**, **birthday**, **gender**, **emergency contact**, and **licence data** — number, status, expiry and one-day purchase (the issuer defaults to USAC when the file doesn't say). See [Licence check](#licence-check). Messy columns are tidied up for you — a gender column of "M", "Male", or "Guy" all land on the same value. Anything Time2Bike can't make sense of is skipped rather than stored wrong.
+- **Registrations** — add participants to one or more races. Maps `race` and `category`, plate/bib, plus rider details: name, email, phone, **address**, **birthday**, **gender**, **emergency contact**, and **licence data** — number, status, expiry and one-day purchase (the issuer defaults to USAC when the file doesn't say). See [Licence check](#licence-check). Messy columns are tidied up for you — a gender column of "M", "Male", or "Guy" all land on the same value. Review the normalized values and reported errors before committing; automatic interpretation can be wrong.
 - **Results** — load finish times, placements, and categories from a CSV or results PDF.
 
 When a row matches a rider already in your organization, the import **fills in any details that rider was missing** (birthday, address, license, gender, contact) without overwriting what's already there.
 
 If you want to add people to your overall **contacts** list (not tied to an event), use the org-level [Imports](/organizers/organization/imports) page instead.
 
-{/* IMAGE NEEDED: Event → **Imports**, on the column-mapping step of a registrations CSV */}
+<Frame caption="Registration import with column mappings and sample values. Demo data.">
+  <img src="/images/events/registrations-import.png" alt="Registration import with column mappings and sample values" />
+</Frame>
 
 ## Picking races & groups
 
@@ -46,11 +48,9 @@ Map **Emergency contact**, **Emergency phone** and, if the file has it,
 **Emergency relationship**. Common headers (`Emergency Contact`,
 `Emergency Phone`, `Relationship`) are picked up automatically.
 
-A contact is stored only when it has **both a name and a phone number**. Half
-of one is worse than none: it prints on the rider's plate label and shows on
-the team emergency sheet as though someone can be reached. So a row whose phone
-column holds something that isn't a number — shifted columns do happen — leaves
-that rider with no contact, and the import tells you how many:
+An imported emergency contact needs **both a name and a phone number**.
+Incomplete or unrecognized values are omitted and counted in the summary.
+Review omissions and confirm contact details before using them on race day:
 
 > Emergency contacts: 172 of 184 — 5 riders had none, 7 had a name or a number
 > but not both.
@@ -63,11 +63,11 @@ only fill the gap.
 Registration exports carry licence data, and the import now reads it rather
 than filing the cell away untouched. Map the licence columns — **License /
 USAC #**, **License status**, **License expires**, **One-day license bought** —
-and every imported rider is checked against **race day**:
+to assess the recorded license status against **race day**:
 
 | Result | What it means | On the chase list? |
 |---|---|---|
-| **On file** | A licence number in good standing. | No |
+| **On file** | The imported number, status, and dates pass the import checks. | No |
 | **Expired** | The export says lapsed, or it expires before race day. | Yes |
 | **One-day** | No annual licence, but a one-day was bought for this event. | No |
 | **International** | An `INTL`-style entry — no licence from this issuer. | Yes |
@@ -86,13 +86,14 @@ riders are flagged at check-in and charged the one-day fee at registration
 instead of sailing through.
 
 Imported riders then appear on **Event → Event setup → Licenses** like anyone else: with an
-annual licence on file they're not your responsibility, and without one they
-land in the one-day list. A rider whose export says they already bought a
-one-day shows as **paid at source**, so nobody collects the fee twice.
+annual licence on file they appear in the annual view. Riders without one
+appear in the relevant follow-up list. A recorded one-day purchase shows as
+**paid at source**; reconcile it before collecting another fee.
 
-Nothing is refused over a licence: every row still imports. Time2Bike doesn't
-contact USA Cycling — there's no public licence lookup — so this is the
-issuer's own export being read carefully, not a live verification.
+The import does not reject a row solely because its license needs attention.
+It assesses the uploaded file; it does not perform a live issuer lookup.
+Check the resulting list and the issuer's requirements before treating riders
+as eligible.
 
 If you commit without mapping a licence column, the preview says so first:
 imported riders would have no licence on file at all.
@@ -120,6 +121,6 @@ first.
 ## See also
 
 - [Bulk imports](/organizers/organization/imports), the full description of the
-  wizard, supported sources, and how uploads are kept safe.
+  wizard, supported sources, and handling personal information.
 - [Race results](/organizers/races/race-results), for managing results after
   they're imported.

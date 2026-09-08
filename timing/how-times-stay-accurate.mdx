@@ -1,90 +1,85 @@
 ---
-title: "How times stay accurate"
-description: "Why the times are right even with four phones, bad signal, and a late start button."
+title: "How timing timestamps work"
+description: "Clock synchronization, display precision, and the checks behind a result."
 icon: "clock"
 ---
 
-You don't need to read this page to run a race. It's here for when someone asks
-"how do I know these times are right?" That might be a rider protesting a
-result, or a sanctioning body asking how you time.
+Time2Bike records a timestamp for each timing action and calculates elapsed
+times, places, and gaps from the recorded starts and crossings. A button press
+records when the device processes the action; it does not independently verify
+when the rider crossed the line.
 
-## The short version
+## Correcting a start
 
-Every time you press a button, Time2Bike records **the exact moment you pressed
-it**, not "how long since the race started". Everything else, including elapsed
-times, places and gaps, is worked out from those moments afterwards.
+You can record finishes before entering a race start. Those results wait for a
+start time before an elapsed time can be calculated.
 
-That one decision is what makes the rest work.
+If the start button was missed or pressed late, use **Set the start time** or
+**Correct the start time** and enter the start from your backup record. Pressing
+**START RACE** late records the current time, not the earlier gun. Review the
+recalculated results after making the correction.
 
-## What it buys you
+## Comparing devices
 
-<AccordionGroup>
-  <Accordion title="A late start button doesn't ruin the race" icon="clock-rotate-left">
-    If nobody pressed **Start** until two minutes in, the finishes are still
-    correct, because they're real moments in time. Press Start whenever you get to it,
-    and every elapsed time recalculates from the actual start.
+While connected, each device periodically estimates its clock offset against
+Time2Bike's server. Recorded actions use the offset available at that moment.
+Network delay, device clock changes, and time spent offline can affect the
+estimate.
 
-    This is also why you can record finishes before pressing Start at all.
-  </Accordion>
-  <Accordion title="Four phones agree with each other" icon="mobile">
-    Each phone quietly checks itself against Time2Bike's clock every few seconds
-    and corrects for the difference. So a finish recorded on the phone at the
-    line and a finish recorded on the phone at the feed zone are directly
-    comparable, even if the two phones' own clocks disagree.
+The top bar shows **Clock OK**, **Syncing clock…**, or **Clock rough**. On a
+computer, hover over the indicator for the estimated uncertainty in milliseconds.
+This is a clock-sync indicator, not a certification of finish accuracy or a
+measurement of an operator's reaction time.
 
-    The screen shows how sure it is as a small plus-or-minus figure in the top
-    bar. On a normal race-day connection it's tight enough even for
-    head-to-head racing.
-  </Accordion>
-  <Accordion title="Offline phones merge back in correctly" icon="wifi">
-    A phone that spent an hour with no signal isn't guessing when it reconnects.
-    Every finish it holds is stamped with a real moment, so it slots into the
-    right place in the results, not the end of the list.
-  </Accordion>
-  <Accordion title="Nothing gets counted twice" icon="copy">
-    Each entry carries its own identifier. If a phone with bad signal sends the
-    same finish three times while retrying, it still counts once.
-  </Accordion>
-</AccordionGroup>
+<Frame caption="Demo data. Names, races, and results are fictional.">
+  <img src="/images/timing/sync-clock.png" alt="Timing header showing Clock OK and Synced for a demo session" />
+</Frame>
 
-![Time sync](/images/timing/sync-clock.png)
+## Recording while offline
 
-## Precision
+A prepared device can queue timing actions locally while disconnected. On
+reconnection, it uploads the stored timestamps rather than treating the upload
+time as the crossing time. Check for queued actions, sync errors, and conflicting
+corrections before relying on the combined results.
 
-Times are always stored down to the millisecond. What you *display* is your
-choice, under **Timer setup → How I am timing**:
+Retries of the same saved action are recognized by their identifier. Separate
+recordings of the same rider are different actions and can need duplicate review.
+See [Timing without signal](/timing/hardware/offline-and-sync).
 
-| Setting | Shows | Use for |
-|---|---|---|
-| Thousandths | `12:34.567` | Rarely needed |
-| Hundredths | `12:34.56` | Dual slalom, downhill, anything where hundredths separate riders |
-| Tenths | `12:34.5` | Time trials |
-| Whole seconds | `12:34` | Endurance, mass start, most racing |
+## Display precision
 
-Changing this later only changes what's shown. The underlying times keep their
-full precision, so you can tighten it up if two riders tie.
+Timing values are recorded in milliseconds. Choose how many digits to show under
+**Timer setup → How I am timing**:
 
-## What to tell a rider who protests
+| Setting | Shows |
+|---|---|
+| Thousandths | `12:34.567` |
+| Hundredths | `12:34.56` |
+| Tenths | `12:34.5` |
+| Whole seconds | `12:34` |
 
-Everything is recorded: what was entered, when, on which device, by whom, and
-every correction made afterwards. Nothing is overwritten and nothing is deleted
-outright. A correction is a new entry that supersedes the old one, and both
-remain.
-
-So you can always answer "what did the finish line actually record, and who
-changed it?" See [History & corrections](/timing/history-and-audit).
+Changing the display setting does not improve the accuracy of the measurement.
+Extra digits can reveal a recorded difference, but they do not establish that
+one rider finished ahead of another. Choose the display and timing method to
+match your event's rules and required accuracy.
 
 ## If the clock indicator looks bad
 
-The plus-or-minus figure in the top bar is how sure that phone is of its own
-clock. If the number looks large:
+- Check the device's date and time are set to update automatically.
+- Improve the connection and allow another clock-sync sample to complete.
+- Review timestamps captured while the clock was uncertain against your backup.
+- Use a tested backup timing method if the uncertainty could affect placings.
 
-- It'll usually tighten up on its own within a minute.
-- Move to a spot with better signal if it doesn't.
-- Check the phone's own clock is set to update automatically. A phone with the
-  wrong date is the one thing that genuinely confuses it.
-- Pull down to refresh the page.
+Even a small timing difference can matter in any close finish. Do not dismiss a
+clock warning solely because the race is not dual slalom.
 
-For everything except two-lane head-to-head racing, this almost never changes
-anyone's result. It's a fraction of a second, and riders don't finish that
-close.
+## Reviewing a disputed result
+
+Compare the recorded start, finish, and any corrections with the finish judge's
+notes or other timing evidence. Available records can help with review, but the
+current timing screen does not provide an expanded audit-history view. See
+[History & corrections](/timing/history-and-audit).
+
+Publishing makes results visible; official approval rests with the organizer or
+sanctioning body under the event's rules. See the
+[timing and results terms](https://time2.bike/legal/terms#results).

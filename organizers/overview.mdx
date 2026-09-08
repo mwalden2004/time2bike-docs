@@ -11,7 +11,9 @@ If you're setting one up for the first time, go straight to the
 [Quickstart](/organizers/quickstart) — it's the whole path from empty account to
 open registration in one page. This page is the map.
 
-{/* IMAGE NEEDED: A first-time organization dashboard: stat cards across the top and the **Create event** button */}
+<Frame caption="First organization dashboard with setup actions and stat cards. Demo data.">
+  <img src="/images/events/first-dashboard.png" alt="First organization dashboard with setup actions and stat cards" />
+</Frame>
 
 ## Organization, team, league
 
@@ -53,13 +55,12 @@ organizations with a different role in each.
 | **Manager** | Create and edit events, races, pricing, and merch. |
 | **Admin** | Full access, including team management. |
 
-The user who creates the org becomes its first **admin**.
+The user who creates the organization becomes its **owner**.
 
 <Note>
-  **While Time2Bike is in beta, every org member has full access regardless of
-  the role you assign.** The role is recorded and will be enforced later — but
-  don't rely on it to restrict anyone today. Invite people you'd trust with
-  admin.
+  Roles preselect permissions. Review those permissions and each member's
+  event access when inviting people or changing their role. See
+  [Team & invites](/organizers/organization/settings-team).
 </Note>
 
 For race day, you can hand out narrow, per-event timing links instead of org
@@ -68,9 +69,9 @@ access — see [Who can do what](/timing/crew/roles).
 ## Where money moves
 
 Time2Bike uses **Stripe Connect**. Riders pay through Stripe Checkout and funds
-settle into your connected Stripe account on Stripe's normal payout schedule.
-You connect Stripe once under **Settings → Billing**; nothing else collects rider
-payments.
+are processed through your connected Stripe account. Payout availability and
+timing depend on that account's status and Stripe's processing. Connect it
+under **Settings → Billing**.
 
 You cannot publish a paid event before Stripe is connected. See
 [Stripe Connect](/platform/stripe-connect).

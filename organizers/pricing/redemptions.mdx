@@ -4,27 +4,26 @@ description: "When and where your discount codes were used."
 icon: "ticket"
 ---
 
-**Pricing → Redemptions** is a permanent record of every discount code that was applied. Nothing is ever removed from it, so it's the page to open when the numbers don't add up.
+**Pricing → Redemptions** shows recorded discount-code uses. Use it to review
+which entries or orders received a discount.
 
-{/* IMAGE NEEDED: /organizations/[id]/pricing/redemptions → redemptions table */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/redemptions.png" alt="Discount redemption totals and redemption history" />
+</Frame>
 
 Each row shows:
 
 - **Code** — what was redeemed.
-- **Target** — `registration` (a race entry) or `merch` (a store order or add-on).
-- **User** — the rider's email (or `Guest` for not-yet-registered checkouts).
+- **User** — the user identifier, or `Guest` when there is no account.
 - **Discount** — dollars off.
-- **Event** — which event the cart targeted (blank for generic store orders).
-- **Redeemed at** — timestamp.
+- **Event** — the event identifier, when available.
+- **Redeemed** — timestamp.
 
 ## Why it's separate from the codes list
 
 - One code can have many redemptions; this is the firehose.
-- If a registration is later cancelled or refunded, the redemption row stays — your audit trail is preserved.
-- Use the search to investigate "who used `STAFF2025` and when".
+- Cancelling or refunding a registration does not by itself remove its
+  redemption. Clearing registrations does remove associated redemptions.
 
-## Export
-
-**Download CSV** exports the visible rows.
-
-Top-of-page tallies show **total dollars discounted** and **unique codes used** in the current view.
+Top-of-page tallies show **Total redemptions**, **Total discount given**, and
+**Unique codes used**.

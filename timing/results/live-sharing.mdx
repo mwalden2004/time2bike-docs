@@ -10,23 +10,27 @@ and the announcer.
 
 ## Turning it on
 
-Press **Share live results** in the footer of the timing screen. It turns green
+With organization access, press **Share live results** in the timing footer. It turns green
 and a **Spectator link** button appears next to it. That's the link to share.
 
-{/* IMAGE NEEDED: The footer with "Live results ON" active and the Spectator link button beside it */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/live-sharing.png" alt="Live results ON and Spectator link in the timing footer" />
+</Frame>
 
-Press it again to turn sharing off. Nothing is lost either way; you're only
-deciding what the public can see.
+Press it again to turn sharing off. This changes live-results visibility, not
+the recorded timing actions. Already downloaded or shared copies remain with
+their recipients.
 
 ## What spectators get
 
-The event's live results page, updating within about a second of you recording:
+The event’s live results page receives updates as records reach the server and
+the viewer’s connection permits:
 
 - Finishers in order, per race, with times.
-- Riders still out on course.
-- Marked as **unofficial**, because they're watching a race in progress, not a result.
+- Riders marked on course without a recorded finish.
+- Marked as **unofficial** while timing and review are in progress.
 
-They don't need an account, and they can't change anything.
+Viewing public results does not require an account or grant timing-edit access.
 
 ## Choosing how much detail to show
 
@@ -38,12 +42,12 @@ beyond the finishing time, on both the live page and published results:
 | **Split times** | Shown | Each rider's time at every timing point on course |
 | **Lap times** | Hidden | Lap-by-lap breakdown and best lap, in races that count laps |
 
-Your timing screens always show everything you recorded. This is only about
-what spectators see.
+These controls govern the public display. They do not replace checks for
+missing or unsynced records on the operator devices.
 
 <Note>
-  Anything switched off is **never sent to the browser**, so it's withheld rather
-  than merely hidden from the page.
+  The live-results page receives only the split or lap detail enabled here. This
+  does not recall data previously shared or control copies of exports.
 </Note>
 
 Worth turning splits off when a post went unstaffed for part of the day. Half a
@@ -64,10 +68,10 @@ Two different things, and it's worth being clear which you've done:
 | | Live sharing | Publishing |
 |---|---|---|
 | When | While you're timing | After you finalize |
-| Marked as | Unofficial, in progress | Official |
+| Stage | Provisional, in progress | Published after organizer review |
 | Lands on rider profiles | No | Yes |
-| Emails finishers | No | Yes |
-| Reversible | Yes, instantly | Yes — unpublish |
+| Results announcement | Share the spectator link | Follow your event’s announcement process |
+| Turn visibility off | Disable sharing; check the public page | Unpublish; check other public result sources |
 
 Once you publish, the live-sharing switch disappears. Published results replace
 it.
@@ -75,19 +79,19 @@ it.
 → [Finalize & publish](/timing/results/finalize-and-publish)
 
 <Tip>
-  Turn live sharing on and leave it on all day. It costs you nothing, cuts down
-  the number of people asking you for times at the tent, and gives riders'
-  families something to watch.
+  If you share live results, tell spectators that times and placings can change
+  during review. Check that the page shows the detail you intend to publish.
 </Tip>
 
 ## If you'd rather not
 
-Some organizers prefer to show nothing until results are official, which means
-fewer questions about a time that later gets corrected. Leave the switch alone and
-nothing is public until you publish.
+To keep live timing private during review, leave sharing off. Check the event’s
+public Results page for any previously published, imported, or manually entered
+results. Publishing a session is separate from official approval under your
+event’s rules.
 
 ## Next
 
 <Card title="Finalize & publish" icon="circle-check" href="/timing/results/finalize-and-publish">
-  Making the results official.
+  Reviewing and publishing results.
 </Card>

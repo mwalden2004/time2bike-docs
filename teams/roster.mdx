@@ -7,7 +7,9 @@ icon: "users"
 The **Members** tab is your roster: everyone on the team, their role, and their
 status.
 
-{/* IMAGE NEEDED: Team **Members** page: roster rows with role dropdowns, consent toggles, and the Emergency sheet button */}
+<Frame caption="The Members page with roster roles, registration consent, and the Emergency sheet button. Demo data.">
+  <img src="/images/teams/members.png" alt="The Members page with roster roles, registration consent, and the Emergency sheet button." />
+</Frame>
 
 ## The two role systems
 
@@ -40,9 +42,7 @@ Set per person on the roster, with the dropdown on their row.
   timer, and see emergency contacts. They just can't change the team's settings.
 </Note>
 
-Coaches and managers are also mirrored into the timing permissions behind the
-scenes, which is what lets them open the operator screen on a practice without
-anyone granting them anything.
+Active coaches and managers can open the timing screen for team practices.
 
 ## Statuses
 
@@ -55,12 +55,11 @@ anyone granting them anything.
 ### Confirming a staff claim
 
 Someone who joins with the *rider* code but picks Coach or Manager lands as
-**invited**. They're on the roster but count for nothing, with no dues priced
-and no placement chased, until an admin presses **Confirm as coach** (or
-manager) on their row.
+**invited**. The claimed staff role is pending until an admin presses
+**Confirm as coach** (or manager) on their row.
 
-This is deliberate. A rider code that anyone can pass along must never be able
-to mint a coach on a youth team.
+Check the person's identity and any required credentials before confirming a
+staff role. Confirmation grants access to coaching tools and rider information.
 
 ## Fixing someone's role
 
@@ -69,12 +68,16 @@ it saves immediately.
 
 ## Admin-register consent
 
-Each member has a **Consent** toggle. When it's on, team admins can register
-that member for races in one batch checkout rather than each family doing it
-separately.
+Each member's row shows `Admin-register: allowed` or `off`. The account that
+controls the rider profile can change this setting.
 
-- Members and their parents control this, and it's opt-in.
-- It's shown on every roster row as `Admin-register: allowed` or `off`.
+Despite the label, turning it off does **not** block a team owner or admin from
+registering an active member. The setting is checked for other people entering
+that rider through the team. It also affects whether team staff can edit contact
+fields on an account-owned rider profile.
+
+Arrange permission with the rider or guardian before entering them. This setting
+does not replace any required waiver or guardian authorization.
 
 See [Racing together](/teams/racing-together).
 
@@ -94,7 +97,7 @@ different owners:
 | Source | What's in it | Who owns it |
 |---|---|---|
 | The rider's profile | Contact, emergency contact | The person (shared with race registrations) |
-| Their team membership | Medical notes, allergies, medications, alt contact | What they told **this** team, and nowhere else |
+| Their team membership | Medical notes, allergies, medications, alt contact | Information stored for **this** team |
 | The league | Status, dues, agreements | Read-only here — the league owns it |
 
 ## Adding your own riders
@@ -111,8 +114,8 @@ top of the Members page: **Add to roster**. One click.
 ## The emergency sheet
 
 The **Emergency sheet** button at the top right of the roster opens one printable
-page with every athlete's emergency details, built for standing at a trailhead
-with no signal. See [Emergency & medical info](/teams/emergency-info).
+page of recorded emergency details. Load and print it before leaving internet
+access. See [Emergency & medical info](/teams/emergency-info).
 
 ## Next
 

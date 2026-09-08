@@ -1,105 +1,130 @@
 ---
 title: "Troubleshooting"
-description: "The problems that actually come up on race day, and what to do about them."
+description: "Check recording, synchronization, and results problems on race day."
 icon: "wrench"
 ---
 
 <Note>
-  **The one rule worth remembering:** nothing you can press loses data. Every
-  entry, edit, and deletion is recorded, so any mess can be unpicked afterwards.
-  When in doubt, keep timing and sort it out later.
+  Preserve the timing devices and backup records while investigating a problem.
+  Do not reset timing or clear browser data to fix a sync issue. If recording
+  fails, switch to your backup timing method and tell the race director.
 </Note>
 
-{/* IMAGE NEEDED: The sync indicator in each of its three states: green, yellow with a count, and red */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/sync-ready.png" alt="Synced timing header" />
+</Frame>
+
+<Frame caption="Demo data.">
+  <img src="/images/timing/sync-queued.png" alt="One finish waiting to sync" />
+</Frame>
+
+<Frame caption="Demo data.">
+  <img src="/images/timing/sync-offline.png" alt="Offline with one finish waiting to sync" />
+</Frame>
 
 ## A volunteer's device says "session not found"
 
-Their link expired or was revoked. Issue a new one from **More actions →
-Operator tokens** and have them scan it. Everything they already recorded is
-safe.
+Check that the link belongs to this event and has not expired or been revoked.
+An organization operator can issue a replacement from **More actions → Operator
+tokens**. Keep the original device and any queued actions available; confirm
+that they upload with valid access before putting it away.
 
 ## Nobody pressed Start
 
-Keep recording finishes and they'll show as **awaiting start**. Then use **Set the
-start time** under the start buttons and type the time the race actually went.
-Every elapsed time fills itself in from that moment.
+Keep recording finishes and they will show as **awaiting start**. Use **Set the
+start time** under the start buttons and enter the actual gun time from your
+backup record. Review the recalculated elapsed times.
 
-Type the real start time rather than pressing **START RACE** now: a gun stamped
-after those riders crossed the line can't produce a time for them.
+Pressing **START RACE** now stamps the current time. If riders already finished,
+it does not reconstruct their earlier start.
 
-For a wave nobody released, the wave board has the same control. See
+For a wave nobody released, use the wave board’s clock control. See
 [Waves](/timing/screen/waves).
 
 ## Finishes went into the wrong race
 
-Switch to the correct race tab first, so nothing else lands wrong. Then delete
-the misplaced finishes and re-record them under the right tab.
+Select the correct race for new recordings. Preserve the original crossing times
+before correcting the misplaced entries. Reassignment, where available, keeps
+the crossing time; simply deleting and re-recording stamps a new action time.
+Use a verified elapsed time when making a manual correction.
 
-## Two phones recorded the same rider
+## Two devices recorded the same rider
 
-That rider's row shows a **duplicate** flag with both times. Open it, pick the
-one to keep, delete the other. Neither is thrown away before you choose.
+A separate second finish can produce a **duplicate** flag. Compare the candidate
+records and finish-judge evidence, then correct the result. The flag itself does
+not identify which recording is right.
 
-## The queued count isn't going down
+## The queued count is not going down
 
-- If the dot is **red**, there's no signal. That's not a fault, so keep timing.
-- If it's **yellow** and stuck, pull down to refresh.
-- If the phone is in real trouble, use **Export log** at the bottom of the
-  screen and send the file to your race director, who can load it back in.
+- Tap the sync indicator to open **Sync status** and read the last error.
+- Restore the connection or resolve the reported access problem, then use
+  **Retry now**.
+- Review any conflict warning before discarding a queued correction.
+- Use **Export CSV** or **Export JSON** under **Backup** to preserve the records
+  retained on that device. Keep the device powered until its queue clears.
 
-## The clock indicator shows a big number
+A browser’s online/offline status does not establish that the server is reachable.
+See [Timing without signal](/timing/hardware/offline-and-sync).
 
-The `± milliseconds` figure is how sure that phone is of its own clock.
+## The clock indicator shows a large uncertainty
 
-- It usually settles within a minute on its own.
-- Move to better signal if it doesn't.
-- Check the phone's clock is set to update automatically. A phone with the
-  wrong time set manually is the usual culprit.
-- Pull down to refresh.
+The `± milliseconds` value estimates clock-sync uncertainty. It does not measure
+finish-judge reaction time or prove a recorded result’s accuracy.
 
-Outside of two-lane head-to-head racing, a few hundred milliseconds doesn't
-change anyone's result.
+Check the device’s automatic date/time setting, improve the connection, and let
+another sync sample complete. Compare affected starts and crossings against
+backup timing evidence. Even a small difference can affect a close finish in
+any format.
 
-## A timing phone died
+→ [How timing timestamps work](/timing/how-times-stay-accurate)
 
-Anything it had uploaded is safe and visible from any other device. Anything it
-hadn't is on that phone, so charge it and let it connect.
+## A timing device died
 
-Prevent it: battery pack per phone, and check for a green dot before anyone
-packs up.
+Check the uploaded results from another connected device. Recharge the original
+device and inspect its retained records and queue. Recovery of unsynced actions
+depends on the device and its storage remaining available; use your other timing
+records to investigate anything missing.
+
+Prepare charged battery packs and check each device’s queue before packing up.
 
 ## The RFID watcher stopped reading
 
-- The tab went to the background and the computer paused it. Bring it back to
-  the front.
-- Re-pick the file to start it again.
-- If you swapped drives, the browser lost track of the file, so re-pick it.
+- Bring the timing tab to the foreground; the browser can pause background work.
+- Re-pick the file to restart watching.
+- If the file or drive changed, check that the selected file is still the one
+  receiving reads.
+- Compare the importer’s status and counts against the reader’s original log.
 
 ## A volunteer's screen keeps sleeping
 
-Set the phone to never sleep while plugged in. The timing screen tries to keep
-itself awake, but the phone's own settings win.
+Set the device to stay awake while plugged in, where supported. The timing screen
+requests a wake lock, but browser support and device settings affect whether it
+is granted.
 
 ## I finalized too early
 
-Reopen the session, correct it, finalize again, and republish if you'd already
-published.
+With the required access, reopen the session, correct it, and finalize again.
+Check all devices for queued actions and republish if appropriate. Reopening
+does not restore data removed by a reset.
 
 ## A rider says their time is wrong
 
-Look at the row. You can see what was originally recorded, what's been changed
-since, and who changed it, so you can answer the question rather than guess.
+Review the current result, its start, available timing logs, and backup evidence.
+The result menu does not show a full audit history. Record the reason for your
+decision with the event’s review records, and use **Set manual time** if a
+correction is justified. Follow the organizer’s protest process before publishing
+revised results.
 
-Fix it with **Set manual time** if they're right, then finalize and publish
-again.
+## Timing is unavailable and the race is starting
 
-## Everything is broken and the race is starting
-
-Time on paper. Record finish times by hand, then enter them afterwards with
-**Set manual time** on each rider. Results publish exactly the same way.
+Use the event’s backup timing plan and tell the race director. Record starts and
+crossings on paper or another tested method. Once the timer is available, enter
+verified elapsed times with **Set manual time** and review the results before
+publishing.
 
 ## Something else
 
-Screenshot it and contact support. The full history is kept on Time2Bike's side,
-not just on the device, so nothing is lost even if the one in your hand is
-unusable.
+Contact support with the event, race, device, error message, and relevant exports.
+Share rider information only where needed to investigate. Support can review
+available records, but cannot be assumed to recover data that was never saved,
+never uploaded, or removed.

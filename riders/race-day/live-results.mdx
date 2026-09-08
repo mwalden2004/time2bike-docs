@@ -4,27 +4,28 @@ description: "Watch results come in while the race is still on."
 icon: "stopwatch"
 ---
 
-Every event has one results page, and it starts filling in while the race is
-still running. You'll find it at the event's **Results** link, or straight at
+An event's results page can show times while racing is underway when live
+results are enabled. Find it at the event's **Results** link, or at
 `time2.bike/events/your-event/results`.
 
-![Race results](/images/riders/live-results.png)
+<Frame caption="Demo data. Names, races, and results are fictional.">
+  <img src="/images/riders/live-results.png" alt="Live results with fictional riders, finish times, and an on-course status" />
+</Frame>
 
-There's no separate "live" page to find. The same page you'll read the official
-results on is the one showing times right now. It just updates itself, then
-settles down once the organizer signs the results off.
+Live and published results use the same page. Live times are provisional;
+the organizer or sanctioning body determines when results are official.
 
 <Note>
   Results only appear while a race is on if the timing crew has switched
-  **live results** on for that race. If a race is running and the page is empty,
-  that's usually why. The times are being recorded, they're just not public yet.
+  **live results** on for that race. An empty page does not tell you whether
+  times are being recorded. Ask the organizer if expected results are missing.
 </Note>
 
 ## What's on the page
 
 - A **search box**. Type a rider's name, team, or number to pull them out of a
   long list.
-- A count of how many riders are **on course** right now.
+- A count of how many races are **on course** right now.
 - One section per race, each with a table: place, number, name, team, and time.
 - A **Gap** column showing how far each rider is behind the leader.
 
@@ -39,11 +40,14 @@ that, so filtering never changes anybody's number.
 
 | You'll see | It means |
 | --- | --- |
-| **on course** | Still out there, time still running |
-| **finished** | Crossed the line with a recorded time |
+| **on course** | A start is recorded, with no finish recorded yet |
+| **finished** | A finish time is recorded |
 | **dnf** | Started, didn't finish |
 | **dns** | Didn't start |
 | **dq** | Disqualified |
+
+These are timing statuses, not rider-location or safety tracking. Contact event
+staff directly about a rider's whereabouts or an emergency.
 
 ## While it's still live
 
@@ -51,21 +55,24 @@ A banner at the top says **Live and provisional, times may change**. Take that
 seriously. A rider might be sitting in third and drop to fifth when the crew
 sorts out a missed number.
 
-- The page updates on its own. Leave it open; you don't need to refresh.
+- The page refreshes results automatically while connected.
 - A time can change or disappear if the crew fixes a mistake: a number typed
   wrong, a rider recorded in the wrong race. That's the system working.
 - Places shuffle as riders finish, which is what you'd expect.
 
 ## Dual slalom and other bracket racing
 
-Bracket races show the bracket diagram above the table, so you can follow who
-beat whom round by round as the crew records each run.
+Bracket races have **Head-to-head** and **Qualifying** tabs. Choose
+**Head-to-head** to follow the bracket round by round as the crew records each run.
 
-![Dual slalom results](/images/riders/live-ds.png)
+<Frame caption="Demo data. Names, races, and results are fictional.">
+  <img src="/images/riders/live-ds.png" alt="Public dual slalom bracket seeded with fictional riders" />
+</Frame>
 
-## When they become official
+## When results are published
 
 Once the timing crew finalizes and publishes, the **provisional** banner comes
-off and the same page becomes the official record.
+off and the page shows published results. Publication alone does not establish
+their official status; follow the organizer's or sanctioning body's announcement.
 
 → [Final results](/riders/race-day/final-results)

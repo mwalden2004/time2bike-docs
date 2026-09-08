@@ -5,10 +5,11 @@ icon: "clipboard-check"
 ---
 
 **Event → Check-in** is the desk on race morning: the twenty minutes where a
-roster becomes riders with plates on their bikes. It replaces the printed
-spreadsheet and the highlighter.
+roster becomes riders with plates on their bikes. Use it to record arrivals and review registration details.
 
-{/* IMAGE NEEDED: The check-in screen with the counts bar, a flagged rider, and the field below */}
+<Frame caption="Check-in counts and demo riders, including a missing-waiver flag. Demo data.">
+  <img src="/images/events/check-in.png" alt="Check-in counts and demo riders, including a missing-waiver flag" />
+</Frame>
 
 ## What the screen is
 
@@ -19,8 +20,7 @@ Across the top: **in**, **part done**, **to come**, and **flagged**. Below that,
 the field.
 
 The whole field loads in one request and is filtered in your browser, so the
-search box keeps working when the signal doesn't. A thousand riders is a few
-hundred kilobytes.
+search box keeps working when the signal doesn't. Load the roster while connected before using it offline.
 
 | Control | What it does |
 |---|---|
@@ -49,25 +49,26 @@ you checked in. Choose **Undo** in that confirmation to reverse the action.
   the races affected by check-in. Choose **One at a time** to use a separate
   control for each race. Team and race details stay visible beneath the rider’s name.
 - **Undo keeps the record.** Undoing a check-in marks it undone rather than
-  deleting it, so the audit trail survives.
+  deleting the original check-in record.
 
 ## It works offline
 
 This is the screen most likely to be run in a field with no signal, so it's
 built for it.
 
-Every tap is written to a durable queue on the device and replayed in order when
-the connection comes back. The roster itself is snapshotted, so a reload in a
-dead spot still shows the field.
+The desk queues check-ins in browser storage and retries them when connected.
+It also saves a roster snapshot for offline use. This depends on the browser
+being able to save and retain that data.
 
 A bar appears only when there's something to say:
 
 - **Offline** — "check-ins are saved here and sent when the signal returns."
 - **Syncing** — how many writes are still queued.
 
-It's safe to keep working, and safe to close the tab. If the server rejects a
-queued write outright, the screen tells you rather than leaving a row that says
-"done" and isn't.
+Before leaving the device, reconnect and check that pending writes have
+finished syncing. Reopen the same browser to resume queued work. Clearing site
+data or losing the device before sync can lose unsent changes. Review any
+rejection or storage error shown by the screen.
 
 → [Offline & sync](/timing/hardware/offline-and-sync)
 
@@ -77,10 +78,10 @@ A flag is something worth a second look before a rider starts. There are four:
 
 | Flag | Fires when |
 |---|---|
-| **Waiver** | No signature on file for the documents this rider has to sign |
-| **Licence** | A permitted race, and no valid licence covering the race date |
+| **Waiver** | A race requires waivers and the entry has no recorded signature or paper-signing resolution |
+| **Licence** | Recorded license and fee information does not cover the race date |
 | **Unpaid** | The entry is not paid |
-| **Minor** | Under 18 on race day, so a parent or guardian is expected |
+| **Minor** | The stored birthday places the rider under 18 on race day |
 
 Two rules keep the colour worth reading.
 
@@ -97,49 +98,46 @@ header and the badge on each card goes grey — still there, still tappable, no
 longer pretending to be new information.
 
 <Warning>
-  **Nothing blocks.** A flag never stops you checking somebody in. The official
-  at the desk can see the paper form in the rider's hand; the software can't.
+  Flags do not block the **Check in** action. Checking a rider in records their
+  arrival; it does not confirm eligibility, waiver validity, or readiness to
+  start. Review the event's requirements and the underlying records.
 </Warning>
 
 ## Fixing a flag at the desk
 
-Every flag opens onto the thing that clears it. This matters more than it
-sounds: a flag nothing can resolve comes back on every reload for the rest of
-the morning, and officials learn to read past the amber — which is the same as
-never showing it.
-
-Tapping a flag does the real work, not a tick-box:
+Tap a flag to review the available actions and record how you addressed it:
 
 <AccordionGroup>
   <Accordion title="Waiver" icon="file-signature">
-    **Signed at the desk** — a real e-signature against the current version of
+    **Signed at the desk** — collects signature details for the current version of
     each document that applies to them, stored like any other signature. How
     it's taken depends on your [desk signing
     setting](/organizers/organization/settings-waivers#signing-at-the-desk):
     either the official types the rider's name, or the tablet is **handed to
     the rider**, who reads the document, signs in their own hand, and
     optionally has a photo taken. The tablet comes back showing you the
-    signature and the photo before you record it — you're the witness.
+    signature and photo for your review before you submit them.
 
-    Handing over works offline: the waiver text travels with the roster, and
-    the signature waits in the queue with everything else.
+    With the roster and waiver text already loaded, desk signing can queue
+    offline. Confirm it has synced and review any capture warnings afterwards.
 
-    **Signed on paper** — notes that an official saw the form. It deliberately
-    does *not* forge a signature document; the paper form is the record.
+    **Signed on paper** — records the official's report that a paper form was
+    signed. Keep the paper form; this action does not create an electronic
+    copy of it.
 
-    Which documents get signed depends on the rider's age, and a document that
-    needs a parent or guardian won't be signed without one.
+    Document selection uses the stored birthday. When the waiver's configured
+    policy requires guardian details, the form requires a guardian's name.
 
     → [Waivers](/organizers/organization/settings-waivers)
   </Accordion>
   <Accordion title="Licence" icon="id-card">
-    **Add a licence** — key in the number and it's checked with the issuer
-    before it's saved to the rider's profile. The desk is exactly where a
-    mistyped number turns into a filing problem.
+    **Add a licence** — enter the number to save it to the rider's profile.
+    USA Cycling numbers use an online lookup. Other issuers currently have
+    no live verification; check their requirements separately.
 
     **Sell a one-day** — cash, card, or waived. It lands on the licence-filing
-    list either way; a waived fee is written as a licence of zero, because the
-    rider still raced on a one-day and the issuer still has to be told.
+    list either way; a waived fee is recorded as zero. Confirm issuance and
+    filing requirements with the sanctioning body.
 
     → [Licences & one-day fees](/organizers/events/licenses)
   </Accordion>
@@ -153,8 +151,8 @@ Tapping a flag does the real work, not a tick-box:
   </Accordion>
 </AccordionGroup>
 
-A fix applies to every entry the flag covered, not just the race you tapped, and
-it's recorded — so it stays cleared on the next reload and at the other station.
+A resolution applies to the entries covered by the flag. After it syncs,
+refresh another station to load the updated record.
 Resolved flags stay visible but quiet, labelled with what was done ("Signed at
 the desk", "One-day paid cash", "Fee waived").
 
@@ -162,22 +160,17 @@ the desk", "One-day paid cash", "Fee waived").
 
 Two ways, because a race venue is not an office.
 
-**QR code** — the screen shows a code, and the rider pays on their own phone
-through Stripe Checkout. No card ever touches the official's tablet, so the desk
-carries no card-handling scope at all. The entry is marked paid by the same
-mechanism that settles online registration, so it can land a moment after they
-tap.
+**QR code** — the rider opens Stripe Checkout on their phone. Their card is
+entered on that phone. Check the entry's payment status after checkout;
+confirmation may arrive after the rider finishes.
 
-**Card on the desk device** — a card field on your own tablet, keyed in by the
-official. This is the one that works in the situation the platform is built for:
-the desk on Starlink with a good uplink, the rider's phone with no bars at all.
-It also answers immediately — approved or declined, on screen, while the rider
-is still standing there.
+**Card on the desk device** — use the card field on the official's tablet.
+This needs an internet connection. Review the payment result on screen and
+confirm the entry is marked paid before treating the charge as completed.
 
-Both are ordinary charges on your connected Stripe account with the same service
-fee as any other entry, so a desk payment reconciles, refunds, and pays out
-exactly like a registration taken online. Nothing here invents a second way for
-money to move.
+Card payments use the organization's connected Stripe account. Review the
+amount and fee shown before charging. Refunds and payouts follow the applicable
+payment flow and account status; see [Stripe Connect](/platform/stripe-connect).
 
 Entry fees and one-day licences are charged separately — a rider who owes only a
 licence isn't asked for an entry as well. The organizer's revenue and the money
@@ -212,15 +205,14 @@ running in race-morning mode, and it adds four things:
     Registration closed. The race is full. There are people on the waitlist who
     queued properly and are about to be walked past.
 
-    None of them block — the official at the desk outranks all of it — but every
-    one has to be shown and ticked before the entry is created, and what was
-    accepted is recorded against the person who accepted it.
+    The form lets an authorized operator acknowledge these registration
+    warnings and records that choice. An override does not waive permit,
+    capacity, or eligibility requirements set outside Time2Bike.
   </Step>
   <Step title="The licence question, asked now">
-    Add an existing licence (checked with the issuer), sell a one-day, or skip
-    it deliberately. Manual entry used to ignore licensing, which left riders
-    owing a one-day nobody charged and nobody filed — the entry looked complete
-    and the sanctioning report came up short weeks later.
+    Add an existing licence, record a one-day, or skip the field when you will
+    handle the check separately. Review the issuer-specific lookup limits
+    described above.
   </Step>
   <Step title="Payment and a plate, without leaving the screen">
     Take the money, then hand over a number. The desk suggests one: the plate
@@ -239,7 +231,7 @@ revenue number looks wrong afterwards, they're findable.
 Where a race allows it, the desk can give an entry away — a volunteer, a
 sponsor, the friend who drove the moto. A comp asks for a reason and records
 what the entry would have cost, so "what did we give away this season" has an
-answer. An entry priced at zero would have destroyed that.
+answer in your records.
 
 Comping is off unless the race allows it; the button says so when it's
 unavailable.
@@ -262,9 +254,9 @@ podium sheet also asks how many places to leave room for.
 ## What good looks like
 
 <Tip>
-  Two tablets, both on this screen, both working from their own cached copy. They
-  can each check people in with no signal at all; when either one reconnects,
-  its queue drains and **Refresh** pulls the other's work in.
+  Load the roster on each tablet while connected. Each device uses its own
+  saved copy offline. Reconnect, wait for pending writes to sync, and use
+  **Refresh** to bring in the other station's changes.
 </Tip>
 
 <Columns cols={2}>

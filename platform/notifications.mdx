@@ -1,47 +1,54 @@
 ---
 title: "Notifications"
-description: "Which emails Time2Bike sends, when."
+description: "Account and event messages, delivery checks, and communication preferences."
 icon: "bell"
 ---
 
-Time2Bike sends a small, predictable set of emails — receipts, confirmations, and results. It isn't a marketing tool, so keep using whatever you already send newsletters with.
+Time2Bike sends account messages and supports organizer communications about
+entries and events. Which messages are sent depends on the action and the
+organizer's settings. Email delivery can be delayed, blocked, or filtered as spam.
 
-## To riders
+## Account and event messages
 
-| When | Subject |
-|---|---|
-| Registration confirmed | "You're registered for [Event]" — receipt + race details. |
-| Registration updated | "Your [Event] registration was updated". |
-| Refund issued | "Refund processed for [Event]". |
-| Merch order confirmed | "Order #N — [Org]". |
-| Merch order fulfilled | "Your order is ready / shipped". |
-| Results published | "Your [Event] results are live". |
-| Rider invite | "Join Time2Bike to complete your registration" (when an organizer manually adds a rider). |
-| Sign-in code (MFA) | "Your Time2Bike sign-in code is [6-digit]". |
-| Account email change | Verification link to the new address. |
+Messages can include account verification, sign-in codes, password resets,
+registration confirmations, rider invitations, and organizer updates. Exact
+subjects and contents vary. Check your account or event dashboard for the
+current registration, payment, or result status.
 
-## To organizers
+A missing email does not establish that a payment failed or an entry was lost.
+Check the relevant record before paying or registering again. Organizers should
+also monitor Stripe directly for payout requirements and dispute deadlines.
 
-| When | Subject |
-|---|---|
-| Team invite | "You've been invited to [Org]". |
-| Stripe action required | "Update your payout details for [Org]" (mirrors Stripe's notice). |
-| Daily digest | Optional: registrations + revenue summary (opt-in per user). |
+## Sender and replies
 
-## Who it comes from
-
-Email arrives from Time2Bike, not from your own address. Rider-facing emails carry your organization's name and a link to your public page in the footer, so it's clear whose race it is.
+Time2Bike sends through its email service. Organizer messages can use the
+organization's name, branding, and reply-to address. Check the reply-to address
+before replying; support and event questions may need different recipients.
 
 <Tip>
-  Put your own contact address in your event description and on your
-  organization page. Riders reply to race emails, and you want those replies
-  reaching you rather than bouncing off a no-reply address.
+  Keep your organization's contact and reply-to details current. Include an
+  event contact address in the description so riders can reach the organizer
+  if an email does not arrive.
 </Tip>
 
-## Opting out
+## Communication preferences
 
-Riders can disable all non-essential email under **Account → Privacy**. Receipts and confirmations are not opt-out-able — they're transactional and required.
+Riders can withdraw consent for organizer text messages under **Account →
+Privacy**, or reply **STOP**. Sign-in and verification messages are separate
+from organizer message consent. See [Privacy](/riders/account/privacy).
 
-## Branding
+There is no general email opt-out control in account settings. For unwanted
+organizer messages, use an unsubscribe option if the message provides one,
+or contact the sender. Contact Time2Bike support if you need help. Read the
+[Privacy Policy](https://time2.bike/legal/privacy#communications) for communication
+practices and the distinction between account messages and promotional email.
 
-Your organization's name, logo, and brand color are inserted automatically. Writing your own email templates isn't available yet.
+## Organizer messages
+
+Use rider contact details for the purposes described in the
+[organizer terms](https://time2.bike/legal/terms#organizers). Access to a contact
+list does not establish consent to send promotional messages. Review the
+intended recipients and message before sending.
+
+Configured branding can be included in organizer messages. Check the preview
+for the correct name, logo, reply-to address, and links.

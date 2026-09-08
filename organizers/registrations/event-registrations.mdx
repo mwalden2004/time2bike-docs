@@ -4,9 +4,11 @@ description: "The master list of everyone signed up for an event."
 icon: "table-list"
 ---
 
-`Event → Registrations` is the most-used organizer screen. It shows every registration across every race in one filterable table.
+**Event → Participants** opens the event registrations screen. It shows every registration across every race in one filterable table.
 
-{/* IMAGE NEEDED: /organizations/[id]/events/[eventId]/registrations → full registrations table with filters and toolbar */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/event-registrations.png" alt="Event participants with race and status filters and the registration toolbar" />
+</Frame>
 
 ## Columns
 
@@ -28,24 +30,22 @@ Use the column header to sort. The search box filters by name, email, or bib.
 
 ## Row actions
 
-Click a row to open the registration detail panel:
+Use the icons at the right of a row to view:
 
 - **Custom question answers** (see [Custom questions](/organizers/events/questions)).
 - **Waiver signatures** with version, initials, signed-at, IP, and content hash.
 - **Emergency contact** and **address** (if collected).
-- **Payment timeline** with discount codes applied.
 
-From the panel you can:
+The row and selection actions also let you:
 
-- **Edit** — open the [EditRegistrationModal](/organizers/registrations/editing-and-refunds) to change race, category, answers.
+- **Edit registration** — open the [edit dialog](/organizers/registrations/editing-and-refunds) to change the race, status, recorded payment, notes, or team.
 - **Transfer** — move the registration to a different rider's account.
 - **Refund** — see [Editing and refunds](/organizers/registrations/editing-and-refunds).
-- **Resend confirmation email**.
 - **Delete** — manager-only.
 
 ## Export
 
-**Download CSV** exports the current filtered view with all columns plus question answers expanded into columns.
+**Export CSV** exports the current filtered view with all columns plus question answers expanded into columns.
 
 ## Bulk actions
 
@@ -58,7 +58,7 @@ there and shows you the numbers before deleting anything.
 
 | Scope | What it removes | Who can run it |
 |---|---|---|
-| **Test entries only** | Just the dry runs placed against the draft. No real rider is touched. | Admin or manager |
+| **Test entries only** | Entries marked as tests, with their associated records. | Admin or manager |
 | **Everything** | Every entry on the event, imports and paid entries included. Asks you to type the event name back. | Organization owner |
 
 <Warning>

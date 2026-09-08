@@ -4,16 +4,18 @@ description: "Manage payment methods and see your purchase history."
 icon: "receipt"
 ---
 
-Time2Bike uses **Stripe** for all payments. Your card details are stored
-with Stripe, not with us.
+Time2Bike uses **Stripe** to collect online payments and manage saved payment
+methods.
 
 Find this page at `time2.bike/account/settings/billing`.
 
-![Billing settings](/images/riders/billing.png)
+<Frame caption="Account billing links to Stripe payment methods and billing history. Demo data.">
+  <img src="/images/riders/billing.png" alt="Account billing links to Stripe payment methods and billing history." />
+</Frame>
 
 ## Manage payment methods
 
-Click **Manage in Stripe** to open the secure Stripe billing portal. From
+Click **Manage in Stripe** to open the Stripe billing portal. From
 there you can:
 
 - Add or remove cards
@@ -26,23 +28,22 @@ sends you back to the site.
 
 ## Purchase history
 
-The billing page also shows your past Time2Bike charges:
-
-- Race registrations
-- Merch orders
-- Any other one-time purchases
-
-Each row has the date, what you bought, and the total. Click into a row
-for the line items and receipt PDF.
+Click **View History** under **Billing History** to open the Stripe billing
+portal and review your invoices and payment history.
 
 ## Refunds
 
-Refunds are handled by the **organizer**, not by Time2Bike directly. To
-request one:
+For an event-entry refund, contact the **organizer**, who applies the event's
+refund policy. To request one:
 
 1. Open the relevant event page.
 2. Use the **Contact organizer** link.
 3. Reference your registration ID (visible on the receipt email).
 
-If the organizer approves, the refund posts to your original payment
-method through Stripe — usually within 5–10 business days.
+An approved refund must still be submitted and processed. Stripe normally
+returns it to the original payment method; bank processing times vary, and a
+refund can remain pending or fail. Contact the organizer if it has not arrived.
+
+The refundable amount depends on the items and any prior refunds. Time2Bike's
+service fee is generally non-refundable, with the exceptions described in the
+[Terms of Service](https://time2.bike/legal/terms#refunds).

@@ -1,6 +1,6 @@
 ---
 title: "Profile settings"
-description: "Update your account name, email, and phone numbers."
+description: "Update your account name and phone numbers, and find help changing your email."
 icon: "user"
 ---
 
@@ -10,14 +10,16 @@ racing identities tied to your account.
 
 Find it at `time2.bike/account/settings`.
 
-![Profile settings](/images/riders/profile.png)
+<Frame caption="Account profile settings with an example verified phone number. Demo data.">
+  <img src="/images/riders/profile.png" alt="Account profile settings with an example verified phone number." />
+</Frame>
 
 ## Name and email
 
-- **First name** and **Last name** — used on receipts and in dashboards
-  for orgs you belong to. Click **Save** after editing.
-- **Email** — your sign-in email. Changing it requires verifying the new
-  address before the change takes effect.
+- **First Name** and **Last Name** — used on receipts and in dashboards
+  for orgs you belong to. Click **Save Changes** after editing.
+- **Email Address** — your sign-in email is read-only here. Contact support
+  to change it.
 
 ## Phone numbers
 
@@ -48,6 +50,7 @@ Unverified phones can't be used for MFA or SMS notifications.
 ### Removing a phone
 
 Click the **Trash** icon next to a phone to remove it. If that phone was
-your MFA method, MFA is automatically disabled — re-enable it in
+used for SMS MFA, that SMS method is disabled. Email MFA stays enabled if you
+had turned it on. Set up a replacement SMS method in
 [Security](/riders/account/security-and-sessions) with a different
 phone.

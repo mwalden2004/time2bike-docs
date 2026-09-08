@@ -13,8 +13,8 @@ take no money and are flagged so you can delete them in one action later.
 
 <Steps>
   <Step title="Leave the event in Draft">
-    Only your organization can open a draft event's page. Everyone else gets a
-    404, so there's no risk of a rider stumbling into your dry run.
+    Authorized organization staff and Time2Bike staff can preview the draft.
+    Other visitors receive an event-not-found response.
   </Step>
   <Step title="Register as you normally would">
     Open your own event page, pick races, and go through checkout. You'll
@@ -31,15 +31,14 @@ take no money and are flagged so you can delete them in one action later.
 </Steps>
 
 <Note>
-  Only people in your organization can place test entries: the owner, org
-  members, and Time2Bike staff. A signed-out visitor still gets a 404 on a
+  Test entries are available to the owner, organization members with access
+  to the event, and Time2Bike staff. A signed-out visitor still gets a 404 on a
   draft event.
 </Note>
 
 ## How test entries behave
 
-- They're marked **Test** in the registrations table, so they're never mistaken
-  for a real rider.
+- They're marked **Test** in the registrations table so you can identify them.
 - They're excluded from revenue reporting.
 - The flag sticks after you publish. Publishing does **not** convert them into
   real entries, and it does not delete them.
@@ -60,7 +59,7 @@ what's there first and shows you the numbers before anything is deleted.
 
 | Scope | What it removes | Who can run it |
 |---|---|---|
-| **Test entries only** | Just the dry runs you placed against the draft. No real rider is touched. | Admin or manager |
+| **Test entries only** | Entries marked as tests, with their associated records. | Admin or manager |
 | **Everything** | Every entry on the event, imports and paid entries included. | Organization owner |
 
 **Everything** asks you to type the event's name back before it will run.
@@ -92,5 +91,5 @@ An event that Time2Bike has frozen or taken down can't be cleared.
 ## Going live
 
 1. Clear the test entries.
-2. Set the status to **Published**, or **Unlisted** if you want a link-only
-   soft launch. See [Event settings](/organizers/events/event-settings).
+2. Submit the event for review, requesting **Published** or **Unlisted**
+   for a link-only launch. See [Event settings](/organizers/events/event-settings).

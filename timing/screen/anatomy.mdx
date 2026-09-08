@@ -6,9 +6,18 @@ icon: "table-columns"
 
 Open your event and click **Live Timing**. This is what you're looking at.
 
-![Live Timing](/images/timing/home.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/operator-anatomy.png" alt="The timing screen with fictional riders, race controls, race board, and footer" />
+</Frame>
 
-{/* IMAGE NEEDED: The full timing screen with callout numbers on each region described below */}
+
+1. **Top bar** — status, clock, sync, help, setup, and race selection.
+2. **Race clock and controls** — start, pause, stop, and the next-action prompt.
+3. **Bib input** — type a number to record at the selected point.
+4. **Riders** — search and filter the selected race's roster.
+5. **All races** — check and control the other races.
+6. **Timer setup** — open the device and race settings.
+7. **Footer** — more actions, live sharing, and finalization.
 
 ## Top bar
 
@@ -16,29 +25,30 @@ Open your event and click **Live Timing**. This is what you're looking at.
 |---|---|
 | **Race tabs** | Every race in the event. The highlighted one is where your entries go. Tap to switch — the controls below change to suit that race's format. |
 | **Status badge** | Whether the timer is running, paused, stopped, finalized, or published. |
-| **Clock chip** | How closely this device's clock agrees with Time2Bike's. A small number is good; a big one means a weak signal. It sorts itself out once you're back in coverage. |
+| **Clock chip** | How closely this device's clock agrees with Time2Bike's. The value estimates clock-sync uncertainty; a large value needs investigation before close results are accepted. |
 | **Sync chip** | 🟢 synced, 🟡 *N* queued, 🔴 offline. Tap it to see exactly what's waiting to upload. |
 | **Help** | The full operator reference, built into the screen. |
 
 <Tip>
-  Getting the race tab wrong is the most common race-day mistake and the one
-  that takes longest to unpick. Check it before every race.
+  Check the race tab before every race to avoid assigning a crossing to the
+  wrong race.
 </Tip>
 
-## The blue hint bar
+## The race prompt
 
-A one-line prompt telling you what to do next: *Step 1: Start Cat 3 Men to begin
-timing*, then *Step 2: Enter a plate number or tap a rider*. It follows the state
-of the race, so if you're not sure what to do, read that line.
+The race clock panel tells you what to do next: press **START RACE** at the gun,
+then enter a plate or tap a rider. It changes when the race stops, so read that
+prompt if you are unsure what the screen will record.
 
 ## The race board
 
-A panel at the top listing every race in the event and what it's doing right
-now: running with a live clock, stopped with a finisher count, or not started.
+The **All races** panel below the rider list shows what every race is doing: running with a live clock, stopped with a finisher count, or not started.
 
-{/* IMAGE NEEDED: The race board with three races running and one not started */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/race-board.png" alt="Race board showing three races running and Junior waiting to start" />
+</Frame>
 
-- The header says **3 of 5 races running**, so you never have to click through
+- The header says **3 of 4 running**, so you never have to click through
   tabs to find out what's live.
 - **Start or stop any race from here**, without leaving the one you're recording
   into.
@@ -58,7 +68,7 @@ Big buttons for the race you're recording into, sized for cold hands.
 - **Pause / Resume** — labelled **Freeze clock** or **Pause entries** depending
   on how the timer is set. Freezing stops everyone's elapsed time (a real course
   hold); pausing entries just stops recording while the clock runs on.
-- **STOP** — ends the race. You can still fix everything afterwards.
+- **STOP** — ends the race. Permitted result corrections remain available before finalization.
 - **Set the start time** — the small button under the grid. Puts the start at a
   time you type off the clock instead of the moment you press a button, for a
   race that went while nobody was at the screen. Once a race is running the same
@@ -80,38 +90,34 @@ The single most important control. Type a bib, press **Enter**.
 - It stays focused, so you don't have to click it before typing.
 - As you type, matching riders appear as chips. Tap one instead of finishing
   the number.
-- There's an on-screen digit pad for gloved hands and touchscreens.
-- An **UNDO** button sits next to it. One tap reverses your last recording.
+- An **UNDO** button sits next to it. It identifies the supported recent action it can reverse, subject to your role.
 
 What Enter *does* depends on your recording point: finish, lap, split, or
 check-in. See [Recording points](/timing/screen/recording-points).
 
-## On course
+## Riders
 
-Riders who've started but not finished, sorted by elapsed time. This is your
-"who's still out there" list, and at the end of a race it's your DNF list.
+The **Riders** panel holds the selected race's roster. Use **On course** to see
+who has started without a recorded finish, or **Finished** to check finishers.
+The other filters show riders who have not started and DNF/DNS/DSQ outcomes.
 
-## Registered riders
-
-The full roster for the selected race. Tap any name to record them right now.
-It's what you reach for when a bib is unreadable or caked in mud.
-
-There's a search box, and for a big field the list collapses on its own so the
-timing buttons stay on screen.
+Tap a rider's name to record them when their bib is unreadable. Use the search
+box to find a plate or name, and **Hide** to collapse the panel.
 
 ## Any result row
 
-Tap a row to open its menu: manual time, DNF/DNS/DSQ, add a note, record a
-split, void a lap, delete. What you see depends on your access level.
+Use the three-dot button at the end of a rider row to open its menu: manual time, DNF/DNS/DSQ, edit splits, void a lap, or delete time. What you see depends on your access level.
 
 → [Corrections](/timing/screen/corrections)
 
 ## Timer setup
 
-One button below the rider lists opens **Timer setup**, which holds every
-setting for this timer in one panel with three sections.
+Choose **Setup** in the top bar, or **Timer setup** below the rider lists. The
+panel holds the timer settings in three sections.
 
-{/* IMAGE NEEDED: The **Timer setup** panel open on the "How I am timing" section */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/timer-setup.png" alt="Timer setup with How I am timing selected" />
+</Frame>
 
 | Section | What's in it |
 |---|---|
@@ -125,7 +131,7 @@ Five criterium categories usually want identical settings, and doing them one at
 a time is how the fourth ends up different. Tick as many races as you like, or
 **All races**, and set them together.
 
-Two rules keep that safe:
+Review these details before saving:
 
 - **Only what you change gets written.** Anything you don't touch is left exactly
   as it is on each race. Selecting five races and editing the lap count won't
@@ -148,9 +154,8 @@ boxes, stays on the timing screen itself, because it has to run on the device
 you're standing at.
 
 <Tip>
-  The interval-start, dual-slalom and combined screens replace the standard one,
-  so they don't show the Timer setup button. Reach it from **More actions →
-  Timer setup** there.
+  **Setup** in the top bar is also available on the interval-start, dual-slalom,
+  and combined screens. **More actions → Timer setup** opens the same panel.
 </Tip>
 
 ## Footer
@@ -168,12 +173,11 @@ Worth knowing what's in there before you need it:
 
 <AccordionGroup>
   <Accordion title="Download for offline" icon="download">
-    Saves the timing screen onto this device so it opens with no signal at all.
-    Do this the day before if you're racing somewhere remote.
+    Caches timing-page assets on supported browsers. Do this ahead of time
+    and test reopening the same timer without a connection.
   </Accordion>
-  <Accordion title="Add riders" icon="user-plus">
-    Enter a drop-in by bib, name, and team without them registering. Works
-    offline. → [Adding riders](/timing/screen/adding-riders)
+  <Accordion title="Register a rider" icon="user-plus">
+    Open the event's registration form for a day-of entry. Needs a connection. → [Adding riders](/timing/screen/adding-riders)
   </Accordion>
   <Accordion title="Exports and printing" icon="file-export">
     CSV, JSON, printed results, per-race PDF, whole-event PDF, whole-event CSV.
@@ -192,9 +196,10 @@ Worth knowing what's in there before you need it:
     Pull results in from another timing platform's file.
   </Accordion>
   <Accordion title="Reset timing data" icon="triangle-exclamation">
-    Wipes timing for one race or the whole event and starts over. There's a
-    confirmation, and it's blocked while anything is still waiting to upload.
-    Use it after a test run.
+    Removes timing data for one race or the whole event. Export records you
+    need first; **UNDO** does not reverse a reset. The dialog checks this
+    device’s queue, so confirm other devices have synced too. Use it only
+    when you intend to remove the selected records, such as after a test run.
   </Accordion>
 </AccordionGroup>
 

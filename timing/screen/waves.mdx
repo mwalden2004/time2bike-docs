@@ -10,7 +10,9 @@ start time, and each rider's result is measured from their own wave.
 
 Waves are optional. If you don't define any, nothing about the screen changes.
 
-{/* IMAGE NEEDED: The wave board with three waves: one running with a live clock, one started, one waiting */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/wave-controls.png" alt="Three demo waves with two live clocks and one waiting to start" />
+</Frame>
 
 ## Setting waves up
 
@@ -61,19 +63,22 @@ many finishes that affects before you commit.
 
 ## Net time and gun time
 
-Every rider ends up with both:
+When the required start and finish records are available, the timer calculates:
 
 | | Measured from | Used for |
 |---|---|---|
-| **Net time** | Their own wave's start | Fair comparison between riders in different waves |
-| **Gun time** | The race start | Overall finishing order, which is what usually decides the podium |
+| **Net time** | Their wave’s start, or the configured fallback | Elapsed time from that rider’s start group |
+| **Gun time** | The race start | Elapsed time from the race gun |
 
-Both are recorded, and you choose which to show in results and exports.
+Check which measure your event uses for ranking and awards. A displayed net
+or gun time does not determine the scoring rule on its own.
 
 <Tip>
-  The **actual** press is what counts. A wave's planned offset is only a fallback
+  A recorded wave start takes precedence over its planned offset. A wave's planned offset is only a fallback
   for working out net time if that wave never got started live. So if you set
-  "+3 minutes" and released them at 3:40, the 3:40 is what's used.
+  "+3 minutes" and recorded release at 3:40, the 3:40 is used. A planned offset
+  does not confirm when riders actually left; correct a missed start from your
+  race records.
 </Tip>
 
 ## Waves vs separate races

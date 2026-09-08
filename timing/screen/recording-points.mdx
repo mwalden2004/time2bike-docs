@@ -12,7 +12,9 @@ one big input does that job.
 Same keystrokes, same chips, same digit pad. Only the meaning of **Enter**
 changes.
 
-{/* IMAGE NEEDED: The recording-point button row above the plate input, with "Halfway" selected */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/recording-point.png" alt="Halfway selected above the bib input for recording a split" />
+</Frame>
 
 ## Two places to set it
 
@@ -24,7 +26,9 @@ changes.
 Both do the same thing. The settings one is the reliable place to look, because
 it's always there.
 
-{/* IMAGE NEEDED: Timer setup → This device, showing both ends selected */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/device-stations.png" alt="This device settings with Start line and Finish line selected" />
+</Frame>
 
 ## You can pick more than one
 
@@ -81,15 +85,15 @@ Either way a **split** never carries over. Split names belong to one race, so
 carrying one to the next would name a point that doesn't exist there. Splits
 are always remembered against their own race.
 
-Your choice also survives a reload, so a refresh mid-race doesn't quietly put you
-back on the finish line.
+The browser stores your choice locally. Check the selected point after a
+reload or device change, particularly if site data was cleared.
 
 The inline row appears as soon as you open the race, before the start, so a
 marshal walking to their post can set it while there's still time to read the
 screen.
 
 <Tip>
-  Set it once when you get to your post, then don't think about it again. The
+  Set your recording point when you arrive, and check it before recording. The
   submit button and the hint text both name what you're recording, so a glance
   confirms you're still pointed at the right place.
 </Tip>
@@ -137,19 +141,17 @@ The warning at the finish is the one that matters: it's the only moment the
 rider is still standing in front of you to ask. In a lap race it fires on the
 lap that finishes them, not every lap.
 
-A rider is only flagged once they've demonstrably gone past: they finished, or
-they have a time at a *later* point. Riders who simply haven't reached it yet
-are not flagged, because on a long course most of the field is between two
-points at any moment.
+The flag is based on recorded progress: a finish or a time at a later point.
+Missing or incorrect records can affect that assessment. The timing list does
+not verify a rider’s physical location or replace the event’s course-safety
+and rider-accounting procedures.
 
 <Warning>
-  **A missed point never changes anybody's result.** Their finish stands, their
-  place stands, and publishing is unaffected.
-
-  It is a prompt to go and look, not a verdict. A blank cell is far more often a
-  post that went unstaffed, a marshal who missed a number, or a radio that
-  dropped than it is a rider cutting the course. If you investigate and conclude
-  they did cut it, **DQ them yourself**. See
+  **A missed-point flag does not automatically change a finish or placing.**
+  Investigate missing records with the course crew and apply the event’s rules.
+  A blank can reflect a missed recording, connection problem, or a rider who
+  did not pass the point; it does not by itself establish a violation. Use
+  **DSQ** only when the responsible official has made that decision. See
   [corrections](/timing/screen/corrections).
 </Warning>
 
@@ -169,7 +171,8 @@ Also set per race, in the same **Timer setup → Races** section:
   actually left matters.
 
 Either way, **elapsed time is measured from the gun** (or from that rider's
-[wave](/timing/screen/waves)), so a late check-in never shortens somebody's run.
+[wave](/timing/screen/waves)). Check that the recorded start is correct,
+especially when the first check-in started the clock automatically.
 
 <Note>
   **Checking somebody in starts the clock if nobody has.** Because elapsed runs
@@ -224,7 +227,7 @@ stays beside the input. After a recording, the input is ready for the next rider
 ## Capture the crossing, then identify the rider
 
 At an ordinary finish line, **Capture crossing without bib** saves a crossing
-immediately. Press it for each rider when the chute is too busy to identify them.
+using the recording action’s timestamp. Press it for each rider when the chute is too busy to identify them.
 This shortcut is available for finish recording, not lap, split, or shared
 start/finish recording.
 

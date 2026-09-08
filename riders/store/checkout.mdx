@@ -6,7 +6,9 @@ icon: "credit-card"
 
 When you're ready to buy, open your **Cart** from the store.
 
-![merch checkout page](/images/riders/merch-checkout.png)
+<Frame caption="A cart ready for checkout with a discount applied. Demo products and data.">
+  <img src="/images/riders/merch-checkout.png" alt="Store cart with a race shirt, pickup selected, a demo discount, and the total" />
+</Frame>
 
 
 ## What you'll enter
@@ -24,7 +26,7 @@ When you're ready to buy, open your **Cart** from the store.
   state/region, postal code, country. Required when you pick **Ship**.
 - **Discount code** (optional). If the organizer gave you one, type
   it in and click **Apply**. The cart re-validates the code whenever
-  you change quantities so the discount stays accurate.
+  you change quantities. Review the updated total before paying.
 
 You don't need a Time2Bike account to buy merch, but signing in pre-fills
 your info and ties the order to your account history.
@@ -35,7 +37,8 @@ The cart shows:
 
 - **Subtotal**, the sum of all line items.
 - **Discount**, subtracted from the subtotal if a valid code is applied.
-- **Service fee**, 3% of the subtotal after any discount.
+- **Service fee**, calculated at the percentage shown in your cart after
+  any discount.
 - **Total** — what your card will be charged.
 
 If a discount brings your total to **$0.00**, you skip Stripe entirely
@@ -55,19 +58,21 @@ and land straight on the confirmation page, with no card needed.
   <Step title="Land on the confirmation page">
     It confirms the order and empties your cart.
 
-    ![merch checkout page](/images/riders/merch-finish.png)
+    <Frame caption="Store order confirmation. Demo checkout; no payment was made.">
+      <img src="/images/riders/merch-finish.png" alt="Store confirmation page with a Thank you message and Continue shopping button" />
+    </Frame>
   </Step>
 </Steps>
 
 ## Pickup vs shipping
 
-Most Time2Bike merch is built for **pickup at the event**, where the
-organizer hands out gear on race day. Some products also support
-shipping; the product page tells you which. If you ordered a pickup-only
-item and can't make it to the event, contact the organizer directly.
+Check the product's pickup or shipping terms before ordering. The organizer
+handles fulfillment; an order confirmation does not mean an item has shipped
+or is ready for collection. Contact the organizer about delivery, pickup times,
+or a pickup order you cannot collect.
 
 ## Order history
 
-If you were signed in at checkout, the order shows up in
-[Account → Billing](/riders/account/billing-history). Guest orders show
-up only in your email receipt.
+Keep your confirmation email and payment reference. You can review available
+Stripe payment history from [Account → Billing](/riders/account/billing-history).
+For order details or a missing receipt, contact the organizer.

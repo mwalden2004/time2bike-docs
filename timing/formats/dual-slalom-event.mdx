@@ -1,12 +1,13 @@
 ---
 title: "Running a dual slalom event"
-description: "The whole day, USAC and collegiate style: qualifying several categories together, seeding brackets, and publishing."
+description: "A dual-slalom workflow for qualifying, seeding brackets, and publishing reviewed results."
 icon: "flag-checkered"
 ---
 
-This is the full day, in the order it happens. It follows the USAC dual slalom
-format used at collegiate conference races: mixed-category qualifying, a bracket
-per category, head-to-head with lane swaps and a maximum differential.
+This example uses mixed-category qualifying, category brackets, lane swaps,
+and a maximum differential. Confirm qualifying, advancement, rerun, penalty,
+and scoring rules with the event’s organizer or sanctioning body before setup;
+software defaults do not establish compliance with a rulebook.
 
 If you just need the buttons, see [Dual slalom](/timing/formats/dual-slalom) for
 the operator screen and [Brackets](/timing/formats/brackets) for the bracket
@@ -16,12 +17,13 @@ panel.
 
 <Steps>
   <Step title="Practice and course inspection">
-    Nothing to time. Riders session both lanes.
+    Follow the event’s practice and course-inspection plan before qualifying.
   </Step>
   <Step title="Qualifying">
     Every rider takes a timed run: **one run, down one lane**. All categories
     go through the chute together, first come first served. The lane is the
-    same for everyone in a category, which is what makes the times comparable.
+    same for the field in this example. Check the qualifying method required
+    by your event’s rules.
   </Step>
   <Step title="Seeding">
     Fastest qualifier is the top seed in their category. You decide how many
@@ -47,9 +49,12 @@ set each one's format to **dual slalom bracket** on the
 [Races](/organizers/races/races-list) page. That's what gives them the two-lane
 screen and their own bracket.
 
-Assign bib numbers as usual. Everything else is set up on the day.
+Assign bib numbers, configure the bracket options, and test the full timing
+setup before the day’s first scored run.
 
-{/* IMAGE NEEDED: The Races page with four dual slalom categories created */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/dual-categories.png" alt="Four demo dual-slalom races on the Races page" />
+</Frame>
 
 ## Qualifying several categories at once
 
@@ -62,7 +67,9 @@ gate.
 **Each rider's time records against their own category**, so the brackets can
 seed from it afterwards. You never sort riders into categories at the gate.
 
-{/* IMAGE NEEDED: Seeding mode with two riders from different categories staged in red and blue */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/dual-seeding.png" alt="Fictional riders from two categories staged in the red and blue lanes" />
+</Frame>
 
 ### One lane per field
 
@@ -77,23 +84,22 @@ down the wrong side. If you've
 covers the whole combined field — that's who is being compared.
 
 <Note>
-  **Both lanes is a nationals thing.** At nationals riders qualify down both
-  lanes and the seed time is red + blue combined, which cancels out any
-  difference between the courses. Bracket setup offers that as an option, but
-  for a conference race one run each is all qualifying needs.
+  Bracket setup also offers combined red-and-blue qualifying times. Select
+  single-lane or combined qualifying according to the rules for this event;
+  using both lanes does not eliminate every course or timing difference.
 </Note>
 
 ### If somebody needs a re-run
 
-Just run them again. The best time in a lane is what counts, so a second run
-only helps them.
+Confirm that the race official has authorized the rerun and how it should be
+scored. The qualifying calculation uses the best recorded time in a lane; a
+rerun does not automatically invalidate the earlier attempt.
 
 ## Running several categories as one field
 
-A dual-slalom category rarely fills a bracket on its own. Six women's Cat 3
-riders don't make a bracket worth running, and neither do four men's P1. So
-categories get combined on the morning, off the entry sheet — the women run as
-one field, the men split P1 off and run Cat 1/2/3 together.
+If the organizer permits categories to race together, combine them into a
+field. Confirm eligibility, advancement, and award arrangements before combining
+entries, and communicate the arrangement to riders.
 
 Press **Combine categories** on the dual-slalom operator screen (it reads
 **Combined fields** once you have some).
@@ -110,28 +116,30 @@ Press **Combine categories** on the dual-slalom operator screen (it reads
   </Step>
   <Step title="Choose how places are awarded">
     **A podium per category** — they race together, and each category is placed
-    1st, 2nd, 3rd among its own riders. This is what a rider who entered Cat 3
-    expects to see.
+    1st, 2nd, 3rd among its own riders. Check that this matches the event’s awards policy.
 
     **One podium** — one field, one set of places, and every rider keeps the
     place they took in the bracket.
   </Step>
 </Steps>
 
-{/* IMAGE NEEDED: The Combined fields modal with two fields built and the podium choice visible */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/combined-fields.png" alt="Two combined demo fields with podium choices visible" />
+</Frame>
 
 Riders stay entered in their own category throughout. A combined field changes
-who they qualify against and who they race — never what they're scored as, which
-licence they're filed under, or which league points they earn. Every run is
-recorded against the rider's own race.
+who they qualify against and who they race. Runs remain associated with each
+rider’s entry, but the podium setting changes how places are awarded. Confirm
+any licensing or league-points implications with the relevant body.
 
 Anything you don't combine keeps running on its own; the modal lists those under
 **Running on their own** so you can see what's left out.
 
 <Warning>
   Combining a category that already has decided matches sets its bracket aside.
-  Nothing is deleted — separating the categories again brings it back with its
-  results — but the new combined field starts from an empty bracket. The modal
+  The existing category bracket is set aside and the combined field starts
+  with an empty bracket. Export and review the existing results before changing
+  fields; do not use grouping changes as a substitute for a result correction. The modal
   says so before you save.
 </Warning>
 
@@ -149,7 +157,7 @@ gets its own, as before.
 
 <Steps>
   <Step title="Pick the bracket format">
-    **Single + 3rd place** is the collegiate default: a straight knockout plus
+    **Single + 3rd place** offers a straight knockout plus
     a ride-off between the semifinal losers, so the sheet places 1 through 4.
 
     The others are single elimination (1st and 2nd only), single + consolation
@@ -158,7 +166,8 @@ gets its own, as before.
     and double elimination.
   </Step>
   <Step title="Pick the match format">
-    **Combined time** is the standard: both runs added, lowest total wins.
+    **Combined time** adds the scored run times and applies the configured
+    differential cap. Select it only when it matches the event’s scoring rules.
 
     Best of 2 scores by runs won. Single run is one and done, for when you're
     losing the light.
@@ -176,12 +185,14 @@ gets its own, as before.
     at a glance whether anybody is missing before you build.
   </Step>
   <Step title="Set the maximum differential">
-    Defaults to **1.5 seconds**, per USAC 5E2(c). Adjust it if your course
-    warrants.
+    The software default is **1.5 seconds**. Use the value approved for the
+    event under its applicable rules.
   </Step>
 </Steps>
 
-{/* IMAGE NEEDED: Bracket setup with "From quali times" chosen and the seed order filled in */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/bracket-setup.png" alt="Bracket setup with From quali times selected and fictional seeds filled in" />
+</Frame>
 
 Repeat per field. Each one gets its own bracket, its own seeds, and its own
 podium — or a podium per category inside it, if that's how you set the combined
@@ -217,10 +228,9 @@ a round:
   takes a while to reset.
 
 Pick it at bracket setup, or flip it from the operator screen mid-round. It
-is stored on the bracket, so both lane operators are always called to the same
-pair. It changes nothing about the bracket itself, only the order the screen
-offers matchups in, so switching costs nothing and you can always tap a match
-in the bracket to jump straight to it.
+is shared with connected operators. Confirm the pair and lane assignments
+with the crew when changing the order, especially after a connection loss.
+You can also select a match directly in the bracket.
 
 Full mechanics: [Dual slalom](/timing/formats/dual-slalom).
 
@@ -228,8 +238,8 @@ Byes advance automatically when you **Resolve byes**, which is worth pressing
 after setup and after any substitution.
 
 <Tip>
-  Put one person on each lane's finish and one at the gate, and nobody has more
-  than one button. It's the difference between a smooth bracket and a protest.
+  Assign the starter and each lane finisher a clear job. Rehearse the start,
+  finish, lane-swap, and correction procedure together before racing.
 </Tip>
 
 ### Re-running a heat, or fixing one result
@@ -242,16 +252,17 @@ From there you can:
 
 - **Correct a time** for either lane.
 - **Charge a penalty** (jump start, missed gate) on one rider. That rider is
-  charged the maximum differential for the run and cannot win it, per USAC
-  5E2(c).
+  charged the configured maximum differential for the run and cannot win it.
+  Apply this control only when the event’s rules support that decision.
 - **Re-run the heat.** Both times are cleared and the pair goes back into the
   running order *at the same run number*, so the re-run replaces the original
   instead of sitting beside it. Use this when they are going again.
 - **Delete the run** outright, so the match scores as if that heat never
   happened. Needs marshal rights.
 
-Every one of these is written to the session log and noted on the result, so a
-protest can be walked back afterwards.
+These actions create timing-log entries. Keep the race official’s reasons and
+backup evidence with your event records; the operator screen does not provide
+a complete history view or decide a protest.
 
 <Tip>
   Re-run and delete are not the same thing. Re-run keeps the slot and expects
@@ -286,12 +297,14 @@ available from the match panel:
     than by email on Tuesday.
   </Step>
   <Step title="Finalize">
-    Locks the results. It won't let you through while any device still has
-    times waiting to upload, which is exactly the check you want here.
+    Closes timing entry until reopened. This screen checks its own queue;
+    confirm all other devices have uploaded their records and resolve any
+    outstanding times before finalizing.
   </Step>
   <Step title="Publish">
-    Results go live on the event page, land on each rider's profile, and
-    finishers get an email.
+    Publish with an authorized organization account, then check the public
+    Results page and follow the event’s announcement process. Publication does
+    not itself certify the placings.
 
     → [Finalize & publish](/timing/results/finalize-and-publish)
   </Step>
@@ -318,14 +331,14 @@ way.
 
 <AccordionGroup>
   <Accordion title="Set the displayed precision to hundredths" icon="stopwatch">
-    Slalom margins are routinely under a second, and whole seconds will show you
-    ties that aren't. **Timer setup → How I am timing → Show times to → 0.01s**.
+    Whole-second display can hide recorded differences between riders. **Timer setup → How I am timing → Show times to → 0.01s**.
 
-    Every time is stored to the millisecond regardless, so you can tighten it
-    afterwards if two riders still tie.
+    The display can show finer recorded differences, but more digits do not
+    improve measurement accuracy. Resolve close finishes under the event’s
+    rules using the available timing evidence.
   </Accordion>
   <Accordion title="Set pause to freeze the clock" icon="pause">
-    A course hold shouldn't count against anyone. **Timer setup → How I am
+    Use this only when the event’s hold rules exclude the paused period. **Timer setup → How I am
     timing → What pause means**. It locks once the first time is recorded, so do
     it before qualifying.
   </Accordion>
@@ -344,9 +357,10 @@ way.
 
     → [RFID](/timing/hardware/rfid)
   </Accordion>
-  <Accordion title="Beam timing pays for itself here" icon="bolt">
-    Two riders separated by hundredths is exactly where human reaction time at
-    the button stops being good enough.
+  <Accordion title="Consider tested beam timing for close finishes" icon="bolt">
+    Beam timing can reduce dependence on button-press reaction time. Check
+    alignment, box clock status, and the complete recording path before relying
+    on it for close finishes.
 
     → [Laser timing](/timing/hardware/laser)
   </Accordion>
@@ -359,6 +373,6 @@ way.
     Lanes, staging, and the one-button finish.
   </Card>
   <Card title="Brackets" icon="sitemap" href="/timing/formats/brackets">
-    Setup, byes, and every way to repair one.
+    Setup, byes, and correction controls.
   </Card>
 </Columns>

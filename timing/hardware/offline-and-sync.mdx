@@ -1,88 +1,84 @@
 ---
 title: "Timing without signal"
-description: "What happens when the network drops, and the one thing you shouldn't do."
+description: "Prepare a device for offline recording and check that queued actions upload."
 icon: "wifi"
 ---
 
-Every finish is saved to your phone the instant you record it, before anything
-is sent anywhere. **Signal is a bonus, not a requirement.** If the network drops
-mid-race, keep timing exactly as normal.
+The timer writes recorded actions to browser storage before attempting to upload
+them. A device that has loaded the timing screen and session can keep recording
+during a connection loss, provided its local storage is working.
 
-## The dot in the corner
+Before race day, load the timer on each device, use **More actions → Download for
+offline**, and test reopening it without a connection. Keep a backup timing
+record. Offline availability depends on the browser retaining the page and data.
 
-| | Meaning | What to do |
+## The sync indicator
+
+| Status | Meaning | What to do |
 |---|---|---|
-| 🟢 **Green** | Everything on this phone has uploaded | Nothing |
-| 🟡 **Yellow** | Some finishes are waiting to upload | Nothing — they'll go when there's signal |
-| 🔴 **Red** | No signal, recording to this phone | Nothing — keep timing |
+| 🟢 **Synced** | No actions are waiting to upload on this device | Check the other timing devices before finalizing |
+| 🟡 **Queued** | Actions are waiting to upload | Tap the indicator to check progress or errors |
+| 🔴 **Offline** | The browser reports no connection | Keep the device powered and monitor local recording |
 
-Yellow and red are normal at a bike race. They don't mean anything is wrong.
+An offline indicator does not confirm that every crossing was saved. Check the
+recorded entries and respond to storage or recording errors.
 
-{/* IMAGE NEEDED: Close-up of the timing screen's top bar with the sync dot showing queued finishes */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/sync-queued.png" alt="Timing header showing one finish waiting to sync" />
+</Frame>
 
-## The one thing to be careful about
+## Protect queued records
 
 <Warning>
-  If the dot isn't green, the finishes on that phone exist **only on that
-  phone**. Don't put it away, hand it off, or let it die until it's green.
-
-  If you need to move to a different device mid-race, walk the old phone
-  somewhere with signal and wait for green first.
+  Queued actions have not been confirmed by the server and may exist only on
+  that device. Keep it powered and retain access to it until the queue clears.
+  Do not clear site data, reset timing, or discard queued actions as a way to
+  fix a connection problem.
 </Warning>
 
-This is the only way to actually lose timing data, and it's avoidable.
+Browser storage can be cleared or evicted, and a full device can reject new
+writes. Treat storage warnings promptly. Avoid private browsing for timing, and
+export the local log if the device or connection is in trouble.
 
-## What survives what
+## What to expect
 
-| If this happens | What you get |
+| Situation | Next step |
 |---|---|
-| You refresh or close the tab | Everything's still there when you reopen it |
-| Signal drops for an hour | You keep timing. It all uploads on reconnect |
-| Your battery dies mid-race | Anything already uploaded is safe. Anything not, is on that phone — charge it and let it connect |
-| You switch to a spare phone | The spare loads everything from the server. Anything the old phone hadn't uploaded still needs the old phone |
-| Time2Bike has a hiccup | Nothing is lost. Your phone keeps recording and catches up |
+| You refresh or close the tab | Reopen the same browser and timer; check that retained records are present |
+| Signal drops | Keep recording if local saves are working; monitor the queue when connectivity returns |
+| The battery dies | Recharge the device and check its retained queue; compare with your backup record |
+| You switch to a spare device | The spare can load server records when connected; recover unsynced actions from the original device |
+| The server is unavailable | Local recording can continue; uploads need the service and connection to recover |
 
-## When it uploads
+## Uploads and retrying
 
-Automatically — as soon as signal returns, whenever you switch back to the tab,
-and periodically while you're idle. You don't have to trigger it.
+The open timing page retries automatically, including when connectivity returns
+or you switch back to the tab. Upload time depends on the connection, queue size,
+and any server or access errors. A closed or suspended tab is not a dependable
+way to finish uploading.
 
-If you want to nudge it, pull down on the page to refresh.
+Tap the sync indicator to see **Sync status**. Review the last error and use
+**Retry now** after addressing it. A correction made offline can conflict with
+another operator's change; review that warning before discarding either record.
 
-A phone that's been offline for a long stretch sorts itself out within a few
-seconds of reconnecting, and slots its finishes into the right places in the
-results rather than tacking them on the end.
+## Export the local log
 
-## The rescue export
+Open **Sync status** and use **Export CSV** or **Export JSON** under **Backup**.
+These download the timing actions retained on that device. Keep the file with
+your other race records and contact the race director or support for help
+reviewing it. An export does not confirm that those actions reached the server,
+and automatic recovery from every exported file is not guaranteed.
 
-At the bottom of the timing screen there's an **Export log** button. It saves
-everything that phone has recorded to a file.
+## Check-in while offline
 
-Use it if a phone is in trouble and you want the finishes off it before anything
-worse happens — a dying battery, a cracked screen, a phone that won't reconnect.
-Send the file to your race director, who can load it back in.
+The [check-in desk](/organizers/events/check-in) also uses a cached roster and a
+local queue. Load the roster while connected and check its offline/queued banner.
+New registrations and changes from other devices require a connection to arrive.
+Keep the tablet available until its queued check-ins have uploaded.
 
-Think of it as the fire extinguisher. You'll probably never need it, and you'll
-be glad it's there if you do.
+## Practical preparation
 
-## Check-in works the same way
-
-The [check-in desk](/organizers/events/check-in) is built on the same idea. The
-whole field is cached on the device, every check-in is written to a queue there
-first and replayed in order when the connection returns, and a reload in a dead
-spot still shows the roster.
-
-A bar appears at the top of the desk only when there's something to say — how
-many check-ins are queued, or that you're offline and they're saved locally. It
-is safe to keep working, and safe to close the tab.
-
-Same caution as above: work queued on a tablet lives on that tablet until it
-reconnects.
-
-## Practical advice
-
-- **Battery packs for every timing phone.** A phone with the screen on for three
-  hours will not make it on its own.
-- **Set timing phones to never sleep** while charging.
-- **Check for green before you pack up.** Make it the last thing you do at each
-  finish line.
+- Charge each device and bring a battery pack sized for the event.
+- Set timing devices to stay awake while charging, where supported.
+- Keep the timing tab open and visible during recording and upload.
+- Check every device's queue and the resulting finish list before packing up.

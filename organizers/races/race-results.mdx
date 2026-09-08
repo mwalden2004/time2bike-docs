@@ -6,39 +6,48 @@ icon: "trophy"
 
 **Race → Results** is for organizers who time manually or who want to publish results without using [Live Timing](/timing/overview).
 
-{/* IMAGE NEEDED: /organizations/[id]/events/[eventId]/races/[raceId]/results → results table with three upload modes */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/race-results.png" alt="Race results table with finish times, gaps, and publication status" />
+</Frame>
 
 ## Three input modes
 
-Click **Add results** and pick one:
+Click **Add result** or **Bulk upload**, then choose **Single**, **Line by Line**, or **CSV File**.
+
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/race-result-input.png" alt="Result entry dialog with Single, Line by Line, and CSV File input modes" />
+</Frame>
 
 ### Single rider
 
 1. Search for the rider by name.
-2. Enter their **finish time** (mm:ss.SSS) or pick a **status** (`dnf`, `dns`).
+2. Enter their **Finish time (hh:mm:ss)** or pick a **status** (`dnf`, `dns`).
 3. Save.
 
-### Bulk paste
+### Line by Line
 
-Paste lines from a spreadsheet. Format per line:
+Paste one result per line using `Name, hh:mm:ss`, with an optional status:
 
-```
-[bib],[time-or-status]
-```
-
-For example:
-
-```
-12,1:23:45.678
-14,dnf
-20,01:24:01.500
+```text
+Rider 101, 01:02:00
+Rider 102, 01:02:34
+Rider 103, 00:00:00, dnf
 ```
 
-Time2Bike matches bibs to registered riders. Unmatched bibs show in a "needs attention" callout.
+Click **Upload Results** to add the rows.
 
-### CSV upload
+### CSV File
 
-Same shape as bulk paste but as a file. Header row optional; columns: `bib`, `time`, `status`, `categoryName` (optional override).
+Upload a `.csv` or `.txt` file with columns in this order:
+
+```text
+Name, Time, Bib, Status
+Rider 101, 01:02:00, 101, ok
+Rider 102, 01:02:34, 102, ok
+```
+
+**Bib** and **Status** are optional. A header row beginning with **Name** is
+supported.
 
 ## Split results
 
@@ -57,6 +66,8 @@ finish times; the split only changes how they're scored and displayed.
 Results are **draft** until you click **Publish**. Drafts are visible only to
 your own organization; once published they appear on your public event page.
 
-{/* IMAGE NEEDED: time2.bike/events/[slug]/results → published race results table */}
+<Frame caption="Published results for demo riders. Demo data.">
+  <img src="/images/events/public-results.png" alt="Published results for demo riders" />
+</Frame>
 
 If you used Live Timing for this race, results appear here automatically once you finalize (see [Finalize & publish](/timing/results/finalize-and-publish)).

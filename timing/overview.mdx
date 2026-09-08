@@ -1,14 +1,16 @@
 ---
 title: "Live Timing overview"
-description: "Time your race on a phone or laptop. Nothing to set up, and it keeps working when the signal doesn't."
+description: "Time your race on a phone or laptop, with local recording for prepared offline devices."
 icon: "stopwatch"
 ---
 
 **Live Timing** is how you time a race on Time2Bike. It runs in a normal web
-browser. There's no app to install, no timing hardware to buy, and nothing to
-configure before race day.
+browser. You can record manually without dedicated timing hardware. Set up your races,
+bibs, and timing options, then test the devices before race day.
 
-![Live Timing](/images/timing/home.png)
+<Frame caption="Demo data.">
+  <img src="/images/timing/operator-screen.png" alt="Live Timing" />
+</Frame>
 
 ## There's nothing to create
 
@@ -33,7 +35,7 @@ the tab tells you so.
 
 <Columns cols={2}>
   <Card title="A phone or laptop" icon="mobile">
-    Anything from the last few years, in a normal browser.
+    A device and browser you have tested with your timing setup.
   </Card>
   <Card title="Bib numbers on your riders" icon="hashtag">
     Bib numbers are the only rider identity Time2Bike uses. Assign them under
@@ -41,34 +43,34 @@ the tab tells you so.
   </Card>
 </Columns>
 
-Signal is optional. See below.
+A connection is needed to load current event data and share records between
+devices. Prepare and test offline recording before relying on it.
 
 ## How it works, in one paragraph
 
 Open the Live Timing tab and press **Start** when the race begins. As riders
 cross the line you type their bib number and press Enter, or tap their name in
-the rider list. Each entry is stamped with the exact moment you pressed the
-button. When the race is over you press **Stop**, fix anything that looks wrong,
+the rider list. Each entry is timestamped when the device processes the recording action. When the race is over you press **Stop**, fix anything that looks wrong,
 then **Finalize** and **Publish**, and the results appear on your event page.
 
 ## The things that matter on race day
 
 <AccordionGroup>
-  <Accordion title="It works with no signal" icon="wifi">
-    Every finish is saved to your device the instant you record it, before
-    anything is sent anywhere. Lose signal mid-race and nothing stops. Keep
-    timing. It catches up on its own when the signal comes back.
+  <Accordion title="Prepared devices can record offline" icon="wifi">
+    The timer saves actions locally before attempting an upload. With the screen
+    and session loaded, you can continue during a connection loss while local
+    storage is working. Check the queue and any errors when you reconnect.
 
-    You can even save the whole screen to a device ahead of time so it opens
-    with no signal at all.
+    Use **Download for offline** ahead of time and test the same device without
+    a connection.
 
     → [Timing without signal](/timing/hardware/offline-and-sync)
   </Accordion>
   <Accordion title="Your whole crew can time at once" icon="users">
     Put four volunteers on four devices and they all record into the same timer.
-    Their entries combine correctly, in the right order, even if some of them
-    were offline at the time, and everyone sees everyone else's finishes
-    within about a second.
+    Their uploaded actions combine in the same session. Updates require a
+    working connection; queued actions and conflicting corrections need review.
+    Confirm all devices have uploaded before finalizing.
 
     Better still, each person says **where on the course they're standing**, and
     the same screen does the right job for each of them.
@@ -82,17 +84,18 @@ then **Finalize** and **Publish**, and the results appear on your event page.
 
     → [Volunteer links](/timing/crew/tokens-and-qr)
   </Accordion>
-  <Accordion title="Mistakes are fixable, and there's an UNDO button" icon="rotate-left">
-    Every recording can be undone with one tap. Beyond that: wrong bib, missed
-    finish, forgot to press start, two people recorded the same rider. All of it
-    is fixable after the fact, and every correction keeps a record of what was
-    originally entered.
+  <Accordion title="Correct recordings and use UNDO for recent actions" icon="rotate-left">
+    **UNDO** reverses supported recent actions, subject to your role. Result
+    controls also let you correct times and statuses using your backup records.
+    Resetting timing or losing unsynced device data is different from correcting
+    a result and can remove records.
 
     → [Corrections](/timing/screen/corrections)
   </Accordion>
-  <Accordion title="Spectators can follow along before results are official" icon="radio">
+  <Accordion title="Spectators can follow provisional results" icon="radio">
     Flip **Share live results** and you get a public link that updates as you
-    record. Results stay unofficial until you finalize and publish.
+    record. Live results are provisional. Publishing does not replace the organizer’s
+    result-review and protest process.
 
     → [Sharing live results](/timing/results/live-sharing)
   </Accordion>
@@ -119,7 +122,7 @@ hardware, you can feed it in instead:
 - **RFID pads** — [read from your reader's file](/timing/hardware/rfid), keyed
   by bib.
 - **Beam-break gate boxes** — [Time2Bike's laser timing system](/timing/hardware/laser),
-  for GPS-accurate starts and finishes.
+  for beam-triggered starts and finishes with box clock-status monitoring.
 
 ## Where to go next
 

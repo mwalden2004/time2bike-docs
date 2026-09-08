@@ -4,25 +4,29 @@ description: "Schedule a practice, and time your own athletes with the same tool
 icon: "stopwatch"
 ---
 
-A **practice** is a timing-only session your team runs for itself. No
-registration, no pricing, nothing public. But it uses the full Time2Bike timing
-setup, so a Tuesday interval session is timed exactly the way a race is.
+A **practice** is a session your team runs using Time2Bike's timing tools,
+without public registration or checkout. Team staff access it from the team
+workspace.
 
 Open the **Practices** tab. You'll see it if you're a **coach**, **manager**,
 team **admin**, or **owner**.
 
-{/* IMAGE NEEDED: The **Practices** tab in calendar view with the "Up next" card at the top */}
+<Frame caption="The Practices calendar and Up next card. Demo data.">
+  <img src="/images/teams/practices.png" alt="The Practices calendar and Up next card." />
+</Frame>
 
 <Note>
-  Your entire active roster is entered into every practice automatically. You
-  never enter anyone.
+  Active roster athletes are added when you create a practice. Re-sync the
+  roster if athletes join later, and add drop-ins at the timer when needed.
 </Note>
 
 ## Creating a practice
 
 <Steps>
   <Step title="Click New practice">
-    {/* IMAGE NEEDED: The **New practice** modal with two activities added */}
+    <Frame caption="A new practice with a time trial and an endurance activity. Demo data.">
+      <img src="/images/teams/new-practice.png" alt="A new practice with a time trial and an endurance activity." />
+    </Frame>
   </Step>
   <Step title="Name it and set the date and time">
     `Tuesday intervals`. Location is optional.
@@ -51,8 +55,8 @@ team **admin**, or **owner**.
 
 This is the point of activities. Each one gets **its own clock**, so a time
 trial, an endurance lap ride, and a dual-slalom bracket can run at the same time
-under one practice, each on a different phone, with a different coach, and
-nobody has to coordinate.
+under one practice, each on a different phone with a different coach. Coordinate
+staff, riders, and course use even when the timing clocks are separate.
 
 The operator screen picks the right surface per activity automatically.
 
@@ -90,18 +94,12 @@ The refresh icon on a practice row re-enters your current roster. Use it when
 athletes joined the team after you created the practice. They won't be in it
 otherwise.
 
-## What's happening behind the scenes
+## Who can access practice records
 
-Worth knowing, because it explains a few things you'll see:
-
-- A practice is an ordinary event flagged as a practice and hidden from every
-  public page. That's why it gets the full race-day timing screen, unchanged.
-- If your team isn't attached to an organization, Time2Bike quietly provisions a
-  hidden one to own your practices. You never see it, it has no Stripe account,
-  and nothing under it can be paid for.
-- Your coaches and managers are mirrored into that hidden org with the minimum
-  permission needed to run the operator screen. Athletes aren't, since they're
-  the people being timed.
+Coaches, managers, team admins, and owners can use the practice timing and
+results tools. Ordinary roster athletes do not gain that staff access.
+Practices are excluded from public event listings. Review staff roles and take
+care when sharing screenshots or exported results.
 
 ## Next
 

@@ -4,16 +4,19 @@ description: "Track one-day licenses you've collected and need to file with the 
 icon: "id-card-clip"
 ---
 
-**Event → Event setup → Licenses** is your worksheet for filing one-day licenses with the sanctioning body after the event. It shows every rider in the event who needs one — whether you took the fee at checkout, the platform they were imported from took it, or nobody has taken it yet — plus the riders who used an annual license that's already on file.
+**Event → Event setup → Licenses** groups riders using the license and payment
+information recorded for the event. Use it to review annual licenses on file,
+reconcile one-day fees, and prepare filings for your sanctioning body.
 
 This page only appears on events that have a **permit issuer** configured. Set that on **Event → Settings** under **Permitting & Sanctioning**, or on the create-event wizard.
 
-{/* IMAGE NEEDED: Event → **Licenses** with the One-day filter active */}
+<Frame caption="One-day license list with sample riders and submission status. Demo data.">
+  <img src="/images/events/licenses.png" alt="One-day license list with sample riders and submission status" />
+</Frame>
 
 ## Default view: one-day licenses
 
-The default filter is **One-day**. These are the riders **you** are responsible
-for filing for. For each row you'll see:
+The default filter is **One-day**. Use these rows to reconcile one-day fees and prepare the filing your issuer requires. For each row you'll see:
 
 | Column | What it is |
 |---|---|
@@ -29,11 +32,11 @@ for filing for. For each row you'll see:
 
 | Badge | What it means |
 |---|---|
-| **Annual on file** | A valid annual license covering race day. Not your responsibility. |
+| **Annual on file** | An annual license recorded as covering race day. Check the issuer's event requirements. |
 | **One-day** | A one-day fee you collected at checkout. File it. |
-| **One-day — paid at source** | The rider bought a one-day on the platform this entry was imported from. **Don't charge again**; it may still need filing. |
+| **One-day — paid at source** | The imported file records a one-day purchase. Reconcile it before collecting another fee or filing. |
 | **One-day — not collected** | Nobody has taken the fee. Collect it at the desk, then file. |
-| **Licence required** | The rider has no license and this race can't sell a one-day (e.g. UCI). They can't start on this entry. |
+| **Licence required** | No qualifying license is recorded, and one-day purchase is unavailable. Resolve eligibility under the issuer's rules before the rider starts. |
 
 Rows that aren't covered show why underneath — *Licence expired*, *No licence
 on file* — so you can tell a renewal from a first-timer at a glance.
@@ -48,16 +51,16 @@ The [check-in desk](/organizers/events/check-in) and
 [manual entry](/organizers/registrations/manual-entry) can both settle a licence
 on race morning, and whatever they do lands here:
 
-- **A licence number keyed in** is validated with the issuer before it's saved
-  to the rider's profile. If it covers race day, they move to **Annual on file**
-  and stop being your problem.
+- **A licence number keyed in** is saved to the rider's profile after the
+  available checks. USA Cycling numbers use an online lookup; other issuers
+  currently have no live verification. Review the license's dates and the
+  issuer's requirements before treating the rider as eligible.
 - **A one-day sold** — cash, card, or waived — becomes a one-day row to file,
   tagged with how it was collected.
 
-A **waived** one-day is still written, as a fee of zero. You choosing to absorb
-the cost doesn't make the licence disappear: the rider raced on a one-day and
-the issuer still has to be told, so it belongs on this list like any other.
-Leaving it off would quietly drop them from your filing.
+A **waived** one-day records a fee of zero and remains in the filing list.
+Waiving the charge in Time2Bike does not establish that the issuer has issued
+a license or waived any amount you owe. Reconcile it under the issuer's rules.
 
 One fee per rider per race date, however many races they entered — the same rule
 the cart applies — so a rider in three races produces one row to file, not
@@ -76,9 +79,9 @@ Click the status pill on a row to advance it, or open the **notes** modal to add
 
 ## Annual-license view
 
-Toggle the filter to **Annual** to see riders who entered with an annual license already on file. These riders are **not your responsibility**, because the sanctioning body
-already has them. They're shown for reference, so you can spot-check who said
-they had a license.
+Toggle the filter to **Annual** to review licenses on file. This view reflects
+the stored number, status, and dates. It does not confirm every event-specific
+eligibility requirement or replace checks required by your sanctioning body.
 
 ## Group by participant
 
@@ -87,8 +90,8 @@ Switch **Group by** to **Participant** to roll up riders who entered multiple ra
 ## Export
 
 **Download CSV** exports the current filtered view with all columns — including
-who took the fee and the license's status — ready to paste into your
-sanctioning body's bulk-upload tool.
+who took the fee and the license's status. Check the issuer's required format
+before uploading it.
 
 ## See also
 

@@ -6,27 +6,26 @@ icon: "dollar-sign"
 
 Each race has its own price schedule. Pick from your org's templates (see [Price schedules](/organizers/pricing/price-schedules)) under **Race → Pricing**.
 
-{/* IMAGE NEEDED: /organizations/[id]/events/[eventId]/races/[raceId]/pricing → template selector and tier preview */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/race-pricing.png" alt="Race pricing with the applied price tiers and template choices" />
+</Frame>
 
 ## Apply a template
 
 1. Open **Pricing** under the race.
-2. Pick a template from the dropdown.
+2. Select a card under **Choose a template**.
 3. Click **Apply template**.
 
-The template's tiers, currency, and policies are copied onto the race. Editing the template later does **not** auto-update applied races — you must re-apply.
+The race uses the selected template. Editing that template updates prices for future registrations on every race that uses it. Existing registrations keep the price they were charged.
 
 ## Tier model
 
-A price schedule is one or more **tiers** ordered by `validFrom`:
+The **Currently applied** section shows the schedule's mode and price tiers.
+The preview lists each tier's name, when it applies, any cap, and its price.
 
-| Tier | Price | Valid from | Capacity |
-|---|---|---|---|
-| Early bird | $50 | now | 100 |
-| Regular | $75 | 2025-09-01 | unlimited |
-| Late | $90 | 2025-09-20 | unlimited |
-
-At any given time the active tier is the latest one whose `validFrom` has passed and which still has capacity. Capacity is shared with the race's overall capacity.
+Templates support **Flat rate**, **Days before event**, and **By registration
+count** pricing. See [Price schedules](/organizers/pricing/price-schedules) to
+configure a template.
 
 ## Free races
 

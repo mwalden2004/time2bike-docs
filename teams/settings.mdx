@@ -8,7 +8,9 @@ The **Settings** tab is admin-only. Everything on it saves with the **Save
 changes** button at the bottom, except the join codes and league affiliation,
 which act immediately.
 
-{/* IMAGE NEEDED: The team **Settings** page, scrolled to show Basic info and Visibility & joining */}
+<Frame caption="Basic info and visibility and joining settings. Demo data.">
+  <img src="/images/teams/settings.png" alt="Basic info and visibility and joining settings." />
+</Frame>
 
 ## Basic info
 
@@ -25,8 +27,8 @@ which act immediately.
 | Option | Effect |
 |---|---|
 | **Public** | Listed and discoverable |
-| **Unlisted** | Reachable by link only |
-| **Private** | Members only |
+| **Unlisted** | Public page reachable by anyone with its link, but not listed |
+| **Private** | Public page unavailable; members use the team workspace |
 
 **Join policy**, meaning how people get on the roster:
 
@@ -66,8 +68,9 @@ team card in your teams list.
 
 ## Danger zone
 
-**Delete team** soft-deletes the team. Members lose access immediately. You're
-asked for an optional reason.
+**Delete team** removes the team from normal access and public pages. It does
+not erase all associated records or copies already downloaded. You're asked for
+an optional reason.
 
 <Warning>
   There's no self-service undo. If you delete a team by mistake, contact

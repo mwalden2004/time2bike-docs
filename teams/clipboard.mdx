@@ -1,6 +1,6 @@
 ---
 title: "The clipboard"
-description: "Every athlete against every practice: who showed up, what they ran, and who's trending the wrong way."
+description: "Compare recorded practice times and review athlete trends."
 icon: "clipboard-list"
 ---
 
@@ -9,15 +9,17 @@ grid, athletes down the side, practices across the top.
 
 Available to **coaches**, **managers**, team **admins**, and **owners**.
 
-{/* IMAGE NEEDED: The **Results** clipboard: a week expanded, athletes in rows, activity columns, and the trend column on the right */}
+<Frame caption="The Results clipboard with athlete rows, practice activity columns, and trends. Demo data.">
+  <img src="/images/teams/results.png" alt="The Results clipboard with athlete rows, practice activity columns, and trends." />
+</Frame>
 
 ## Reading the grid
 
 - **Rows** are your roster athletes.
 - **Columns** are activities, one per activity per practice, labelled with the
   activity name and the date.
-- **Cells** are that athlete's time in that activity. A blank cell means they
-  weren't timed, which is usually the attendance answer you were after.
+- **Cells** show that athlete's recorded time in the activity. A blank cell
+  means no time is shown; it does not establish whether the athlete attended.
 - **Trend** on the right shows whether an athlete is getting faster or slower.
 
 Practices are grouped by week, newest first, and each week collapses. (Practices
@@ -46,16 +48,19 @@ With **Group by gender** on, the comparison is within each group.
 Click an athlete to open their history: every practice they've been timed at,
 so you can see the shape of their season rather than one bad Tuesday.
 
-{/* IMAGE NEEDED: The athlete history modal with a sparkline of their times across the season */}
+<Frame caption="An athlete history dialog with recorded times and a season trend. Demo data.">
+  <img src="/images/teams/athlete-history.png" alt="An athlete history dialog with recorded times and a season trend." />
+</Frame>
 
 ## Where the times come from
 
-Practice times come from live timing, not from published results. Practices are
-never published, so the live-timing rows are the only source. This means:
+The clipboard uses recorded practice timing data without a results-publication
+step. This means:
 
-- Times appear as soon as they're recorded at the timer.
+- Times appear after timing records reach the server and the view updates.
 - You don't have to finalize or publish anything for the clipboard to fill in.
-- Nothing here is public, ever.
+- The clipboard requires authorized team-staff access. Protect any copies you
+  export or share.
 
 ## Seasons
 

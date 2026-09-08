@@ -10,7 +10,9 @@ turns that off: one screen, one chute, every rider in the event.
 Use it when several categories share a finish line and sorting riders into races
 at the moment they cross is unrealistic.
 
-{/* IMAGE NEEDED: Combined finish: the wave board on top, the plate box, and the combined finish feed below with overall and per-race places */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/combined-finish.png" alt="Combined timing with start board, bib entry, and overall and per-race places" />
+</Frame>
 
 ## Turning it on
 
@@ -27,7 +29,9 @@ at the moment they cross is unrealistic.
   </Step>
 </Steps>
 
-{/* IMAGE NEEDED: Timer setup → How I am timing, with both finish-style options */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/timer-setup.png" alt="Both finish styles in Timer setup: one race at a time or one shared chute" />
+</Frame>
 
 ## Dual slalom races are unaffected
 
@@ -85,7 +89,9 @@ For the same reason, every place this screen names a race shows the discipline
 with it: the resolve preview, the finish feed, the start-time dialogs, and the
 prompt that asks which race a shared bib belongs to.
 
-{/* IMAGE NEEDED: The "Races through my chute" selector with two of four races selected */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/chute-races.png" alt="Races through my chute with two of four demo races selected" />
+</Frame>
 
 ## Where you're standing
 
@@ -146,13 +152,13 @@ bib**. Press the capture button each time someone crosses; you get a timestamped
 slot with no rider attached.
 
 Afterwards, minutes later or after the race, work through the queue of
-unassigned times and attach a bib to each. The **time never moves**; you're only
-saying who it belonged to.
+unassigned times and attach a bib to each. Assigning the rider preserves the captured timestamp. Check both the rider
+and timestamp against your finish-order record.
 
 <Tip>
-  This is what you fall back to when the chute gets away from you. Better a
-  complete set of accurate times you attach names to later than a partial set of
-  times with names on them.
+  Use a finish-order note or another backup to match each captured crossing
+  to a rider. Blind capture removes the need to type a bib immediately; it does
+  not verify crossing accuracy or rider identity.
 </Tip>
 
 ## Typing a bib across races
@@ -185,9 +191,9 @@ Pl  Bib  Rider              Race          Halfway  Summit     Time
 - **Split columns run left to right in course order** — the order you listed the
   points in during setup. A row therefore reads as that rider's progress round
   the course.
-- **A blank cell is a point that rider hasn't reached.** Deliberately blank
-  rather than a dash, because a column of times with holes in it is exactly what
-  you're scanning for.
+- **A blank cell means no crossing is recorded at that point on this device.**
+  It can reflect a missing or unsynced record and does not establish the rider’s
+  physical location.
 - Riders still out are tinted and show a **running time** in the Time column.
 - Finished riders show their finishing time and place, and `N in race` next to
   their name.
@@ -197,8 +203,8 @@ Pl  Bib  Rider              Race          Halfway  Summit     Time
 
 ### Rows stay put
 
-The sheet is in **bib order and stays in bib order**. Nothing reshuffles while
-you're using it.
+The sheet is in **bib order and stays in bib order**. New timing values do not change that sort order. Check the selected rider
+before tapping, especially after roster or filter changes.
 
 This matters because tapping a row is how you record a rider whose bib you can't
 read. A sheet that re-sorts itself as times land is a sheet where the row under
@@ -261,11 +267,12 @@ It opens the same corrections sheet the per-race screen uses:
 | **Set a manual time** | Type the finishing time from the backup watch |
 | **Edit splits** | Fix, add, or remove a time at any timing point — see below |
 | **Void a lap** | Remove one lap with a reason — mechanical, crash, penalty |
-| **DNF / DNS / DSQ** | One tap, no confirm — UNDO has it if you misfire |
+| **DNF / DNS / DSQ** | Applies the status immediately; check the rider and decision before pressing |
 | **Delete the result** | Puts them back to not-recorded |
 
-Riders with no time recorded at all have no menu, because there's nothing yet to
-correct. Record them first, then fix the time.
+Use the rider’s available result controls to enter a verified missed time or
+status. Do not create a new current-time finish merely to stand in for an
+earlier crossing without correcting the elapsed time.
 
 #### Editing splits
 
@@ -301,15 +308,15 @@ Tick **Every rider must pass here** on a point in
 time there is flagged: the cell turns amber, their name picks up a **missed**
 badge naming the points, and a **Missed a point** filter appears in the header.
 
-They're only flagged once they've demonstrably gone past: they finished, or
-they have a time at a *later* point. Nobody is flagged for a point they simply
-haven't reached yet.
+The flag is based on recorded progress: a finish or a time at a later point.
+It does not verify where the rider is, and incorrect or unsynced records can
+affect it.
 
 <Warning>
-  **This never changes a result.** Their finish stands and their place stands.
-  A blank cell is far more often an unstaffed post or a missed number than a
-  rider cutting the course, so treat it as a prompt to go and check the post. If
-  you look into it and conclude they did cut the course, DQ them yourself. See
+  **The flag does not automatically change a finish or placing.** Investigate
+  missing records with the course crew before making a scoring decision.
+  Use **DSQ** only when the responsible official has established a violation
+  under the event’s rules. See
   [corrections](/timing/screen/corrections).
 </Warning>
 
@@ -349,8 +356,8 @@ targets, and only their riders are matched against incoming reads.
 ## Waves fit naturally here
 
 Combined finish and [waves](/timing/screen/waves) are usually used together: the
-wave board releases each group in turn, and net time keeps everyone comparable
-even though they didn't start at the same moment.
+wave board records each group’s start, and net time measures elapsed time
+from that group. Apply the event’s scoring rules when comparing riders.
 
 The start board also lists **every race's gun** underneath the waves, whether or
 not that race uses them. The gun is what gun time is measured from, and for any

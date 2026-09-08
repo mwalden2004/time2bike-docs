@@ -6,17 +6,18 @@ icon: "file-signature"
 
 Open **Race → Waivers** to attach waivers from your org's [Waiver library](/organizers/organization/settings-waivers) to this specific race.
 
-{/* IMAGE NEEDED: /organizations/[id]/events/[eventId]/races/[raceId]/waivers → waiver list with checkboxes and "N assigned" count */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/race-waivers.png" alt="Race waiver assignments with two required example documents" />
+</Frame>
 
 ## Assign
 
 Check the box next to each waiver to require it on this race. Click **Save**.
 
-If you need adults and minors covered by different documents, attach one of
-each. A waiver's **Applies to** setting decides which riders get which, based on
-their birthday — and the threshold is the age of majority in the state the
-waiver is governed in, which is 19 in Alabama and Nebraska and 21 in Mississippi
-and Puerto Rico rather than a flat 18.
+If your event uses separate adult and minor documents, attach the appropriate
+versions and review their **Applies to** settings. Document selection uses the
+rider's birthday and the platform's configured age threshold; it does not
+establish a document's legal effect.
 
 <Note>
   That filtering is applied wherever Time2Bike collects a signature on a rider's
@@ -29,6 +30,10 @@ and Puerto Rico rather than a flat 18.
 
 ## Removing a waiver
 
-Unchecking a waiver removes the requirement for **future** registrations. Existing signatures stay on the registrations that have already been submitted — your audit trail is intact.
+Unchecking a waiver removes it from the race's required documents. It does not
+delete signatures already recorded. Clearing the registrations themselves does
+delete associated signatures; review retention needs before clearing entries.
 
-{/* IMAGE NEEDED: /events/[slug]/register → Waivers step showing two required waivers */}
+<Frame caption="Two sample required waivers for a demo rider. Demo data.">
+  <img src="/images/events/register-waivers.png" alt="Two sample required waivers for a demo rider" />
+</Frame>

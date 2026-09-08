@@ -10,7 +10,7 @@ At `time2.bike/account/settings/security`:
 
 <Steps>
   <Step title="Enter your current password">
-    Required to confirm it's you.
+    Enter your current password to authorize the change.
   </Step>
   <Step title="Enter a new password">
     Minimum 8 characters. Time2Bike doesn't enforce specific complexity
@@ -19,14 +19,16 @@ At `time2.bike/account/settings/security`:
   <Step title="Confirm the new password">
     Type it again to avoid typos.
   </Step>
-  <Step title="Click Change password">
+  <Step title="Click Update Password">
     On success, **every other session** on your account is signed out and
     your current session keeps a fresh token. Other devices need to sign
     in again.
   </Step>
 </Steps>
 
-![Security page](/images/riders/security.png)
+<Frame caption="Password settings and text-message and email authentication controls. Demo data.">
+  <img src="/images/riders/security.png" alt="Password settings and text-message and email authentication controls." />
+</Frame>
 
 ## Multi-factor authentication (MFA)
 
@@ -44,39 +46,39 @@ Time2Bike supports two MFA methods:
   <Step title="Pick the phone">
     On the Security page, select the phone from the dropdown.
   </Step>
-  <Step title="Click Enable SMS">
-    Time2Bike sends a test code. Enter it to confirm.
+  <Step title="Click Enable SMS 2FA">
+    This enables text-message codes for sign-in using the verified phone you selected.
   </Step>
 </Steps>
 
 ### Turning on email MFA
 
-Toggle **Email MFA** on. No verification needed — your account email is
-already verified.
+Click **Enable Email 2FA** to use your verified account email for sign-in codes.
 
 You can have both methods on at once; sign-in will let you pick.
 
 ### Turning MFA off
 
-Toggle a method off and confirm with your password. If you turn off the
+Click **Disable SMS 2FA** or **Disable Email 2FA**. If you turn off the
 **only** active method, MFA is fully disabled and sign-in becomes a
 single-step password again.
 
 ## Active sessions
 
-`time2.bike/account/settings/sessions` lists every browser and device
-signed in to your account.
+`time2.bike/account/settings/sessions` lists your account's active sign-in
+sessions. Device descriptions come from the browser information sent at sign-in.
 
 Each session shows:
 
 - The **device** (browser + OS, parsed from user agent)
-- The **IP** location
+- The **IP address**
 - The **last active** timestamp
 
-![Sessions](/images/riders/sessions.png)
+<Frame caption="Active browser sessions with example device information and documentation IP addresses. Demo data.">
+  <img src="/images/riders/sessions.png" alt="Active browser sessions with example device information and documentation IP addresses." />
+</Frame>
 
-Click **Sign out** on any session to revoke it. The token is invalidated
-server-side immediately. Your current session is marked **(this device)**
-so you don't accidentally lock yourself out.
+Click the trash icon (**Revoke session**) beside a device to sign it out.
+When several sessions are listed, **Sign out all devices** ends them all.
 
 Use this if you signed in on a shared computer or lost a device.

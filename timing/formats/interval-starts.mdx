@@ -11,28 +11,31 @@ their own screen. Time2Bike gives it to any race whose format is **time trial**,
 Every rider carries their own start time, so nobody's result depends on a shared
 gun.
 
-{/* IMAGE NEEDED: The interval-start screen: the on-deck rider, the on-course list with live clocks, and the big FINISH button */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/interval-start.png" alt="Interval timing with a staged demo rider, two riders on course, and the FINISH button" />
+</Frame>
 
 ## The shape of it
 
 <Steps>
   <Step title="Start each rider as they drop in">
     Type the rider's bib into the start box and press start as the gate opens.
-    Their clock begins right then.
+    The recorded start is based on that action’s timestamp.
   </Step>
   <Step title="They join the on-course list">
-    Everyone currently on the hill, each with their own running time, oldest
-    first.
+    Riders with a recorded start and no finish, oldest start first. Confirm
+    their actual course status with the race crew when needed.
   </Step>
   <Step title="Press FINISH as each rider crosses">
     The big **FINISH** button closes out **the rider who's been on course
-    longest**, which is right whenever nobody has been passed.
+    longest**. Check that the expected rider is the one crossing the line.
   </Step>
 </Steps>
 
 ## When someone gets passed
 
-The big button's guess is wrong exactly when a rider is overtaken. Two ways out:
+Overtaking, missed starts, or riders withdrawing can make the expected finish
+order wrong. Two ways to handle this:
 
 - **Every rider on course has their own Finish button.** Use that one when you
   can see who's actually coming down.
@@ -63,8 +66,8 @@ stage, and the transfers between them aren't timed.
 ## Hardware
 
 This is the screen that benefits most from beam-break timing. A start gate and
-a finish beam remove human reaction time from both ends, which matters when
-runs are separated by hundredths.
+a finish beam can reduce dependence on button-press reaction time. Alignment,
+clock state, rider assignment, and detection still need to be tested and monitored.
 
 → [Laser timing](/timing/hardware/laser)
 
@@ -72,7 +75,7 @@ runs are separated by hundredths.
 
 <Columns cols={2}>
   <Card title="Laser timing" icon="tower-broadcast" href="/timing/hardware/laser">
-    GPS-accurate gate and finish beams.
+    Beam triggers and box clock-status monitoring.
   </Card>
   <Card title="Dual slalom" icon="code-branch" href="/timing/formats/dual-slalom">
     Two riders, side by side.

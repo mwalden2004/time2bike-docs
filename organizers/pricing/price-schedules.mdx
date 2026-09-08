@@ -6,25 +6,27 @@ icon: "calendar-days"
 
 A **price schedule** is a named, reusable set of tiers you can apply to any race. Manage them at **Pricing → Schedules**.
 
-{/* IMAGE NEEDED: /organizations/[id]/pricing/schedules → schedule list with tier counts */}
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/organizers/price-schedules.png" alt="Price schedules with pricing modes and entry tiers" />
+</Frame>
 
 ## Tier model
 
-Each schedule has one or more **tiers**:
+Choose a pricing mode:
 
-| Field | Purpose |
+| Mode | Purpose |
 |---|---|
-| **Name** | "Early bird", "Regular", "Late". |
-| **Price** | Decimal. Currency is the schedule default. |
-| **Valid from** | When this tier becomes active. |
-| **Capacity** | Optional cap on this specific tier. Leave blank for unlimited. |
+| **Flat** | One fixed entry price. |
+| **Days before** | Price tiers based on the days remaining before the race. |
+| **By signups** | Price tiers based on the race's paid registration count. |
 
-Tiers are evaluated in order; at any moment the active tier is the latest whose `validFrom` is in the past and which still has capacity.
+Each price or tier has a **Name** and **Price**. Date-based tiers also have
+**Days before event**; signup-based tiers have **After this many registrations**.
 
 ## Create a schedule
 
 1. Click **New schedule**.
-2. Set **name**, **currency**, and add tiers with **Add tier**.
+2. Set the **name**, **currency**, and **pricing mode**. Add tiers with **Add tier**, or use **Set price** for a flat schedule.
 3. **Save**.
 
 ## Set a default
@@ -32,20 +34,19 @@ Tiers are evaluated in order; at any moment the active tier is the latest whose 
 Click **Set default** on a schedule to preselect it on every new race you
 create. Exactly one schedule can be the default.
 
-This is why race creation no longer fails for want of a pricing model: with a
-default set, the create form fills it in for you. Pick a different schedule on
-the race and your choice wins.
+The create form preselects your default. Review it for each race and choose a
+different schedule where needed.
 
 → [Groups & races](/organizers/races/races-list)
 
 ## Apply to a race
 
-Open the race's **Pricing** tab (see [Race pricing](/organizers/races/race-pricing)). The schedule's tiers are **copied** onto the race; later edits to the template don't auto-propagate.
+Open the race's **Pricing** tab (see [Race pricing](/organizers/races/race-pricing)). The race uses the schedule's current prices. Later template edits affect future registrations on races that use it; existing registrations keep the price they were charged.
 
-## Edit, clone, archive
+## Edit, clone, delete
 
 From the schedule list:
 
-- **Edit** — modify tiers (existing applications keep the old copy).
+- **Edit** — update the schedule and its price tiers.
 - **Clone** — duplicate as a starting point.
-- **Archive** — hide from the picker without deleting.
+- **Delete** — remove a schedule after reviewing the confirmation.

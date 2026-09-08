@@ -1,62 +1,60 @@
 ---
 title: "Who can do what"
-description: "The five levels of timing access, and which one to give a volunteer."
+description: "Choose timing access for each operator’s assigned job."
 icon: "user-shield"
 ---
 
-When you issue a timing link, you choose what that person can do with it. Pick
-the smallest one that lets them do their job.
+A timing link grants access to one event’s timer. Choose the smallest role that
+covers the operator’s job, and test that role’s controls before the race.
 
-| Give them | So they can | Typical person |
-|---|---|---|
-| **View** | Watch the timing screen, change nothing | A coach, a commentator, a parent |
-| **Timer** | Press start and stop, record finishes, write notes, clear a time they just entered | Your finish-line volunteers |
-| **Marshal** | Everything above, plus mark DNF / DNS / DSQ and type in times by hand | Your chief judge or head marshal |
-| **Admin** | Everything above, plus finalize, publish, and issue more links | You, and whoever is running timing |
-| **Refund** | Reserved for a future release — does nothing today | — |
+| Role | Timing access |
+|---|---|
+| **View** | View timing data without recording actions |
+| **Timer** | Start and stop races, record crossings, and use permitted lap, split, lane, and bracket corrections |
+| **Marshal** | Timer actions plus manual times, result-status changes, deletion, and additional bracket/roster controls |
+| **Admin** | Additional session controls, including configuration, finalization, and reopening |
+| **Refund** | No timing actions currently assigned to this role |
 
-{/* IMAGE NEEDED: The **Issue new token** dialog with the role checkboxes visible */}
+<Frame caption="Demo data.">
+  <img src="/images/timing/token-roles.png" alt="Operator token form with role checkboxes and a fictional device label" />
+</Frame>
 
-<Tip>
-  **Timer** is the right answer for almost every volunteer. It's everything
-  needed to record a race and nothing that can change an official result.
-</Tip>
+**Timer** access can affect times and bracket outcomes. Do not treat it as
+permission only to add a finish or as protection against operator mistakes.
+Choose operators who understand the controls they will use.
 
-You can combine them. A volunteer who both records finishes and marks riders
-out gets **Timer + Marshal**.
+Roles can be combined. **Marshal** already includes the timer’s recording actions.
 
-## What a timing link can never do
+## Scope of a timing link
 
-However you set it up, a volunteer link is limited to the one event you issued
-it for. Someone holding it cannot:
+Timing links expose the event’s timing roster and results, including rider names
+and bibs. Share them privately, and use the public spectator link for people who
+only need public results.
 
-- See or touch any other race or event in your organization.
-- See registrations, riders' personal details, or any money.
-- Reconfigure the timer, change its settings, or wipe its data.
-- Issue more links, unless you gave them **Admin**.
-
-That's the point of them: you can hand a phone to someone you met that morning
-without giving them anything else.
+A timing link does not grant general organization membership. Optional **Allowed
+races** restrict the races its actions can target. A timing link cannot publish
+or unpublish results, change live sharing, issue or revoke other timing links,
+or reset timing data; those actions require appropriate organization access.
 
 ## Organization members
 
-Anyone who is an **admin**, **manager**, or **timer** in your organization
-already has full timing access to every event you run — they don't need a link.
+Organization members use their normal sign-in to open **Live Timing**. During
+beta, organization membership gives broad access regardless of the assigned
+organization role. Use timing links when you need narrower event timing access,
+and review organization membership separately.
 
-<Note>
-  While Time2Bike is in beta, all organization members have full access
-  regardless of their assigned role. Timing links are the reliable way to give
-  someone narrow access today.
-</Note>
+## Revoking access
 
-## Switching someone off
+An organization operator can open **More actions → Operator tokens** and click
+**Revoke**. Subsequent requests using that link are rejected. An already-open
+screen or offline device can still display cached data; revocation does not
+remotely erase it.
 
-Open **More actions → Operator tokens** and click **Revoke**. Their device stops
-working immediately. Anything they already recorded stays — revoking access never
-removes results.
+Uploaded timing actions remain in the session. If a legitimate device has actions
+waiting to upload, coordinate replacement access and preserve its local records.
+Revoking or expiring a link can prevent its queue from uploading.
 
-Links also expire on their own after however many hours you set when you created
-them. Setting that to just past the end of your event is a good habit.
+Set the expiry to cover the event and the time needed to finish syncing.
 
 ## Next
 

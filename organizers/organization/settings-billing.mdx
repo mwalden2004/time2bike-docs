@@ -4,24 +4,33 @@ description: "Connect Stripe and receive registration revenue."
 icon: "money-bill-transfer"
 ---
 
-Time2Bike uses **Stripe Connect** for every paid registration and merch order. You connect Stripe once and Stripe handles cards, payouts, refunds, and tax forms directly with your business.
+Time2Bike uses **Stripe Connect** for online registration and merch payments.
+Connect your organization's Stripe account to collect payments and manage
+payouts. Review Stripe's requirements and any tax documents available for your
+account; connecting Stripe does not determine your tax obligations.
 
-![Billing settings page](/images/orgs/billing.png)
+<Frame caption="Example screen with fictional demo data.">
+  <img src="/images/orgs/billing.png" alt="Billing settings page" />
+</Frame>
 
 ## Connect your Stripe account
 
 1. Open **Settings → Billing**.
 2. Click **Connect Stripe**.
 3. Complete Stripe's onboarding (business info, bank account, identity verification).
-4. You return to Time2Bike connected and ready to publish paid events.
+4. Return to Time2Bike and check the connection status. Complete any outstanding
+   Stripe requirements before accepting payments.
 
 If your account is not fully verified, Stripe may hold payouts until you finish onboarding. Click **Connect Stripe** again to pick the onboarding flow back up where you left it.
 
 ## After connecting
 
 - **Open Stripe dashboard** opens your own Stripe dashboard in a new tab for payouts, statements, and tax docs. You sign in with the Stripe login you created during onboarding.
-- Every paid registration becomes a charge on your connected account.
+- Online card payments are charged to your connected Stripe account. Cash,
+  waived, and test entries do not create a Stripe payment.
 - Refunds are issued by Time2Bike against the original charge — see [Refunds](/organizers/pricing/refunds).
-- A small platform service fee is added on top of every rider's order (it's listed as **Service fee** on the rider's receipt) and does not come out of your payout.
+- Any platform service fee is shown separately before purchase and on the
+  receipt. Stripe processing fees, refunds, disputes, and other adjustments
+  affect your net payout.
 
 You can publish **free** events without connecting Stripe. The connect step is only required once you charge for anything.

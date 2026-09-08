@@ -85,7 +85,7 @@ created later. **Only selected events** limits the person to a list. Outside
 that list, events do not appear in their dashboard and cannot be opened by
 URL. An event they create themselves is added to their list automatically.
 
-### Two rules that always hold
+### Managing access
 
 - **Nobody grants more than they hold.** A manager cannot invite an admin. A
   person limited to two events cannot give someone a third.
@@ -94,43 +94,59 @@ URL. An event they create themselves is added to their list automatically.
 ### Owner-only actions
 
 A few actions are limited to the human who **owns** the organization, whatever
-permissions anyone else holds. Both are irreversible and both affect real riders:
+permissions anyone else holds. Neither has a general undo in Time2Bike; review
+the scope and confirmation carefully:
 
 | Action | Where |
 |---|---|
-| **Refund all** — refund every paid registration on an event or race | [Editing and refunds](/organizers/registrations/editing-and-refunds) |
+| **Refund all** — submit refunds for eligible paid entries on an event or race | [Editing and refunds](/organizers/registrations/editing-and-refunds) |
 | **Clear entries → Everything** — delete every registration on an event | [Test entries](/organizers/events/test-entries) |
 
 Clearing **test entries only** is routine setup work, so anyone with
 **Manage registrations** can do that one.
 
-Time2Bike staff can act for an owner who's unreachable. Those actions are
-recorded in the admin action log and stay attributable.
+If an owner is unreachable, contact support to discuss the account situation.
+Support may need to verify ownership and authority before taking action.
 
 ## Timing access
 
-For race day you can hand out timing links that work on one event and nothing else (see [Who can do what](/timing/crew/roles)):
+Timing links grant access to a specified timing session. Give each operator the
+role they need and revoke links that are no longer in use. See
+[Who can do what](/timing/crew/roles).
 
 | Role | Capabilities |
 |---|---|
 | **View** | Watch the timing screen, change nothing. |
 | **Timer** | Record finishes, add day-of riders, undo their own entries. |
 | **Marshal** | Above, plus DNF / DNS / DSQ and typing times in by hand. |
-| **Admin** | Above, plus finalize, publish, and issuing more links. |
+| **Admin** | Above, plus finalize and reopen the timing session. |
 | **Refund** | Reserved for a future release. |
 
-A timing link never widens into organization access. A volunteer holding a **timer** link can't touch registrations, money, or any other event you run.
+Publishing results, changing live visibility, and issuing or revoking timing
+links require the appropriate organization access. A timing link does not
+grant those organization permissions. Anyone holding a valid link can use
+its assigned role, so share it only with the intended crew member.
 
-## Participant access
+## Profile access
 
-Riders can grant other people limited access to their registrations:
+A profile owner can share access with another account:
 
-- **viewer** — see registration details only.
-- **editor** — change race / category / answers.
-- **manager** — full control including transfers.
+| Role | Profile access |
+|---|---|
+| **Viewer** | View the profile and its available history. |
+| **Editor** | View history and edit profile details. |
+| **Manager** | View history and edit profile details. |
 
-Riders set this from a participant's **Access** page. See [Your rider profile](/riders/race-day/rider-profile).
+Only the profile owner manages sharing. A sharing role does not establish
+parental, guardian, or other authority to sign a waiver for the rider. Share
+profiles only with people authorized to handle that rider's information.
+
+Use the profile's **Access** page. See
+[Your rider profile](/riders/race-day/rider-profile).
 
 ## Rider data access
 
-Riders control how their data is shared via **Account → Privacy** (data export and account deletion). Public pages — like results and start lists — show a rider's name as part of an event they registered for. See [Privacy](/riders/account/privacy).
+**Account → Privacy** provides data export and account deletion tools. These
+are not a general switch for hiding event information. Public results and
+start lists can show rider names and race details, and some records are
+retained after account deletion. See [Privacy](/riders/account/privacy).
