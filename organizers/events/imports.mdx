@@ -42,6 +42,51 @@ You can still override any individual race afterwards, and a filter box helps
 when there are a lot of them, so importing dozens of categories at once is a
 couple of clicks instead of dozens.
 
+## Relay races
+
+A relay start list is still one row per rider. What makes it a relay is which
+rows belong together, and the import lets you decide that before anything is
+written.
+
+**Creating the race as a relay.** In the unknown-races panel, pick **Relay
+(teams)** as the timing format and set how the relay runs: riders per team,
+whether it is a fixed-legs relay (every team fields exactly that many riders,
+one leg each) or an endurance relay (teams of up to that many ride for a time
+window), and whether legs are ridden in a fixed order. The bulk bar applies one
+setting to every race you create; each race can still be adjusted on its own.
+The same settings live on the race afterwards under **Race → Format**.
+
+**Combining riders into teams.** Once any of the file's rows land in a relay
+race, whether one you are creating or one that already exists, a **Relay teams**
+panel appears on the preview screen with those riders listed. Fill it in any
+of three ways:
+
+- **From a column.** Map a **Relay team** column (headers like `Relay Team`,
+  `Squad` or `Relay` are picked up automatically) and, for fixed-order relays,
+  a **Relay leg** column (`Leg`, `Leg No`). Rows arrive already grouped, and
+  you can still move anyone.
+- **From the club column.** If riders are entered under their club and each
+  club fields one team, **Use the Team column** turns each club into a relay
+  team in one click.
+- **In file order.** **Group in file order** takes the riders as the file lists
+  them and makes teams of the race's size, named Team 1, Team 2 and so on. Use
+  this when the file lists teammates together but names no team, then rename
+  as needed.
+
+Under the list, the panel previews the teams as they will be created and
+flags any that do not fit the race: a fixed-legs team short of riders, any
+team over the limit, or two riders on the same leg. Team names that differ
+only in case or spacing are treated as one team, and a name that already
+exists in that race reuses the existing team, so re-importing a corrected file
+keeps riders on the teams the first import made.
+
+A rider left off every team still imports. They are counted in the summary
+and can be placed later from **Event → Registrations → Relay teams**, the same
+place teams are renamed or riders moved after the fact.
+
+Reverting the import removes the teams it created, as long as nobody has been
+added to them since.
+
 ## Emergency contacts
 
 Map **Emergency contact**, **Emergency phone** and, if the file has it,
